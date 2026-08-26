@@ -79,20 +79,9 @@ Open `index.html` in any browser — no build step, no server required beyond st
 
 Every question needs a stable `id` (e.g. `"2-1--first-revelation--q14"`) — this is what lets a student's in-progress deck survive you adding more questions later without resetting. Just append new tagged entries to `assets/quiz-bank.js`; no other code changes are needed, and every level above that question (its lesson's Quiz, its unit's Unit Test, its topic's Topic Challenge, its paper's Paper Challenge) automatically draws from the bigger pool.
 
-If you're handing over new content as Markdown, use one file per lesson or unit with this shape — GFM task-list checkboxes mark the correct choice:
+## Authoring new units and lessons
 
-```markdown
-# Unit 2.1 — Revelation of the Qur'an — First Revelation
-
-## q1
-What does 'wahy' mean in the context of the Qur'an's revelation?
-- [ ] The written record of the Prophet's sayings
-- [x] The process of divine communication/inspiration from God to a prophet
-- [ ] The Arabic script used for the Qur'an
-- [ ] A title for the angel Jibreel
-
-> Wahy is the general term for how God communicated with His chosen messengers...
-```
+[`templates/unit-content-template.md`](templates/unit-content-template.md) is the template for writing a whole new unit — lesson content (lede, predict box, steps, timelines, comparisons, source/elaborate boxes, pull quotes), past-paper exam-lab entries, and the Practice/Quiz question bank, all in plain Markdown with a worked example at the bottom. Fill it in per unit and hand the finished file back to turn it into the actual lesson/practice/quiz/unit-test pages, wired into the site's navigation.
 
 ## Optional: sign-in and progress sync
 
