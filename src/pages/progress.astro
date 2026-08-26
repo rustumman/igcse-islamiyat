@@ -1,0 +1,12 @@
+---
+import CourseLayout from '../layouts/CourseLayout.astro';
+
+const page = { page: "progress" };
+const title = "My Progress · IGCSE Islamiyat";
+const footerHtml = "Cambridge IGCSE Islamiyat 0493 &middot; Progress is stored on this device, and synced to your account if you're signed in";
+const mainHtml = "<header class=\"hero\">\r\n        <div class=\"wrap\">\r\n          <p class=\"eyebrow\">Your history, lesson by lesson</p>\r\n          <h1>My Progress</h1>\r\n          <p class=\"subtitle\">Every graded Quiz, Unit Test and Challenge you've taken, tracked over time so you can see which lessons are trending up &mdash; and which need another pass.</p>\r\n        </div>\r\n      </header>\r\n\r\n      <section class=\"wrap\" style=\"padding:clamp(24px,5vw,48px) 0 clamp(40px,7vw,72px);\">\r\n        <div id=\"progressMount\"></div>\r\n      </section>";
+---
+
+<CourseLayout title={title} page={page} footerHtml={footerHtml}>
+  <main id="main" set:html={mainHtml} />
+</CourseLayout>
