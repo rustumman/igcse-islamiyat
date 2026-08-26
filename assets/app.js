@@ -159,33 +159,83 @@
     ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
     : null;
   var currentUser = null;
+  var accountOutsideWired = false;
 
+  function userDisplayName(user){
+    var meta = (user && user.user_metadata) || {};
+    return meta.full_name || meta.name || meta.preferred_username ||
+      ((user && user.email) ? user.email.split("@")[0] : "") || "Account";
+  }
+  function userAvatarUrl(user){
+    var meta = (user && user.user_metadata) || {};
+    return meta.avatar_url || meta.picture || "";
+  }
+  function userInitials(name){
+    var parts = String(name || "").trim().split(/\s+/).filter(Boolean);
+    if(!parts.length){ return "?"; }
+    if(parts.length === 1){ return parts[0].slice(0, 1).toUpperCase(); }
+    return (parts[0].slice(0, 1) + parts[parts.length - 1].slice(0, 1)).toUpperCase();
+  }
+  function closeAccountMenu(){
+    var trigger = document.getElementById("accountTrigger");
+    var dropdown = document.getElementById("accountDropdown");
+    if(trigger){ trigger.setAttribute("aria-expanded", "false"); }
+    if(dropdown){ dropdown.hidden = true; }
+  }
   function paintAuthUI(){
     var signInBtn = document.getElementById("signInBtn");
-    var signOutBtn = document.getElementById("signOutBtn");
-    var deleteBtn = document.getElementById("deleteDataBtn");
-    var authStatus = document.getElementById("authStatus");
+    var accountMenu = document.getElementById("accountMenu");
+    var authRoot = document.getElementById("sidebarAuth");
     if(!supa){
-      if(signInBtn){ signInBtn.hidden = true; }
-      if(deleteBtn){ deleteBtn.hidden = true; }
+      if(authRoot){ authRoot.hidden = true; }
       return;
     }
+    if(authRoot){ authRoot.hidden = false; }
     if(currentUser){
       if(signInBtn){ signInBtn.hidden = true; }
-      if(signOutBtn){ signOutBtn.hidden = false; }
-      if(deleteBtn){ deleteBtn.hidden = false; }
-      if(authStatus){ authStatus.hidden = false; authStatus.textContent = "Synced · " + (currentUser.email || "signed in"); }
+      if(accountMenu){ accountMenu.hidden = false; }
+      var name = userDisplayName(currentUser);
+      var email = currentUser.email || "";
+      var avatarUrl = userAvatarUrl(currentUser);
+      var nameEl = document.getElementById("accountName");
+      var emailEl = document.getElementById("accountEmail");
+      var avatarEl = document.getElementById("accountAvatar");
+      var fallbackEl = document.getElementById("accountAvatarFallback");
+      if(nameEl){ nameEl.textContent = name; }
+      if(emailEl){ emailEl.textContent = email; }
+      if(avatarEl && fallbackEl){
+        if(avatarUrl){
+          avatarEl.hidden = false;
+          fallbackEl.hidden = true;
+          avatarEl.onerror = function(){
+            avatarEl.hidden = true;
+            avatarEl.removeAttribute("src");
+            fallbackEl.hidden = false;
+            fallbackEl.textContent = userInitials(name);
+          };
+          if(avatarEl.getAttribute("src") !== avatarUrl){
+            avatarEl.setAttribute("src", avatarUrl);
+          }
+          avatarEl.setAttribute("alt", name);
+        } else {
+          avatarEl.hidden = true;
+          avatarEl.removeAttribute("src");
+          fallbackEl.hidden = false;
+          fallbackEl.textContent = userInitials(name);
+        }
+      }
     } else {
       if(signInBtn){ signInBtn.hidden = false; }
-      if(signOutBtn){ signOutBtn.hidden = true; }
-      if(deleteBtn){ deleteBtn.hidden = true; }
-      if(authStatus){ authStatus.hidden = true; }
+      if(accountMenu){ accountMenu.hidden = true; }
+      closeAccountMenu();
     }
   }
   function wireAuthButtons(){
     var signInBtn = document.getElementById("signInBtn");
     var signOutBtn = document.getElementById("signOutBtn");
     var deleteBtn = document.getElementById("deleteDataBtn");
+    var trigger = document.getElementById("accountTrigger");
+    var dropdown = document.getElementById("accountDropdown");
     if(signInBtn && !signInBtn.dataset.bound){
       signInBtn.dataset.bound = "1";
       signInBtn.addEventListener("click", function(){
@@ -194,10 +244,34 @@
         supa.auth.signInWithOAuth({ provider: "google", options: { redirectTo: redirectTo } });
       });
     }
+    if(trigger && dropdown && !trigger.dataset.bound){
+      trigger.dataset.bound = "1";
+      trigger.addEventListener("click", function(e){
+        e.stopPropagation();
+        var open = trigger.getAttribute("aria-expanded") === "true";
+        if(open){
+          closeAccountMenu();
+        } else {
+          trigger.setAttribute("aria-expanded", "true");
+          dropdown.hidden = false;
+        }
+      });
+    }
+    if(!accountOutsideWired){
+      accountOutsideWired = true;
+      document.addEventListener("click", function(e){
+        var menuEl = document.getElementById("accountMenu");
+        if(menuEl && !menuEl.contains(e.target)){ closeAccountMenu(); }
+      });
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape"){ closeAccountMenu(); }
+      });
+    }
     if(signOutBtn && !signOutBtn.dataset.bound){
       signOutBtn.dataset.bound = "1";
       signOutBtn.addEventListener("click", function(){
         if(!supa){ return; }
+        closeAccountMenu();
         supa.auth.signOut();
       });
     }
@@ -206,6 +280,7 @@
       deleteBtn.addEventListener("click", function(){
         if(!supa || !currentUser){ return; }
         if(!window.confirm("Delete your synced progress and sign out? This cannot be undone.")){ return; }
+        closeAccountMenu();
         supa.from("progress").delete().eq("user_id", currentUser.id)
           .then(function(){ return supa.auth.signOut(); })
           .then(function(){
@@ -767,15 +842,7 @@
     html += '<div class="xp-meta"><div class="xp-label" id="xpLabel">' + xp + ' XP · Level ' + li.level + '</div>';
     html += '<div class="xp-bar-track"><div class="xp-bar-fill" id="xpBarFill" style="width:' + Math.round((li.into/li.span)*100) + '%;"></div></div></div>';
     html += '</div>';
-    html += '<button id="themeToggleBtn" class="auth-btn" type="button">Theme</button>';
     html += '<a class="sidebar-progress-link' + (PAGE.page === "progress" ? " current" : "") + '" href="' + ROOT + 'progress.html">My Progress</a>';
-    html += '</div>';
-
-    html += '<div class="sidebar-auth">';
-    html += '<button id="signInBtn" class="auth-btn" type="button">Sign in with Google</button>';
-    html += '<button id="signOutBtn" class="auth-btn" type="button" hidden>Sign out</button>';
-    html += '<button id="deleteDataBtn" class="auth-btn" type="button" hidden>Delete synced data</button>';
-    html += '<span id="authStatus" class="auth-status mono" hidden></span>';
     html += '</div>';
 
     html += '<nav class="sidebar-nav" aria-label="Course navigation">';
@@ -818,6 +885,23 @@
       html += '</div>';
     });
     html += '</nav>';
+
+    html += '<div class="sidebar-foot">';
+    html += '<div class="sidebar-auth" id="sidebarAuth">';
+    html += '<button id="signInBtn" class="auth-btn auth-signin" type="button">Sign in with Google</button>';
+    html += '<div class="account-menu" id="accountMenu" hidden>';
+    html += '<button type="button" class="account-trigger" id="accountTrigger" aria-expanded="false" aria-haspopup="menu" aria-controls="accountDropdown">';
+    html += '<img class="account-avatar" id="accountAvatar" alt="" width="28" height="28" hidden>';
+    html += '<span class="account-avatar-fallback" id="accountAvatarFallback" hidden aria-hidden="true">?</span>';
+    html += '<span class="account-text"><span class="account-name" id="accountName"></span><span class="account-email" id="accountEmail"></span></span>';
+    html += '<span class="account-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>';
+    html += '</button>';
+    html += '<div class="account-dropdown" id="accountDropdown" role="menu" hidden>';
+    html += '<button type="button" class="account-dropdown-item" id="signOutBtn" role="menuitem">Sign out</button>';
+    html += '<button type="button" class="account-dropdown-item account-dropdown-danger" id="deleteDataBtn" role="menuitem">Delete synced data</button>';
+    html += '</div></div></div>';
+    html += '<button type="button" class="theme-icon-btn" id="themeToggleBtn" aria-label="Toggle theme"></button>';
+    html += '</div>';
 
     mount.innerHTML = html;
     wireAuthButtons();
@@ -905,21 +989,32 @@
       document.documentElement.removeAttribute("data-theme");
       try{ localStorage.removeItem(THEME_KEY); }catch(e){}
     }
+    paintThemeButton();
+  }
+  function effectiveTheme(){
+    var forced = document.documentElement.getAttribute("data-theme");
+    if(forced === "dark" || forced === "light"){ return forced; }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  var THEME_ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+  var THEME_ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6.2 6.2 0 0 0 8.7 8.7A8.5 8.5 0 1 1 12 3z" fill="currentColor" fill-opacity=".18"/></svg>';
+  function paintThemeButton(){
+    var btn = document.getElementById("themeToggleBtn");
+    if(!btn){ return; }
+    var theme = effectiveTheme();
+    btn.setAttribute("data-theme-icon", theme);
+    btn.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    btn.innerHTML = theme === "dark" ? THEME_ICON_MOON : THEME_ICON_SUN;
   }
   function wireThemeToggle(){
     var btn = document.getElementById("themeToggleBtn");
-    if(!btn || btn.dataset.bound){ return; }
+    if(!btn){ return; }
+    paintThemeButton();
+    if(btn.dataset.bound){ return; }
     btn.dataset.bound = "1";
-    function paintLabel(){
-      var current = document.documentElement.getAttribute("data-theme");
-      btn.textContent = "Theme: " + (current === "dark" ? "Dark" : "Light");
-    }
     btn.addEventListener("click", function(){
-      var current = document.documentElement.getAttribute("data-theme");
-      applyTheme(current === "dark" ? "light" : "dark");
-      paintLabel();
+      applyTheme(effectiveTheme() === "dark" ? "light" : "dark");
     });
-    paintLabel();
   }
   function initTheme(){
     var saved = loadJSON(THEME_KEY, null);
@@ -927,6 +1022,7 @@
       applyTheme(saved);
     } else {
       document.documentElement.removeAttribute("data-theme");
+      paintThemeButton();
     }
   }
   function annotateArabicRuns(){

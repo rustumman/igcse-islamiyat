@@ -17,7 +17,9 @@
   --good-tint: #e3ede4;
   --shadow: 0 1px 2px rgba(30,33,48,.06), 0 8px 24px -12px rgba(30,33,48,.18);
   --radius: 3px;
-  --sidebar-w: 288px;
+  --sidebar-w: 312px;
+  --sidebar-inset: 12px;
+  --sidebar-radius: 14px;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
@@ -58,7 +60,11 @@
   --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px -14px rgba(0,0,0,.6);
 }
 
-*{box-sizing:border-box;}
+*{
+  box-sizing:border-box;
+  scrollbar-width:thin;
+  scrollbar-color:var(--border-strong) transparent;
+}
 html{scroll-behavior:smooth;}
 body{
   margin:0;
@@ -68,6 +74,28 @@ body{
   font-size:17px;
   line-height:1.7;
   -webkit-font-smoothing:antialiased;
+}
+*::-webkit-scrollbar{
+  width:6px;
+  height:6px;
+}
+*::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track-piece,
+*::-webkit-scrollbar-corner{
+  background:transparent;
+}
+*::-webkit-scrollbar-thumb{
+  background:var(--border-strong);
+  border-radius:99px;
+  background-clip:padding-box;
+}
+*::-webkit-scrollbar-thumb:hover{
+  background:var(--muted);
+}
+*::-webkit-scrollbar-button{
+  display:none;
+  width:0;
+  height:0;
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto;}
@@ -103,10 +131,19 @@ button, .btn{font-family:inherit; cursor:pointer;}
 .app-shell{display:flex; min-height:100vh;}
 
 .sidebar{
-  width:var(--sidebar-w); flex:none; background:var(--surface); border-right:1px solid var(--border);
-  position:sticky; top:0; height:100vh; overflow:hidden; display:flex; flex-direction:column;
+  width:var(--sidebar-w); flex:none; background:var(--surface);
+  border:1px solid var(--border); border-radius:var(--sidebar-radius);
+  box-shadow:var(--shadow);
+  position:sticky; top:var(--sidebar-inset);
+  height:calc(100vh - (var(--sidebar-inset) * 2));
+  margin:var(--sidebar-inset) 0 var(--sidebar-inset) var(--sidebar-inset);
+  overflow:hidden; display:flex; flex-direction:column;
 }
-.sidebar-head{padding:20px 20px 16px; border-bottom:1px solid var(--border);}
+#sidebarMount{
+  display:flex; flex-direction:column; flex:1; min-height:0; height:100%;
+  overflow:hidden;
+}
+.sidebar-head{padding:20px 20px 16px; border-bottom:1px solid var(--border); flex:none;}
 .sidebar-brand{
   font-family:"Fraunces", serif; font-weight:600; font-size:17px; color:var(--ink); text-decoration:none;
   display:block; margin-bottom:14px;
@@ -129,16 +166,110 @@ button, .btn{font-family:inherit; cursor:pointer;}
 .sidebar-progress-link.current{color:var(--accent); font-weight:600;}
 .xp-bar-fill{height:100%; background:var(--gold); border-radius:99px; transition:width .4s ease;}
 
-.sidebar-auth{padding:14px 20px; border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:8px;}
+.sidebar-foot{
+  flex:none; margin-top:auto; border-top:1px solid var(--border);
+  display:flex; align-items:center; gap:6px; padding:8px 10px;
+}
+.theme-icon-btn{
+  flex:none; width:34px; height:34px; margin:0; padding:0;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:0; border-radius:8px; background:transparent; color:var(--ink-soft);
+  cursor:pointer; transition:background .12s ease, color .12s ease;
+}
+.theme-icon-btn:hover{background:var(--surface-2); color:var(--ink);}
+.theme-icon-btn svg{width:18px; height:18px; display:block;}
+
+.sidebar-auth{
+  position:relative; flex:1; min-width:0;
+}
 .auth-btn{
   font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.04em; text-transform:uppercase;
   color:var(--ink-soft); background:var(--surface); border:1px solid var(--border-strong);
   border-radius:99px; padding:7px 14px; cursor:pointer; white-space:nowrap; text-align:center;
 }
 .auth-btn:hover{color:var(--ink); border-color:var(--accent);}
-.auth-status{font-size:11px; color:var(--good); font-family:"IBM Plex Mono",monospace; word-break:break-word;}
+.auth-signin{width:100%;}
 
-.sidebar-nav{flex:1; padding:10px 10px 20px; overflow-y:auto;}
+.account-menu{position:relative;}
+.account-trigger{
+  width:100%; display:flex; align-items:center; gap:8px;
+  padding:4px 6px; margin:0; border:1px solid transparent; border-radius:8px;
+  background:transparent; color:var(--ink); text-align:left; cursor:pointer;
+  transition:background .15s ease, border-color .15s ease;
+}
+.account-trigger:hover,
+.account-trigger[aria-expanded="true"]{
+  background:var(--surface-2); border-color:var(--border);
+}
+.account-avatar,
+.account-avatar-fallback{
+  width:28px; height:28px; border-radius:50%; flex:none;
+  object-fit:cover; background:var(--accent-tint); color:var(--accent);
+  border:1px solid var(--border);
+}
+.account-avatar[hidden],
+.account-avatar-fallback[hidden]{
+  display:none !important;
+}
+.account-avatar-fallback{
+  display:flex; align-items:center; justify-content:center;
+  font:600 11px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.account-text{
+  flex:1; min-width:0; display:flex; flex-direction:column; gap:0;
+}
+.account-name{
+  font:600 12.5px/1.2 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color:var(--ink);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.account-email{
+  font:400 10.5px/1.25 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color:var(--muted);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.account-chevron{
+  flex:none; width:14px; height:14px; color:var(--muted);
+  transition:transform .15s ease;
+}
+.account-chevron svg{display:block; width:14px; height:14px;}
+.account-trigger[aria-expanded="true"] .account-chevron{transform:rotate(180deg);}
+
+.account-dropdown{
+  position:absolute; left:0; right:0; bottom:calc(100% + 4px);
+  padding:3px; border:1px solid var(--border); border-radius:8px;
+  background:var(--surface); box-shadow:var(--shadow); z-index:20;
+  display:flex; flex-direction:column; gap:1px;
+}
+.account-dropdown[hidden]{display:none !important;}
+.account-dropdown-item{
+  width:100%; margin:0; padding:5px 8px; border:0; border-radius:5px;
+  background:transparent; color:var(--ink); text-align:left; cursor:pointer;
+  font:400 12.5px/1.3 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  transition:background .12s ease, color .12s ease;
+}
+.account-dropdown-item:hover{background:var(--surface-2);}
+.account-dropdown-item.account-dropdown-danger{color:var(--ink-soft);}
+.account-dropdown-item.account-dropdown-danger:hover{
+  background:color-mix(in srgb, #b42318 10%, var(--surface));
+  color:#b42318;
+}
+:root[data-theme="dark"] .account-dropdown-item.account-dropdown-danger:hover{
+  background:color-mix(in srgb, #f97066 14%, var(--surface));
+  color:#f97066;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .account-dropdown-item.account-dropdown-danger:hover{
+    background:color-mix(in srgb, #f97066 14%, var(--surface));
+    color:#f97066;
+  }
+}
+
+.sidebar-nav{
+  flex:1 1 auto; min-height:0; padding:10px 10px 20px;
+  overflow-x:hidden; overflow-y:auto; overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
 .side-paper{margin-bottom:6px;}
 .side-paper-title{
   display:block; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase;
@@ -190,8 +321,10 @@ button, .btn{font-family:inherit; cursor:pointer;}
 }
 @media (max-width:900px){
   .sidebar{
-    position:fixed; left:0; top:0; z-index:90; transform:translateX(-100%); transition:transform .25s ease;
-    box-shadow:var(--shadow);
+    position:fixed; left:var(--sidebar-inset); top:var(--sidebar-inset); bottom:var(--sidebar-inset);
+    z-index:90; height:auto; margin:0;
+    transform:translateX(calc(-100% - var(--sidebar-inset) * 2));
+    transition:transform .25s ease;
   }
   .sidebar.open{transform:translateX(0);}
   .sidebar[aria-hidden="true"]{visibility:hidden;}
@@ -206,9 +339,8 @@ button, .btn{font-family:inherit; cursor:pointer;}
 /* ============ TOP BAR (breadcrumb) ============ */
 .topbar{
   position:sticky; top:0; z-index:40;
-  background:color-mix(in srgb, var(--surface) 92%, transparent);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--border);
+  background:var(--bg);
+  border-bottom:0;
 }
 .topbar-inner{
   max-width:900px; margin:0 auto; padding:0 clamp(16px,4vw,48px);
