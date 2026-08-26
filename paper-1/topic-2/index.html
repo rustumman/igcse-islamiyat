@@ -30,9 +30,15 @@
       </header>
 
       <section class="wrap" style="padding:clamp(40px,7vw,60px) 0 0;">
-        <p class="eyebrow">Lessons</p>
-        <h2 style="max-width:26ch;">Three sub-topics, then a mixed Course Challenge.</h2>
-        <div class="lesson-row-list" id="lessonRows"></div>
+        <p class="eyebrow">Units</p>
+        <h2 style="max-width:26ch;">Three units, each with its own Unit Test.</h2>
+        <div class="card-grid" id="unitCards"></div>
+      </section>
+
+      <section class="wrap" style="padding:clamp(40px,6vw,56px) 0;">
+        <div class="lesson-pager">
+          <a class="pager-link next" href="topic-challenge.html"><span class="pg-label">Finished all three units?</span><div class="pg-title">Topic Challenge &mdash; mixed across 2.1, 2.2 &amp; 2.3</div></a>
+        </div>
       </section>
 
       <section class="planner" id="planner">
@@ -47,7 +53,7 @@
             <tbody>
               <tr>
                 <td class="day mono">Today</td>
-                <td>Work through all three lessons in full: answer every Quick Check before it reveals the answer, and finish all three Unit Tests.</td>
+                <td>Work through all three units in full: lesson, Practice Quiz, Quiz, then all three Unit Tests.</td>
                 <td><input type="checkbox" data-plan="day0" aria-label="Mark today's session complete"></td>
               </tr>
               <tr>
@@ -62,12 +68,12 @@
               </tr>
               <tr>
                 <td class="day mono">Day 7</td>
-                <td>Write full model answers, from memory, to both 14-mark past-paper questions in this topic. Time yourself at 15 minutes each.</td>
+                <td>Write full model answers, from memory, to the past-paper questions in this topic. Time yourself at 15 minutes each.</td>
                 <td><input type="checkbox" data-plan="day7" aria-label="Mark day 7 review complete"></td>
               </tr>
               <tr>
                 <td class="day mono">Day 16</td>
-                <td>Final cold retrieval: take the Course Challenge once more and aim to master it on the first attempt.</td>
+                <td>Final cold retrieval: take the Topic Challenge once more and aim to master it on the first attempt.</td>
                 <td><input type="checkbox" data-plan="day16" aria-label="Mark day 16 review complete"></td>
               </tr>
             </tbody>
@@ -90,16 +96,12 @@
 <script src="../../assets/app.js"></script>
 <script>
 (function(){
-  var mount = document.getElementById("lessonRows");
+  var mount = document.getElementById("unitCards");
   var topic = window.CONTENT_TREE.papers[0].topics.filter(function(t){ return t.id === "topic-2"; })[0];
-  var html = topic.lessons.map(function(l){
-    return '<div class="lesson-row"><div class="lr-num">' + l.num + '</div>' +
-      '<div class="lr-body"><h4>' + l.title + '</h4><p class="lr-sub">Lesson with inline Quick Checks, then an 8-question Unit Test</p></div>' +
-      '<div class="lr-actions"><a class="lr-btn" href="' + window.ROOT + l.lessonHref + '">Lesson</a><a class="lr-btn" href="' + window.ROOT + l.testHref + '">Unit Test</a></div></div>';
-  }).join("") +
-  '<div class="lesson-row"><div class="lr-num">&#9670;</div>' +
-    '<div class="lr-body"><h4>Course Challenge</h4><p class="lr-sub">12 questions mixed across all three sub-topics, shuffled every attempt</p></div>' +
-    '<div class="lr-actions"><a class="lr-btn" href="' + window.ROOT + topic.challengeHref + '">Start</a></div></div>';
-  mount.innerHTML = html;
+  mount.innerHTML = topic.units.map(function(u){
+    return '<a class="entity-card" href="' + window.ROOT + u.href + '">' +
+      '<div class="card-num">' + u.num + '</div><h3>' + u.title + '</h3>' +
+      '<p>' + u.lessons.length + ' lessons, each with a Practice Quiz and a graded Quiz.</p></a>';
+  }).join("");
 })();
 </script>

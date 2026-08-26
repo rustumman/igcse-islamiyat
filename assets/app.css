@@ -155,10 +155,18 @@ button, .btn{font-family:inherit; cursor:pointer;}
   margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.04em; text-transform:uppercase;
   color:var(--muted);
 }
+.side-unit-list{padding-left:22px; display:flex; flex-direction:column; gap:1px; margin-bottom:2px;}
+.side-unit-row{
+  display:block; padding:7px 8px; border-radius:var(--radius);
+  font-size:.85rem; color:var(--ink-soft); text-decoration:none;
+}
+.side-unit-row:hover{background:var(--surface-2); color:var(--ink);}
+.side-unit-row.current{background:var(--accent-tint); color:var(--accent); font-weight:600;}
 .side-lesson-list{padding-left:26px; display:flex; flex-direction:column; gap:1px;}
+.side-lesson-list-nested{padding-left:20px; margin-bottom:4px;}
 .side-lesson-row{
   display:flex; align-items:center; gap:7px; padding:6px 8px; border-radius:var(--radius);
-  font-size:.85rem; color:var(--ink-soft); text-decoration:none;
+  font-size:.82rem; color:var(--ink-soft); text-decoration:none;
 }
 .side-lesson-row:hover{background:var(--surface-2); color:var(--ink);}
 .side-lesson-row.current{background:var(--accent-tint); color:var(--accent); font-weight:600;}

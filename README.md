@@ -1,74 +1,105 @@
 # IGCSE Islamiyat
 
-An open, illustrated Khan Academy–style course covering **Cambridge IGCSE Islamiyat 0493** (both papers). Structured to match the official syllabus:
+An open, illustrated Khan Academy–style course covering **Cambridge IGCSE Islamiyat 0493** (both papers). Structured to match the official syllabus, one level deeper than the syllabus itself specifies:
 
-**IGCSE Islamiyat → Paper 1 / Paper 2 → Topics → Lessons**
+**IGCSE Islamiyat → Paper → Topic → Unit → Lesson**
 
-Right now one topic is fully built out — **Paper 1, Topic 2: "The history and importance of the Qur'an"** (2.1 Revelation, 2.2 Compilation under the Khalifas, 2.3 The Qur'an in Legal Thinking). Every other topic in both papers is scaffolded in the navigation and marked "Coming soon," ready to be filled in the same way.
+Right now one topic is fully built out — **Paper 1, Topic 2: "The history and importance of the Qur'an"** — split into three units (2.1 Revelation, 2.2 Compilation under the Khalifas, 2.3 The Qur'an in Legal Thinking), each broken further into lesson-sized chunks matching how revision guides like ZNotes actually teach this material. Every other topic in both papers is scaffolded in the navigation and marked "Coming soon," ready to be filled in the same way.
 
-It's designed around the learning techniques from Peter Brown, Henry Roediger & Mark McDaniel's *Make It Stick: The Science of Successful Learning* — retrieval practice, generation prompts, interleaving, and spaced review — delivered as separate lesson/quiz/test pages with a persistent course sidebar, mastery tracking, and XP, rather than a flat wall of text to re-read.
+It's designed around the learning techniques from Peter Brown, Henry Roediger & Mark McDaniel's *Make It Stick: The Science of Successful Learning* — retrieval practice, generation prompts, interleaving, and spaced review — delivered as a full assessment ladder at every level of the hierarchy, with a persistent course sidebar, mastery tracking, and XP.
 
 **Live version:** open `index.html` in a browser, or see "Publishing with GitHub Pages" below for a shareable link.
+
+## The assessment ladder
+
+Every level of the hierarchy has its own check, each drawing from a bigger pool the level below it:
+
+- **Lesson** → a **Practice Quiz** (3 questions, ungraded, unlimited retries — just reinforcement) then a **Quiz** (4 questions, graded, feeds that lesson's mastery badge)
+- **Unit** → a **Unit Test** (8 questions, drawn from every lesson in the unit)
+- **Topic** → a **Topic Challenge** (12 questions, drawn from every unit in the topic, shuffled — the interleaved "won't ask about one unit at a time" mock)
+- **Paper** → a **Paper Challenge** (16 questions, drawn from every topic in the paper — grows automatically as more topics get built, no code changes needed)
+
+## The question database
+
+All of it lives in one flat, tagged array in `assets/quiz-bank.js`:
+
+```js
+{ id:"2-1--first-revelation--q1", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"first-revelation",
+  q:"...", choices:[...], correct:1, explain:"..." }
+```
+
+A Practice Quiz or Quiz pool is that array filtered to one `lesson`; a Unit Test filters to one `unit` (every lesson under it); a Topic Challenge filters to one `topic`; a Paper Challenge filters to one `paper`. `assets/app.js` builds these pools by parsing the assessment's id — `practice--2-1--first-revelation`, `quiz--2-1--first-revelation`, `unit-test--2-1`, `topic-challenge--topic-2`, `paper-challenge--paper-1` — no separate registry to keep in sync.
+
+**Deck-cycling:** each assessment draws its fixed-size batch from a persisted shuffled order of its whole pool rather than always using every question, so a student sees every question once before anything repeats (see "Growing a question pool" below) — the deck reshuffles once fully consumed.
 
 ## Structure
 
 ```
-index.html                              Course home (Paper 1 / Paper 2)
-paper-1/index.html                      Paper 1 topic list
-paper-1/topic-2/index.html              Topic overview: lesson list + review planner
-paper-1/topic-2/2-1/lesson.html         2.1 lesson content + Quick Checks
-paper-1/topic-2/2-1/test.html           2.1 Unit Test
-paper-1/topic-2/2-2/...                 (same pattern for 2.2, 2.3)
-paper-1/topic-2/challenge.html          Cross-topic Course Challenge
-paper-2/index.html                      Paper 2 topic list (all "Coming soon")
-assets/app.css                          Shared design system + sidebar/layout
-assets/app.js                           Sidebar, breadcrumbs, auth/sync, XP, quiz engine
-assets/content-tree.js                  The course hierarchy (papers → topics → lessons)
-assets/quiz-bank.js                     All Quick Check / Unit Test / Course Challenge questions
-supabase/schema.sql                     Progress table + row-level security
+index.html                                    Course home (Paper 1 / Paper 2)
+paper-1/index.html                            Paper 1 topic list
+paper-1/paper-challenge.html                  Paper Challenge
+paper-1/topic-2/index.html                    Topic overview: unit list + review planner
+paper-1/topic-2/topic-challenge.html          Topic Challenge
+paper-1/topic-2/2-1/index.html                Unit overview: lesson list
+paper-1/topic-2/2-1/unit-test.html            Unit Test
+paper-1/topic-2/2-1/first-revelation/
+  lesson.html   practice.html   quiz.html      One lesson's content + its two assessments
+paper-1/topic-2/2-1/<other lessons>/...        (same 3-file pattern per lesson)
+paper-1/topic-2/2-2/...  paper-1/topic-2/2-3/...  (same pattern per unit)
+paper-2/index.html                            Paper 2 topic list (all "Coming soon")
+assets/app.css                                 Shared design system + sidebar/layout
+assets/app.js                                  Sidebar, breadcrumbs, auth/sync, XP, pool-building quiz engine
+assets/content-tree.js                         The course hierarchy (papers → topics → units → lessons)
+assets/quiz-bank.js                            The single tagged question database
+supabase/schema.sql                            Progress table + row-level security
 ```
 
-Every page is a thin HTML shell that loads the shared `assets/` files — there's no build step, but the site behaves like a real multi-page app: distinct, bookmarkable URLs per lesson/quiz/test, browser back/forward, and a persistent sidebar that doesn't reload between pages... except it does reload (no client-side router), which is fine for a course this size and keeps things simple and debuggable.
+Every page is a thin HTML shell that loads the shared `assets/` files — no build step, but the site behaves like a real multi-page app: distinct, bookmarkable URLs per lesson/practice/quiz/test, browser back/forward, and a persistent sidebar.
 
 ## What's inside
 
-- Content drawn from the Qur'an, Sahih al-Bukhari, and cross-checked academic sources on the Uthmanic compilation, plus every relevant past-paper question and mark-scheme pattern from the 2021–2025 exam sessions.
-- Past-paper style model answers (AO1/AO2 structure) with examiner notes.
-- **Quick Checks** — one-question, instant-feedback retrieval prompts embedded throughout each lesson (12 total in Topic 2).
-- **Unit Tests** — an 8-question scored test per lesson, one-question-at-a-time flow, progress dots, a final score screen, and mastery bands (Mastered / Practicing / Keep going).
-- A **Course Challenge** per topic — a 12-question mixed test interleaving all its sub-topics, the same cumulative-review idea *Make It Stick* recommends over massed, single-topic drilling.
-- **XP and levels** — every correct Quick Check and every Unit Test/Course Challenge result earns XP shown in the sidebar, purely as a function of your saved progress (never stored separately, so it can't drift out of sync).
+- Content drawn from the Qur'an, Sahih al-Bukhari, and cross-checked academic sources, plus every relevant past-paper question and mark-scheme pattern from the 2021–2025 exam sessions.
+- Past-paper style model answers (AO1/AO2 structure) with examiner notes, placed in whichever lesson they're most relevant to.
+- **XP and levels** — every correct answer and every graded result earns XP shown in the sidebar, purely as a function of saved progress (never stored separately, so it can't drift out of sync).
 - A Day 0/1/3/7/16 spaced-review planner per topic.
 - Full light/dark theme support.
-- Optional Google sign-in so a student's mastery, quick-check completion, and planner progress follow them across devices (see "Optional: sign-in and progress sync" below). Without it, progress is still saved locally in the browser — nothing is sent anywhere.
+- Optional Google sign-in so a student's mastery, answered-question history, and planner progress follow them across devices (see "Optional: sign-in and progress sync" below). Without it, progress is still saved locally in the browser — nothing is sent anywhere.
 
 ## Using it
 
 Open `index.html` in any browser — no build step, no server required beyond static file hosting (opening the HTML files directly via `file://` also works, since all paths are relative). It works offline once loaded, except for the Google Fonts it links to and, if configured, the optional cloud sync described below.
 
-## Adding a new topic or paper
+## Adding a new lesson, unit, topic or paper
 
-1. Add the topic to `assets/content-tree.js` (set `status: "built"`, add a `href`, and a `lessons` array if it has sub-topics) — the sidebar and breadcrumbs pick it up automatically.
-2. Create the topic's folder (e.g. `paper-1/topic-1/`) with an `index.html` overview page, following the pattern in `paper-1/topic-2/index.html`.
-3. For each sub-topic, add a `lesson.html` and `test.html` following the pattern in `paper-1/topic-2/2-1/`.
-4. Add that lesson's Quick Check and Unit Test questions to `assets/quiz-bank.js`.
-5. Each page sets `window.ROOT` (relative path back to the site root, matching its folder depth) and `window.PAGE` (its breadcrumb/sidebar context) before loading `assets/app.js` — copy these from a sibling page and adjust.
+1. Add it to `assets/content-tree.js` — a topic needs `status:"built"`, an `href`, and a `units` array; a unit needs an `href`, a `testHref`, and a `lessons` array; a lesson needs a `base` folder path. The sidebar and breadcrumbs pick it up automatically.
+2. Create the matching folder structure (a unit gets `index.html` + `unit-test.html`; a lesson gets `lesson.html` + `practice.html` + `quiz.html`) — copy an existing one as a template and adjust the title, breadcrumb `window.PAGE` object, and `window.ROOT` (relative path back to site root, matching the new page's folder depth).
+3. Add that lesson's questions to `assets/quiz-bank.js`, tagged with the right `paper`/`topic`/`unit`/`lesson`.
 
-## Growing a Unit Test's question pool
+## Growing a question pool
 
-A Unit Test or Course Challenge doesn't have to use every question in its pool every time. Each entry in `assets/quiz-bank.js` has a `perAttempt` (e.g. `8`) separate from its full `questions` array — the test always shows `perAttempt` questions, drawn from a shuffled deck of the whole pool that persists per student and reshuffles only once it's been fully used. So a student sees every question once before anything repeats, and the more questions you add beyond `perAttempt`, the less likely two attempts look alike.
+Every question needs a stable `id` (e.g. `"2-1--first-revelation--q14"`) — this is what lets a student's in-progress deck survive you adding more questions later without resetting. Just append new tagged entries to `assets/quiz-bank.js`; no other code changes are needed, and every level above that question (its lesson's Quiz, its unit's Unit Test, its topic's Topic Challenge, its paper's Paper Challenge) automatically draws from the bigger pool.
 
-To add questions to an existing unit:
-1. Give each new question a stable `id` (e.g. `"test-ch21-q9"`, `"test-ch21-q10"`, ...) — this is what lets a student's in-progress deck survive you adding more questions later without resetting.
-2. Append it to that quiz's `questions` array in `assets/quiz-bank.js`, same shape as the existing entries: `{ id, q, choices, correct, explain }`.
-3. Leave `perAttempt` as-is (or raise it) — no other code changes needed.
+If you're handing over new content as Markdown, use one file per lesson or unit with this shape — GFM task-list checkboxes mark the correct choice:
+
+```markdown
+# Unit 2.1 — Revelation of the Qur'an — First Revelation
+
+## q1
+What does 'wahy' mean in the context of the Qur'an's revelation?
+- [ ] The written record of the Prophet's sayings
+- [x] The process of divine communication/inspiration from God to a prophet
+- [ ] The Arabic script used for the Qur'an
+- [ ] A title for the angel Jibreel
+
+> Wahy is the general term for how God communicated with His chosen messengers...
+```
 
 ## Optional: sign-in and progress sync
 
 By default every student's progress lives only in `localStorage` on that one browser — it's lost if they clear site data or switch devices. To let each student sign in with their own Google account and have their progress follow them anywhere, wire up a free [Supabase](https://supabase.com) project:
 
 1. **Create a Supabase project** at supabase.com (free tier is enough).
-2. **Run the schema** — open the SQL editor in your project and run [`supabase/schema.sql`](supabase/schema.sql). This creates a `progress` table with row-level security so each student can only read/write their own row. The table stores two JSON columns, `card_state` and `planner_state`; `card_state` holds `{ mastery, quickDone }`.
+2. **Run the schema** — open the SQL editor in your project and run [`supabase/schema.sql`](supabase/schema.sql). This creates a `progress` table with row-level security so each student can only read/write their own row. The table stores two JSON columns, `card_state` (`{ mastery, answered, deck }`) and `planner_state`.
 3. **Enable Google sign-in** — in Supabase, go to **Authentication → Providers → Google** and enable it. This requires a Google Cloud OAuth Client ID/Secret: create one in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) (OAuth consent screen + "Web application" credentials), add Supabase's callback URL as an authorized redirect URI, then paste the Client ID/Secret into Supabase.
 4. **Add your project's keys** — in `assets/app.js`, find the `SUPABASE_URL` and `SUPABASE_ANON_KEY` constants near the top and replace them with your project's URL and anon (public) key, both found in **Settings → API** in Supabase.
 5. Commit and redeploy. A "Sign in with Google" button will appear in the sidebar; students who sign in get their progress synced to the cloud automatically, students who don't keep working exactly as before, local-only.
