@@ -198,14 +198,154 @@ window.QUESTION_BANK = [
     correct:1, explain:"The staged prohibition of alcohol (2:219, 4:43, 5:90–91) is the strongest named example." },
 
   { id:"2-1--makki-madani-surahs--q1", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
-    q:"Which of these correctly describes Madani surahs?",
-    choices:["86 surahs, shorter verses, themes of tawhid and past nations","28 surahs, longer verses, themes of Islamic law, the pillars, and battles","114 surahs, revealed only in Makkah","28 surahs revealed before the Hijrah"],
-    correct:1, explain:"Madani surahs number 28, were revealed after the Hijrah to Madinah, tend to be longer with legislative content, and cover Islamic law, the five pillars, and the battles and events of the Madinan state. The 86-surah, tawhid/past-nations description belongs to the Makki surahs instead." },
+    q:"What is the standard scholarly definition used to classify a verse as Makki or Madani?",
+    choices:["Whether it was revealed inside or outside the city of Makkah","Whether it was revealed before or after the Prophet’s Hijrah to Madinah","Whether it is long or short","Whether it mentions the Ka’ba"],
+    correct:1, explain:"The standard, majority definition is chronological — before or after the Hijrah — not based on physical location." },
 
   { id:"2-1--makki-madani-surahs--q2", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
-    q:"How many surahs are classified as Makki, and how many as Madani?",
-    choices:["86 Makki, 28 Madani","28 Makki, 86 Madani","57 Makki, 57 Madani","100 Makki, 14 Madani"],
-    correct:0, explain:"86 Makki surahs (before the Hijrah) plus 28 Madani surahs (after it) make up the Qur’an’s 114 surahs in total." },
+    q:"Why is a purely geographical definition of Makki/Madani considered problematic by scholars?",
+    choices:["Some Madani verses were revealed physically near or in Makkah after the Hijrah","No verses were ever revealed in Makkah","The Prophet never travelled after the Hijrah","Geography and chronology always give the same answer, so it doesn’t matter"],
+    correct:0, explain:"Surahs like al-Fath were revealed near Makkah years after the Hijrah, yet are still classified as Madani — showing location alone cannot decide the classification." },
+
+  { id:"2-1--makki-madani-surahs--q3", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which surah is the classic example of a Madani surah revealed geographically close to Makkah?",
+    choices:["Surah al-Baqarah","Surah al-Fath","Surah al-’Alaq","Surah al-Fatiha"],
+    correct:1, explain:"Surah al-Fath was revealed near Hudaybiyyah, close to Makkah, in the sixth year after the Hijrah — but is Madani because of when, not where, it came down." },
+
+  { id:"2-1--makki-madani-surahs--q4", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"What are the two methods scholars used to establish whether a verse was Makki or Madani?",
+    choices:["Transmitted testimony from the Companions, and deduction from internal evidence","Carbon dating and manuscript analysis","Guesswork and popular vote","Comparing translations in different languages"],
+    correct:0, explain:"Scholars relied on direct transmitted reports (naql) where available, and on deducing the period from a verse’s internal language, themes and historical context otherwise." },
+
+  { id:"2-1--makki-madani-surahs--q5", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which of these is a typical theme of Makki verses?",
+    choices:["Detailed inheritance law","Rules for writing commercial contracts","The Oneness of God and the reality of the afterlife","Regulations for treaties with other tribes"],
+    correct:2, explain:"Makki verses focus on establishing core belief — tawhid (God’s Oneness) and the afterlife — since the audience did not yet believe." },
+
+  { id:"2-1--makki-madani-surahs--q6", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which of these is a typical theme of Madani verses?",
+    choices:["Practical legislation, such as family law and criminal penalties","Stories of earlier prophets rejected by their people","Oaths by the sun, moon and stars","Warnings to the Quraysh about the Day of Judgement"],
+    correct:0, explain:"Madani verses address the practical needs of an established Muslim community — law, governance and social regulation." },
+
+  { id:"2-1--makki-madani-surahs--q7", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Why did legal rulings tend to come in the Madani period rather than the Makki period?",
+    choices:["There was no organised Muslim community to legislate for until after the Hijrah","Legal rulings were considered unimportant","The Quraysh demanded legal rulings first","Makki verses were too short to contain laws"],
+    correct:0, explain:"Detailed law only makes sense once a real community exists to be governed by it — which only came into being after the migration to Madinah." },
+
+  { id:"2-1--makki-madani-surahs--q8", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which phrase characteristically opens Madani verses, addressing an established community of believers?",
+    choices:["“O mankind”","“O you who believe”","“By the sun and its brightness”","“Read, in the name of your Lord”"],
+    correct:1, explain:"“O you who believe” (yaa ayyuhal-ladheena aamanoo) directly addresses a Muslim community that already exists — a Madani marker." },
+
+  { id:"2-1--makki-madani-surahs--q9", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which phrase is more typical of Makki verses, addressing a broader, not-yet-believing audience?",
+    choices:["“O mankind”","“O you who believe”","“O Prophet, tell your wives”","“O People of the Book”"],
+    correct:0, explain:"“O mankind” (yaa ayyuhan-naas) addresses everyone, believers and non-believers alike — fitting the Makki period, before an established community of believers existed." },
+
+  { id:"2-1--makki-madani-surahs--q10", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Roughly how many surahs open with the mysterious “disjointed letters” (al-huroof al-muqatta’ah)?",
+    choices:["2","14","29","96"],
+    correct:2, explain:"Twenty-nine surahs open with disjointed letters such as Alif-Laam-Meem." },
+
+  { id:"2-1--makki-madani-surahs--q11", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which two surahs are the well-known exception to the rule that disjointed letters mark a Makki surah?",
+    choices:["Al-Fatiha and al-Ikhlas","Al-Baqarah and Aal-’Imran","An-Nisa and al-Ma’idah","Al-Fath and at-Tawbah"],
+    correct:1, explain:"Al-Baqarah and Aal-’Imran both open with disjointed letters yet are Madani — the standard exception worth remembering precisely." },
+
+  { id:"2-1--makki-madani-surahs--q12", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Most of the Qur’an’s recognised sajdah (prostration) verses occur in which type of surah?",
+    choices:["Makki","Madani","Neither — they are evenly split","Only in mixed surahs"],
+    correct:0, explain:"The majority of the Qur’an’s sajdah verses fall within Makki surahs." },
+
+  { id:"2-1--makki-madani-surahs--q13", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"In general, how do Makki verses and surahs compare in length to Madani ones?",
+    choices:["Makki verses/surahs tend to be shorter; Madani ones tend to be longer","Makki verses/surahs tend to be longer; Madani ones tend to be shorter","There is no length difference at all","Both are always exactly the same length"],
+    correct:0, explain:"Makki material tends toward short, urgent verses; Madani material tends toward longer, more detailed legal and social verses." },
+
+  { id:"2-1--makki-madani-surahs--q14", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"What stylistic feature — swearing “by the sun,” “by the night,” and so on — is especially associated with Makki surahs?",
+    choices:["Oaths","Inheritance formulas","Treaty clauses","Marriage contracts"],
+    correct:0, explain:"Frequent oaths by natural phenomena are a recognisable Makki stylistic marker, adding urgency and emphasis." },
+
+  { id:"2-1--makki-madani-surahs--q15", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Surah al-’Alaq, containing the first words ever revealed, is classified as:",
+    choices:["Purely Makki","Purely Madani","Mixed","Unclassifiable"],
+    correct:0, explain:"Surah al-’Alaq was revealed in the Cave of Hira, well before the Hijrah — purely Makki." },
+
+  { id:"2-1--makki-madani-surahs--q16", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Surah al-Baqarah, the Qur’an’s longest surah, is classified as:",
+    choices:["Purely Makki","Purely Madani","Mixed","Unclassifiable"],
+    correct:1, explain:"Surah al-Baqarah was revealed after the Hijrah and is dense with Madinan-period legislation." },
+
+  { id:"2-1--makki-madani-surahs--q17", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"What is a “mixed” surah, in this classification system?",
+    choices:["A surah containing verses revealed in both the Makki and Madani periods","A surah with no clear theme","A surah revealed to more than one prophet","A surah with disputed authorship"],
+    correct:0, explain:"Mixed surahs combine verses from different periods within the single, final chapter as it appears in the mushaf." },
+
+  { id:"2-1--makki-madani-surahs--q18", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"How is a mixed surah’s overall Makki/Madani classification usually decided?",
+    choices:["By whichever period contributed the majority of its verses, or where its opening verses were revealed","By its position in the mushaf","By its length alone","It is left unclassified"],
+    correct:0, explain:"Scholars typically classify a mixed surah by the majority content or the period of its opening verses." },
+
+  { id:"2-1--makki-madani-surahs--q19", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Does the order of surahs in the Qur’an today reflect the order they were revealed in?",
+    choices:["No — the mushaf is arranged by a different principle, not by revelation order","Yes — surah 1 was revealed first, surah 114 last","Yes, but only for Makki surahs","Yes, but only for Madani surahs"],
+    correct:0, explain:"The mushaf’s arrangement is unrelated to chronological revelation order — Surah al-’Alaq (96th in the book) contains the very first revealed words." },
+
+  { id:"2-1--makki-madani-surahs--q20", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"What is the primary way scholars reconstruct the actual chronological order of revelation, separate from the book’s final arrangement?",
+    choices:["Using Makki/Madani classification and other internal/historical evidence","Guessing based on surah length","Following the order in modern printed Qur’ans","It cannot be reconstructed at all"],
+    correct:0, explain:"Makki/Madani classification (and further sub-dating within each period) is one of the main tools used to reconstruct the true chronological sequence of revelation." },
+
+  { id:"2-1--makki-madani-surahs--q21", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which of these benefits of knowing Makki/Madani classification directly supports understanding “abrogation” (naskh)?",
+    choices:["Knowing which of two seemingly contradictory verses came first","Knowing how many letters a surah contains","Knowing which reciter transmitted a verse","Knowing the surah’s position in the mushaf"],
+    correct:0, explain:"When two verses appear to conflict, knowing their chronological order (via Makki/Madani classification) is the essential first step in understanding how later guidance refined earlier guidance." },
+
+  { id:"2-1--makki-madani-surahs--q22", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which academic source structures this lesson’s classification of Makki and Madani verses?",
+    choices:["Sahih al-Bukhari alone","Abu Ammaar Yasir Qadhi’s An Introduction to the Sciences of the Qur’aan","The Sealed Nectar by Safiur Rahman al-Mubarakpuri","The Qur’an’s own index"],
+    correct:1, explain:"This lesson follows Chapter 6 of Yasir Qadhi’s An Introduction to the Sciences of the Qur’aan (Al-Hidaayah, 1999)." },
+
+  { id:"2-1--makki-madani-surahs--q23", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which past-paper question type does deep Makki/Madani knowledge most directly strengthen?",
+    choices:["“Why was it important for revelations to come over time?” — the significance of gradual, 23-year revelation","“Roles of Abu Bakr, ’Umar and ’Uthman in compiling the Qur’an”","“How Qur’an and Sunna are used in Islamic Law”","“Life of Khadija, the Prophet’s first wife”"],
+    correct:0, explain:"Understanding the Makki-to-Madani shift from belief to law is the strongest AO2 material for explaining why revelation needed to unfold gradually." },
+
+  { id:"2-1--makki-madani-surahs--q24", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Approximately what share of the Qur’an’s total length comes from Madani material, despite Madani surahs being fewer in number?",
+    choices:["A large share, because Madani surahs and verses tend to run much longer","A tiny share, since Madani surahs are always very short","Exactly half, by design","None — all lengthy surahs are Makki"],
+    correct:0, explain:"Although there are fewer Madani surahs overall, their greater average length means they make up a substantial portion of the Qur’an’s total text." },
+
+  { id:"2-1--makki-madani-surahs--q25", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which of the following best explains why “Makki” surahs rarely contain detailed legal rulings?",
+    choices:["There was not yet an organised community for such rulings to apply to","Legal rulings were forbidden in Makkah","The Quraysh had already written their own laws","Makki surahs are too short to contain any content at all"],
+    correct:0, explain:"Detailed law-making presupposes an existing, believing community to govern — something that did not yet exist during the Makki period." },
+
+  { id:"2-1--makki-madani-surahs--q26", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Surah an-Nisa’s verse on inheritance shares (Qur’an 4:11) is best described as an example of which style?",
+    choices:["Madani — detailed, legal, addressed to an existing community","Makki — short, oath-based, universal address","Neither Makki nor Madani style","A style unique to Surah al-Fatiha"],
+    correct:0, explain:"Its length, legal precision and assumption of an existing community mark it as classic Madani-style content." },
+
+  { id:"2-1--makki-madani-surahs--q27", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Surah al-’Asr (103:1–3) is best described as an example of which style?",
+    choices:["Makki — short, oath-opened, urgent in tone","Madani — long and legally detailed","A mixed surah with no clear style","A surah with disjointed letters"],
+    correct:0, explain:"Its brevity, oath (“By Time”), and broad moral warning are characteristic of Makki-style revelation." },
+
+  { id:"2-1--makki-madani-surahs--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"What historical corroboration benefit does Makki/Madani classification offer, according to this lesson?",
+    choices:["The internal evidence in the verses independently matches the outside historical account of the Prophet’s life","It proves the exact date every verse was revealed to the day","It replaces the need for hadith literature entirely","It has no historical value, only linguistic value"],
+    correct:0, explain:"The themes and concerns visible inside Makki and Madani verses line up with the separately known historical timeline of the Prophet’s life, reinforcing both records." },
+
+  { id:"2-1--makki-madani-surahs--q29", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"Which chapter of Yasir Qadhi’s book comes immediately after “The Makkee and the Madanee Verses”?",
+    choices:["The Causes of Revelation (Asbaab an-Nuzool)","The Qur’an","Inspiration — al-Wahy","The Compilation of the Qur’an"],
+    correct:0, explain:"Chapter 7 in Qadhi’s book, immediately following the Makki/Madani chapter, covers Asbaab an-Nuzool — the causes/occasions of revelation." },
+
+  { id:"2-1--makki-madani-surahs--q30", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
+    q:"What is the safest way to justify a surah’s Makki or Madani classification in an exam answer?",
+    choices:["Refer to whether it was revealed before or after the Hijrah","Refer only to where the Prophet was physically standing","Refer only to the surah’s length","Refer only to its position in the mushaf"],
+    correct:0, explain:"The chronological (Hijrah-based) criterion is the standard, exam-safe justification — location, length and mushaf position can all mislead." },
 
   { id:"2-1--preservation-of-quran--q1", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
     q:"During the Prophet’s own lifetime, what did NOT yet exist for the Qur’an?",
