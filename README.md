@@ -15,12 +15,25 @@ It's built as a single self-contained HTML page, and designed around the retriev
 - Content drawn from the Qur'an, Sahih al-Bukhari, and cross-checked academic sources on the Uthmanic compilation, plus every relevant past-paper question and mark-scheme pattern from the 2021–2025 exam sessions.
 - Past-paper style model answers (AO1/AO2 structure) with examiner notes.
 - A 12-question interleaved quiz mixing all three sub-topics.
-- A Day 1/3/7/16 spaced-review planner (progress saved locally in your browser — nothing is sent anywhere).
+- A Day 1/3/7/16 spaced-review planner.
 - Full light/dark theme support.
+- Optional Google sign-in so a student's retrieval-card scores and planner progress follow them across devices (see "Optional: sign-in and progress sync" below). Without it, progress is still saved locally in the browser — nothing is sent anywhere.
 
 ## Using it
 
-Just open `index.html` in any browser — no build step, no dependencies, no server required. It works offline once loaded, except for the Google Fonts it links to.
+Just open `index.html` in any browser — no build step, no server required. It works offline once loaded, except for the Google Fonts it links to and, if configured, the optional cloud sync described below.
+
+## Optional: sign-in and progress sync
+
+By default every student's progress lives only in `localStorage` on that one browser — it's lost if they clear site data or switch devices. To let each student sign in with their own Google account and have their progress follow them anywhere, wire up a free [Supabase](https://supabase.com) project:
+
+1. **Create a Supabase project** at supabase.com (free tier is enough).
+2. **Run the schema** — open the SQL editor in your project and run [`supabase/schema.sql`](supabase/schema.sql). This creates a `progress` table with row-level security so each student can only read/write their own row.
+3. **Enable Google sign-in** — in Supabase, go to **Authentication → Providers → Google** and enable it. This requires a Google Cloud OAuth Client ID/Secret: create one in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) (OAuth consent screen + "Web application" credentials), add Supabase's callback URL as an authorized redirect URI, then paste the Client ID/Secret into Supabase.
+4. **Add your project's keys** — in `index.html`, find the `SUPABASE_URL` and `SUPABASE_ANON_KEY` constants near the top of the `<script>` block and replace the placeholders with your project's URL and anon (public) key, both found in **Settings → API** in Supabase.
+5. Commit and redeploy. A "Sign in with Google" button will appear in the top bar; students who sign in get their progress synced to the cloud automatically, students who don't keep working exactly as before, local-only.
+
+Until steps 1–4 are done, the sign-in button stays hidden and the page behaves exactly as it always has.
 
 ## Publishing with GitHub Pages (get a free public URL)
 
