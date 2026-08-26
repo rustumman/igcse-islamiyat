@@ -38,10 +38,27 @@
   var ANSWERED_KEY = "islamiyat-answered";
   var PLAN_KEY = "islamiyat-planner";
   var DECK_KEY = "islamiyat-deck";
+  var HISTORY_KEY = "islamiyat-history";
   var mastery = loadJSON(MASTERY_KEY, {});
   var answered = loadJSON(ANSWERED_KEY, {});
   var plan = loadJSON(PLAN_KEY, {});
   var deck = loadJSON(DECK_KEY, {});
+  var history = loadJSON(HISTORY_KEY, []);
+
+  /* =========================================================
+     HISTORY — an append-only log of every graded attempt
+     (quiz / unit-test / topic-challenge / paper-challenge),
+     timestamped and tagged the same way as its question pool.
+     This is what the Progress page's trend charts read; unlike
+     `mastery` (which only keeps the best score) this keeps
+     every attempt so a trend line over time is possible.
+     ========================================================= */
+  var MAX_HISTORY = 1000;
+  function pushHistory(entry){
+    history.push(entry);
+    if(history.length > MAX_HISTORY){ history = history.slice(history.length - MAX_HISTORY); }
+    saveJSON(HISTORY_KEY, history);
+  }
 
   /* =========================================================
      ASSESSMENT ID PARSING + POOL BUILDING
@@ -175,7 +192,7 @@
     if(!supa || !currentUser){ return; }
     supa.from("progress").upsert({
       user_id: currentUser.id,
-      card_state: { mastery: mastery, answered: answered, deck: deck },
+      card_state: { mastery: mastery, answered: answered, deck: deck, history: history },
       planner_state: plan,
       updated_at: new Date().toISOString()
     }).then(function(){}, function(){ /* offline or RLS error — localStorage still has it */ });
@@ -185,6 +202,7 @@
     paintXP();
     remountAllQuizzes();
     wirePlanner();
+    renderProgressPage();
   }
   function hydrateFromCloud(){
     if(!supa || !currentUser){ return; }
@@ -198,10 +216,12 @@
           mastery = cloudCard.mastery || {};
           answered = cloudCard.answered || {};
           deck = cloudCard.deck || {};
+          history = cloudCard.history || [];
           plan = cloudPlan;
           try{ localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
           try{ localStorage.setItem(ANSWERED_KEY, JSON.stringify(answered)); }catch(e){}
           try{ localStorage.setItem(DECK_KEY, JSON.stringify(deck)); }catch(e){}
+          try{ localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); }catch(e){}
           try{ localStorage.setItem(PLAN_KEY, JSON.stringify(plan)); }catch(e){}
           refreshPageState();
           renderSidebar();
@@ -247,6 +267,90 @@
   }
   function paintAllBadges(){
     Array.prototype.slice.call(document.querySelectorAll(".mastery-badge[data-badge-for]")).forEach(paintBadge);
+  }
+
+  /* =========================================================
+     PROGRESS PAGE — renders the historic trend of every graded
+     attempt logged in `history`, broken down lesson by lesson
+     (Quiz attempts) plus a section for Unit Tests / Topic &
+     Paper Challenges. Only runs if #progressMount exists.
+     ========================================================= */
+  function sparkSVG(pcts, band){
+    var w = 140, h = 36, pad = 4;
+    var pts = pcts.length === 1 ? [pcts[0], pcts[0]] : pcts;
+    var n = pts.length;
+    var stepX = n > 1 ? (w - pad*2) / (n - 1) : 0;
+    var coords = pts.map(function(p, i){
+      return [pad + i*stepX, pad + (1 - p) * (h - pad*2)];
+    });
+    var d = coords.map(function(c, i){ return (i===0?"M":"L") + c[0].toFixed(1) + "," + c[1].toFixed(1); }).join(" ");
+    var dots = coords.map(function(c){ return '<circle cx="' + c[0].toFixed(1) + '" cy="' + c[1].toFixed(1) + '" r="2.2"></circle>'; }).join("");
+    return '<svg class="trend-spark ' + band + '" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
+      '<path d="' + d + '" fill="none"></path>' + dots + '</svg>';
+  }
+  function trendBandClass(pct){
+    return pct >= 0.8 ? "band-mastered" : (pct >= 0.5 ? "band-practicing" : "band-retry");
+  }
+  function fmtDate(ts){
+    try{ return new Date(ts).toLocaleDateString(undefined, { month:"short", day:"numeric" }); }catch(e){ return ""; }
+  }
+  function trendRow(title, sub, entries){
+    if(!entries.length){
+      return '<div class="trend-row trend-row-empty"><div class="tl-info"><h4>' + title + '</h4><span class="tl-meta">' + sub + ' · not attempted yet</span></div></div>';
+    }
+    var sorted = entries.slice().sort(function(a,b){ return a.ts - b.ts; });
+    var latest = sorted[sorted.length - 1];
+    var band = trendBandClass(latest.pct);
+    return '<div class="trend-row">' +
+      '<div class="tl-info"><h4>' + title + '</h4><span class="tl-meta">' + sub + ' · ' + sorted.length + ' attempt' + (sorted.length === 1 ? "" : "s") + ' · last ' + fmtDate(latest.ts) + '</span></div>' +
+      sparkSVG(sorted.map(function(e){ return e.pct; }), band) +
+      '<span class="trend-pct ' + band + '">' + Math.round(latest.pct * 100) + '%</span>' +
+      '</div>';
+  }
+  function renderProgressPage(){
+    var mount = document.getElementById("progressMount");
+    if(!mount) return;
+
+    var quizHist = history.filter(function(h){ return h.kind === "quiz"; });
+    var otherHist = history.filter(function(h){ return h.kind !== "quiz"; });
+
+    if(!history.length){
+      mount.innerHTML = '<p class="mono" style="color:var(--muted); font-size:.85rem;">No graded attempts logged yet — take a Quiz, Unit Test or Challenge and it\'ll start showing up here.</p>';
+      return;
+    }
+
+    var html = '';
+
+    html += '<div class="trend-overall">' +
+      sparkSVG(history.slice().sort(function(a,b){ return a.ts-b.ts; }).map(function(e){ return e.pct; }), trendBandClass(history[history.length-1].pct)) +
+      '<div class="tl-info"><h4>All graded attempts</h4><span class="tl-meta">' + history.length + ' attempt' + (history.length === 1 ? "" : "s") + ' logged since ' + fmtDate(history.slice().sort(function(a,b){ return a.ts-b.ts; })[0].ts) + '</span></div>' +
+      '</div>';
+
+    TREE.papers.forEach(function(paper){
+      paper.topics.forEach(function(topic){
+        if(topic.status !== "built" || !topic.units) return;
+        html += '<p class="eyebrow trend-section-title">' + paper.title + ' · ' + topic.num + ' ' + topic.title + '</p>';
+        html += '<div class="trend-lesson-list">';
+        topic.units.forEach(function(unit){
+          unit.lessons.forEach(function(lesson){
+            var entries = quizHist.filter(function(h){ return h.unit === unit.id && h.lesson === lesson.id; });
+            html += trendRow(lesson.title, unit.num + " " + unit.title, entries);
+          });
+          var utEntries = otherHist.filter(function(h){ return h.kind === "unit-test" && h.unit === unit.id; });
+          html += trendRow("Unit Test", unit.num + " " + unit.title, utEntries);
+        });
+        var tcEntries = otherHist.filter(function(h){ return h.kind === "topic-challenge" && h.topic === topic.id; });
+        html += trendRow("Topic Challenge", topic.num + " " + topic.title, tcEntries);
+        html += '</div>';
+      });
+      if(paper.challengeHref){
+        var pcEntries = otherHist.filter(function(h){ return h.kind === "paper-challenge" && h.paper === paper.id; });
+        html += '<p class="eyebrow trend-section-title">' + paper.title + '</p>';
+        html += '<div class="trend-lesson-list">' + trendRow("Paper Challenge", paper.title, pcEntries) + '</div>';
+      }
+    });
+
+    mount.innerHTML = html;
   }
 
   /* =========================================================
@@ -424,9 +528,16 @@
           mastery[assessmentId].attempts = (prev.attempts || 0) + 1;
         }
         saveJSON(MASTERY_KEY, mastery);
+        pushHistory({
+          ts: Date.now(), id: assessmentId, kind: kind,
+          paper: parsed.filter.paper || null, topic: parsed.filter.topic || null,
+          unit: parsed.filter.unit || null, lesson: parsed.filter.lesson || null,
+          pct: pct, correct: correctCount, total: order.length
+        });
         paintAllBadges();
         paintXP();
         renderSidebar();
+        renderProgressPage();
       }
 
       var band = bandFor(pct);
@@ -539,7 +650,9 @@
     html += '<div class="xp-level" id="xpLevel">' + li.level + '</div>';
     html += '<div class="xp-meta"><div class="xp-label" id="xpLabel">' + xp + ' XP · Level ' + li.level + '</div>';
     html += '<div class="xp-bar-track"><div class="xp-bar-fill" id="xpBarFill" style="width:' + Math.round((li.into/li.span)*100) + '%;"></div></div></div>';
-    html += '</div></div>';
+    html += '</div>';
+    html += '<a class="sidebar-progress-link' + (PAGE.page === "progress" ? " current" : "") + '" href="' + ROOT + 'progress.html">My Progress</a>';
+    html += '</div>';
 
     html += '<div class="sidebar-auth">';
     html += '<button id="signInBtn" class="auth-btn" type="button">Sign in with Google</button>';
@@ -656,6 +769,7 @@
     mountQuizzes();
     wirePlanner();
     paintXP();
+    renderProgressPage();
     initAuth();
   }
 

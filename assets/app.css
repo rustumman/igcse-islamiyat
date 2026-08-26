@@ -121,6 +121,12 @@ button, .btn{font-family:inherit; cursor:pointer;}
 .xp-meta{flex:1; min-width:0;}
 .xp-label{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted);}
 .xp-bar-track{height:6px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); margin-top:5px; overflow:hidden;}
+.sidebar-progress-link{
+  display:block; margin-top:12px; font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.03em;
+  text-transform:uppercase; color:var(--muted); text-decoration:none;
+}
+.sidebar-progress-link:hover{color:var(--accent);}
+.sidebar-progress-link.current{color:var(--accent); font-weight:600;}
 .xp-bar-fill{height:100%; background:var(--gold); border-radius:99px; transition:width .4s ease;}
 
 .sidebar-auth{padding:14px 20px; border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:8px;}
@@ -430,6 +436,33 @@ button, .btn{font-family:inherit; cursor:pointer;}
 .mastery-badge.st-mastered{background:var(--good-tint); color:var(--good); border-color:var(--good);}
 .mastery-badge.st-practicing{background:var(--gold-tint); color:var(--gold); border-color:var(--gold);}
 .mastery-badge.st-retry{background:color-mix(in srgb, #b5473f 15%, var(--surface)); color:#b5473f; border-color:#b5473f;}
+
+/* ---- progress / trend page ---- */
+.trend-overall{
+  display:flex; align-items:center; gap:20px; padding:18px 20px; margin-bottom:28px;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+}
+.trend-overall .tl-info{flex:1;}
+.trend-section-title{margin:28px 0 12px;}
+.trend-lesson-list{display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}
+.trend-row{display:flex; align-items:center; gap:18px; padding:13px 18px; background:var(--surface);}
+.trend-row-empty{opacity:.6;}
+.trend-row .tl-info{flex:1; min-width:0;}
+.trend-row h4{font-size:.92rem; color:var(--ink); margin:0 0 3px;}
+.trend-row .tl-meta{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted);}
+.trend-spark{flex:none;}
+.trend-spark path{stroke-width:1.6; fill:none;}
+.trend-spark.band-mastered path, .trend-spark.band-mastered circle{stroke:var(--good); fill:var(--good);}
+.trend-spark.band-practicing path, .trend-spark.band-practicing circle{stroke:var(--gold); fill:var(--gold);}
+.trend-spark.band-retry path, .trend-spark.band-retry circle{stroke:#b5473f; fill:#b5473f;}
+.trend-pct{font-family:"IBM Plex Mono",monospace; font-size:.95rem; font-weight:600; flex:none; width:44px; text-align:right;}
+.trend-pct.band-mastered{color:var(--good);}
+.trend-pct.band-practicing{color:var(--gold);}
+.trend-pct.band-retry{color:#b5473f;}
+@media (max-width:600px){
+  .trend-row{flex-wrap:wrap;}
+  .trend-spark{order:3; width:100%; height:28px;}
+}
 
 /* ---- dark (course-challenge) overrides ---- */
 .challenge-band{background:#1c2748; color:#f1efe4; padding:clamp(48px,8vw,80px) 0;}

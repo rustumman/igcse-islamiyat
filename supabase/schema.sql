@@ -1,7 +1,9 @@
 -- Run this once in the Supabase SQL editor for your project.
 -- Stores each signed-in student's retrieval-card scores and review-planner
 -- state, so it survives across devices instead of living only in
--- localStorage.
+-- localStorage. card_state.history is an append-only log of every graded
+-- attempt (timestamp + score), used to render the trend charts on
+-- progress.html — no schema change needed since card_state is jsonb.
 
 create table if not exists public.progress (
   user_id uuid primary key references auth.users(id) on delete cascade,
