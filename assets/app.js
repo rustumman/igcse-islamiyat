@@ -25,9 +25,68 @@
   var MASTERY_KEY = "islamiyat-t2-mastery";
   var QUICKDONE_KEY = "islamiyat-t2-quickdone";
   var PLAN_KEY = "islamiyat-t2-planner";
+  var DECK_KEY = "islamiyat-t2-deck";
   var mastery = loadJSON(MASTERY_KEY, {});
   var quickDone = loadJSON(QUICKDONE_KEY, {});
   var plan = loadJSON(PLAN_KEY, {});
+  var deck = loadJSON(DECK_KEY, {});
+
+  /* =========================================================
+     DECK-CYCLING — for a Unit Test / Course Challenge with a
+     question pool bigger than perAttempt, each attempt draws
+     the next slice from a persisted shuffled order of the
+     whole pool instead of always using every question. Once
+     the deck runs out it reshuffles, so a student sees every
+     question once before anything repeats.
+     ========================================================= */
+  function shuffleArr(arr){
+    var a = arr.slice();
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function nextBatch(quizId, quiz){
+    var perAttempt = Math.min(quiz.perAttempt || quiz.questions.length, quiz.questions.length);
+    var byId = {};
+    quiz.questions.forEach(function(q){ byId[q.id] = q; });
+    var poolIds = quiz.questions.map(function(q){ return q.id; });
+
+    var state = deck[quizId];
+    var sameIdSet = state && state.order && state.order.length === poolIds.length &&
+      state.order.slice().sort().join("|") === poolIds.slice().sort().join("|");
+    if(!sameIdSet){
+      state = { order: shuffleArr(poolIds), cursor: 0 };
+    }
+
+    var order = state.order.slice();
+    var cursor = state.cursor;
+    var batchIds = [];
+    while(batchIds.length < perAttempt){
+      if(cursor >= order.length){
+        // Pool exhausted mid-batch (perAttempt doesn't evenly divide the
+        // pool). Reshuffle the full pool, but push anything already picked
+        // in THIS batch to the back so it can't repeat within one attempt —
+        // it just comes up a little later in the next cycle instead.
+        var fresh = shuffleArr(poolIds);
+        var picked = {};
+        batchIds.forEach(function(id){ picked[id] = true; });
+        var clean = fresh.filter(function(id){ return !picked[id]; });
+        var clashing = fresh.filter(function(id){ return picked[id]; });
+        order = clean.concat(clashing);
+        cursor = 0;
+      }
+      batchIds.push(order[cursor]);
+      cursor++;
+    }
+
+    deck[quizId] = { order: order, cursor: cursor };
+    saveJSON(DECK_KEY, deck);
+
+    return batchIds.map(function(id){ return byId[id]; });
+  }
 
   /* =========================================================
      XP / LEVEL — derived purely from progress state, never
@@ -75,7 +134,7 @@
   /* =========================================================
      OPTIONAL CLOUD SIGN-IN (Google via Supabase)
      Same project and table used since the sign-in feature was
-     first added — card_state holds { mastery, quickDone },
+     first added — card_state holds { mastery, quickDone, deck },
      planner_state holds plan. XP itself is never stored; it's
      recomputed from these on every page load.
      ========================================================= */
@@ -126,7 +185,7 @@
     if(!supa || !currentUser){ return; }
     supa.from("progress").upsert({
       user_id: currentUser.id,
-      card_state: { mastery: mastery, quickDone: quickDone },
+      card_state: { mastery: mastery, quickDone: quickDone, deck: deck },
       planner_state: plan,
       updated_at: new Date().toISOString()
     }).then(function(){}, function(){ /* offline or RLS error — localStorage still has it */ });
@@ -150,9 +209,11 @@
         if(hasCloudData){
           mastery = cloudCard.mastery || {};
           quickDone = cloudCard.quickDone || {};
+          deck = cloudCard.deck || {};
           plan = cloudPlan;
           try{ localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
           try{ localStorage.setItem(QUICKDONE_KEY, JSON.stringify(quickDone)); }catch(e){}
+          try{ localStorage.setItem(DECK_KEY, JSON.stringify(deck)); }catch(e){}
           try{ localStorage.setItem(PLAN_KEY, JSON.stringify(plan)); }catch(e){}
           refreshPageState();
           renderSidebar();
@@ -270,15 +331,6 @@
     draw();
   }
 
-  function shuffleArr(arr){
-    var a = arr.slice();
-    for(var i = a.length - 1; i > 0; i--){
-      var j = Math.floor(Math.random() * (i + 1));
-      var t = a[i]; a[i] = a[j]; a[j] = t;
-    }
-    return a;
-  }
-
   function xpForResult(quizId, pct){
     var cap = quizId === "challenge" ? 150 : 100;
     var mid = quizId === "challenge" ? 60 : 40;
@@ -291,10 +343,11 @@
     wrap.className = "quiz-widget";
     mount.appendChild(wrap);
 
-    var order, idx, answered, correctCount;
+    var order, idx, answered, correctCount, batch;
 
     function start(){
-      order = shuffleArr(quiz.questions.map(function(_, i){ return i; }));
+      batch = nextBatch(quizId, quiz);
+      order = shuffleArr(batch.map(function(_, i){ return i; }));
       idx = 0;
       answered = new Array(order.length).fill(null);
       correctCount = 0;
@@ -321,7 +374,7 @@
     }
 
     function drawQuestion(){
-      var qData = quiz.questions[order[idx]];
+      var qData = batch[order[idx]];
       var body = wrap.querySelector(".quiz-body");
       var letters = ["A","B","C","D","E"];
       body.innerHTML =
