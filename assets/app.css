@@ -104,7 +104,7 @@ button, .btn{font-family:inherit; cursor:pointer;}
 
 .sidebar{
   width:var(--sidebar-w); flex:none; background:var(--surface); border-right:1px solid var(--border);
-  position:sticky; top:0; height:100vh; overflow-y:auto; display:flex; flex-direction:column;
+  position:sticky; top:0; height:100vh; overflow:hidden; display:flex; flex-direction:column;
 }
 .sidebar-head{padding:20px 20px 16px; border-bottom:1px solid var(--border);}
 .sidebar-brand{
@@ -119,7 +119,7 @@ button, .btn{font-family:inherit; cursor:pointer;}
   width:34px; height:34px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none;
 }
 .xp-meta{flex:1; min-width:0;}
-.xp-label{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted);}
+.xp-label{font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted);}
 .xp-bar-track{height:6px; border-radius:99px; background:var(--surface-2); border:1px solid var(--border); margin-top:5px; overflow:hidden;}
 .sidebar-progress-link{
   display:block; margin-top:12px; font-family:"IBM Plex Mono",monospace; font-size:11.5px; letter-spacing:.03em;
@@ -158,7 +158,7 @@ button, .btn{font-family:inherit; cursor:pointer;}
   border-radius:50%; width:18px; height:18px; flex:none; display:flex; align-items:center; justify-content:center;
 }
 .side-topic-soon{
-  margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.04em; text-transform:uppercase;
+  margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase;
   color:var(--muted);
 }
 .side-unit-list{padding-left:22px; display:flex; flex-direction:column; gap:1px; margin-bottom:2px;}
@@ -194,6 +194,8 @@ button, .btn{font-family:inherit; cursor:pointer;}
     box-shadow:var(--shadow);
   }
   .sidebar.open{transform:translateX(0);}
+  .sidebar[aria-hidden="true"]{visibility:hidden;}
+  .sidebar.open[aria-hidden="true"]{visibility:visible;}
   .sidebar-toggle{display:flex;}
   .sidebar-scrim{display:none; position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:80;}
   .sidebar-scrim.show{display:block;}
@@ -282,6 +284,14 @@ button, .btn{font-family:inherit; cursor:pointer;}
   position:absolute; top:20px; right:20px; font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.04em;
   text-transform:uppercase; border-radius:99px; padding:3px 9px; border:1px solid var(--border-strong); color:var(--muted);
 }
+.lesson-row .progress-badge{
+  font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.04em; text-transform:uppercase;
+  border-radius:99px; padding:4px 9px; border:1px solid var(--border-strong); color:var(--muted);
+  white-space:nowrap;
+}
+.lesson-row .progress-badge.st-mastered{background:var(--good-tint); color:var(--good); border-color:var(--good);}
+.lesson-row .progress-badge.st-practicing{background:var(--gold-tint); color:var(--gold); border-color:var(--gold);}
+.lesson-row .progress-badge.st-retry{background:color-mix(in srgb, #b5473f 15%, var(--surface)); color:#b5473f; border-color:#b5473f;}
 
 /* ============ LESSON PROGRESS ROW (topic overview) ============ */
 .lesson-row-list{max-width:70ch; margin:32px auto 0; display:flex; flex-direction:column; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;}

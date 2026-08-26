@@ -62,7 +62,7 @@ Every page is a thin HTML shell that loads the shared `assets/` files — no bui
 - Past-paper style model answers (AO1/AO2 structure) with examiner notes, placed in whichever lesson they're most relevant to.
 - **XP and levels** — every correct answer and every graded result earns XP shown in the sidebar, purely as a function of saved progress (never stored separately, so it can't drift out of sync).
 - A Day 0/1/3/7/16 spaced-review planner per topic.
-- Full light/dark theme support.
+- Full light/dark theme support with a manual sidebar toggle and OS fallback.
 - Optional Google sign-in so a student's mastery, answered-question history, and planner progress follow them across devices (see "Optional: sign-in and progress sync" below). Without it, progress is still saved locally in the browser — nothing is sent anywhere.
 
 ## Using it
@@ -90,8 +90,9 @@ By default every student's progress lives only in `localStorage` on that one bro
 1. **Create a Supabase project** at supabase.com (free tier is enough).
 2. **Run the schema** — open the SQL editor in your project and run [`supabase/schema.sql`](supabase/schema.sql). This creates a `progress` table with row-level security so each student can only read/write their own row. The table stores two JSON columns, `card_state` (`{ mastery, answered, deck }`) and `planner_state`.
 3. **Enable Google sign-in** — in Supabase, go to **Authentication → Providers → Google** and enable it. This requires a Google Cloud OAuth Client ID/Secret: create one in the [Google Cloud Console](https://console.cloud.google.com/apis/credentials) (OAuth consent screen + "Web application" credentials), add Supabase's callback URL as an authorized redirect URI, then paste the Client ID/Secret into Supabase.
-4. **Add your project's keys** — in `assets/app.js`, find the `SUPABASE_URL` and `SUPABASE_ANON_KEY` constants near the top and replace them with your project's URL and anon (public) key, both found in **Settings → API** in Supabase.
+4. **Add your project's keys** — in `assets/app.js`, find the `SUPABASE_URL` and `SUPABASE_ANON_KEY` placeholder constants (`"YOUR_SUPABASE_URL"` and `"YOUR_SUPABASE_ANON_KEY"`) near the top and replace them with your project's URL and anon (public) key, both found in **Settings → API** in Supabase.
 5. Commit and redeploy. A "Sign in with Google" button will appear in the sidebar; students who sign in get their progress synced to the cloud automatically, students who don't keep working exactly as before, local-only.
+6. Signing in stores the student's email and progress in your Supabase project. The sidebar includes a "Delete synced data" button that deletes that student's `progress` row and signs them out.
 
 Until steps 1–4 are done, the sign-in button stays hidden and the site behaves exactly as it always has.
 

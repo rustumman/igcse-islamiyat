@@ -32,18 +32,21 @@
   }
   function saveJSON(key, val){
     try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){ /* ignore */ }
-    pushToCloud();
+    scheduleCloudPush();
   }
   var MASTERY_KEY = "islamiyat-mastery";
   var ANSWERED_KEY = "islamiyat-answered";
   var PLAN_KEY = "islamiyat-planner";
   var DECK_KEY = "islamiyat-deck";
   var HISTORY_KEY = "islamiyat-history";
+  var LAST_USER_KEY = "islamiyat-last-user-id";
+  var THEME_KEY = "islamiyat-theme";
   var mastery = loadJSON(MASTERY_KEY, {});
   var answered = loadJSON(ANSWERED_KEY, {});
   var plan = loadJSON(PLAN_KEY, {});
   var deck = loadJSON(DECK_KEY, {});
   var history = loadJSON(HISTORY_KEY, []);
+  var pendingCloudPush = null;
 
   /* =========================================================
      HISTORY — an append-only log of every graded attempt
@@ -147,8 +150,8 @@
      planner_state holds plan. XP itself is never stored; it's
      recomputed from these on every page load.
      ========================================================= */
-  var SUPABASE_URL = "https://puaymjsployigxaozuqo.supabase.co";
-  var SUPABASE_ANON_KEY = "sb_publishable_0hzw641YFST9Y0TOICxeEQ_Sk5A-21D";
+  var SUPABASE_URL = "YOUR_SUPABASE_URL";
+  var SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
   var supa = (SUPABASE_URL.indexOf("YOUR_SUPABASE") === -1 && window.supabase)
     ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
     : null;
@@ -157,52 +160,147 @@
   function paintAuthUI(){
     var signInBtn = document.getElementById("signInBtn");
     var signOutBtn = document.getElementById("signOutBtn");
+    var deleteBtn = document.getElementById("deleteDataBtn");
     var authStatus = document.getElementById("authStatus");
     if(!supa){
       if(signInBtn){ signInBtn.hidden = true; }
+      if(deleteBtn){ deleteBtn.hidden = true; }
       return;
     }
     if(currentUser){
       if(signInBtn){ signInBtn.hidden = true; }
       if(signOutBtn){ signOutBtn.hidden = false; }
+      if(deleteBtn){ deleteBtn.hidden = false; }
       if(authStatus){ authStatus.hidden = false; authStatus.textContent = "Synced · " + (currentUser.email || "signed in"); }
     } else {
       if(signInBtn){ signInBtn.hidden = false; }
       if(signOutBtn){ signOutBtn.hidden = true; }
+      if(deleteBtn){ deleteBtn.hidden = true; }
       if(authStatus){ authStatus.hidden = true; }
     }
   }
   function wireAuthButtons(){
     var signInBtn = document.getElementById("signInBtn");
     var signOutBtn = document.getElementById("signOutBtn");
-    if(signInBtn){
+    var deleteBtn = document.getElementById("deleteDataBtn");
+    if(signInBtn && !signInBtn.dataset.bound){
+      signInBtn.dataset.bound = "1";
       signInBtn.addEventListener("click", function(){
         if(!supa){ return; }
-        supa.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.href } });
+        var redirectTo = window.location.origin + window.location.pathname;
+        supa.auth.signInWithOAuth({ provider: "google", options: { redirectTo: redirectTo } });
       });
     }
-    if(signOutBtn){
+    if(signOutBtn && !signOutBtn.dataset.bound){
+      signOutBtn.dataset.bound = "1";
       signOutBtn.addEventListener("click", function(){
         if(!supa){ return; }
         supa.auth.signOut();
       });
     }
+    if(deleteBtn && !deleteBtn.dataset.bound){
+      deleteBtn.dataset.bound = "1";
+      deleteBtn.addEventListener("click", function(){
+        if(!supa || !currentUser){ return; }
+        if(!window.confirm("Delete your synced progress and sign out? This cannot be undone.")){ return; }
+        supa.from("progress").delete().eq("user_id", currentUser.id)
+          .then(function(){ return supa.auth.signOut(); })
+          .then(function(){
+            clearProgressState();
+            try{ localStorage.removeItem(LAST_USER_KEY); }catch(e){}
+            refreshPageState();
+            renderSidebar();
+          }, function(){ /* keep local progress if request fails */ });
+      });
+    }
+  }
+  function clearProgressState(){
+    mastery = {};
+    answered = {};
+    plan = {};
+    deck = {};
+    history = [];
+    try{ localStorage.removeItem(MASTERY_KEY); }catch(e){}
+    try{ localStorage.removeItem(ANSWERED_KEY); }catch(e){}
+    try{ localStorage.removeItem(PLAN_KEY); }catch(e){}
+    try{ localStorage.removeItem(DECK_KEY); }catch(e){}
+    try{ localStorage.removeItem(HISTORY_KEY); }catch(e){}
+  }
+  function persistProgressState(){
+    try{ localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
+    try{ localStorage.setItem(ANSWERED_KEY, JSON.stringify(answered)); }catch(e){}
+    try{ localStorage.setItem(DECK_KEY, JSON.stringify(deck)); }catch(e){}
+    try{ localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); }catch(e){}
+    try{ localStorage.setItem(PLAN_KEY, JSON.stringify(plan)); }catch(e){}
+  }
+  function scheduleCloudPush(){
+    clearTimeout(pendingCloudPush);
+    pendingCloudPush = setTimeout(pushToCloud, 500);
   }
   function pushToCloud(){
     if(!supa || !currentUser){ return; }
     supa.from("progress").upsert({
       user_id: currentUser.id,
       card_state: { mastery: mastery, answered: answered, deck: deck, history: history },
-      planner_state: plan,
-      updated_at: new Date().toISOString()
+      planner_state: plan
     }).then(function(){}, function(){ /* offline or RLS error — localStorage still has it */ });
+  }
+  function hasActiveQuizAttempt(){
+    return !!document.querySelector('.quiz-widget[data-attempt-active="true"]');
   }
   function refreshPageState(){
     paintAllBadges();
     paintXP();
-    remountAllQuizzes();
+    if(!hasActiveQuizAttempt()){
+      remountAllQuizzes();
+    }
     wirePlanner();
     renderProgressPage();
+  }
+  function mergeMastery(localMap, cloudMap){
+    var out = {};
+    var keys = {};
+    Object.keys(localMap || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(cloudMap || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(keys).forEach(function(k){
+      var l = localMap && localMap[k];
+      var c = cloudMap && cloudMap[k];
+      if(!l){ out[k] = c; return; }
+      if(!c){ out[k] = l; return; }
+      out[k] = {
+        best: Math.max(Number(l.best) || 0, Number(c.best) || 0),
+        attempts: Math.max(Number(l.attempts) || 0, Number(c.attempts) || 0)
+      };
+    });
+    return out;
+  }
+  function mergeBooleanMap(localMap, cloudMap){
+    var out = {};
+    var keys = {};
+    Object.keys(localMap || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(cloudMap || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(keys).forEach(function(k){
+      out[k] = !!((localMap && localMap[k]) || (cloudMap && cloudMap[k]));
+    });
+    return out;
+  }
+  function mergeHistory(localHist, cloudHist){
+    var combined = (localHist || []).concat(cloudHist || []);
+    var seen = {};
+    var out = [];
+    combined.forEach(function(entry){
+      if(!entry) return;
+      var key = [entry.ts, entry.id, entry.pct, entry.correct, entry.total].join("|");
+      if(seen[key]) return;
+      seen[key] = true;
+      out.push(entry);
+    });
+    out.sort(function(a, b){ return (a.ts || 0) - (b.ts || 0); });
+    if(out.length > MAX_HISTORY){ out = out.slice(out.length - MAX_HISTORY); }
+    return out;
+  }
+  function hasAnyProgressData(){
+    return Object.keys(mastery).length || Object.keys(answered).length || Object.keys(plan).length || Object.keys(deck).length || history.length;
   }
   function hydrateFromCloud(){
     if(!supa || !currentUser){ return; }
@@ -213,34 +311,42 @@
         var cloudPlan = (row && row.planner_state) || {};
         var hasCloudData = row && (Object.keys(cloudCard).length || Object.keys(cloudPlan).length);
         if(hasCloudData){
-          mastery = cloudCard.mastery || {};
-          answered = cloudCard.answered || {};
-          deck = cloudCard.deck || {};
-          history = cloudCard.history || [];
-          plan = cloudPlan;
-          try{ localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
-          try{ localStorage.setItem(ANSWERED_KEY, JSON.stringify(answered)); }catch(e){}
-          try{ localStorage.setItem(DECK_KEY, JSON.stringify(deck)); }catch(e){}
-          try{ localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); }catch(e){}
-          try{ localStorage.setItem(PLAN_KEY, JSON.stringify(plan)); }catch(e){}
+          mastery = mergeMastery(mastery, cloudCard.mastery || {});
+          answered = mergeBooleanMap(answered, cloudCard.answered || {});
+          deck = Object.keys(deck || {}).length ? deck : (cloudCard.deck || {});
+          history = mergeHistory(history, cloudCard.history || []);
+          plan = Object.assign({}, cloudPlan || {}, plan || {});
+          persistProgressState();
           refreshPageState();
           renderSidebar();
+          scheduleCloudPush();
         } else {
-          pushToCloud();
+          if(hasAnyProgressData()){ pushToCloud(); }
         }
       }, function(){ /* offline — keep using local state */ });
   }
   function initAuth(){
-    wireAuthButtons();
     paintAuthUI();
     if(supa){
-      supa.auth.onAuthStateChange(function(_event, session){
+      supa.auth.onAuthStateChange(function(event, session){
+        var prevUser = currentUser && currentUser.id;
         currentUser = session && session.user;
-        paintAuthUI();
-        if(currentUser){ hydrateFromCloud(); }
-      });
-      supa.auth.getSession().then(function(res){
-        currentUser = res && res.data && res.data.session && res.data.session.user;
+        if(!currentUser){
+          if(event === "SIGNED_OUT" || prevUser){
+            clearProgressState();
+            try{ localStorage.removeItem(LAST_USER_KEY); }catch(e){}
+            refreshPageState();
+            renderSidebar();
+          }
+        } else {
+          var lastSeen = loadJSON(LAST_USER_KEY, null);
+          if((prevUser && prevUser !== currentUser.id) || (lastSeen && lastSeen !== currentUser.id)){
+            clearProgressState();
+            refreshPageState();
+            renderSidebar();
+          }
+          try{ localStorage.setItem(LAST_USER_KEY, JSON.stringify(currentUser.id)); }catch(e){}
+        }
         paintAuthUI();
         if(currentUser){ hydrateFromCloud(); }
       });
@@ -398,9 +504,10 @@
       cursor++;
     }
 
-    deck[assessmentId] = { order: order, cursor: cursor };
-    saveJSON(DECK_KEY, deck);
-    return batchIds.map(function(id){ return byId[id]; });
+    return {
+      questions: batchIds.map(function(id){ return byId[id]; }),
+      state: { order: order, cursor: cursor }
+    };
   }
 
   /* =========================================================
@@ -423,14 +530,17 @@
     wrap.className = "quiz-widget";
     mount.appendChild(wrap);
 
-    var order, idx, answeredFlags, correctCount, batch;
+    var order, idx, answeredFlags, correctCount, batch, pendingDeckState;
 
     function start(){
-      batch = nextBatch(assessmentId, pool, perAttempt);
+      var draw = nextBatch(assessmentId, pool, perAttempt);
+      batch = draw.questions;
+      pendingDeckState = draw.state;
       order = shuffleArr(batch.map(function(_, i){ return i; }));
       idx = 0;
       answeredFlags = new Array(order.length).fill(null);
       correctCount = 0;
+      wrap.setAttribute("data-attempt-active", "true");
       drawHead();
       drawQuestion();
     }
@@ -441,13 +551,13 @@
         if(i === idx) cls += " current";
         if(answeredFlags[i] === true) cls += " answered-right";
         if(answeredFlags[i] === false) cls += " answered-wrong";
-        return '<button type="button" class="' + cls + '" disabled></button>';
+        return '<span class="' + cls + '" aria-hidden="true"></span>';
       }).join("");
       wrap.innerHTML =
         '<div class="quiz-head">' +
           '<span class="quiz-kind' + (tracksMastery && kind !== "quiz" ? " kind-test" : "") + '">' + kindLabel + '</span>' +
           '<div class="quiz-dots">' + dotsHtml + '</div>' +
-          '<span class="quiz-counter">Q ' + (idx + 1) + ' of ' + order.length + '</span>' +
+          '<span class="quiz-counter" aria-live="polite">Q ' + (idx + 1) + ' of ' + order.length + '</span>' +
         '</div>' +
         '<div class="quiz-body"></div>';
     }
@@ -459,7 +569,7 @@
       body.innerHTML =
         '<p class="quiz-q"></p>' +
         '<ul class="quiz-choices"></ul>' +
-        '<div class="quiz-feedback"></div>' +
+        '<div class="quiz-feedback" role="status" aria-live="polite"></div>' +
         '<div class="quiz-actions"><button type="button" class="quiz-btn quiz-next" disabled>Next</button></div>';
       body.querySelector(".quiz-q").textContent = qData.q;
       var listEl = body.querySelector(".quiz-choices");
@@ -518,12 +628,15 @@
     }
 
     function finish(){
+      wrap.removeAttribute("data-attempt-active");
+      deck[assessmentId] = pendingDeckState;
+      saveJSON(DECK_KEY, deck);
       var pct = correctCount / order.length;
 
       if(tracksMastery){
         var prev = mastery[assessmentId];
         if(!prev || pct > prev.best){
-          mastery[assessmentId] = { best: pct, attempts: (prev ? prev.attempts + 1 : 1) };
+          mastery[assessmentId] = { best: pct, attempts: (prev ? (prev.attempts || 0) + 1 : 1) };
         } else {
           mastery[assessmentId].attempts = (prev.attempts || 0) + 1;
         }
@@ -651,12 +764,14 @@
     html += '<div class="xp-meta"><div class="xp-label" id="xpLabel">' + xp + ' XP · Level ' + li.level + '</div>';
     html += '<div class="xp-bar-track"><div class="xp-bar-fill" id="xpBarFill" style="width:' + Math.round((li.into/li.span)*100) + '%;"></div></div></div>';
     html += '</div>';
+    html += '<button id="themeToggleBtn" class="auth-btn" type="button">Theme</button>';
     html += '<a class="sidebar-progress-link' + (PAGE.page === "progress" ? " current" : "") + '" href="' + ROOT + 'progress.html">My Progress</a>';
     html += '</div>';
 
     html += '<div class="sidebar-auth">';
     html += '<button id="signInBtn" class="auth-btn" type="button">Sign in with Google</button>';
     html += '<button id="signOutBtn" class="auth-btn" type="button" hidden>Sign out</button>';
+    html += '<button id="deleteDataBtn" class="auth-btn" type="button" hidden>Delete synced data</button>';
     html += '<span id="authStatus" class="auth-status mono" hidden></span>';
     html += '</div>';
 
@@ -703,6 +818,7 @@
 
     mount.innerHTML = html;
     wireAuthButtons();
+    wireThemeToggle();
     paintAuthUI();
   }
 
@@ -751,21 +867,82 @@
     var sidebar = document.getElementById("sidebarMount") ? document.getElementById("sidebarMount").closest(".sidebar") : null;
     var scrim = document.getElementById("sidebarScrim");
     if(!toggleBtn || !sidebar) return;
-    function close(){ sidebar.classList.remove("open"); if(scrim){ scrim.classList.remove("show"); } }
-    function open(){ sidebar.classList.add("open"); if(scrim){ scrim.classList.add("show"); } }
+    if(!sidebar.id){ sidebar.id = "courseSidebar"; }
+    toggleBtn.setAttribute("aria-controls", sidebar.id);
+    toggleBtn.setAttribute("aria-expanded", "false");
+    function close(){
+      sidebar.classList.remove("open");
+      sidebar.setAttribute("aria-hidden", "true");
+      sidebar.setAttribute("inert", "");
+      toggleBtn.setAttribute("aria-expanded", "false");
+      if(scrim){ scrim.classList.remove("show"); }
+    }
+    function open(){
+      sidebar.classList.add("open");
+      sidebar.removeAttribute("aria-hidden");
+      sidebar.removeAttribute("inert");
+      toggleBtn.setAttribute("aria-expanded", "true");
+      if(scrim){ scrim.classList.add("show"); }
+    }
     toggleBtn.addEventListener("click", function(){
       sidebar.classList.contains("open") ? close() : open();
     });
     if(scrim){ scrim.addEventListener("click", close); }
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape" && sidebar.classList.contains("open")){ close(); }
+    });
+    if(window.matchMedia("(max-width:900px)").matches){ close(); }
+  }
+
+  function applyTheme(theme){
+    if(theme === "light" || theme === "dark"){
+      document.documentElement.setAttribute("data-theme", theme);
+      try{ localStorage.setItem(THEME_KEY, JSON.stringify(theme)); }catch(e){}
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      try{ localStorage.removeItem(THEME_KEY); }catch(e){}
+    }
+  }
+  function wireThemeToggle(){
+    var btn = document.getElementById("themeToggleBtn");
+    if(!btn || btn.dataset.bound){ return; }
+    btn.dataset.bound = "1";
+    function paintLabel(){
+      var current = document.documentElement.getAttribute("data-theme");
+      btn.textContent = "Theme: " + (current === "dark" ? "Dark" : "Light");
+    }
+    btn.addEventListener("click", function(){
+      var current = document.documentElement.getAttribute("data-theme");
+      applyTheme(current === "dark" ? "light" : "dark");
+      paintLabel();
+    });
+    paintLabel();
+  }
+  function initTheme(){
+    var saved = loadJSON(THEME_KEY, null);
+    if(saved === "dark" || saved === "light"){
+      applyTheme(saved);
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+  }
+  function annotateArabicRuns(){
+    Array.prototype.slice.call(document.querySelectorAll(".arabic")).forEach(function(el){
+      if(!el.getAttribute("lang")){ el.setAttribute("lang", "ar"); }
+      if(!el.getAttribute("dir")){ el.setAttribute("dir", "rtl"); }
+    });
   }
 
   /* =========================================================
      INIT
      ========================================================= */
   function init(){
+    initTheme();
     renderSidebar();
     renderBreadcrumb();
     wireMobileToggle();
+    wireThemeToggle();
+    annotateArabicRuns();
     mountQuizzes();
     wirePlanner();
     paintXP();
