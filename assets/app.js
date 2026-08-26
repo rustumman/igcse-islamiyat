@@ -41,6 +41,7 @@
   var HISTORY_KEY = "islamiyat-history";
   var LAST_USER_KEY = "islamiyat-last-user-id";
   var THEME_KEY = "islamiyat-theme";
+  var NUDGE_SNOOZE_KEY = "islamiyat-nudge-snooze-until";
   var mastery = loadJSON(MASTERY_KEY, {});
   var answered = loadJSON(ANSWERED_KEY, {});
   var plan = loadJSON(PLAN_KEY, {});
@@ -292,6 +293,52 @@
       });
     }
   }
+  /* =========================================================
+     SOFT SIGN-IN NUDGE — never a modal, never on first visit.
+     Only appears once a signed-out student has something to
+     lose (a graded attempt in `history`), right where that's
+     freshest: the result screen and the Progress page. Dismissing
+     snoozes it for a week rather than hiding it forever, so it
+     resurfaces occasionally without nagging every page load.
+     ========================================================= */
+  function nudgeSnoozed(){
+    var until = loadJSON(NUDGE_SNOOZE_KEY, 0);
+    return Date.now() < until;
+  }
+  function snoozeNudge(days){
+    try{ localStorage.setItem(NUDGE_SNOOZE_KEY, JSON.stringify(Date.now() + days*24*60*60*1000)); }catch(e){}
+  }
+  function shouldShowNudge(){
+    return !!supa && !currentUser && history.length > 0 && !nudgeSnoozed();
+  }
+  function nudgeBannerHTML(copy){
+    return '<div class="nudge-banner" role="status">' +
+      '<div class="nudge-copy"><strong>Keep this.</strong> ' + copy + '</div>' +
+      '<div class="nudge-actions">' +
+        '<button type="button" class="quiz-btn nudge-signin">Sign in with Google</button>' +
+        '<button type="button" class="nudge-dismiss">Not now</button>' +
+      '</div></div>';
+  }
+  function wireNudge(container){
+    var banner = container.querySelector(".nudge-banner");
+    if(!banner) return;
+    var signInBtn = banner.querySelector(".nudge-signin");
+    var dismissBtn = banner.querySelector(".nudge-dismiss");
+    if(signInBtn){
+      signInBtn.addEventListener("click", function(){
+        if(!supa) return;
+        var redirectTo = window.location.origin + window.location.pathname;
+        supa.auth.signInWithOAuth({ provider: "google", options: { redirectTo: redirectTo } });
+      });
+    }
+    if(dismissBtn){
+      dismissBtn.addEventListener("click", function(){
+        snoozeNudge(7);
+        banner.remove();
+      });
+    }
+  }
+
   function clearProgressState(){
     mastery = {};
     answered = {};
@@ -505,6 +552,10 @@
 
     var html = '';
 
+    if(shouldShowNudge()){
+      html += nudgeBannerHTML("This history lives on this device only — sign in with Google to carry it across devices, or to stop worrying about clearing your browser.");
+    }
+
     html += '<div class="trend-overall">' +
       sparkSVG(history.slice().sort(function(a,b){ return a.ts-b.ts; }).map(function(e){ return e.pct; }), trendBandClass(history[history.length-1].pct)) +
       '<div class="tl-info"><h4>All graded attempts</h4><span class="tl-meta">' + history.length + ' attempt' + (history.length === 1 ? "" : "s") + ' logged since ' + fmtDate(history.slice().sort(function(a,b){ return a.ts-b.ts; })[0].ts) + '</span></div>' +
@@ -535,6 +586,7 @@
     });
 
     mount.innerHTML = html;
+    wireNudge(mount);
   }
 
   /* =========================================================
@@ -767,8 +819,10 @@
           '<p class="note">' + note + '</p>' +
           (isNewBest ? '<p class="xp-earned">+' + xpGained + ' XP for this result</p>' : '') +
           '<div class="quiz-actions"><button type="button" class="quiz-btn quiz-retake">Retake</button></div>' +
-        '</div>';
+        '</div>' +
+        (shouldShowNudge() ? nudgeBannerHTML("This " + kindLabel.toLowerCase() + " result is only saved on this device — sign in to keep it if you switch devices or clear your browser.") : '');
       wrap.querySelector(".quiz-retake").addEventListener("click", start);
+      wireNudge(wrap);
     }
 
     start();

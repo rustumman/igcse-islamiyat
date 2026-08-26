@@ -606,6 +606,26 @@ button, .btn{font-family:inherit; cursor:pointer;}
   .trend-spark{order:3; width:100%; height:28px;}
 }
 
+/* ---- soft sign-in nudge (quiz result screen, progress page) ---- */
+.nudge-banner{
+  display:flex; flex-wrap:wrap; align-items:center; gap:14px; text-align:left;
+  margin-top:18px; padding:16px 18px; border:1px solid var(--border-strong); border-radius:var(--radius);
+  background:var(--accent-tint);
+}
+.quiz-score .nudge-banner{margin-left:auto; margin-right:auto; max-width:48ch;}
+.nudge-copy{flex:1; min-width:200px; font-size:.87rem; line-height:1.5; color:var(--ink-soft);}
+.nudge-copy strong{color:var(--ink);}
+.nudge-actions{display:flex; align-items:center; gap:6px; flex:none;}
+.nudge-dismiss{
+  background:none; border:none; color:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:11px;
+  letter-spacing:.03em; text-decoration:underline; padding:9px 6px;
+}
+.nudge-dismiss:hover{color:var(--ink);}
+.challenge-band .nudge-banner{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.18);}
+.challenge-band .nudge-copy{color:#e3e1d4;}
+.challenge-band .nudge-copy strong{color:#f6f4ea;}
+.challenge-band .nudge-dismiss{color:#c9d1ec;}
+
 /* ---- dark (course-challenge) overrides ---- */
 .challenge-band{background:#1c2748; color:#f1efe4; padding:clamp(48px,8vw,80px) 0;}
 .challenge-band h1, .challenge-band .lede{color:#f1efe4;}
