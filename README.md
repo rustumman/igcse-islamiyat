@@ -54,6 +54,15 @@ Open `index.html` in any browser — no build step, no server required beyond st
 4. Add that lesson's Quick Check and Unit Test questions to `assets/quiz-bank.js`.
 5. Each page sets `window.ROOT` (relative path back to the site root, matching its folder depth) and `window.PAGE` (its breadcrumb/sidebar context) before loading `assets/app.js` — copy these from a sibling page and adjust.
 
+## Growing a Unit Test's question pool
+
+A Unit Test or Course Challenge doesn't have to use every question in its pool every time. Each entry in `assets/quiz-bank.js` has a `perAttempt` (e.g. `8`) separate from its full `questions` array — the test always shows `perAttempt` questions, drawn from a shuffled deck of the whole pool that persists per student and reshuffles only once it's been fully used. So a student sees every question once before anything repeats, and the more questions you add beyond `perAttempt`, the less likely two attempts look alike.
+
+To add questions to an existing unit:
+1. Give each new question a stable `id` (e.g. `"test-ch21-q9"`, `"test-ch21-q10"`, ...) — this is what lets a student's in-progress deck survive you adding more questions later without resetting.
+2. Append it to that quiz's `questions` array in `assets/quiz-bank.js`, same shape as the existing entries: `{ id, q, choices, correct, explain }`.
+3. Leave `perAttempt` as-is (or raise it) — no other code changes needed.
+
 ## Optional: sign-in and progress sync
 
 By default every student's progress lives only in `localStorage` on that one browser — it's lost if they clear site data or switch devices. To let each student sign in with their own Google account and have their progress follow them anywhere, wire up a free [Supabase](https://supabase.com) project:
