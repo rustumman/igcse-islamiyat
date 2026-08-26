@@ -1,0 +1,12 @@
+---
+import CourseLayout from '../../../../layouts/CourseLayout.astro';
+
+const page = { page: "unit-index", paper: "paper-1", topic: "topic-2", unit: "2-1" };
+const title = "Unit 2.1 · The Revelation of the Qur’an &middot; IGCSE Islamiyat";
+const footerHtml = "Cambridge IGCSE Islamiyat 0493 &middot; Paper 1, Topic 2, Unit 2.1";
+const mainHtml = "<header class=\"hero\">\r\n        <div class=\"wrap\">\r\n          <p class=\"eyebrow\">Paper 1 &middot; Topic 2</p>\r\n          <h1>Unit 2.1 &middot; The Revelation of the Qur’an</h1>\r\n          <p class=\"subtitle\">5 lessons, each with a Practice Quiz and a graded Quiz, then a Unit Test covering all of Unit 2.1.</p>\r\n        </div>\r\n      </header>\r\n      <section class=\"wrap\" style=\"padding:clamp(40px,7vw,60px) 0 0;\">\r\n        <p class=\"eyebrow\">Lessons</p>\r\n        <div class=\"lesson-row-list\" id=\"lessonRows\"></div>\r\n      </section>\r\n      <section class=\"wrap\" style=\"padding:clamp(40px,6vw,56px) 0;\">\r\n        <div class=\"lesson-pager\">\r\n          <a class=\"pager-link\" href=\"unit-test.html\"><span class=\"pg-label\">Ready for the whole unit?</span><div class=\"pg-title\">Unit Test &middot; 2.1</div></a>\r\n        </div>\r\n      </section>";
+---
+
+<CourseLayout title={title} page={page} footerHtml={footerHtml}>
+  <main id="main" set:html={mainHtml} />
+</CourseLayout>
