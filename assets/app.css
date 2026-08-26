@@ -626,6 +626,26 @@ button, .btn{font-family:inherit; cursor:pointer;}
 .challenge-band .nudge-copy strong{color:#f6f4ea;}
 .challenge-band .nudge-dismiss{color:#c9d1ec;}
 
+/* ---- soft sign-in nudge — floating popup variant (lesson/home/overview pages) ---- */
+.nudge-popup{
+  position:fixed; right:20px; bottom:20px; z-index:250; width:280px; max-width:calc(100vw - 40px);
+  background:var(--surface); border:1px solid var(--border-strong); border-radius:var(--radius);
+  box-shadow:var(--shadow); padding:18px 18px 16px; opacity:0; transform:translateY(14px);
+  transition:opacity .25s ease, transform .25s ease; pointer-events:none;
+}
+.nudge-popup.show{opacity:1; transform:translateY(0); pointer-events:auto;}
+.nudge-popup-close{
+  position:absolute; top:8px; right:8px; width:26px; height:26px; background:none; border:none;
+  color:var(--muted); font-size:18px; line-height:1; cursor:pointer; border-radius:50%;
+}
+.nudge-popup-close:hover{color:var(--ink); background:var(--surface-2);}
+.nudge-popup-copy{margin:0 16px 14px 0; font-size:.85rem; line-height:1.5; color:var(--ink-soft);}
+.nudge-popup-copy strong{color:var(--ink);}
+.nudge-popup-btn{width:100%;}
+@media (max-width:640px){
+  .nudge-popup{left:12px; right:12px; bottom:12px; width:auto;}
+}
+
 /* ---- dark (course-challenge) overrides ---- */
 .challenge-band{background:#1c2748; color:#f1efe4; padding:clamp(48px,8vw,80px) 0;}
 .challenge-band h1, .challenge-band .lede{color:#f1efe4;}

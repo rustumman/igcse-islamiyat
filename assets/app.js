@@ -42,6 +42,10 @@
   var LAST_USER_KEY = "islamiyat-last-user-id";
   var THEME_KEY = "islamiyat-theme";
   var NUDGE_SNOOZE_KEY = "islamiyat-nudge-snooze-until";
+  var NUDGE_POPUP_SESSION_KEY = "islamiyat-nudge-popup-shown";
+  /* Pages that already carry an inline nudge banner of their own —
+     skip the floating popup there so a signed-out student never sees both. */
+  var PAGES_WITH_INLINE_NUDGE = { quiz:1, "unit-test":1, "topic-challenge":1, "paper-challenge":1, progress:1 };
   var mastery = loadJSON(MASTERY_KEY, {});
   var answered = loadJSON(ANSWERED_KEY, {});
   var plan = loadJSON(PLAN_KEY, {});
@@ -319,11 +323,10 @@
         '<button type="button" class="nudge-dismiss">Not now</button>' +
       '</div></div>';
   }
-  function wireNudge(container){
-    var banner = container.querySelector(".nudge-banner");
-    if(!banner) return;
-    var signInBtn = banner.querySelector(".nudge-signin");
-    var dismissBtn = banner.querySelector(".nudge-dismiss");
+  function wireNudgeEl(el){
+    if(!el) return;
+    var signInBtn = el.querySelector(".nudge-signin");
+    var dismissBtn = el.querySelector(".nudge-dismiss");
     if(signInBtn){
       signInBtn.addEventListener("click", function(){
         if(!supa) return;
@@ -334,9 +337,44 @@
     if(dismissBtn){
       dismissBtn.addEventListener("click", function(){
         snoozeNudge(7);
-        banner.remove();
+        el.remove();
       });
     }
+  }
+  function wireNudge(container){
+    wireNudgeEl(container.querySelector(".nudge-banner"));
+  }
+
+  /* ---- floating popup variant — for pages with no inline banner
+     (lessons, home, topic/unit overviews) so those students get a
+     gentle reminder too, not just after finishing a graded attempt.
+     Shows at most once per browser tab session, after a delay so it
+     never appears the instant a page loads. ========================= */
+  function showNudgePopup(){
+    var el = document.createElement("div");
+    el.className = "nudge-popup";
+    el.setAttribute("role", "status");
+    el.innerHTML =
+      '<button type="button" class="nudge-dismiss nudge-popup-close" aria-label="Dismiss">&times;</button>' +
+      '<p class="nudge-popup-copy"><strong>Don’t lose this.</strong> Your quiz history and XP are saved on this device only — sign in with Google to keep them.</p>' +
+      '<button type="button" class="quiz-btn nudge-signin nudge-popup-btn">Sign in with Google</button>';
+    document.body.appendChild(el);
+    wireNudgeEl(el);
+    void el.offsetHeight; /* force layout so the opacity/transform transition below actually animates */
+    el.classList.add("show");
+    setTimeout(function(){ el.classList.remove("show"); setTimeout(function(){ el.remove(); }, 300); }, 16000);
+  }
+  function maybeShowNudgePopup(){
+    if(PAGES_WITH_INLINE_NUDGE[PAGE.page]) return;
+    if(!shouldShowNudge()) return;
+    var alreadyShown;
+    try{ alreadyShown = sessionStorage.getItem(NUDGE_POPUP_SESSION_KEY) === "1"; }catch(e){ alreadyShown = true; }
+    if(alreadyShown) return;
+    setTimeout(function(){
+      if(!shouldShowNudge()) return;
+      try{ sessionStorage.setItem(NUDGE_POPUP_SESSION_KEY, "1"); }catch(e){}
+      showNudgePopup();
+    }, 4000);
   }
 
   function clearProgressState(){
@@ -1101,6 +1139,7 @@
     paintXP();
     renderProgressPage();
     initAuth();
+    maybeShowNudgePopup();
   }
 
   if(document.readyState === "loading"){
