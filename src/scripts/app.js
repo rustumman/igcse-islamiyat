@@ -67,6 +67,9 @@
      ASSESSMENT ID PARSING + POOL BUILDING
      ========================================================= */
   var PER_ATTEMPT = { practice:3, quiz:4, "unit-test":8, "topic-challenge":12, "paper-challenge":16 };
+  /* Per-assessment overrides of PER_ATTEMPT, keyed by full assessment id.
+     Used when one assessment's pool has outgrown the kind-wide default. */
+  var PER_ATTEMPT_OVERRIDE = { "unit-test--2-1": 15 };
   var TRACKS_MASTERY = { practice:false, quiz:true, "unit-test":true, "topic-challenge":true, "paper-challenge":true };
   var KIND_LABEL = { practice:"Practice Quiz", quiz:"Quiz", "unit-test":"Unit Test", "topic-challenge":"Topic Challenge", "paper-challenge":"Paper Challenge" };
   var COMPLETION_XP = {
@@ -522,7 +525,7 @@
       mount.innerHTML = '<p class="mono" style="color:var(--muted); font-size:.85rem;">No questions in this pool yet.</p>';
       return;
     }
-    var perAttempt = Math.min(PER_ATTEMPT[kind] || pool.length, pool.length);
+    var perAttempt = Math.min(PER_ATTEMPT_OVERRIDE[assessmentId] || PER_ATTEMPT[kind] || pool.length, pool.length);
     var tracksMastery = !!TRACKS_MASTERY[kind];
     var kindLabel = KIND_LABEL[kind] || "Quiz";
 

@@ -608,9 +608,154 @@ export const QUESTION_BANK = [
     correct:0, explain:"The chronological (Hijrah-based) criterion is the standard, exam-safe justification — location, length and mushaf position can all mislead." },
 
   { id:"2-1--preservation-of-quran--q1", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"During the Prophet’s own lifetime, what did NOT yet exist for the Qur’an?",
-    choices:["Any written record at all","A single bound book gathering every verse in a fixed order","Companions who had memorised the Qur’an","An annual review of the revealed text with Jibreel"],
-    correct:1, explain:"Verses were written on available materials and reviewed yearly with Jibreel, but a single bound volume in one fixed order was only compiled after the Prophet’s death and after revelation had ended — the subject of Topic 2.2." },
+    q:"How many independent “tracks” of preservation does this lesson describe as running during the Prophet’s lifetime?",
+    choices:["One","Two","Three","Four"],
+    correct:1, explain:"The two tracks were memorisation (by the huffaz) and writing (by the Scribes of the Revelation), running in parallel." },
+
+  { id:"2-1--preservation-of-quran--q2", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What were companions who had memorised the entire Qur’an called?",
+    choices:["Kuttab","Huffaz","Qurra’ al-Ashara","Ansar"],
+    correct:1, explain:"Huffaz is the term for those who had committed the complete Qur’an to memory." },
+
+  { id:"2-1--preservation-of-quran--q3", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Roughly how many huffaz were there by the time of the Prophet’s death?",
+    choices:["About a dozen","About fifty","In the hundreds","Over ten thousand"],
+    correct:2, explain:"By the Prophet’s death, companions who had memorised the entire Qur’an numbered in the hundreds." },
+
+  { id:"2-1--preservation-of-quran--q4", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"According to the hadith in Sahih al-Bukhari, which four companions did the Prophet specifically recommend learning Qur’anic recitation from?",
+    choices:["’Abdullah ibn Mas’ud, Salim, Mu’adh ibn Jabal, and Ubay ibn Ka’b","Abu Bakr, ’Umar, ’Uthman, and ’Ali","Zayd ibn Thabit, Khadija, Waraqah, and ’A’ishah","Bilal, Salman, Suhayb, and ’Ammar"],
+    correct:0, explain:"The Prophet named these four specifically as reliable teachers of Qur’anic recitation, per Sahih al-Bukhari." },
+
+  { id:"2-1--preservation-of-quran--q5", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What was the title given to the companions who wrote down the Qur’an as it was revealed?",
+    choices:["Kuttab al-Wahy (Scribes of the Revelation)","Huffaz al-Qur’an","Ahl as-Suffah","Al-Muhajirun"],
+    correct:0, explain:"Kuttab al-Wahy, “Scribes of the Revelation,” is the specific title for those who wrote down verses as they came." },
+
+  { id:"2-1--preservation-of-quran--q6", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Which companion is named in this lesson as one of the Scribes of the Revelation, and later played a central role in compiling the Qur’an after the Prophet’s death?",
+    choices:["Zayd ibn Thabit","Waraqah ibn Nawfal","’Ubadah ibn as-Samit","Ya’la ibn Umayyah"],
+    correct:0, explain:"Zayd ibn Thabit served as a scribe during the Prophet’s lifetime and was later chosen to lead the compilation of the Qur’an after his death." },
+
+  { id:"2-1--preservation-of-quran--q7", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Which of the following was NOT one of the materials used to write down verses during the Prophet’s lifetime, according to this lesson?",
+    choices:["Palm-leaf stalks","Shoulder blades of animals","Sheets of paper from a bound printed book","Pieces of leather and parchment"],
+    correct:2, explain:"No printed paper or bound book existed yet — materials included palm-leaf stalks, flat stones, shoulder blades, leather and parchment." },
+
+  { id:"2-1--preservation-of-quran--q8", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Why, according to this lesson, was there still no single bound copy of the Qur’an during the Prophet’s own lifetime?",
+    choices:["Revelation was still ongoing, and verses could still be abrogated or reassigned in order","Writing materials did not exist at all","The Prophet forbade anyone from writing the Qur’an down","No companions were literate enough to write"],
+    correct:0, explain:"Binding a book before revelation itself had finished, while verses could still be abrogated or reordered, would not have made sense." },
+
+  { id:"2-1--preservation-of-quran--q9", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Who decided exactly where each new verse should be placed within its surah?",
+    choices:["Each individual scribe, using his own judgement","The Prophet, following Jibreel’s instruction","Abu Bakr, after the Prophet’s death","A council of huffaz"],
+    correct:1, explain:"The Prophet personally directed, on Jibreel’s instruction, exactly where each verse belonged — this was never left to a scribe’s own choice." },
+
+  { id:"2-1--preservation-of-quran--q10", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"How often did Jibreel review the revealed Qur’an with the Prophet?",
+    choices:["Only once, at the very end of his life","Every Ramadan","Every Friday","Only during the Hijrah"],
+    correct:1, explain:"Jibreel reviewed everything revealed so far with the Prophet every Ramadan throughout his prophethood." },
+
+  { id:"2-1--preservation-of-quran--q11", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What was different about the Ramadan review in the final year of the Prophet’s life?",
+    choices:["It happened twice instead of once","It did not happen at all that year","It was conducted by Zayd ibn Thabit instead of Jibreel","It included only half of the Qur’an"],
+    correct:0, explain:"In his final Ramadan, the review with Jibreel happened twice — later understood by companions as a sign his death was approaching." },
+
+  { id:"2-1--preservation-of-quran--q12", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Who is reported to have been present for the Prophet’s final, doubled Ramadan review?",
+    choices:["Zayd ibn Thabit","Waraqah ibn Nawfal","Khadija bint Khuwaylid","’Ubadah ibn as-Samit"],
+    correct:0, explain:"Zayd ibn Thabit is reported to have been present for this final review, part of why Abu Bakr later chose him to lead compilation." },
+
+  { id:"2-1--preservation-of-quran--q13", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Besides writing the Qur’an, what other tasks did the Scribes of the Prophet perform?",
+    choices:["Writing letters to rulers, recording treaties, and keeping administrative records","Leading the five daily prayers in the Prophet’s absence","Collecting the zakat in person from every household","Teaching the Arabic alphabet to children"],
+    correct:0, explain:"The same body of scribes also wrote diplomatic letters, treaty terms (such as Hudaybiyyah), and administrative/zakat records." },
+
+  { id:"2-1--preservation-of-quran--q14", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Which treaty is given as an example of an agreement the Scribes recorded in writing?",
+    choices:["The Treaty of Hudaybiyyah","The Constitution of Madinah","The Treaty of Yamama","The Pledge of ’Aqabah"],
+    correct:0, explain:"The Treaty of Hudaybiyyah is the example given of a formal agreement the Scribes recorded." },
+
+  { id:"2-1--preservation-of-quran--q15", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Which two companions does this lesson name as the ones most closely associated with recording the Qur’an specifically, among the several dozen who served as scribes?",
+    choices:["Zayd ibn Thabit and Ubay ibn Ka’b","Abu Bakr and ’Umar","Waraqah and Khadija","Bilal and Salman"],
+    correct:0, explain:"Zayd ibn Thabit and Ubay ibn Ka’b are the two names that recur most often in connection with writing down the Qur’an." },
+
+  { id:"2-1--preservation-of-quran--q16", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What is the key difference between “Scribes of the Prophet” and “Scribes of the Revelation” as titles?",
+    choices:["“Scribes of the Prophet” is the broader title, covering Qur’an-writing plus letters and administrative records; “Scribes of the Revelation” refers specifically to Qur’an-writing","They refer to two completely unrelated groups of people","“Scribes of the Revelation” is the broader title","There is no difference — the terms are fully interchangeable in every source"],
+    correct:0, explain:"“Scribes of the Prophet” covers a wider range of secretarial duties; “Scribes of the Revelation” (Kuttab al-Wahy) refers specifically to those recording the Qur’an." },
+
+  { id:"2-1--preservation-of-quran--q17", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Why did having both memorisation and writing matter, rather than relying on just one method?",
+    choices:["Each track acted as an independent check on the other, making the text far harder to corrupt or lose","Writing was considered more reliable, so memorisation was just a backup with no real value","Memorisation was forbidden, so writing was the only real method","They were actually the same method described two different ways"],
+    correct:0, explain:"Two independent tracks meant a single failure in one (a lost document, a mistaken memory) could be checked and corrected against the other." },
+
+  { id:"2-1--preservation-of-quran--q18", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What event, occurring within a year of the Prophet’s death, showed how the memorisation track alone could be put at risk?",
+    choices:["The Battle of Yamama, in which a large number of huffaz were killed","The Battle of Badr","The Farewell Pilgrimage","The Treaty of Hudaybiyyah"],
+    correct:0, explain:"The Battle of Yamama (12 AH) killed a large number of the Qur’an’s memorisers, prompting the later compilation effort — covered in the following unit." },
+
+  { id:"2-1--preservation-of-quran--q19", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Which unit of this course covers Abu Bakr’s and ’Uthman’s roles in compiling the Qur’an into one book?",
+    choices:["A separate unit (2.2), not this lesson","This same lesson, in full","The “Why Gradual Revelation” lesson","The “Conditions of Revelation” lesson"],
+    correct:0, explain:"Compilation after the Prophet’s death belongs to a separate unit (2.2), already covered in this project’s textbook, not to this during-his-lifetime lesson." },
+
+  { id:"2-1--preservation-of-quran--q20", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Why does this lesson’s Source Box disclose a gap in the Yasir Qadhi extraction used across this project?",
+    choices:["The relevant section of Qadhi’s book (Ch. 8, Section I, p. 125) falls outside the page range currently available, so cross-checked alternative sources were used instead","Yasir Qadhi’s book does not cover this topic at all","The Qadhi extraction contradicts all other sources on this topic","This lesson uses no academic sourcing at all"],
+    correct:0, explain:"The available extraction of Qadhi’s book reaches only to roughly page 80, short of Chapter 8’s page 125 — so this lesson draws on other cross-checked material instead." },
+
+  { id:"2-1--preservation-of-quran--q21", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Both Exam Lab questions in this lesson are catalogued by the exam board under which broader topic area?",
+    choices:["The First Islamic Community","History and Importance of the Qur’an","Articles of Faith","The Pillars of Islam"],
+    correct:0, explain:"Both questions are filed under “The First Islamic Community” because they’re framed around the Scribes as companions, even though their content matches this Qur’an-history lesson closely." },
+
+  { id:"2-1--preservation-of-quran--q22", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"In session J22 s11, what part (b) question was paired with “tasks performed by the Scribes”?",
+    choices:["Benefits of the Qur’an being available to everyone on the internet","Is it easier to record Islamic knowledge now than in the Prophet’s time?","Why was it important the Qur’an wasn’t revealed all at once?","Significance of the Qur’an being written as a book"],
+    correct:0, explain:"J22 s11’s part (b) asked about the benefits of the Qur’an’s availability on the internet." },
+
+  { id:"2-1--preservation-of-quran--q23", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"In session N25 w12, what part (b) question was paired with “main roles played by the Scribes of the Prophet”?",
+    choices:["Is it easier to record Islamic knowledge now than in the Prophet’s time?","Benefits of the Qur’an being available to everyone on the internet","Significance of the Qur’an being written as a book","How useful is it that Muslims can access the Qur’an in many formats?"],
+    correct:0, explain:"N25 w12’s part (b) asked whether recording Islamic knowledge is easier now than in the Prophet’s time." },
+
+  { id:"2-1--preservation-of-quran--q24", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What is the strongest way to answer “Is it easier to record Islamic knowledge now than in the Prophet’s time?” for full marks?",
+    choices:["Give a balanced answer: recording is faster and more accessible now, but accuracy still depends on the same kind of careful verification the Scribes and huffaz provided then","Simply answer “yes” with no further explanation","Simply answer “no” with no further explanation","Describe only the writing materials used in the Prophet’s time"],
+    correct:0, explain:"This AO2 question rewards weighing both sides rather than a one-sided yes/no answer." },
+
+  { id:"2-1--preservation-of-quran--q25", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What common exam mistake does this lesson’s third Source Box warn candidates about?",
+    choices:["Assuming a question filed under “First Islamic Community” cannot be about the Scribes’ Qur’an-writing role","Confusing the Scribes with the Rightly Guided Caliphs","Writing about the wrong battle entirely","Naming the wrong angel as the source of revelation"],
+    correct:0, explain:"The Source Box explains that despite the exam board’s topic label, these two questions’ content matches this lesson closely and should not be overlooked." },
+
+  { id:"2-1--preservation-of-quran--q26", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Which of these correctly separates this lesson’s scope from the next unit’s scope?",
+    choices:["This lesson: preservation while the Prophet was alive. The next unit: compilation after his death.","This lesson: compilation after his death. The next unit: preservation while he was alive.","Both lessons cover exactly the same time period.","Neither lesson has any defined time period."],
+    correct:0, explain:"This lesson is strictly about during-the-Prophet’s-lifetime preservation; the post-death compilation is a separate unit’s territory." },
+
+  { id:"2-1--preservation-of-quran--q27", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What convinced companions, in hindsight, that the Prophet’s death was approaching?",
+    choices:["Jibreel’s final Ramadan review of the Qur’an happening twice instead of once","A dream reported by ’A’ishah","The loss of huffaz at the Battle of Yamama","Waraqah ibn Nawfal’s death"],
+    correct:0, explain:"The doubling of the final Ramadan review was understood afterwards as a sign that the Prophet’s death was near — the Yamama losses came later, after his death." },
+
+  { id:"2-1--preservation-of-quran--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What role did Arabia’s existing oral culture play in the memorisation track of preservation?",
+    choices:["Arabs already prized and practised memorising long tribal poetry, which supported memorising the Qur’an accurately","It played no role at all — memorisation was a completely new skill for Arabs","It made memorisation harder, since poetry and Qur’an were seen as rivals","It only affected the writing track, not memorisation"],
+    correct:0, explain:"A culture already skilled at memorising long poetic works gave companions a strong foundation for memorising the Qur’an precisely." },
+
+  { id:"2-1--preservation-of-quran--q29", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"Why does the Prophet’s practice of directing verse-placement himself matter for this lesson’s argument?",
+    choices:["It shows the Qur’an’s order was fixed by revelation itself, not decided later by editors or compilers","It shows the Qur’an had no fixed order until ’Uthman’s time","It shows the scribes were free to arrange verses however they liked","It has no real significance for preservation"],
+    correct:0, explain:"Because the Prophet fixed each verse’s place under Jibreel’s instruction, the order was never left to later editorial choice — reinforcing that the text was safeguarded from the moment of revelation." },
+
+  { id:"2-1--preservation-of-quran--q30", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
+    q:"What is the safest way to open an answer that asks specifically about preservation “during the Prophet’s lifetime”?",
+    choices:["Describe the two parallel tracks — memorisation and writing — and Jibreel’s Ramadan reviews, without drifting into Abu Bakr or ’Uthman’s later compilation","Start with the Battle of Yamama and Abu Bakr’s compilation","Start with ’Uthman’s standard copies sent to different provinces","Discuss only the Cave of Hira narrative"],
+    correct:0, explain:"Keeping strictly to the during-lifetime content (memorisation, writing, Jibreel’s reviews) avoids the most common mark-losing drift into the later, separate compilation story." },
 
   { id:"2-2--preservation-before-compilation--q1", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
     q:"During the Prophet’s own lifetime, which TWO methods together preserved the Qur’an before any single bound book existed?",
