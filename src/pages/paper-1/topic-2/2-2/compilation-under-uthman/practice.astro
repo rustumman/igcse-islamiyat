@@ -1,0 +1,12 @@
+---
+import CourseLayout from '../../../../../layouts/CourseLayout.astro';
+
+const page = { page: "practice", paper: "paper-1", topic: "topic-2", unit: "2-2", lesson: "compilation-under-uthman" };
+const title = "Practice Quiz: Compilation under ’Uthman · IGCSE Islamiyat";
+const footerHtml = "Cambridge IGCSE Islamiyat 0493 &middot; Paper 1, Topic 2, Unit 2-2 &middot; Practice Quiz";
+const mainHtml = "<section class=\"chapter\">\r\n        <div class=\"wrap\">\r\n          <div class=\"chapter-head\">\r\n            <h1>Practice Quiz</h1>\r\n            <p class=\"ch-sub\">Compilation under ’Uthman &middot; Unit 2-2 &middot; ungraded, unlimited retries</p>\r\n          </div>\r\n          <div class=\"quiz-mount\" data-quiz=\"practice--2-2--compilation-under-uthman\"></div>\r\n\r\n          <div class=\"lesson-pager\">\r\n            <a class=\"pager-link\" href=\"lesson.html\"><span class=\"pg-label\">&larr; Back</span><div class=\"pg-title\">Compilation under ’Uthman</div></a>\r\n            <a class=\"pager-link next\" href=\"quiz.html\"><span class=\"pg-label\">Next &rarr;</span><div class=\"pg-title\">Quiz</div></a>\r\n          </div>\r\n        </div>\r\n      </section>";
+---
+
+<CourseLayout title={title} page={page} footerHtml={footerHtml}>
+  <main id="main" set:html={mainHtml} />
+</CourseLayout>

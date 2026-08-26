@@ -1,0 +1,12 @@
+---
+import CourseLayout from '../../layouts/CourseLayout.astro';
+
+const page = { page: "paper-challenge", paper: "paper-1" };
+const title = "Paper Challenge · Paper 1 · IGCSE Islamiyat";
+const footerHtml = "Cambridge IGCSE Islamiyat 0493 &middot; Paper 1 &middot; Paper Challenge";
+const mainHtml = "<section class=\"challenge-band\">\r\n        <div class=\"wrap\">\r\n          <p class=\"eyebrow\" style=\"color:#e8c77a;\">Paper challenge &middot; the broadest mix</p>\r\n          <h1 style=\"max-width:22ch; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;\">Every built topic in Paper 1, shuffled together. <span class=\"mastery-badge\" data-badge-for=\"paper-challenge--paper-1\" style=\"color:#e3e1d4; border-color:rgba(255,255,255,.3);\">Not started</span></h1>\r\n          <p class=\"lede\" style=\"max-width:60ch;\">Right now that means Topic 2 &mdash; as more topics in Paper 1 are built, this pool grows automatically to include them, with no changes needed here. Score 80% or higher to master it.</p>\r\n          <div class=\"quiz-mount\" data-quiz=\"paper-challenge--paper-1\" style=\"margin-top:32px; max-width:70ch;\"></div>\r\n        </div>\r\n      </section>\r\n\r\n      <div class=\"wrap\">\r\n        <div class=\"lesson-pager\">\r\n          <a class=\"pager-link\" href=\"index.html\"><span class=\"pg-label\">&larr; Back</span><div class=\"pg-title\">Paper 1 overview</div></a>\r\n        </div>\r\n      </div>";
+---
+
+<CourseLayout title={title} page={page} footerHtml={footerHtml}>
+  <main id="main" set:html={mainHtml} />
+</CourseLayout>
