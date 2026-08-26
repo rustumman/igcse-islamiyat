@@ -1,0 +1,1123 @@
+<title>The Book Preserved</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============ DESIGN TOKENS ============ */
+:root{
+  --bg: #f2f1ea;
+  --surface: #fbfaf5;
+  --surface-2: #eae8dd;
+  --ink: #1e2130;
+  --ink-soft: #4a4e63;
+  --muted: #6b6f85;
+  --border: #dcd9c9;
+  --border-strong: #c7c3ac;
+  --accent: #2b3a67;
+  --accent-strong: #1c2748;
+  --accent-tint: #e3e7f2;
+  --gold: #a3792f;
+  --gold-tint: #f1e6cd;
+  --good: #3c6e47;
+  --good-tint: #e3ede4;
+  --shadow: 0 1px 2px rgba(30,33,48,.06), 0 8px 24px -12px rgba(30,33,48,.18);
+  --radius: 3px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg: #12141c;
+    --surface: #191c27;
+    --surface-2: #20242f;
+    --ink: #e9e6da;
+    --ink-soft: #c2c2cf;
+    --muted: #8d90a3;
+    --border: #2c3040;
+    --border-strong: #3a3f52;
+    --accent: #93a7e0;
+    --accent-strong: #b9c6ec;
+    --accent-tint: #232a42;
+    --gold: #d9b45f;
+    --gold-tint: #33291a;
+    --good: #7ec28d;
+    --good-tint: #1e2c22;
+    --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px -14px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg: #12141c;
+  --surface: #191c27;
+  --surface-2: #20242f;
+  --ink: #e9e6da;
+  --ink-soft: #c2c2cf;
+  --muted: #8d90a3;
+  --border: #2c3040;
+  --border-strong: #3a3f52;
+  --accent: #93a7e0;
+  --accent-strong: #b9c6ec;
+  --accent-tint: #232a42;
+  --gold: #d9b45f;
+  --gold-tint: #33291a;
+  --good: #7ec28d;
+  --good-tint: #1e2c22;
+  --shadow: 0 1px 2px rgba(0,0,0,.35), 0 10px 28px -14px rgba(0,0,0,.6);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
+  font-size:17px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important;}
+}
+
+h1,h2,h3,h4{
+  font-family:"Fraunces", Georgia, serif;
+  font-weight:600;
+  color:var(--ink);
+  text-wrap:balance;
+  margin:0;
+}
+.mono{font-family:"IBM Plex Mono", ui-monospace, monospace;}
+.arabic{font-family:"Amiri", serif; direction:rtl; unicode-bidi:isolate;}
+
+a{color:var(--accent);}
+::selection{background:var(--gold-tint); color:var(--ink);}
+
+button, .btn{font-family:inherit; cursor:pointer;}
+:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+.wrap{max-width:1180px; margin:0 auto; padding:0 clamp(16px,4vw,48px);}
+.prose-col{max-width:66ch; margin:0 auto;}
+
+/* ============ SKIP LINK ============ */
+.skip-link{position:absolute; left:-9999px; top:0; background:var(--accent); color:#fff; padding:10px 16px; z-index:200;}
+.skip-link:focus{left:16px; top:16px;}
+
+/* ============ TOP BAR / NAV ============ */
+.topbar{
+  position:sticky; top:0; z-index:100;
+  background:color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+}
+.topbar-inner{
+  max-width:1180px; margin:0 auto; padding:0 clamp(16px,4vw,48px);
+  display:flex; align-items:center; gap:24px; height:56px;
+}
+.brand{
+  font-family:"Fraunces", serif; font-weight:600; font-size:16px; letter-spacing:.01em;
+  white-space:nowrap; color:var(--ink);
+}
+.brand .dot{color:var(--gold);}
+.topnav{display:flex; gap:2px; overflow-x:auto; flex:1; scrollbar-width:none;}
+.topnav::-webkit-scrollbar{display:none;}
+.topnav a{
+  font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--muted); text-decoration:none; white-space:nowrap;
+  padding:8px 10px; border-radius:var(--radius); border:1px solid transparent;
+}
+.topnav a:hover{color:var(--ink); border-color:var(--border);}
+.topnav a.active{color:var(--accent); border-color:var(--border);}
+.progress-pill{
+  font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--muted);
+  border:1px solid var(--border); border-radius:99px; padding:4px 10px; white-space:nowrap;
+}
+
+/* ============ HERO ============ */
+.hero{
+  padding:clamp(48px,8vw,88px) 0 clamp(40px,6vw,64px);
+  border-bottom:1px solid var(--border);
+  background:
+    radial-gradient(1200px 480px at 85% -10%, var(--accent-tint), transparent 60%),
+    var(--bg);
+}
+.eyebrow{
+  font-family:"IBM Plex Mono", monospace; font-size:12px; letter-spacing:.12em; text-transform:uppercase;
+  color:var(--gold); display:flex; align-items:center; gap:10px; margin-bottom:18px;
+}
+.eyebrow::before{content:""; width:24px; height:1px; background:var(--gold);}
+.hero h1{
+  font-size:clamp(2.2rem, 5vw, 3.6rem); line-height:1.05; font-weight:600; max-width:16ch;
+}
+.hero .subtitle{
+  font-size:clamp(1.05rem,2vw,1.3rem); color:var(--ink-soft); max-width:52ch; margin-top:18px; font-style:italic;
+}
+.hero-meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+.chip{
+  font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:.03em;
+  border:1px solid var(--border-strong); border-radius:99px; padding:6px 13px; color:var(--ink-soft);
+}
+.chip b{color:var(--ink); font-weight:600;}
+
+/* ============ HOW TO USE / METHOD BAND ============ */
+.method{
+  background:var(--surface); border-bottom:1px solid var(--border); padding:clamp(36px,6vw,56px) 0;
+}
+.method-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:1px;
+  background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;
+}
+.method-card{background:var(--surface); padding:22px 20px;}
+.method-card .num{font-family:"Fraunces",serif; font-size:1.6rem; color:var(--gold); font-weight:600;}
+.method-card h4{font-size:.98rem; margin:8px 0 6px;}
+.method-card p{margin:0; font-size:.89rem; color:var(--ink-soft); line-height:1.55;}
+
+/* ============ CHAPTER STRUCTURE ============ */
+.chapter{padding:clamp(56px,8vw,96px) 0; border-bottom:1px solid var(--border);}
+.chapter:nth-of-type(even){background:var(--surface);}
+.chapter-head{display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:end; margin-bottom:44px;}
+.chapter-num{
+  font-family:"Fraunces", serif; font-weight:600; font-size:clamp(3.2rem,8vw,5.5rem); line-height:.85;
+  color:var(--accent); opacity:.9;
+}
+.chapter-head h2{font-size:clamp(1.6rem,3.4vw,2.5rem);}
+.chapter-head .ch-sub{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted); margin-top:8px; letter-spacing:.02em;}
+
+.lede{font-size:1.18rem; color:var(--ink-soft); max-width:62ch; font-style:italic; margin-bottom:8px;}
+
+/* ============ CALLOUT / PRIMER BOXES ============ */
+.box{
+  border:1px solid var(--border-strong); border-radius:var(--radius); padding:22px 24px; margin:32px auto; max-width:66ch;
+  background:var(--surface);
+}
+.box-predict{border-left:4px solid var(--gold); background:var(--gold-tint);}
+.box-source{border-left:4px solid var(--accent); background:var(--accent-tint);}
+.box-elaborate{border-left:4px solid var(--good); background:var(--good-tint);}
+.box-label{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-soft); margin-bottom:10px; display:flex; align-items:center; gap:8px;
+}
+.box p{margin:0 0 10px;}
+.box p:last-child{margin-bottom:0;}
+.box blockquote{margin:10px 0; padding-left:14px; border-left:2px solid var(--border-strong); color:var(--ink-soft); font-style:italic;}
+
+/* ============ RETRIEVAL / QUIZ CARDS ============ */
+.retrieval{
+  max-width:66ch; margin:32px auto; border:1px solid var(--border-strong); border-radius:var(--radius); overflow:hidden;
+  background:var(--surface); box-shadow:var(--shadow);
+}
+.retrieval > summary{
+  list-style:none; cursor:pointer; padding:16px 20px; display:flex; gap:12px; align-items:flex-start;
+  font-family:"Source Serif 4",serif; font-weight:600; color:var(--ink);
+  background:var(--surface-2);
+}
+.retrieval > summary::-webkit-details-marker{display:none;}
+.retrieval > summary .q-tag{
+  font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.06em; color:#fff;
+  background:var(--accent); border-radius:3px; padding:2px 7px; flex:none; margin-top:3px;
+}
+.retrieval > summary::after{
+  content:"reveal"; margin-left:auto; font-family:"IBM Plex Mono",monospace; font-size:10.5px;
+  color:var(--muted); text-transform:uppercase; letter-spacing:.06em; flex:none;
+}
+.retrieval[open] > summary::after{content:"hide";}
+.retrieval .answer{padding:16px 20px 20px; border-top:1px solid var(--border); color:var(--ink-soft);}
+.retrieval .answer p:first-child{margin-top:0;}
+.self-score{display:flex; gap:8px; margin-top:14px;}
+.self-score button{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.04em; text-transform:uppercase;
+  border:1px solid var(--border-strong); background:var(--surface); color:var(--ink-soft);
+  padding:6px 12px; border-radius:99px;
+}
+.self-score button.got-it.on{background:var(--good-tint); border-color:var(--good); color:var(--good);}
+.self-score button.missed.on{background:var(--gold-tint); border-color:var(--gold); color:var(--gold);}
+
+/* ============ TIMELINE ============ */
+.timeline{max-width:70ch; margin:36px auto; position:relative; padding-left:28px; border-left:2px solid var(--border-strong);}
+.tl-item{position:relative; padding-bottom:26px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{
+  content:""; position:absolute; left:-34px; top:4px; width:11px; height:11px; border-radius:50%;
+  background:var(--accent); border:2px solid var(--bg);
+}
+.tl-date{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--gold); letter-spacing:.03em;}
+.tl-item h4{font-size:1.02rem; margin:4px 0 4px;}
+.tl-item p{margin:0; color:var(--ink-soft); font-size:.94rem;}
+
+/* ============ TWO-COLUMN COMPARE ============ */
+.compare{display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; max-width:76ch; margin:32px auto;}
+@media (max-width:640px){.compare{grid-template-columns:1fr;}}
+.compare > div{background:var(--surface); padding:20px 22px;}
+.compare h4{font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); margin-bottom:12px;}
+.compare ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:.93rem;}
+.compare li{margin-bottom:7px;}
+
+/* ============ HADITH / AYAH PULL ============ */
+.pull{
+  max-width:64ch; margin:36px auto; text-align:center; padding:28px 10px;
+  border-top:1px solid var(--border-strong); border-bottom:1px solid var(--border-strong);
+}
+.pull .arabic{font-size:1.5rem; color:var(--accent); display:block; margin-bottom:12px; line-height:1.9;}
+.pull .translation{font-size:1.08rem; font-style:italic; color:var(--ink);}
+.pull .cite{display:block; margin-top:10px; font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted); font-style:normal;}
+
+/* ============ FLOWCHART / STEPS ============ */
+.steps{max-width:70ch; margin:32px auto; display:flex; flex-direction:column; gap:0;}
+.step{display:grid; grid-template-columns:44px 1fr; gap:16px; padding:14px 0; border-bottom:1px dashed var(--border-strong);}
+.step:last-child{border-bottom:none;}
+.step .n{font-family:"Fraunces",serif; font-weight:600; font-size:1.3rem; color:var(--gold);}
+.step h4{font-size:.98rem; margin-bottom:3px;}
+.step p{margin:0; font-size:.92rem; color:var(--ink-soft);}
+
+/* ============ EXAM LAB (past-paper model answers) ============ */
+.examlab{
+  max-width:70ch; margin:40px auto; border:1px solid var(--border-strong); border-radius:var(--radius);
+  background:var(--surface); box-shadow:var(--shadow);
+}
+.examlab-head{
+  padding:18px 24px; border-bottom:1px solid var(--border); display:flex; justify-content:space-between; gap:12px; align-items:center;
+  background:linear-gradient(180deg, var(--surface-2), var(--surface));
+}
+.examlab-head .tag{font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--muted); letter-spacing:.04em;}
+.examlab-head h4{font-size:1.05rem;}
+.examlab-body{padding:22px 24px;}
+.marks{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:#fff; background:var(--accent); border-radius:3px; padding:2px 8px;}
+.ao-block{margin-top:18px; padding-top:16px; border-top:1px dashed var(--border-strong);}
+.ao-block .ao-label{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); margin-bottom:8px;}
+.examlab-body ol{padding-left:20px; color:var(--ink-soft);}
+.examlab-body ol li{margin-bottom:8px;}
+.examiner-note{margin-top:16px; padding:12px 14px; background:var(--gold-tint); border-left:3px solid var(--gold); font-size:.88rem; color:var(--ink-soft); border-radius:2px;}
+
+/* ============ CUMULATIVE INTERLEAVE QUIZ ============ */
+.interleave{background:var(--accent-strong); color:#f1efe4; padding:clamp(56px,8vw,96px) 0;}
+.interleave h2, .interleave .lede{color:#f1efe4;}
+.interleave .lede{opacity:.85;}
+.interleave-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-top:36px;}
+.il-card{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:var(--radius); padding:20px;}
+.il-card .il-topic{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:#c9d1ec;}
+.il-card p{color:#f1efe4; margin:10px 0;}
+.il-card details summary{cursor:pointer; color:#e8c77a; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.04em; text-transform:uppercase; list-style:none;}
+.il-card details summary::-webkit-details-marker{display:none;}
+.il-card details[open] summary{margin-bottom:8px;}
+.il-card .il-ans{color:#d6d9ea; font-size:.92rem;}
+#shuffleBtn{
+  margin-top:28px; background:var(--gold); color:#211a0a; border:none; padding:12px 22px; border-radius:99px;
+  font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.06em; text-transform:uppercase; font-weight:600;
+}
+
+/* ============ REVIEW PLANNER ============ */
+.planner{padding:clamp(56px,8vw,96px) 0;}
+.plan-table{width:100%; border-collapse:collapse; max-width:76ch; margin:32px auto 0;}
+.plan-table th{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted);
+  text-align:left; padding:10px 12px; border-bottom:2px solid var(--border-strong);
+}
+.plan-table td{padding:12px; border-bottom:1px solid var(--border); font-size:.94rem; vertical-align:middle;}
+.plan-table tr:last-child td{border-bottom:none;}
+.plan-table .day{font-family:"IBM Plex Mono",monospace; color:var(--accent); font-weight:600;}
+.plan-table input[type="checkbox"]{width:18px; height:18px; accent-color:var(--good);}
+.reset-planner{
+  margin-top:16px; background:none; border:1px solid var(--border-strong); color:var(--muted);
+  padding:7px 14px; border-radius:99px; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.04em;
+}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--border); padding:32px 0; text-align:center;}
+footer p{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--muted);}
+
+@media (max-width:720px){
+  .chapter-head{grid-template-columns:1fr;}
+  .chapter-num{font-size:3rem;}
+}
+</style>
+
+<a class="skip-link" href="#ch21">Skip to Chapter 2.1</a>
+
+<div class="topbar">
+  <div class="topbar-inner wrap">
+    <span class="brand">The Book Preserved<span class="dot">·</span></span>
+    <nav class="topnav" id="topnav" aria-label="Chapter navigation">
+      <a href="#method">Method</a>
+      <a href="#ch21">2.1 Revelation</a>
+      <a href="#ch22">2.2 Compilation</a>
+      <a href="#ch23">2.3 Legal Thinking</a>
+      <a href="#interleave">Exam Lab</a>
+      <a href="#planner">Review Plan</a>
+    </nav>
+    <span class="progress-pill mono" id="progressPill">0 / 24 retrieved</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">IGCSE Islamiyat 0493 &nbsp;·&nbsp; Paper 1, Topic 2</p>
+    <h1>The Book Preserved</h1>
+    <p class="subtitle">How a revelation spoken across twenty-three years, to one unlettered man in the hills above Makkah, became the single fixed text a billion and a half people recite today &mdash; and why examiners keep asking you to prove you understand how.</p>
+    <div class="hero-meta">
+      <span class="chip"><b>2.1</b> Revelation of the Qur&rsquo;an</span>
+      <span class="chip"><b>2.2</b> Compilation under the Khalifas</span>
+      <span class="chip"><b>2.3</b> The Qur&rsquo;an in Legal Thinking</span>
+      <span class="chip">AO1 68% &middot; AO2 32%</span>
+    </div>
+  </div>
+</header>
+
+<section class="method" id="method">
+  <div class="wrap">
+    <p class="eyebrow">Before you start reading</p>
+    <h2 style="font-size:clamp(1.5rem,3vw,2rem); max-width:26ch;">This book is built to be forgotten &mdash; on purpose.</h2>
+    <p class="prose-col" style="color:var(--ink-soft); margin-top:14px;">Re-reading a paragraph until it feels familiar is the least effective way to learn it, even though it <em>feels</em> productive. Cognitive scientists Peter Brown, Henry Roediger and Mark McDaniel spent a decade testing what actually works, and published it as <em>Make It Stick: The Science of Successful Learning</em>. Four of their findings are built directly into every chapter here:</p>
+    <div class="method-grid" style="margin-top:28px;">
+      <div class="method-card">
+        <div class="num">01</div>
+        <h4>Retrieval practice</h4>
+        <p>Every few paragraphs you'll hit a closed card. Answer it from memory <em>before</em> you open it &mdash; the struggle to recall is what wires the fact in, not the reading.</p>
+      </div>
+      <div class="method-card">
+        <div class="num">02</div>
+        <h4>Generation</h4>
+        <p>Chapters open with a question you can't yet answer. Guessing first &mdash; even wrongly &mdash; makes the correct answer, once you meet it, stick harder than if you'd just been told.</p>
+      </div>
+      <div class="method-card">
+        <div class="num">03</div>
+        <h4>Interleaving</h4>
+        <p>The Exam Lab near the end mixes questions from 2.1, 2.2 and 2.3 in random order, the way the real paper will, instead of drilling one topic in a block.</p>
+      </div>
+      <div class="method-card">
+        <div class="num">04</div>
+        <h4>Spaced retrieval</h4>
+        <p>A short planner at the end schedules you to retest yourself on Day 1, 3, 7 and 16 &mdash; the intervals that convert short-term recall into long-term memory.</p>
+      </div>
+    </div>
+    <p class="prose-col" style="color:var(--muted); margin-top:24px; font-size:.92rem;">One honest warning from the same research: none of this will feel as smooth as highlighting a textbook. That difficulty is called a <em>desirable difficulty</em> &mdash; the friction is the mechanism, not a design flaw. Push through it.</p>
+  </div>
+</section>
+
+<!-- ================= CHAPTER 2.1 ================= -->
+<section class="chapter" id="ch21">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="chapter-num">2.1</div>
+      <div>
+        <h2>The Revelation of the Qur&rsquo;an</h2>
+        <p class="ch-sub">610 &ndash; 632 CE &middot; Cave of Hira, Makkah &amp; Madinah &middot; al-Wahy, the descent of the divine word</p>
+      </div>
+    </div>
+
+    <p class="lede prose-col">For twenty-three years, a message arrived to one man in fragments &mdash; sometimes five verses, sometimes a single phrase &mdash; through a process so physically overwhelming it left him sweating on cold mornings. Understanding <em>how</em> that process worked is worth as many marks as understanding <em>what</em> was revealed.</p>
+
+    <div class="box box-predict">
+      <p class="box-label">&#9633; Predict before you read</p>
+      <p>Every scripture Muslims believe came before the Qur&rsquo;an &mdash; the Tawrah given to Musa, the Injeel given to &lsquo;Isa &mdash; is described as having been handed down essentially complete. The Qur&rsquo;an alone arrived in pieces, over more than two decades, often verse by verse in response to a specific event. Before reading on: write down two reasons you think that difference might exist. You'll meet the examiner's version of your answer later in this chapter &mdash; compare notes.</p>
+    </div>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">What exactly is &lsquo;Wahy&rsquo;?</h3>
+    <p class="prose-col" style="margin-top:14px;">Muslims call the process by which God communicated the Qur&rsquo;an to the Prophet Muhammad (peace be upon him) <strong>al-wahy</strong> &mdash; inspiration, or divine communication. It was not a new phenomenon invented for him: the Qur&rsquo;an states that God has always spoken to His chosen messengers this way, naming Nuh, Ibrahim, Isma&rsquo;il, Ishaq, Ya&rsquo;qub, &rsquo;Isa, Ayyub and others as recipients of wahy before him (Qur&rsquo;an 4:163&ndash;165), and describing the general principle directly:</p>
+
+    <div class="pull">
+      <span class="translation">&ldquo;It is not for any human being that Allah should speak to him except by revelation, or from behind a veil, or that He sends a messenger to reveal, by His permission, what He wills.&rdquo;</span>
+      <span class="cite">Qur&rsquo;an 42:51</span>
+    </div>
+
+    <p class="prose-col">That single verse is effectively the syllabus for this section: it names the three channels through which revelation reached a prophet, and Muhammad (pbuh) is the only messenger in Islamic belief to have experienced all three. So central was this connection that when he died in 11 AH, his household's freed servant Umm Ayman was found weeping. Asked whether she wept because the Prophet had died and moved to something better, she replied that she knew that &mdash; she wept because <em>revelation from the sky had now stopped</em>. Abu Bakr and &rsquo;Umar wept with her.</p>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> Name the three channels of revelation named in Qur&rsquo;an 42:51.</summary>
+      <div class="answer">
+        <p>(1) Direct inspiration/revelation without an intermediary &mdash; including true dreams, and words placed directly into the heart. (2) Speech from behind a veil &mdash; God speaking directly but unseen, as with Musa at Mount Tur, and the Prophet Muhammad on the Night Journey. (3) Through a sent messenger &mdash; the angel Jibreel, the method by which almost the entire Qur&rsquo;an was delivered.</p>
+        <div class="self-score"><button class="got-it" data-q="r1">Got it</button><button class="missed" data-q="r1">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">How revelation physically arrived</h3>
+    <p class="prose-col" style="margin-top:14px;">Only two of those three channels concern the delivery of the Qur&rsquo;anic text itself, and both run through the angel Jibreel. &rsquo;A&rsquo;ishah, the Prophet's wife, was asked directly what revelation felt like to him, and her answer is one of the most quoted hadiths in this whole topic &mdash; it is worth memorising close to word for word:</p>
+
+    <div class="pull">
+      <span class="translation">&ldquo;Sometimes it is (revealed) like the ringing of a bell, and that is the hardest on me; then it leaves me and I have grasped what he said. And sometimes the angel comes to me in the form of a man and talks to me, and I grasp whatever he says.&rdquo;</span>
+      <span class="cite">Prophet Muhammad (pbuh), narrated by &rsquo;A&rsquo;ishah &middot; Sahih al-Bukhari</span>
+    </div>
+
+    <p class="prose-col">&rsquo;A&rsquo;ishah adds physical detail from her own observation: on even the coldest mornings, his forehead would be running with sweat by the time a revelation ended. Another companion, &rsquo;Ubadah ibn as-Samit, describes his face changing colour and his head lowering during the experience. A third narration &mdash; from Ya&rsquo;la ibn Umayyah, who once stood close enough to watch a revelation descend while the Prophet was in ihram &mdash; records his face turning deep red and a sound like snoring before he returned to normal, now able to answer the question that had prompted the revelation. Jibreel appeared to him in his true angelic form, filling the horizon, on only a handful of occasions &mdash; most famously the very first time, in the cave.</p>
+
+    <div class="box box-source">
+      <p class="box-label">&#9633; Where this comes from</p>
+      <p>This chapter draws on Abu Ammaar Yasir Qadhi's academic study <em>An Introduction to the Sciences of the Qur&rsquo;aan</em> (Al-Hidaayah, 1999) for the classification of wahy, cross-checked against the hadith collections of Sahih al-Bukhari and Sahih Muslim directly. Where the Qur&rsquo;an or a hadith is quoted, treat the quotation itself as exam-ready &mdash; examiners consistently reward candidates who can cite the actual wording rather than paraphrase it.</p>
+    </div>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> &rsquo;A&rsquo;ishah described revelation coming in two forms. Name both, and say which the Prophet found harder.</summary>
+      <div class="answer">
+        <p>(1) Like the ringing of a bell &mdash; the harder of the two, after which he had grasped the message. (2) The angel appearing in the form of a man, speaking to him directly &mdash; which he found easier to receive.</p>
+        <div class="self-score"><button class="got-it" data-q="r2">Got it</button><button class="missed" data-q="r2">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">The night in the cave</h3>
+    <p class="prose-col" style="margin-top:14px;">By the age of forty, Muhammad (pbuh) had developed a habit of withdrawing for days at a time to a small cave on Jabal al-Nur, a mountain just outside Makkah, to reflect in solitude. It was there, in Ramadan of the year that would come to be counted as 610 CE, that Jibreel appeared to him for the first time and issued a single command: <span class="arabic">اقرأ</span> &mdash; <strong>&ldquo;Iqra&rdquo;</strong>, &ldquo;Read.&rdquo;</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-date">Ramadan, 610 CE</span>
+        <h4>Jibreel commands &ldquo;Iqra&rdquo; &mdash; three times</h4>
+        <p>The Prophet, who could not read, replied each time, &ldquo;I am not one who reads.&rdquo; Each time Jibreel embraced him tightly until he reached the limit of his endurance, then released him and repeated the command.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Same night</span>
+        <h4>The first five verses are given</h4>
+        <p>Jibreel then recited what became the opening of Surah al-&rsquo;Alaq (96:1&ndash;5): &ldquo;Read in the name of your Lord who created &mdash; created man from a clinging substance. Read, and your Lord is the Most Generous &mdash; who taught by the pen &mdash; taught man that which he knew not.&rdquo;</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Same night</span>
+        <h4>He returns home trembling</h4>
+        <p>He hurried to his wife Khadijah and said, &ldquo;Cover me! Cover me!&rdquo; &mdash; convinced something terrible had happened to him.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Same night</span>
+        <h4>Khadijah's reassurance</h4>
+        <p>She answered him without hesitation, before either of them understood what had occurred.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">Days later</span>
+        <h4>Waraqah ibn Nawfal confirms it</h4>
+        <p>Khadijah's elderly cousin, a Christian familiar with the earlier scriptures, identifies the visitor and predicts what is coming.</p>
+      </div>
+    </div>
+
+    <div class="box">
+      <p class="box-label">&#9633; In her own words &mdash; Khadijah bint Khuwaylid</p>
+      <blockquote>&ldquo;Never! By Allah, Allah will never disgrace you. You keep good relations with your kith and kin, help the poor and the destitute, serve your guests generously, and assist those afflicted by calamity.&rdquo;</blockquote>
+      <p style="margin-top:10px;">She then took him to her cousin, <strong>Waraqah ibn Nawfal</strong>, an elderly man who had studied the Christian scriptures. On hearing the account, Waraqah said:</p>
+      <blockquote>&ldquo;This is the <em>Namus</em> [the same one who keeps secrets, i.e. Jibreel] that Allah sent down to Musa. I wish I were young, and could live up to the time when your people will turn you out.&rdquo; The Prophet asked, &ldquo;Will they turn me out?&rdquo; Waraqah replied, &ldquo;Yes &mdash; never has a man brought something similar to what you have brought without being treated with hostility. If I live to see that day, I will support you strongly.&rdquo;</blockquote>
+      <p style="margin-top:10px; font-size:.87rem; color:var(--muted);">Sahih al-Bukhari 3, narrated by &rsquo;A&rsquo;ishah</p>
+    </div>
+
+    <div class="box box-elaborate">
+      <p class="box-label">&#9633; Elaborate &mdash; explain it in your own words</p>
+      <p>Three different people responded to the same event in three different ways: the Prophet with fear, Khadijah with immediate practical faith, Waraqah with scriptural recognition and an accurate prediction of persecution to come. Without looking back at the text, explain out loud (or on paper) <em>why</em> each of their three reactions matters as evidence for Muslims that the revelation was genuine. This kind of reasoning is exactly what an AO2 &ldquo;(b) part&rdquo; question is testing.</p>
+    </div>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> Which surah and verses were revealed first, and who confirmed the identity of the angel?</summary>
+      <div class="answer">
+        <p>Surah al-&rsquo;Alaq, verses 1&ndash;5 (96:1&ndash;5), revealed in the Cave of Hira in Ramadan 610 CE. Waraqah ibn Nawfal, Khadijah's elderly Christian cousin, identified the visitor as Jibreel, the same angel sent to Musa, and predicted the Prophet would face hostility and expulsion.</p>
+        <div class="self-score"><button class="got-it" data-q="r3">Got it</button><button class="missed" data-q="r3">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">Why twenty-three years, and not one day?</h3>
+    <p class="prose-col" style="margin-top:14px;">The Prophet's opponents in Makkah raised this exact objection during his lifetime, and the Qur&rsquo;an answers it directly:</p>
+
+    <div class="pull">
+      <span class="translation">&ldquo;And those who disbelieve say, &lsquo;Why was the Qur&rsquo;an not revealed to him all at once?&rsquo; Thus [it is] that We may strengthen your heart thereby, and We have spaced it distinctly.&rdquo;</span>
+      <span class="cite">Qur&rsquo;an 25:32</span>
+    </div>
+
+    <p class="prose-col">Scholars of &rsquo;uloom al-Qur&rsquo;an draw out several distinct benefits from that answer &mdash; and a strong exam response cites more than one:</p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <div><h4>It strengthened the Prophet's heart</h4><p>Facing more than a decade of ridicule and persecution in Makkah with no guarantee of what came next, a steady trickle of support and reassurance sustained him in a way a single, distant text could not.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <div><h4>It matched how the message could be memorised and lived</h4><p>The first community was largely non-literate. Verses arriving in manageable portions could be memorised precisely, understood, and put into practice before the next portion arrived.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <div><h4>It allowed law to be introduced gradually</h4><p>Deeply rooted habits &mdash; the clearest example is the drinking of alcohol &mdash; were addressed across several revelations of increasing firmness (2:219, then 4:43, then finally 5:90&ndash;91) rather than an outright ban imposed on a society not yet ready to keep it.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <div><h4>It let revelation answer real events as they happened</h4><p>Many verses were sent down in direct response to a question the Prophet was asked, a dispute in the community, or a specific incident &mdash; this is the science of <em>asbab al-nuzul</em>, the &ldquo;occasions of revelation.&rdquo; A single one-time text could not have done this.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">5</span>
+        <div><h4>It stood as evidence against the charge of forgery</h4><p>An unlettered man inventing scripture alone would have produced it all at once, from memory of what he already believed. A message that kept arriving, unpredictably, over twenty-three years, responding to events he could not have anticipated, is much harder to explain as human authorship.</p></div>
+      </div>
+    </div>
+
+    <div class="box box-source">
+      <p class="box-label">&#9633; One layer deeper &mdash; how scholars describe the descent itself</p>
+      <p>Qadhi's study outlines a majority scholarly view that revelation moved in three stages before reaching the Prophet: first inscribed in full on the <strong>Lawh al-Mahfooz</strong> (the Preserved Tablet, Qur&rsquo;an 85:21&ndash;22); then sent down in its entirety to the lowest heaven on <strong>Laylat al-Qadr</strong>, the Night of Decree, in Ramadan (97:1); and only then delivered to the Prophet piecemeal across the following twenty-three years as circumstances required. Ibn &rsquo;Abbas is recorded explaining it this way, and Imam Abu Shaamah later argued the middle stage let Muhammad's revelation both match the pattern of earlier prophets and still be distinguished by its gradual delivery. This detail sits above what the exam requires &mdash; but a candidate who can mention it accurately signals real depth of reading.</p>
+    </div>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> Give three distinct reasons the Qur&rsquo;an was revealed gradually rather than all at once.</summary>
+      <div class="answer">
+        <p>Any three of: it strengthened the Prophet's heart during hardship; it suited memorisation and practice by a largely non-literate community; it allowed gradual, achievable legislation (e.g. the staged prohibition of alcohol); it let revelation respond directly to real events (asbab al-nuzul); it stood as evidence against any claim that the Prophet had authored it himself.</p>
+        <div class="self-score"><button class="got-it" data-q="r4">Got it</button><button class="missed" data-q="r4">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <div class="examlab">
+      <div class="examlab-head">
+        <div>
+          <div class="tag">PAST PAPER &middot; 0493/11 &middot; PAPER 1, Q2</div>
+          <h4>(a) Describe the different ways in which the Prophet (pbuh) received revelation. <span class="marks">10 marks</span></h4>
+        </div>
+      </div>
+      <div class="examlab-body">
+        <p style="color:var(--ink-soft);">This exact question &mdash; in close variants &mdash; has appeared in May/June 2021, May/June 2022, May/June 2023, Oct/Nov 2024 and Nov 2025 sessions. It is one of the most reliably recurring questions in the whole syllabus. Model answer structure for the 10-mark (a) part:</p>
+        <div class="ao-block">
+          <p class="ao-label">AO1 &middot; model answer points</p>
+          <ol>
+            <li>True dreams, before formal prophethood began &mdash; &rsquo;A&rsquo;ishah reports these always came true, &ldquo;like the break of dawn.&rdquo;</li>
+            <li>Direct speech from Allah, described as &ldquo;from behind a veil&rdquo; &mdash; the method used with Musa at Mount Tur, and with the Prophet during the Night Journey (al-Isra wal-Mi&rsquo;raj).</li>
+            <li>Through the angel Jibreel appearing &ldquo;like the ringing of a bell&rdquo; &mdash; described by the Prophet himself as the hardest form to receive.</li>
+            <li>Through the angel Jibreel appearing in the form of a man, speaking to him directly &mdash; easier to receive, and the form in which companions sometimes witnessed him receiving revelation.</li>
+            <li>Jibreel appearing in his true, enormous angelic form &mdash; witnessed only rarely, including at the very first revelation in the Cave of Hira.</li>
+            <li>Physical evidence accompanying revelation: sweating even in cold weather, a change in facial colour, a sound resembling snoring, and a temporary loss of awareness of his surroundings.</li>
+          </ol>
+        </div>
+        <div class="ao-block">
+          <p class="ao-label">Part (b) &middot; AO2 &mdash; 4 marks</p>
+          <p style="color:var(--ink-soft);">A typical follow-up: <em>&ldquo;Why was it important the Qur&rsquo;an wasn't revealed all at once?&rdquo;</em> Answer using the five reasons from the Steps section above &mdash; pick two, explain each in a sentence, and where possible tie one back to a named example (the staged prohibition of alcohol is the strongest, most specific example to use).</p>
+        </div>
+        <div class="examiner-note"><strong>Examiner pattern:</strong> across the 2021&ndash;2025 papers, candidates consistently lose marks for naming only one or two methods of revelation and stopping, rather than working through the full range above. Aim to cover at least four distinct methods with one supporting detail each, rather than one method described at length.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CHAPTER 2.2 ================= -->
+<section class="chapter" id="ch22">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="chapter-num">2.2</div>
+      <div>
+        <h2>The Compilation of the Qur&rsquo;an under the Khalifas</h2>
+        <p class="ch-sub">632 &ndash; 656 CE &middot; Madinah &middot; from memorised recitation to a single standard book</p>
+      </div>
+    </div>
+
+    <p class="lede prose-col">The Qur&rsquo;an was complete &mdash; every verse revealed &mdash; the moment the Prophet died in 11 AH. It was not, however, a book. It lived in the memories of hundreds of companions and on scattered fragments of bone, bark and parchment. Two Caliphs, a generation apart, turned that living memory into the single fixed text every printed Qur&rsquo;an in the world today still matches, letter for letter.</p>
+
+    <div class="box box-predict">
+      <p class="box-label">&#9633; Predict before you read</p>
+      <p>Two separate compilation efforts happened within about fifteen years of each other &mdash; one under Abu Bakr, one under &rsquo;Uthman. If the Qur&rsquo;an had already been written down once under Abu Bakr, why would &rsquo;Uthman need to do the job again? Write a guess. The answer is not &ldquo;the first copy was lost or wrong&rdquo; &mdash; hold that thought.</p>
+    </div>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">Preserved twice over, from the very first day</h3>
+    <p class="prose-col" style="margin-top:14px;">During the Prophet's own lifetime the Qur&rsquo;an was already being preserved through two parallel, deliberate methods, not left to chance.</p>
+    <p class="prose-col">The first was memorisation. Companions known as the <strong>huffaz</strong> (those who had memorised the entire text) numbered in the hundreds by the time of the Prophet's death, and the Prophet himself reviewed the whole revealed Qur&rsquo;an with Jibreel once every Ramadan &mdash; and, significantly, <em>twice</em> in the final Ramadan of his life, which companions later understood as a sign his death was near.</p>
+    <p class="prose-col">The second was writing. The Prophet appointed dedicated <strong>Scribes of the Revelation</strong> (Kuttab al-Wahy) &mdash; among them a young Ansari companion named <strong>Zayd ibn Thabit</strong>, who will matter enormously later in this chapter &mdash; to record each verse as it was revealed, on whatever material was to hand: palm-leaf stalks, thin flat stones, shoulder blades of animals, pieces of leather and parchment. What did <em>not</em> yet exist was a single bound volume gathering every verse in one place, in a fixed order, between two covers. There was a simple reason for that: while the Prophet was alive, revelation was still arriving, and verses could still be abrogated or reordered by divine instruction (naskh) &mdash; binding it into one finished book before revelation itself was finished would have made no sense.</p>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> Name the two parallel methods used to preserve the Qur&rsquo;an during the Prophet's own lifetime.</summary>
+      <div class="answer">
+        <p>(1) Memorisation by the huffaz, checked yearly (twice in the final year) against the angel Jibreel's recitation. (2) Writing, by scribes such as Zayd ibn Thabit, onto available materials &mdash; palm-leaf stalks, flat stones, shoulder blades, leather and parchment &mdash; though not yet gathered into a single bound book.</p>
+        <div class="self-score"><button class="got-it" data-q="r5">Got it</button><button class="missed" data-q="r5">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">The first compilation &mdash; Abu Bakr, 12 AH</h3>
+    <p class="prose-col" style="margin-top:14px;">Within a year of the Prophet's death, the new Muslim state faced a crisis. Several Arab tribes rebelled against Madinah and rallied around a rival claimant to prophethood, <strong>Musaylimah</strong>. Caliph Abu Bakr sent an army to confront him at the <strong>Battle of Yamama</strong> (12 AH / 633 CE). The rebellion was crushed &mdash; but a large number of the Qur&rsquo;an's huffaz, reportedly around seventy, were among the Muslim dead.</p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <div><h4>&rsquo;Umar raises the alarm</h4><p>&rsquo;Umar ibn al-Khattab went to Abu Bakr, warning that if huffaz kept dying in battle at this rate across further campaigns, portions of the Qur&rsquo;an itself could be lost forever unless it was gathered into one authoritative written copy.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <div><h4>Abu Bakr hesitates, then agrees</h4><p>His first response was caution: &ldquo;How can I do something the Messenger of Allah did not do?&rdquo; &rsquo;Umar kept pressing until, by Abu Bakr's own account, &ldquo;Allah opened my chest for that which He had opened the chest of &rsquo;Umar.&rdquo;</p></div>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <div><h4>Zayd ibn Thabit is chosen &mdash; and hesitates too</h4><p>Abu Bakr summoned Zayd, by then a respected scribe who had personally heard the Prophet's own final recitation. Zayd's first reaction mirrored Abu Bakr's own: he called it a task heavier than moving a mountain. He accepted on the same reasoning &mdash; that refusing to safeguard the Qur&rsquo;an would be the greater risk.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <div><h4>A rigorous method, not a shortcut</h4><p>Zayd did not simply write from his own memory. He collected the Qur&rsquo;an &ldquo;from date-palm stalks, thin white stones, and the hearts of men,&rdquo; accepting each verse only where it was independently confirmed &mdash; matched against both a written record from the Prophet's own lifetime <em>and</em> corroborating testimony that it had been heard directly from the Prophet.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">5</span>
+        <div><h4>One finished mus-haf</h4><p>The completed single volume &mdash; called a <em>mus-haf</em> &mdash; was kept with Abu Bakr, then passed to &rsquo;Umar when he became Caliph, and on &rsquo;Umar's death passed to his daughter <strong>Hafsa bint &rsquo;Umar</strong>, one of the Prophet's widows, for safekeeping. It would matter again within twenty years.</p></div>
+      </div>
+    </div>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> What event triggered Abu Bakr's compilation, who first suggested it, and who carried it out?</summary>
+      <div class="answer">
+        <p>The Battle of Yamama (12 AH), where a large number of huffaz were killed fighting the false prophet Musaylimah's rebellion. &rsquo;Umar ibn al-Khattab suggested it to Abu Bakr, who after initial hesitation approved it. Zayd ibn Thabit carried out the compilation, verifying every verse against both written and eyewitness testimony.</p>
+        <div class="self-score"><button class="got-it" data-q="r6">Got it</button><button class="missed" data-q="r6">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">The second compilation &mdash; &rsquo;Uthman, c. 25 AH</h3>
+    <p class="prose-col" style="margin-top:14px;">By the time of the third Caliph, &rsquo;Uthman ibn &rsquo;Affan, the Muslim empire had spread far beyond Arabia. That created a new problem &mdash; not a risk of losing the text, but a risk of the text <em>fragmenting</em>.</p>
+    <p class="prose-col">The trigger came from a battlefield far from Madinah. The companion <strong>Hudhayfah ibn al-Yaman</strong>, serving on campaigns in Armenia and Azerbaijan, watched soldiers from Iraq and Syria argue over whose recitation of the Qur&rsquo;an was correct &mdash; each side had learned authentic but differently-voiced oral traditions, and each was now accusing the other of getting it wrong. Alarmed, Hudhayfah hurried back to Madinah and warned &rsquo;Uthman directly:</p>
+
+    <div class="pull">
+      <span class="translation">&ldquo;Save this nation before they differ about the Book as the Jews and Christians differed about their Books before them.&rdquo;</span>
+      <span class="cite">Hudhayfah ibn al-Yaman, to Caliph &rsquo;Uthman ibn &rsquo;Affan</span>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <div><h4>&rsquo;Uthman borrows Hafsa's mus-haf</h4><p>He sent for the original compilation kept by Hafsa bint &rsquo;Umar, to be used as the base copy &mdash; not started from scratch.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <div><h4>A four-man committee, led again by Zayd ibn Thabit</h4><p>Alongside Zayd sat three Qurayshi companions: &rsquo;Abdullah ibn al-Zubayr, Sa&rsquo;id ibn al-&rsquo;As, and &rsquo;Abd al-Rahman ibn al-Harith ibn Hisham. Their task was not to simply copy &mdash; they independently re-verified the text against written material and living witnesses, exactly as Zayd had done under Abu Bakr.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <div><h4>One rule for resolving disagreement</h4><p>&rsquo;Uthman instructed the three Qurayshi members: if they and Zayd (an Ansari, from Madinah) disagreed on how a word should be written, they were to write it in the dialect of Quraysh &mdash; &ldquo;for the Qur&rsquo;an was revealed in their tongue.&rdquo; This gave the project one clear, principled standard rather than an arbitrary compromise.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <div><h4>Several copies, sent to the empire's centres</h4><p>Standard copies were produced and dispatched to the major garrison cities &mdash; Kufa, Basra, Damascus &mdash; and Makkah, with one retained in Madinah. Every Muslim community now had access to an identical, authoritative text.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">5</span>
+        <div><h4>Other copies withdrawn</h4><p>&rsquo;Uthman then ordered that other partial or variant personal copies in circulation be gathered in and destroyed, removing the material basis for further dispute. Hafsa's original was returned to her.</p></div>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div>
+        <h4>Abu Bakr's compilation &middot; 12 AH</h4>
+        <ul>
+          <li><strong>Problem it solved:</strong> risk of losing verses as huffaz died in battle.</li>
+          <li><strong>Result:</strong> one single master copy, for safekeeping.</li>
+          <li><strong>Character:</strong> defensive &mdash; preserving what already existed.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>&rsquo;Uthman's compilation &middot; c. 25 AH</h4>
+        <ul>
+          <li><strong>Problem it solved:</strong> risk of the empire splitting into rival regional recitations.</li>
+          <li><strong>Result:</strong> several identical copies, distributed and enforced as standard.</li>
+          <li><strong>Character:</strong> unifying &mdash; standardising for a growing, diverse ummah.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="box box-elaborate">
+      <p class="box-label">&#9633; Elaborate &mdash; test your prediction</p>
+      <p>Go back to the guess you wrote at the start of this chapter. The real distinction examiners reward is not &ldquo;the first attempt was flawed&rdquo; &mdash; both compilations used the same rigorous method and produced the same accurate text. The distinction is <em>purpose</em>: Abu Bakr's was about preventing loss; &rsquo;Uthman's was about preventing division. State that distinction in your own sentence before moving on &mdash; this is one of the most commonly tested AO2 ideas in this whole topic.</p>
+    </div>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> Name &rsquo;Uthman's four-man committee, and the single rule used to resolve any disagreement on wording.</summary>
+      <div class="answer">
+        <p>Zayd ibn Thabit (leading, as under Abu Bakr), &rsquo;Abdullah ibn al-Zubayr, Sa&rsquo;id ibn al-&rsquo;As, and &rsquo;Abd al-Rahman ibn al-Harith ibn Hisham. Any disagreement between Zayd and the three Qurayshis was to be settled in favour of the Quraysh dialect, since the Qur&rsquo;an was revealed in that tongue.</p>
+        <div class="self-score"><button class="got-it" data-q="r7">Got it</button><button class="missed" data-q="r7">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">Why this matters &mdash; the AO2 layer</h3>
+    <p class="prose-col" style="margin-top:14px;">For Muslims, the human effort behind both compilations is not separate from divine protection &mdash; it is understood as the very mechanism through which God's own promise was fulfilled: <em>&ldquo;Indeed, it is We who sent down the Qur&rsquo;an, and indeed, We will be its guardian&rdquo;</em> (Qur&rsquo;an 15:9). &rsquo;Uthman's standard text, the <strong>Uthmanic mus-haf</strong>, is the direct ancestor of every printed Qur&rsquo;an in circulation today, in every country, in every language edition &mdash; which is why a reciter in Jakarta and a reciter in Lagos are reading, letter for letter, the same verses. It is also why the companion &rsquo;Ali ibn Abi Talib, who might otherwise have contested &rsquo;Uthman's authority to order the destruction of other copies, is recorded defending the decision fully: &ldquo;Do not speak ill of &rsquo;Uthman&hellip; he did not do what he did with the mus-hafs except with our full agreement.&rdquo;</p>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> Which verse do Muslims cite as God's promise to protect the Qur&rsquo;an, and how do the two compilations relate to that promise?</summary>
+      <div class="answer">
+        <p>Qur&rsquo;an 15:9 &mdash; &ldquo;Indeed, it is We who sent down the Qur&rsquo;an, and indeed, We will be its guardian.&rdquo; The two compilations are understood as the human means through which that divine guarantee was carried out &mdash; God's protection worked through, not instead of, the careful, verified efforts of Abu Bakr, &rsquo;Umar, Zayd ibn Thabit and &rsquo;Uthman.</p>
+        <div class="self-score"><button class="got-it" data-q="r8">Got it</button><button class="missed" data-q="r8">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <div class="examlab">
+      <div class="examlab-head">
+        <div>
+          <div class="tag">PAST PAPER &middot; 0493/12 &middot; PAPER 1, Q2</div>
+          <h4>(a) Describe the roles of Abu Bakr, &rsquo;Umar and &rsquo;Uthman in compiling and preserving the Qur&rsquo;an. <span class="marks">10 marks</span></h4>
+        </div>
+      </div>
+      <div class="examlab-body">
+        <div class="ao-block">
+          <p class="ao-label">AO1 &middot; model answer points</p>
+          <ol>
+            <li>Abu Bakr: authorised the first compilation after &rsquo;Umar's warning following the losses at the Battle of Yamama; appointed Zayd ibn Thabit; kept the finished mus-haf in his own safekeeping.</li>
+            <li>&rsquo;Umar: the one who first proposed compilation to Abu Bakr; inherited the mus-haf as Caliph; passed it to his daughter Hafsa for safekeeping before his death.</li>
+            <li>&rsquo;Uthman: responded to Hudhayfah's warning about regional recitation disputes; borrowed Hafsa's mus-haf as the base text; commissioned Zayd's second committee; enforced one standard Quraysh-dialect text across the empire; withdrew variant copies.</li>
+            <li>Zayd ibn Thabit (credit him even though not named in the question &mdash; he is the thread connecting all three Caliphs): led both compilation efforts personally, verifying every verse against written and oral testimony each time.</li>
+          </ol>
+        </div>
+        <div class="ao-block">
+          <p class="ao-label">Part (b) &middot; AO2 &mdash; 4 marks</p>
+          <p style="color:var(--ink-soft);">Typical prompt: <em>&ldquo;Significance of the Qur&rsquo;an being written as a book&rdquo;</em> or <em>&ldquo;Benefits of Muslims having a written Qur&rsquo;an.&rdquo;</em> Strong answers name concrete benefits: a fixed reference for settling disputes over wording; identical recitation across every Muslim country regardless of language; protection against the gradual drift or embellishment that affected earlier scriptures transmitted only orally or by hand across generations; a stable base text later scholars could safely build tafsir (interpretation) and Islamic law upon.</p>
+        </div>
+        <div class="examiner-note"><strong>Examiner pattern:</strong> candidates frequently conflate the two compilations into one event, or credit &rsquo;Uthman with the huffaz-related trigger that actually belongs to Abu Bakr's. Keep the two timelines and two triggers distinct &mdash; the compare table above is designed to fix that specific confusion.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= CHAPTER 2.3 ================= -->
+<section class="chapter" id="ch23">
+  <div class="wrap">
+    <div class="chapter-head">
+      <div class="chapter-num">2.3</div>
+      <div>
+        <h2>The Qur&rsquo;an in Legal Thinking</h2>
+        <p class="ch-sub">Its relationship with the Hadith, Ijma&rsquo; and Qiyas &middot; how the four sources build Islamic law together</p>
+      </div>
+    </div>
+
+    <p class="lede prose-col">A society needs more than a set of beliefs to function &mdash; it needs answers to concrete questions: how much charity is owed, what counts as a valid contract, how a new medical technology should be judged. Islamic law, <strong>Shari&rsquo;ah</strong>, answers those questions by drawing on four sources in a fixed order of authority &mdash; and the Qur&rsquo;an's exact relationship to the other three is one of the most consistently examined ideas in this whole syllabus.</p>
+
+    <div class="box box-predict">
+      <p class="box-label">&#9633; Predict before you read</p>
+      <p>The Qur&rsquo;an commands Muslims to pray (&ldquo;establish salah&rdquo;) in dozens of verses &mdash; but nowhere states how many times a day, how many units (raka&rsquo;at) each prayer contains, or the physical positions involved. Where do you think that missing detail comes from, and why might God have deliberately left it out of the Qur&rsquo;an itself? Write an answer before reading on.</p>
+    </div>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">Four sources, one hierarchy</h3>
+    <p class="prose-col" style="margin-top:14px;">Sunni Islamic legal theory (usul al-fiqh) recognises four sources of law, and their order matters as much as their content:</p>
+
+    <div class="steps">
+      <div class="step">
+        <span class="n">1</span>
+        <div><h4>The Qur&rsquo;an &mdash; the foundation</h4><p>The direct, unchanging word of God. It is the only source Muslims believe is divine in both wording and meaning, so nothing from any other source may ever contradict it. Some rulings are given in precise, explicit detail &mdash; the shares of inheritance (Surah 4:11&ndash;12), the punishment for theft (5:38) &mdash; while most guidance is given as broad principle, left for the next source to apply in practice.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">2</span>
+        <div><h4>The Sunnah / Hadith &mdash; the explanation</h4><p>The Prophet's own words, actions and silent approvals. Where the Qur&rsquo;an commands prayer without describing its mechanics, the Prophet supplied it directly: &ldquo;Pray as you have seen me praying.&rdquo; Where the Qur&rsquo;an commands zakat without stating a rate, the Prophet specified the nisab (minimum threshold) and percentage owed. The Sunnah cannot overturn a clear Qur&rsquo;anic ruling &mdash; its role is to clarify, specify and apply what the Qur&rsquo;an leaves in principle.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">3</span>
+        <div><h4>Ijma&rsquo; &mdash; consensus</h4><p>The unanimous agreement of qualified Muslim scholars on a ruling not explicitly settled by the first two sources. It only carries authority when the Qur&rsquo;an and Sunnah are silent on the specific question &mdash; it cannot invent a ruling that contradicts either.</p></div>
+      </div>
+      <div class="step">
+        <span class="n">4</span>
+        <div><h4>Qiyas &mdash; analogical reasoning</h4><p>Extending an existing ruling to a new situation that shares its underlying reason (&rsquo;illah), where no direct text or consensus yet exists. It is the most flexible source, and consequently the one used most cautiously &mdash; and last.</p></div>
+      </div>
+    </div>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> List the four sources of Islamic law in their order of authority.</summary>
+      <div class="answer">
+        <p>1. The Qur&rsquo;an. 2. The Sunnah/Hadith. 3. Ijma&rsquo; (consensus). 4. Qiyas (analogy). Each later source may only operate where the sources before it are silent, and none may contradict the Qur&rsquo;an.</p>
+        <div class="self-score"><button class="got-it" data-q="r9">Got it</button><button class="missed" data-q="r9">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">Answering the prediction: why the Qur&rsquo;an leaves gaps</h3>
+    <p class="prose-col" style="margin-top:14px;">The Qur&rsquo;an states its own relationship to the Prophet's example directly:</p>
+
+    <div class="pull">
+      <span class="translation">&ldquo;Whatever the Messenger has given you, take it; and whatever he has forbidden you, refrain from.&rdquo;</span>
+      <span class="cite">Qur&rsquo;an 59:7</span>
+    </div>
+
+    <p class="prose-col">The gap between principle and practice is not an oversight &mdash; it is deliberate design. A book meant to be recited and revered as unchanging divine speech is not the ideal format for procedural detail that a living, breathing teacher can demonstrate, correct, and adapt in real time. The Prophet's own life &mdash; witnessed, memorised and passed on by thousands of companions &mdash; became the working manual for applying the Qur&rsquo;an's principles, which is exactly why the Hadith sciences you may study elsewhere in this course (isnad, matn, the classification into Sahih, Hasan and Da&rsquo;if) matter so much: a legal system built partly on Hadith is only as reliable as its verification of which hadiths are authentic.</p>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> Give one specific example of the Qur&rsquo;an commanding something in principle, and the Sunnah supplying the missing practical detail.</summary>
+      <div class="answer">
+        <p>Salah: the Qur&rsquo;an commands Muslims to &ldquo;establish prayer&rdquo; but does not specify the number of daily prayers, their raka&rsquo;at, or their physical form &mdash; the Prophet supplied all of this by direct example: &ldquo;Pray as you have seen me praying.&rdquo; (Zakat's nisab and rate is an equally valid alternative example.)</p>
+        <div class="self-score"><button class="got-it" data-q="r10">Got it</button><button class="missed" data-q="r10">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">Ijma&rsquo; in practice</h3>
+    <p class="prose-col" style="margin-top:14px;">The clearest example of ijma&rsquo; sits inside the very last chapter you read: the decision to compile the Qur&rsquo;an into a single mus-haf was not commanded explicitly by the Qur&rsquo;an or the Prophet &mdash; it was a course of action the senior companions agreed on together, in response to a genuine new problem, using principles drawn from the Qur&rsquo;an and Sunnah to reach it. That is ijma&rsquo; functioning exactly as intended: filling a gap, never contradicting a text.</p>
+    <p class="prose-col">A second historical example: during the Battle of Uhud, the Prophet consulted his companions on whether to defend Madinah from within the city or meet the Makkan army in open ground. He personally favoured staying inside the city, but a majority of the younger companions argued for meeting them outside &mdash; and the Prophet followed the collective view. In the modern era, national and international bodies of Islamic scholars (fiqh councils) continue to issue ijma&rsquo;-based rulings on questions the earliest generations never had to face &mdash; organ donation and Islamic banking are two frequently cited examples.</p>
+
+    <div class="box box-elaborate">
+      <p class="box-label">&#9633; Elaborate &mdash; connect it back</p>
+      <p>A past-paper (b) question asks: <em>&ldquo;Why is ijma&rsquo; important in the Muslim world today?&rdquo;</em> Without looking anything up, write two sentences that connect ijma&rsquo; to a challenge facing Muslims that did not exist in the seventh century &mdash; something involving modern medicine, modern finance, or modern technology. Naming a real, specific example is worth more marks than a general statement that &ldquo;ijma&rsquo; helps Muslims agree.&rdquo;</p>
+    </div>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">Qiyas &mdash; reasoning by analogy</h3>
+    <p class="prose-col" style="margin-top:14px;">Qiyas works through four fixed components, and naming all four by their Arabic terms is exactly the kind of precision that separates a Grade A* answer from a Grade B one:</p>
+
+    <div class="compare">
+      <div>
+        <h4>The four components of qiyas</h4>
+        <ul>
+          <li><strong>Asl</strong> &mdash; the original case, already ruled on directly by the Qur&rsquo;an or Sunnah.</li>
+          <li><strong>Far&rsquo;</strong> &mdash; the new case, not directly addressed by any text.</li>
+          <li><strong>&rsquo;Illah</strong> &mdash; the underlying reason shared by both cases.</li>
+          <li><strong>Hukm</strong> &mdash; the ruling, transferred from the original case to the new one because the &rsquo;illah is shared.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Worked example: modern intoxicants</h4>
+        <ul>
+          <li><strong>Asl:</strong> the Qur&rsquo;an explicitly forbids khamr (wine, 5:90).</li>
+          <li><strong>&rsquo;Illah:</strong> khamr causes intoxication, clouding judgement and harming the body and community.</li>
+          <li><strong>Far&rsquo;:</strong> a modern recreational drug never mentioned in the Qur&rsquo;an or Sunnah.</li>
+          <li><strong>Hukm:</strong> forbidden by qiyas, since it shares wine's defining &rsquo;illah &mdash; intoxication.</li>
+        </ul>
+      </div>
+    </div>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> Name the four components of qiyas and apply them to the prohibition of a modern intoxicant.</summary>
+      <div class="answer">
+        <p>Asl (the original ruling &mdash; the Qur&rsquo;anic prohibition of khamr/wine), &rsquo;illah (the shared reason &mdash; intoxication), far&rsquo; (the new case &mdash; a modern drug), hukm (the ruling transferred to the new case &mdash; forbidden, because it shares the &rsquo;illah of intoxication with wine).</p>
+        <div class="self-score"><button class="got-it" data-q="r11">Got it</button><button class="missed" data-q="r11">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <p class="prose-col">Because qiyas depends on human reasoning to identify the &rsquo;illah correctly, scholars historically disagreed &mdash; sometimes sharply &mdash; over how far it could be pushed, and some legal schools rely on it more heavily than others. This is exactly the tension behind a recurring exam prompt: <em>&ldquo;Why might some Muslims be reluctant to use qiyas today?&rdquo;</em> A strong answer notes that because qiyas is a human, reasoned extension rather than a directly revealed text, an incorrectly identified &rsquo;illah risks producing a ruling God never actually intended &mdash; which is precisely why it sits fourth, used only once the first three sources have been exhausted.</p>
+
+    <h3 style="max-width:66ch; margin:40px auto 4px;" class="prose-col">Why the four work as one system</h3>
+    <p class="prose-col" style="margin-top:14px;">The recurring higher-mark question in this section &mdash; <em>&ldquo;How do the four sources of Islamic law work together in law-making?&rdquo;</em> &mdash; is really asking you to describe a hierarchy, not a list. Picture it as a single decision process a scholar works through in order: does the Qur&rsquo;an address this directly? If not, does an authentic hadith? If not, is there scholarly consensus? Only if all three are silent does qiyas apply &mdash; and even then, strictly by analogy to a principle the Qur&rsquo;an or Sunnah already established. No source at any stage may contradict the one above it. That constraint is what keeps Islamic law, across fourteen centuries and dozens of legal schools, still recognisably rooted in one Qur&rsquo;an.</p>
+
+    <details class="retrieval">
+      <summary><span class="q-tag">Retrieve</span> In one sentence, explain the rule that governs how all four sources relate to each other.</summary>
+      <div class="answer">
+        <p>Each source is only consulted once the sources above it in authority are silent on the question, and no source may ever contradict the Qur&rsquo;an &mdash; the hierarchy is Qur&rsquo;an, then Sunnah, then Ijma&rsquo;, then Qiyas.</p>
+        <div class="self-score"><button class="got-it" data-q="r12">Got it</button><button class="missed" data-q="r12">Missed it &mdash; review again later</button></div>
+      </div>
+    </details>
+
+    <div class="examlab">
+      <div class="examlab-head">
+        <div>
+          <div class="tag">PAST PAPER &middot; 0493/21 / 0493/22 &middot; PAPER 2, Q2</div>
+          <h4>(a) Explain how the four sources of Islamic Law are used together in law-making. <span class="marks">10 marks</span></h4>
+        </div>
+      </div>
+      <div class="examlab-body">
+        <div class="ao-block">
+          <p class="ao-label">AO1 &middot; model answer points</p>
+          <ol>
+            <li>The Qur&rsquo;an is the primary and highest source, direct in both wording and meaning from God; nothing may contradict it.</li>
+            <li>The Sunnah explains and applies Qur&rsquo;anic principle in practical detail &mdash; give a named example (salah or zakat).</li>
+            <li>Ijma&rsquo; is scholarly consensus used only where the Qur&rsquo;an and Sunnah are silent &mdash; give a named example (the compilation of the Qur&rsquo;an, or a modern fiqh-council ruling).</li>
+            <li>Qiyas extends an existing ruling to a new case sharing the same &rsquo;illah, used last and most cautiously &mdash; give a named example (khamr and modern intoxicants) and name its four parts (asl, far&rsquo;, &rsquo;illah, hukm).</li>
+            <li>State the governing principle explicitly: each source operates only where the ones above it are silent, and none may override the Qur&rsquo;an &mdash; this is the point examiners most reward, since it shows understanding of the <em>system</em>, not just a list of four definitions.</li>
+          </ol>
+        </div>
+        <div class="ao-block">
+          <p class="ao-label">Part (b) &middot; AO2 &mdash; 4 marks</p>
+          <p style="color:var(--ink-soft);">Typical prompt: <em>&ldquo;Is ijma&rsquo; and qiyas more important today than in the past?&rdquo;</em> A balanced answer argues both sides briefly, then commits to a reasoned position: modern life raises questions (medical ethics, digital finance, environmental law) the seventh-century Qur&rsquo;an and Sunnah never addressed directly, which arguably makes ijma&rsquo; and qiyas <em>more</em> essential now &mdash; while a counter-view notes the core beliefs and worship obligations they never touch remain exactly as important as they always were.</p>
+        </div>
+        <div class="examiner-note"><strong>Examiner pattern:</strong> the single most common lost mark in this question is treating the four sources as an unordered list. Every top-band answer states the hierarchy explicitly and explains <em>why</em> the order exists &mdash; not just what each source is.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= INTERLEAVED EXAM LAB ================= -->
+<section class="interleave" id="interleave">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#e8c77a;">Cumulative retrieval &middot; mixed order, on purpose</p>
+    <h2 style="max-width:22ch;">The real exam won't ask about one topic at a time. Neither will this.</h2>
+    <p class="lede" style="max-width:60ch;">Twelve questions, drawn evenly from 2.1, 2.2 and 2.3, shuffled into random order. Interleaving like this feels harder than reviewing one topic in a block &mdash; that's the desirable difficulty at work, and it's the closest rehearsal you can do for how the actual paper mixes its questions.</p>
+    <button id="shuffleBtn" type="button">&#8635; Reshuffle the twelve</button>
+    <div class="interleave-grid" id="ilGrid">
+      <div class="il-card" data-topic="2.1">
+        <div class="il-topic">2.1 &middot; Revelation</div>
+        <p>What was Jibreel's command on the first night in the Cave of Hira, and how many times did he give it?</p>
+        <details><summary>Reveal</summary><p class="il-ans">&ldquo;Iqra&rdquo; (&ldquo;Read&rdquo;), given three times, each followed by an embrace until the Prophet reached the limit of his endurance.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.2">
+        <div class="il-topic">2.2 &middot; Compilation</div>
+        <p>Which battle triggered Abu Bakr's compilation, and roughly how many huffaz were lost in it?</p>
+        <details><summary>Reveal</summary><p class="il-ans">The Battle of Yamama (12 AH), against the false prophet Musaylimah's rebellion &mdash; reportedly around seventy huffaz were killed.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.3">
+        <div class="il-topic">2.3 &middot; Legal Thinking</div>
+        <p>Which source of law comes fourth, and what are its four components called?</p>
+        <details><summary>Reveal</summary><p class="il-ans">Qiyas (analogy) &mdash; asl (original case), far&rsquo; (new case), &rsquo;illah (shared reason), hukm (transferred ruling).</p></details>
+      </div>
+      <div class="il-card" data-topic="2.1">
+        <div class="il-topic">2.1 &middot; Revelation</div>
+        <p>According to &rsquo;A&rsquo;ishah, what were the two forms revelation took, and which did the Prophet find harder?</p>
+        <details><summary>Reveal</summary><p class="il-ans">Like the ringing of a bell (harder), or the angel appearing as a man speaking directly (easier).</p></details>
+      </div>
+      <div class="il-card" data-topic="2.2">
+        <div class="il-topic">2.2 &middot; Compilation</div>
+        <p>Whose warning to &rsquo;Uthman triggered the second compilation, and what exactly worried him?</p>
+        <details><summary>Reveal</summary><p class="il-ans">Hudhayfah ibn al-Yaman, alarmed by Iraqi and Syrian soldiers disputing whose Qur&rsquo;an recitation was correct during campaigns in Armenia and Azerbaijan.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.3">
+        <div class="il-topic">2.3 &middot; Legal Thinking</div>
+        <p>Give one named historical example of ijma&rsquo; in action.</p>
+        <details><summary>Reveal</summary><p class="il-ans">The companions' collective decision to compile the Qur&rsquo;an into one mus-haf after the Battle of Yamama &mdash; or the Prophet following majority counsel at the Battle of Uhud.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.1">
+        <div class="il-topic">2.1 &middot; Revelation</div>
+        <p>Name one reason, beyond &ldquo;strengthening the Prophet's heart,&rdquo; that the Qur&rsquo;an was revealed gradually.</p>
+        <details><summary>Reveal</summary><p class="il-ans">Any of: suited memorisation/practice by a largely non-literate community; allowed gradual legislation (e.g. the staged ban on alcohol); let revelation answer real events directly; stood as evidence against fabrication.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.2">
+        <div class="il-topic">2.2 &middot; Compilation</div>
+        <p>Name &rsquo;Uthman's rule for resolving any disagreement over how a word should be written.</p>
+        <details><summary>Reveal</summary><p class="il-ans">Write it in the dialect of Quraysh, since the Qur&rsquo;an was revealed in their tongue.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.3">
+        <div class="il-topic">2.3 &middot; Legal Thinking</div>
+        <p>Which source explains Qur&rsquo;anic principle in practical detail, and what example proves it?</p>
+        <details><summary>Reveal</summary><p class="il-ans">The Sunnah/Hadith &mdash; e.g. &ldquo;Pray as you have seen me praying,&rdquo; supplying the missing mechanics of salah.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.1">
+        <div class="il-topic">2.1 &middot; Revelation</div>
+        <p>Who confirmed the identity of the angel who appeared to the Prophet, and what did he predict?</p>
+        <details><summary>Reveal</summary><p class="il-ans">Waraqah ibn Nawfal, Khadijah's Christian cousin &mdash; he identified Jibreel and predicted the Prophet would be driven out by his own people.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.2">
+        <div class="il-topic">2.2 &middot; Compilation</div>
+        <p>Who kept custody of Abu Bakr's original mus-haf after &rsquo;Umar's death?</p>
+        <details><summary>Reveal</summary><p class="il-ans">Hafsa bint &rsquo;Umar, one of the Prophet's widows &mdash; &rsquo;Uthman later borrowed it as the base text for the second compilation.</p></details>
+      </div>
+      <div class="il-card" data-topic="2.3">
+        <div class="il-topic">2.3 &middot; Legal Thinking</div>
+        <p>State the one rule that governs how all four sources of law relate to one another.</p>
+        <details><summary>Reveal</summary><p class="il-ans">Each later source is only used where the ones above it are silent, and no source may ever contradict the Qur&rsquo;an.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEW PLANNER ================= -->
+<section class="planner" id="planner">
+  <div class="wrap">
+    <p class="eyebrow">Last step</p>
+    <h2 style="max-width:22ch;">Come back on these four days &mdash; not just once.</h2>
+    <p class="lede prose-col">A single study session, however thorough, fades fast. Testing yourself again at increasing intervals &mdash; a day later, a few days later, a week later, then two weeks later &mdash; is what moves knowledge from short-term recall into durable, exam-day memory. Tick a box as you complete each pass; your progress is saved on this device.</p>
+    <table class="plan-table">
+      <thead>
+        <tr><th>When</th><th>What to do</th><th>Done</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day mono">Today</td>
+          <td>Work through all three chapters in full, answering every retrieval card before revealing it.</td>
+          <td><input type="checkbox" data-plan="day0" aria-label="Mark today's session complete"></td>
+        </tr>
+        <tr>
+          <td class="day mono">Day 1</td>
+          <td>Close the book. From memory, write the three triggers: the first revelation, Abu Bakr's compilation, &rsquo;Uthman's compilation. Then re-open and check.</td>
+          <td><input type="checkbox" data-plan="day1" aria-label="Mark day 1 review complete"></td>
+        </tr>
+        <tr>
+          <td class="day mono">Day 3</td>
+          <td>Answer the Interleaved Exam Lab above without looking at the chapters first. Note which topic felt weakest.</td>
+          <td><input type="checkbox" data-plan="day3" aria-label="Mark day 3 review complete"></td>
+        </tr>
+        <tr>
+          <td class="day mono">Day 7</td>
+          <td>Write full model answers, from memory, to both 14-mark past-paper questions in this book. Time yourself at 15 minutes each.</td>
+          <td><input type="checkbox" data-plan="day7" aria-label="Mark day 7 review complete"></td>
+        </tr>
+        <tr>
+          <td class="day mono">Day 16</td>
+          <td>Final cold retrieval: reshuffle the Exam Lab once more and aim for every card correct on the first attempt.</td>
+          <td><input type="checkbox" data-plan="day16" aria-label="Mark day 16 review complete"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="reset-planner" id="resetPlanner" type="button">Reset planner</button>
+  </div>
+</section>
+
+<footer>
+  <p class="mono">Cambridge IGCSE Islamiyat 0493 &middot; Paper 1, Topic 2 &middot; Sources: Qur&rsquo;an, Sahih al-Bukhari, Sahih Muslim, Yasir Qadhi&rsquo;s <em>An Introduction to the Sciences of the Qur&rsquo;aan</em>, and the 2021&ndash;2025 past-paper archive &middot; Built with the retrieval-practice methods of Brown, Roediger &amp; McDaniel's <em>Make It Stick</em></p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // ---- Active nav highlight on scroll ----
+  var sections = ["method","ch21","ch22","ch23","interleave","planner"].map(function(id){return document.getElementById(id);}).filter(Boolean);
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".topnav a"));
+  function setActive(){
+    var y = window.scrollY + 120;
+    var current = sections[0];
+    sections.forEach(function(s){ if(s.offsetTop <= y) current = s; });
+    navLinks.forEach(function(a){
+      var match = current && a.getAttribute("href") === "#" + current.id;
+      a.classList.toggle("active", !!match);
+    });
+  }
+  window.addEventListener("scroll", setActive, {passive:true});
+  setActive();
+
+  // ---- Self-score buttons + progress pill (localStorage, best-effort) ----
+  var STORE_KEY = "islamiyat-t2-progress";
+  function loadState(){
+    try{ return JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); }catch(e){ return {}; }
+  }
+  function saveState(state){
+    try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){ /* ignore */ }
+  }
+  var state = loadState();
+  var scoreButtons = Array.prototype.slice.call(document.querySelectorAll(".self-score button"));
+  var totalRetrieval = document.querySelectorAll(".retrieval").length;
+
+  function paintScoreButtons(){
+    scoreButtons.forEach(function(btn){
+      var q = btn.getAttribute("data-q");
+      var kind = btn.classList.contains("got-it") ? "got" : "missed";
+      var recorded = state[q];
+      btn.classList.toggle("on", recorded === kind);
+    });
+  }
+  function updatePill(){
+    var got = Object.keys(state).filter(function(k){ return state[k] === "got"; }).length;
+    var pill = document.getElementById("progressPill");
+    if(pill){ pill.textContent = got + " / " + totalRetrieval + " retrieved"; }
+  }
+  scoreButtons.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var q = btn.getAttribute("data-q");
+      var kind = btn.classList.contains("got-it") ? "got" : "missed";
+      state[q] = (state[q] === kind) ? undefined : kind;
+      if(state[q] === undefined){ delete state[q]; }
+      saveState(state);
+      paintScoreButtons();
+      updatePill();
+    });
+  });
+  paintScoreButtons();
+  updatePill();
+
+  // ---- Review planner checkboxes ----
+  var PLAN_KEY = "islamiyat-t2-planner";
+  function loadPlan(){
+    try{ return JSON.parse(localStorage.getItem(PLAN_KEY) || "{}"); }catch(e){ return {}; }
+  }
+  function savePlan(p){
+    try{ localStorage.setItem(PLAN_KEY, JSON.stringify(p)); }catch(e){ /* ignore */ }
+  }
+  var plan = loadPlan();
+  var planBoxes = Array.prototype.slice.call(document.querySelectorAll("[data-plan]"));
+  planBoxes.forEach(function(box){
+    var key = box.getAttribute("data-plan");
+    box.checked = !!plan[key];
+    box.addEventListener("change", function(){
+      plan[key] = box.checked;
+      savePlan(plan);
+    });
+  });
+  var resetBtn = document.getElementById("resetPlanner");
+  if(resetBtn){
+    resetBtn.addEventListener("click", function(){
+      plan = {};
+      savePlan(plan);
+      planBoxes.forEach(function(box){ box.checked = false; });
+    });
+  }
+
+  // ---- Shuffle the interleaved quiz grid ----
+  var shuffleBtn = document.getElementById("shuffleBtn");
+  var ilGrid = document.getElementById("ilGrid");
+  if(shuffleBtn && ilGrid){
+    shuffleBtn.addEventListener("click", function(){
+      var cards = Array.prototype.slice.call(ilGrid.children);
+      for(var i = cards.length - 1; i > 0; i--){
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = cards[i]; cards[i] = cards[j]; cards[j] = tmp;
+      }
+      cards.forEach(function(c){
+        c.removeAttribute("open");
+        var d = c.querySelector("details");
+        if(d){ d.removeAttribute("open"); }
+        ilGrid.appendChild(c);
+      });
+    });
+  }
+})();
+</script>
+
