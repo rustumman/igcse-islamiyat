@@ -153,8 +153,8 @@
      planner_state holds plan. XP itself is never stored; it's
      recomputed from these on every page load.
      ========================================================= */
-  var SUPABASE_URL = "YOUR_SUPABASE_URL";
-  var SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+  var SUPABASE_URL = "https://puaymjsployigxaozuqo.supabase.co";
+  var SUPABASE_ANON_KEY = "sb_publishable_0hzw641YFST9Y0TOICxeEQ_Sk5A-21D";
   var supa = (SUPABASE_URL.indexOf("YOUR_SUPABASE") === -1 && window.supabase)
     ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
     : null;
