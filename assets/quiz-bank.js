@@ -28,6 +28,30 @@ window.QUIZ_BANK = {
       correct:2,
       explain:"Ease of translation is never cited as a reason. The standard reasons concern legislation, real-time responsiveness, memorisation/practice, strengthening the Prophet’s heart, and standing as evidence against fabrication." } ] },
 
+  "qc-ch21-5": { type:"quick", topic:"2.1", questions:[
+    { q:"What ended the fatra (the pause in revelation after the first night in the cave)?",
+      choices:["Waraqah ibn Nawfal predicted its return","Jibreel appeared again in his full angelic form and named himself, followed by the revelation of Surah al-Muddaththir","The Prophet returned to the Cave of Hira and asked for it to resume","Khadijah prayed for its return"],
+      correct:1,
+      explain:"Jibreel reappeared filling the horizon and said ‘O Muhammad, you are the Messenger of Allah, and I am Jibreel,’ and shortly after Surah al-Muddaththir (74:1–5) was revealed, formally launching the Prophet’s public mission." } ] },
+
+  "qc-ch21-6": { type:"quick", topic:"2.1", questions:[
+    { q:"Which of these correctly describes Madani surahs?",
+      choices:["86 surahs, shorter verses, themes of tawhid and past nations","28 surahs, longer verses, themes of Islamic law, the pillars, and battles","114 surahs, revealed only in Makkah","28 surahs revealed before the Hijrah"],
+      correct:1,
+      explain:"Madani surahs number 28, were revealed after the Hijrah to Madinah, tend to be longer with legislative content, and cover Islamic law, the five pillars, and the battles and events of the Madinan state. The 86-surah, tawhid/past-nations description belongs to the Makki surahs instead." } ] },
+
+  "qc-ch21-7": { type:"quick", topic:"2.1", questions:[
+    { q:"According to the hadith literature, which of these is a genuine reported sign of how physically demanding revelation was?",
+      choices:["The Prophet’s voice became inaudible for several minutes","His riding animal’s legs strained under a sudden, otherwise inexplicable weight","He lost the ability to speak Arabic temporarily","His skin changed colour permanently"],
+      correct:1,
+      explain:"Companions reported the Prophet’s mount straining under a sudden weight during revelation, alongside sweating in the cold, a change in facial colour, and — as Zayd ibn Thabit described — an intense heaviness and heat." } ] },
+
+  "qc-ch21-8": { type:"quick", topic:"2.1", questions:[
+    { q:"During the Prophet’s own lifetime, what did NOT yet exist for the Qur’an?",
+      choices:["Any written record at all","A single bound book gathering every verse in a fixed order","Companions who had memorised the Qur’an","An annual review of the revealed text with Jibreel"],
+      correct:1,
+      explain:"Verses were written on available materials and reviewed yearly with Jibreel, but a single bound volume in one fixed order was only compiled after the Prophet’s death and after revelation had ended — the subject of Topic 2.2." } ] },
+
   "qc-ch22-1": { type:"quick", topic:"2.2", questions:[
     { q:"During the Prophet’s own lifetime, which TWO methods together preserved the Qur’an before any single bound book existed?",
       choices:["Memorisation and oral transmission only","Writing on parchment scrolls only, checked by ’Uthman","Memorisation by the huffaz, and writing onto available materials by scribes","A single master copy kept in the Prophet’s house"],
@@ -100,7 +124,22 @@ window.QUIZ_BANK = {
       correct:1, explain:"“...that We may strengthen your heart thereby, and We have spaced it distinctly” (25:32) — the direct Qur’anic answer to the disbelievers’ objection." },
     { id:"test-ch21-q8", q:"Which classic example illustrates the ‘gradual legislation’ benefit of piecemeal revelation?",
       choices:["The staged revelations progressively prohibiting alcohol (2:219, 4:43, 5:90–91)","The single, immediate ban on gambling","The order to fast during Ramadan","The instruction to face Makkah in prayer"],
-      correct:0, explain:"Alcohol was addressed across three revelations of increasing firmness rather than an outright ban imposed all at once on a society not yet ready." }
+      correct:0, explain:"Alcohol was addressed across three revelations of increasing firmness rather than an outright ban imposed all at once on a society not yet ready." },
+    { id:"test-ch21-q9", q:"Why do Muslims see it as significant that the Qur’an came to a prophet who could not read or write?",
+      choices:["It made the revelation easier for Jibreel to deliver","It is offered as evidence the eloquent, structured text could not have been his own composition","It meant the Qur’an had to be memorised instead of written","It shortened the time revelation took to arrive"],
+      correct:1, explain:"An unlettered man producing language this precise and structured is presented as evidence against human authorship, strengthening the claim that the Qur’an is divine speech." },
+    { id:"test-ch21-q10", q:"According to Qur’an 42:51, what is significant about God sending the first revelation through an angel rather than speaking directly?",
+      choices:["It made the message shorter","It matched the pattern used with earlier prophets, such as Musa, and let the Prophet receive the message directly and repeatedly","It meant the message could not be verified","It was only a temporary method used once"],
+      correct:1, explain:"42:51 names a sent messenger as one of only three channels through which God communicates with a prophet — using an angel linked Muhammad’s prophethood to that of earlier prophets who received revelation the same way." },
+    { id:"test-ch21-q11", q:"What ended the fatra, the pause in revelation after the first night in the cave?",
+      choices:["Waraqah’s prediction coming true","Jibreel reappearing in his full angelic form, naming himself, followed by the revelation of Surah al-Muddaththir","A dream the Prophet had about Jibreel","Khadijah’s cousin visiting again"],
+      correct:1, explain:"Jibreel reappeared filling the horizon and said ‘O Muhammad, you are the Messenger of Allah, and I am Jibreel,’ and Surah al-Muddaththir (74:1–5) was revealed shortly after, launching the Prophet’s public mission." },
+    { id:"test-ch21-q12", q:"How many surahs are classified as Makki, and how many as Madani?",
+      choices:["86 Makki, 28 Madani","28 Makki, 86 Madani","57 Makki, 57 Madani","100 Makki, 14 Madani"],
+      correct:0, explain:"86 Makki surahs (before the Hijrah) plus 28 Madani surahs (after it) make up the Qur’an’s 114 surahs in total." },
+    { id:"test-ch21-q13", q:"During the Prophet’s own lifetime, what did NOT yet exist for the Qur’an?",
+      choices:["Any written record at all","A single bound book gathering every verse in one fixed order","Companions who had memorised the Qur’an","An annual review of the revealed text with Jibreel"],
+      correct:1, explain:"Verses were written on available materials and reviewed yearly with Jibreel, but a single bound volume in one fixed order was only compiled after the Prophet’s death — the subject of Topic 2.2." }
   ]},
 
   "test-ch22": { type:"test", topic:"2.2", title:"Unit Test · 2.2 Compilation", badgeId:"badge-test-ch22", perAttempt:8, questions:[
