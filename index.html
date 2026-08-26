@@ -131,6 +131,14 @@ button, .btn{font-family:inherit; cursor:pointer;}
   font-family:"IBM Plex Mono", monospace; font-size:11px; color:var(--muted);
   border:1px solid var(--border); border-radius:99px; padding:4px 10px; white-space:nowrap;
 }
+.auth-box{display:flex; align-items:center; gap:8px; flex:none;}
+.auth-btn{
+  font-family:"IBM Plex Mono", monospace; font-size:11px; letter-spacing:.04em; text-transform:uppercase;
+  color:var(--ink-soft); background:var(--surface); border:1px solid var(--border-strong);
+  border-radius:99px; padding:5px 12px; cursor:pointer; white-space:nowrap;
+}
+.auth-btn:hover{color:var(--ink); border-color:var(--accent);}
+.auth-status{font-size:11px; color:var(--good); white-space:nowrap;}
 
 /* ============ HERO ============ */
 .hero{
@@ -343,6 +351,11 @@ footer p{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--mu
       <a href="#interleave">Exam Lab</a>
       <a href="#planner">Review Plan</a>
     </nav>
+    <span class="auth-box" id="authBox">
+      <button id="signInBtn" class="auth-btn" type="button">Sign in with Google</button>
+      <button id="signOutBtn" class="auth-btn" type="button" hidden>Sign out</button>
+      <span id="authStatus" class="auth-status mono" hidden></span>
+    </span>
     <span class="progress-pill mono" id="progressPill">0 / 24 retrieved</span>
   </div>
 </div>
@@ -1015,9 +1028,55 @@ footer p{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--mu
   <p class="mono">Cambridge IGCSE Islamiyat 0493 &middot; Paper 1, Topic 2 &middot; Sources: Qur&rsquo;an, Sahih al-Bukhari, Sahih Muslim, Yasir Qadhi&rsquo;s <em>An Introduction to the Sciences of the Qur&rsquo;aan</em>, and the 2021&ndash;2025 past-paper archive &middot; Built with the retrieval-practice methods of Brown, Roediger &amp; McDaniel's <em>Make It Stick</em></p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function(){
   "use strict";
+
+  // ---- Optional cloud sign-in (Google via Supabase) ----
+  // Fill these in after creating a Supabase project and enabling the Google
+  // provider (see supabase/schema.sql and the README). Until then the page
+  // silently runs in guest/local-only mode, exactly as before.
+  var SUPABASE_URL = "https://puaymjsployigxaozuqo.supabase.co";
+  var SUPABASE_ANON_KEY = "sb_publishable_0hzw641YFST9Y0TOICxeEQ_Sk5A-21D";
+  var supa = (SUPABASE_URL.indexOf("YOUR_SUPABASE") === -1 && window.supabase)
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+  var currentUser = null;
+
+  var signInBtn = document.getElementById("signInBtn");
+  var signOutBtn = document.getElementById("signOutBtn");
+  var authStatus = document.getElementById("authStatus");
+
+  function paintAuthUI(){
+    if(!supa){
+      if(signInBtn){ signInBtn.hidden = true; }
+      return;
+    }
+    if(currentUser){
+      if(signInBtn){ signInBtn.hidden = true; }
+      if(signOutBtn){ signOutBtn.hidden = false; }
+      if(authStatus){ authStatus.hidden = false; authStatus.textContent = "Synced · " + (currentUser.email || "signed in"); }
+    } else {
+      if(signInBtn){ signInBtn.hidden = false; }
+      if(signOutBtn){ signOutBtn.hidden = true; }
+      if(authStatus){ authStatus.hidden = true; }
+    }
+  }
+  paintAuthUI();
+
+  if(signInBtn){
+    signInBtn.addEventListener("click", function(){
+      if(!supa){ return; }
+      supa.auth.signInWithOAuth({ provider: "google", options: { redirectTo: window.location.href } });
+    });
+  }
+  if(signOutBtn){
+    signOutBtn.addEventListener("click", function(){
+      if(!supa){ return; }
+      supa.auth.signOut();
+    });
+  }
 
   // ---- Active nav highlight on scroll ----
   var sections = ["method","ch21","ch22","ch23","interleave","planner"].map(function(id){return document.getElementById(id);}).filter(Boolean);
@@ -1041,6 +1100,7 @@ footer p{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--mu
   }
   function saveState(state){
     try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){ /* ignore */ }
+    pushToCloud();
   }
   var state = loadState();
   var scoreButtons = Array.prototype.slice.call(document.querySelectorAll(".self-score button"));
@@ -1080,6 +1140,7 @@ footer p{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--mu
   }
   function savePlan(p){
     try{ localStorage.setItem(PLAN_KEY, JSON.stringify(p)); }catch(e){ /* ignore */ }
+    pushToCloud();
   }
   var plan = loadPlan();
   var planBoxes = Array.prototype.slice.call(document.querySelectorAll("[data-plan]"));
@@ -1097,6 +1158,49 @@ footer p{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--mu
       plan = {};
       savePlan(plan);
       planBoxes.forEach(function(box){ box.checked = false; });
+    });
+  }
+
+  // ---- Cloud sync (best-effort; no-op until Supabase is configured above) ----
+  function pushToCloud(){
+    if(!supa || !currentUser){ return; }
+    supa.from("progress").upsert({
+      user_id: currentUser.id,
+      card_state: state,
+      planner_state: plan,
+      updated_at: new Date().toISOString()
+    }).then(function(){}, function(){ /* offline or RLS error — localStorage still has it */ });
+  }
+  function hydrateFromCloud(){
+    if(!supa || !currentUser){ return; }
+    supa.from("progress").select("card_state,planner_state").eq("user_id", currentUser.id).maybeSingle()
+      .then(function(res){
+        var row = res && res.data;
+        var hasCloudData = row && (Object.keys(row.card_state || {}).length || Object.keys(row.planner_state || {}).length);
+        if(hasCloudData){
+          state = row.card_state || {};
+          plan = row.planner_state || {};
+          try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){ /* ignore */ }
+          try{ localStorage.setItem(PLAN_KEY, JSON.stringify(plan)); }catch(e){ /* ignore */ }
+        } else {
+          // First sign-in on this device with no cloud row yet — seed the cloud from local guest progress.
+          pushToCloud();
+        }
+        paintScoreButtons();
+        updatePill();
+        planBoxes.forEach(function(box){ box.checked = !!plan[box.getAttribute("data-plan")]; });
+      }, function(){ /* offline — keep using local state */ });
+  }
+  if(supa){
+    supa.auth.onAuthStateChange(function(_event, session){
+      currentUser = session && session.user;
+      paintAuthUI();
+      if(currentUser){ hydrateFromCloud(); }
+    });
+    supa.auth.getSession().then(function(res){
+      currentUser = res && res.data && res.data.session && res.data.session.user;
+      paintAuthUI();
+      if(currentUser){ hydrateFromCloud(); }
     });
   }
 
