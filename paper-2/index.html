@@ -1,0 +1,53 @@
+<meta charset="utf-8">
+<title>Paper 2 &middot; IGCSE Islamiyat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Mono:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/app.css">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="app-shell">
+  <div class="sidebar-scrim" id="sidebarScrim"></div>
+  <aside class="sidebar"><div id="sidebarMount"></div></aside>
+  <div class="main-col">
+    <div class="sidebar-toggle"><button id="sidebarToggleBtn" type="button">&#9776; Menu</button></div>
+    <div class="topbar"><div class="topbar-inner wrap"><nav class="breadcrumb" id="breadcrumbMount" aria-label="Breadcrumb"></nav></div></div>
+
+    <main id="main">
+      <header class="hero">
+        <div class="wrap">
+          <p class="eyebrow">Cambridge IGCSE Islamiyat 0493</p>
+          <h1>Paper 2</h1>
+          <p class="subtitle">The Hadiths, the Rightly Guided Caliphs, and the Articles of Faith &amp; Five Pillars of Islam.</p>
+        </div>
+      </header>
+
+      <section class="wrap" style="padding:clamp(40px,7vw,72px) 0;">
+        <p class="eyebrow">Topics</p>
+        <h2 style="max-width:26ch;">Not built yet &mdash; Paper 1, Topic 2 is where to start.</h2>
+        <div class="card-grid" id="topicCards"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p class="mono">Cambridge IGCSE Islamiyat 0493 &middot; Paper 2</p>
+    </footer>
+  </div>
+</div>
+
+<script>window.ROOT = "../";</script>
+<script src="../assets/content-tree.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>window.PAGE = { page: "paper-index", paper: "paper-2" };</script>
+<script src="../assets/app.js"></script>
+<script>
+(function(){
+  var mount = document.getElementById("topicCards");
+  var paper = window.CONTENT_TREE.papers.filter(function(p){ return p.id === "paper-2"; })[0];
+  mount.innerHTML = paper.topics.map(function(t){
+    return '<div class="entity-card soon"><span class="soon-badge">Coming soon</span>' +
+      '<div class="card-num">' + t.num + '</div><h3>' + t.title + '</h3><p></p></div>';
+  }).join("");
+})();
+</script>
