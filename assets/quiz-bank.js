@@ -1227,6 +1227,136 @@ window.QUESTION_BANK = [
     choices:["All four are used together, equally, on every question","Each later source is used only where the ones above it are silent, and none may contradict the Qur’an","Only the Qur’an is ever actually applied in practice","Ijma’ and Qiyas can override the Sunnah if scholars agree"],
     correct:1, explain:"Strict hierarchy — the idea examiners reward most in this topic." },
 
+  { id:"2-3--quran-first-source-of-law--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which of the four sources of Islamic law is described as “independent,” not drawing its authority from any of the others?",
+    choices:["Sunnah","Ijma’","Qiyas","Qur’an"],
+    correct:3, explain:"Because Muslims hold the Qur’an to be the literal word of Allah, its authority does not depend on any other text — the other three sources all derive some part of their authority from it." },
+
+  { id:"2-3--quran-first-source-of-law--q2", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse describes the Qur’an as a book “explaining all things”?",
+    choices:["Qur’an 4:59","Qur’an 16:89","Qur’an 5:45","Qur’an 2:2"],
+    correct:1, explain:"Qur’an 16:89 describes the Book as “explaining all things, a guide, a mercy, and glad tidings to Muslims.”" },
+
+  { id:"2-3--quran-first-source-of-law--q3", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What Arabic term describes Allah’s sovereignty as the source of legal authority in Islam?",
+    choices:["Ijma’","Qiyas","Al-hakimiyyah","Al-fatrah"],
+    correct:2, explain:"Al-hakimiyyah refers to the principle that ultimate legal authority belongs to Allah, expressed in Qur’an 12:40, “The command is for none but Allah.”" },
+
+  { id:"2-3--quran-first-source-of-law--q4", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse states “The command is for none but Allah”?",
+    choices:["Qur’an 2:2","Qur’an 12:40","Qur’an 24:4","Qur’an 8:41"],
+    correct:1, explain:"Qur’an 12:40 is the classic reference for the principle of Allah’s sovereignty in law-making." },
+
+  { id:"2-3--quran-first-source-of-law--q5", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What term describes acts of worship such as prayer, fasting, zakat and hajj?",
+    choices:["’Ibadat","Mu’amalat","Hudud","Qisas"],
+    correct:0, explain:"’Ibadat refers to acts of worship, as distinct from mu’amalat, which covers dealings and transactions between people." },
+
+  { id:"2-3--quran-first-source-of-law--q6", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What term describes transactions and dealings between people, such as marriage, trade and government?",
+    choices:["’Ibadat","Mu’amalat","Fatrah","Wahy"],
+    correct:1, explain:"Mu’amalat covers civil and social dealings between people — the Qur’an legislates for this alongside ’ibadat." },
+
+  { id:"2-3--quran-first-source-of-law--q7", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"According to Qur’an 5:38, what is the prescribed penalty for theft?",
+    choices:["A fine equal to the value stolen","Cutting off the hand","Eighty lashes","Exile from the community"],
+    correct:1, explain:"Qur’an 5:38 prescribes cutting off the hand of the thief, male or female, “a punishment by way of example from Allah.”" },
+
+  { id:"2-3--quran-first-source-of-law--q8", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse condemns those who give short measure or weight in trade — “Woe to those that deal in fraud”?",
+    choices:["Qur’an 5:90","Qur’an 83:1–3","Qur’an 59:7","Qur’an 6:152"],
+    correct:1, explain:"Qur’an 83:1–3 (Surah al-Mutaffifin) condemns traders who exact full measure when receiving but give less than due when giving." },
+
+  { id:"2-3--quran-first-source-of-law--q9", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse establishes the principle “life for life, eye for eye… wounds equal for equal”?",
+    choices:["Qur’an 4:11","Qur’an 5:45","Qur’an 24:4","Qur’an 47:4"],
+    correct:1, explain:"Qur’an 5:45 lays down the principle of qisas — proportionate retaliation." },
+
+  { id:"2-3--quran-first-source-of-law--q10", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What is the legal term for the principle of proportionate retaliation established in Qur’an 5:45?",
+    choices:["Hudud","Qisas","Ijma’","Mahr"],
+    correct:1, explain:"Qisas refers to the principle of equivalent retaliation for injury or killing." },
+
+  { id:"2-3--quran-first-source-of-law--q11", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What penalty does Qur’an 24:4 prescribe for falsely accusing a chaste person of unchastity without four witnesses?",
+    choices:["A fine and public apology","Eighty lashes and permanent loss of testimony (unless four witnesses are produced)","Exile for one year","Cutting off the hand"],
+    correct:1, explain:"Qur’an 24:4 prescribes eighty lashes for false accusation (qadhf) and permanently disqualifies the accuser’s testimony unless four witnesses support the claim." },
+
+  { id:"2-3--quran-first-source-of-law--q12", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse instructs that guardians should not touch an orphan’s property except to improve it?",
+    choices:["Qur’an 4:19","Qur’an 6:152","Qur’an 8:41","Qur’an 76:8"],
+    correct:1, explain:"Qur’an 6:152 warns guardians not to approach an orphan’s property “except to improve it” — a near-identical warning appears at 17:34." },
+
+  { id:"2-3--quran-first-source-of-law--q13", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which chapter of the Qur’an sets out detailed, numerical inheritance shares for family members?",
+    choices:["Surah al-Baqarah","Surah an-Nisa","Surah al-Ma’idah","Surah al-Anfal"],
+    correct:1, explain:"Qur’an 4:11–12, in Surah an-Nisa, sets out fixed inheritance shares in precise detail." },
+
+  { id:"2-3--quran-first-source-of-law--q14", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"According to Qur’an 8:41, what share of war booty is set aside for Allah, the Messenger, relatives, orphans, the needy and the wayfarer?",
+    choices:["A tenth","A fifth","A quarter","A half"],
+    correct:1, explain:"Qur’an 8:41 assigns one-fifth of war booty (khums) to these categories, with the rest divided among those who fought." },
+
+  { id:"2-3--quran-first-source-of-law--q15", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"According to Qur’an 47:4, once an enemy is subdued in war, prisoners should be dealt with through which two options?",
+    choices:["Execution or exile","Generosity or ransom","Immediate release only","Forced labour"],
+    correct:1, explain:"Qur’an 47:4 instructs that after subduing an enemy, captives are to be treated through either generosity (freeing them) or ransom." },
+
+  { id:"2-3--quran-first-source-of-law--q16", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse warns against wealth “circulating solely among the wealthy”?",
+    choices:["Qur’an 4:11","Qur’an 59:7","Qur’an 5:38","Qur’an 2:2"],
+    correct:1, explain:"Qur’an 59:7 warns against a system where wealth simply circulates among those who already have it." },
+
+  { id:"2-3--quran-first-source-of-law--q17", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse instructs husbands to “live with them [their wives] in kindness”?",
+    choices:["Qur’an 4:19","Qur’an 4:36","Qur’an 24:33","Qur’an 90:13"],
+    correct:0, explain:"Qur’an 4:19 instructs husbands to treat their wives with kindness." },
+
+  { id:"2-3--quran-first-source-of-law--q18", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What is the mukatabah, referenced in Qur’an 24:33?",
+    choices:["The dowry paid at marriage","A contract allowing a slave to purchase their own freedom","The fixed share of inheritance for a widow","The penalty for breaking a business contract"],
+    correct:1, explain:"Mukatabah is a legal contract by which a slave could formally work to purchase their own freedom." },
+
+  { id:"2-3--quran-first-source-of-law--q19", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which four sources of Islamic law does the syllabus expect students to know, in order of authority?",
+    choices:["Sunnah, Qur’an, Qiyas, Ijma’","Qur’an, Sunnah, Ijma’, Qiyas","Ijma’, Qiyas, Qur’an, Sunnah","Qur’an, Qiyas, Sunnah, Ijma’"],
+    correct:1, explain:"The Qur’an is first and independent, followed by the Sunnah (which explains it), then ijma’ and qiyas, which fill gaps within the boundaries the first two sources set." },
+
+  { id:"2-3--quran-first-source-of-law--q20", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Why is the Sunnah’s authority as a legal source described as “dependent” rather than independent?",
+    choices:["Because the Sunnah was written down after the Qur’an","Because the Qur’an itself instructs believers to obey the Prophet, which is what authorises the Sunnah as law","Because the Sunnah only applies outside Arabia","Because scholars disagree about what the Sunnah contains"],
+    correct:1, explain:"Qur’an 4:59 commands obedience to the Messenger, and it is this Qur’anic instruction that gives the Sunnah its authority as a source of law — hence it is dependent on the Qur’an rather than independent." },
+
+  { id:"2-3--quran-first-source-of-law--q21", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What is the general Arabic term for Islamic law as a whole?",
+    choices:["Fiqh","Shari’ah","Sunnah","’Aqidah"],
+    correct:1, explain:"Shari’ah is the overall term for Islamic law, drawn from the four sources: Qur’an, Sunnah, ijma’ and qiyas." },
+
+  { id:"2-3--quran-first-source-of-law--q22", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which of these is an example of a fixed, prescribed criminal punishment (hudud) found directly in the Qur’an?",
+    choices:["The five daily prayers","Cutting off the hand for theft","The distribution of war booty","The mahr (dowry) in marriage"],
+    correct:1, explain:"Hudud are fixed punishments prescribed directly in the Qur’an; the penalty for theft in 5:38 is a classic example." },
+
+  { id:"2-3--quran-first-source-of-law--q23", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which pair of terms correctly describes the two broad categories of conduct the Qur’an legislates for?",
+    choices:["’Ibadat (worship) and mu’amalat (transactions/dealings)","Hudud (punishments) and qisas (retaliation) only","Makki and Madani verses","Sahih and Da’if rulings"],
+    correct:0, explain:"’Ibadat covers acts of worship; mu’amalat covers everyday dealings and transactions between people — together these make up the Qur’an’s full scope as a source of law." },
+
+  { id:"2-3--quran-first-source-of-law--q24", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which example is most often used to illustrate qiyas (analogical reasoning) extending a Qur’anic ruling to new cases?",
+    choices:["Extending the penalty for theft to fraud","Extending the prohibition of khamr (wine) to modern intoxicants and drugs","Extending inheritance law to adopted children","Extending zakat to charitable trusts"],
+    correct:1, explain:"The Qur’an names khamr specifically; scholars later used qiyas to extend the same prohibition to intoxicants not directly named, reasoning from the shared cause of impairing the mind." },
+
+  { id:"2-3--quran-first-source-of-law--q25", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Why does calling the Qur’an the “primary” source of law matter in practice for a Muslim jurist?",
+    choices:["It means the Qur’an is only consulted if the other three sources disagree","It means the Qur’an is always consulted first, and no other source may contradict a clear ruling it establishes","It means only the Qur’an may be used, and the other three sources are optional","It means the Qur’an only applies to matters of worship, not law"],
+    correct:1, explain:"“Primary” means the Qur’an takes precedence — it is consulted first, and Sunnah, ijma’ and qiyas must all operate within the limits it sets." },
+
+  { id:"2-3--quran-first-source-of-law--q26", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What does the completeness described in Qur’an 16:89 actually mean, according to this lesson?",
+    choices:["That every possible legal case is spelled out explicitly in the text","That the Qur’an lays down the essential principles and clearest rulings needed to guide every sphere of life, leaving detail to the other sources","That no further legal reasoning is ever needed after the Qur’an","That the Qur’an only addresses spiritual matters, not practical ones"],
+    correct:1, explain:"The Qur’an does not list a rule for every conceivable situation; it provides the guiding principles and clear rulings, with the Sunnah, ijma’ and qiyas working out further detail within that framework." },
+
   { id:"2-3--quran-and-sunnah--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
     q:"The Qur’an commands Muslims to “establish prayer” but does not explain how. Which source supplied the missing practical detail?",
     choices:["Ijma’ (scholarly consensus)","Qiyas (analogy)","The Sunnah — e.g. ‘Pray as you have seen me praying’","A later ruling by the Rightly Guided Caliphs"],
