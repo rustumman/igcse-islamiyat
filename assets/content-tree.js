@@ -61,6 +61,8 @@ window.CONTENT_TREE = {
               lessons: [
                 { id: "four-sources-of-law", title: "The Four Sources of Law",
                   base: "paper-1/topic-2/2-3/four-sources-of-law/" },
+                { id: "quran-first-source-of-law", title: "The Qur’an as the First Source of Law",
+                  base: "paper-1/topic-2/2-3/quran-first-source-of-law/" },
                 { id: "quran-and-sunnah", title: "The Relationship of the Qur’an with Hadith",
                   base: "paper-1/topic-2/2-3/quran-and-sunnah/" },
                 { id: "ijma", title: "Ijma’ — Consensus",

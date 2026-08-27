@@ -1227,6 +1227,136 @@ window.QUESTION_BANK = [
     choices:["All four are used together, equally, on every question","Each later source is used only where the ones above it are silent, and none may contradict the Qur’an","Only the Qur’an is ever actually applied in practice","Ijma’ and Qiyas can override the Sunnah if scholars agree"],
     correct:1, explain:"Strict hierarchy — the idea examiners reward most in this topic." },
 
+  { id:"2-3--quran-first-source-of-law--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which of the four sources of Islamic law is described as “independent,” not drawing its authority from any of the others?",
+    choices:["Sunnah","Ijma’","Qiyas","Qur’an"],
+    correct:3, explain:"Because Muslims hold the Qur’an to be the literal word of Allah, its authority does not depend on any other text — the other three sources all derive some part of their authority from it." },
+
+  { id:"2-3--quran-first-source-of-law--q2", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse describes the Qur’an as a book “explaining all things”?",
+    choices:["Qur’an 4:59","Qur’an 16:89","Qur’an 5:45","Qur’an 2:2"],
+    correct:1, explain:"Qur’an 16:89 describes the Book as “explaining all things, a guide, a mercy, and glad tidings to Muslims.”" },
+
+  { id:"2-3--quran-first-source-of-law--q3", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What Arabic term describes Allah’s sovereignty as the source of legal authority in Islam?",
+    choices:["Ijma’","Qiyas","Al-hakimiyyah","Al-fatrah"],
+    correct:2, explain:"Al-hakimiyyah refers to the principle that ultimate legal authority belongs to Allah, expressed in Qur’an 12:40, “The command is for none but Allah.”" },
+
+  { id:"2-3--quran-first-source-of-law--q4", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse states “The command is for none but Allah”?",
+    choices:["Qur’an 2:2","Qur’an 12:40","Qur’an 24:4","Qur’an 8:41"],
+    correct:1, explain:"Qur’an 12:40 is the classic reference for the principle of Allah’s sovereignty in law-making." },
+
+  { id:"2-3--quran-first-source-of-law--q5", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What term describes acts of worship such as prayer, fasting, zakat and hajj?",
+    choices:["’Ibadat","Mu’amalat","Hudud","Qisas"],
+    correct:0, explain:"’Ibadat refers to acts of worship, as distinct from mu’amalat, which covers dealings and transactions between people." },
+
+  { id:"2-3--quran-first-source-of-law--q6", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What term describes transactions and dealings between people, such as marriage, trade and government?",
+    choices:["’Ibadat","Mu’amalat","Fatrah","Wahy"],
+    correct:1, explain:"Mu’amalat covers civil and social dealings between people — the Qur’an legislates for this alongside ’ibadat." },
+
+  { id:"2-3--quran-first-source-of-law--q7", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"According to Qur’an 5:38, what is the prescribed penalty for theft?",
+    choices:["A fine equal to the value stolen","Cutting off the hand","Eighty lashes","Exile from the community"],
+    correct:1, explain:"Qur’an 5:38 prescribes cutting off the hand of the thief, male or female, “a punishment by way of example from Allah.”" },
+
+  { id:"2-3--quran-first-source-of-law--q8", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse condemns those who give short measure or weight in trade — “Woe to those that deal in fraud”?",
+    choices:["Qur’an 5:90","Qur’an 83:1–3","Qur’an 59:7","Qur’an 6:152"],
+    correct:1, explain:"Qur’an 83:1–3 (Surah al-Mutaffifin) condemns traders who exact full measure when receiving but give less than due when giving." },
+
+  { id:"2-3--quran-first-source-of-law--q9", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse establishes the principle “life for life, eye for eye… wounds equal for equal”?",
+    choices:["Qur’an 4:11","Qur’an 5:45","Qur’an 24:4","Qur’an 47:4"],
+    correct:1, explain:"Qur’an 5:45 lays down the principle of qisas — proportionate retaliation." },
+
+  { id:"2-3--quran-first-source-of-law--q10", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What is the legal term for the principle of proportionate retaliation established in Qur’an 5:45?",
+    choices:["Hudud","Qisas","Ijma’","Mahr"],
+    correct:1, explain:"Qisas refers to the principle of equivalent retaliation for injury or killing." },
+
+  { id:"2-3--quran-first-source-of-law--q11", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What penalty does Qur’an 24:4 prescribe for falsely accusing a chaste person of unchastity without four witnesses?",
+    choices:["A fine and public apology","Eighty lashes and permanent loss of testimony (unless four witnesses are produced)","Exile for one year","Cutting off the hand"],
+    correct:1, explain:"Qur’an 24:4 prescribes eighty lashes for false accusation (qadhf) and permanently disqualifies the accuser’s testimony unless four witnesses support the claim." },
+
+  { id:"2-3--quran-first-source-of-law--q12", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse instructs that guardians should not touch an orphan’s property except to improve it?",
+    choices:["Qur’an 4:19","Qur’an 6:152","Qur’an 8:41","Qur’an 76:8"],
+    correct:1, explain:"Qur’an 6:152 warns guardians not to approach an orphan’s property “except to improve it” — a near-identical warning appears at 17:34." },
+
+  { id:"2-3--quran-first-source-of-law--q13", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which chapter of the Qur’an sets out detailed, numerical inheritance shares for family members?",
+    choices:["Surah al-Baqarah","Surah an-Nisa","Surah al-Ma’idah","Surah al-Anfal"],
+    correct:1, explain:"Qur’an 4:11–12, in Surah an-Nisa, sets out fixed inheritance shares in precise detail." },
+
+  { id:"2-3--quran-first-source-of-law--q14", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"According to Qur’an 8:41, what share of war booty is set aside for Allah, the Messenger, relatives, orphans, the needy and the wayfarer?",
+    choices:["A tenth","A fifth","A quarter","A half"],
+    correct:1, explain:"Qur’an 8:41 assigns one-fifth of war booty (khums) to these categories, with the rest divided among those who fought." },
+
+  { id:"2-3--quran-first-source-of-law--q15", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"According to Qur’an 47:4, once an enemy is subdued in war, prisoners should be dealt with through which two options?",
+    choices:["Execution or exile","Generosity or ransom","Immediate release only","Forced labour"],
+    correct:1, explain:"Qur’an 47:4 instructs that after subduing an enemy, captives are to be treated through either generosity (freeing them) or ransom." },
+
+  { id:"2-3--quran-first-source-of-law--q16", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse warns against wealth “circulating solely among the wealthy”?",
+    choices:["Qur’an 4:11","Qur’an 59:7","Qur’an 5:38","Qur’an 2:2"],
+    correct:1, explain:"Qur’an 59:7 warns against a system where wealth simply circulates among those who already have it." },
+
+  { id:"2-3--quran-first-source-of-law--q17", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which verse instructs husbands to “live with them [their wives] in kindness”?",
+    choices:["Qur’an 4:19","Qur’an 4:36","Qur’an 24:33","Qur’an 90:13"],
+    correct:0, explain:"Qur’an 4:19 instructs husbands to treat their wives with kindness." },
+
+  { id:"2-3--quran-first-source-of-law--q18", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What is the mukatabah, referenced in Qur’an 24:33?",
+    choices:["The dowry paid at marriage","A contract allowing a slave to purchase their own freedom","The fixed share of inheritance for a widow","The penalty for breaking a business contract"],
+    correct:1, explain:"Mukatabah is a legal contract by which a slave could formally work to purchase their own freedom." },
+
+  { id:"2-3--quran-first-source-of-law--q19", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which four sources of Islamic law does the syllabus expect students to know, in order of authority?",
+    choices:["Sunnah, Qur’an, Qiyas, Ijma’","Qur’an, Sunnah, Ijma’, Qiyas","Ijma’, Qiyas, Qur’an, Sunnah","Qur’an, Qiyas, Sunnah, Ijma’"],
+    correct:1, explain:"The Qur’an is first and independent, followed by the Sunnah (which explains it), then ijma’ and qiyas, which fill gaps within the boundaries the first two sources set." },
+
+  { id:"2-3--quran-first-source-of-law--q20", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Why is the Sunnah’s authority as a legal source described as “dependent” rather than independent?",
+    choices:["Because the Sunnah was written down after the Qur’an","Because the Qur’an itself instructs believers to obey the Prophet, which is what authorises the Sunnah as law","Because the Sunnah only applies outside Arabia","Because scholars disagree about what the Sunnah contains"],
+    correct:1, explain:"Qur’an 4:59 commands obedience to the Messenger, and it is this Qur’anic instruction that gives the Sunnah its authority as a source of law — hence it is dependent on the Qur’an rather than independent." },
+
+  { id:"2-3--quran-first-source-of-law--q21", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What is the general Arabic term for Islamic law as a whole?",
+    choices:["Fiqh","Shari’ah","Sunnah","’Aqidah"],
+    correct:1, explain:"Shari’ah is the overall term for Islamic law, drawn from the four sources: Qur’an, Sunnah, ijma’ and qiyas." },
+
+  { id:"2-3--quran-first-source-of-law--q22", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which of these is an example of a fixed, prescribed criminal punishment (hudud) found directly in the Qur’an?",
+    choices:["The five daily prayers","Cutting off the hand for theft","The distribution of war booty","The mahr (dowry) in marriage"],
+    correct:1, explain:"Hudud are fixed punishments prescribed directly in the Qur’an; the penalty for theft in 5:38 is a classic example." },
+
+  { id:"2-3--quran-first-source-of-law--q23", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which pair of terms correctly describes the two broad categories of conduct the Qur’an legislates for?",
+    choices:["’Ibadat (worship) and mu’amalat (transactions/dealings)","Hudud (punishments) and qisas (retaliation) only","Makki and Madani verses","Sahih and Da’if rulings"],
+    correct:0, explain:"’Ibadat covers acts of worship; mu’amalat covers everyday dealings and transactions between people — together these make up the Qur’an’s full scope as a source of law." },
+
+  { id:"2-3--quran-first-source-of-law--q24", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Which example is most often used to illustrate qiyas (analogical reasoning) extending a Qur’anic ruling to new cases?",
+    choices:["Extending the penalty for theft to fraud","Extending the prohibition of khamr (wine) to modern intoxicants and drugs","Extending inheritance law to adopted children","Extending zakat to charitable trusts"],
+    correct:1, explain:"The Qur’an names khamr specifically; scholars later used qiyas to extend the same prohibition to intoxicants not directly named, reasoning from the shared cause of impairing the mind." },
+
+  { id:"2-3--quran-first-source-of-law--q25", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"Why does calling the Qur’an the “primary” source of law matter in practice for a Muslim jurist?",
+    choices:["It means the Qur’an is only consulted if the other three sources disagree","It means the Qur’an is always consulted first, and no other source may contradict a clear ruling it establishes","It means only the Qur’an may be used, and the other three sources are optional","It means the Qur’an only applies to matters of worship, not law"],
+    correct:1, explain:"“Primary” means the Qur’an takes precedence — it is consulted first, and Sunnah, ijma’ and qiyas must all operate within the limits it sets." },
+
+  { id:"2-3--quran-first-source-of-law--q26", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
+    q:"What does the completeness described in Qur’an 16:89 actually mean, according to this lesson?",
+    choices:["That every possible legal case is spelled out explicitly in the text","That the Qur’an lays down the essential principles and clearest rulings needed to guide every sphere of life, leaving detail to the other sources","That no further legal reasoning is ever needed after the Qur’an","That the Qur’an only addresses spiritual matters, not practical ones"],
+    correct:1, explain:"The Qur’an does not list a rule for every conceivable situation; it provides the guiding principles and clear rulings, with the Sunnah, ijma’ and qiyas working out further detail within that framework." },
+
   { id:"2-3--quran-and-sunnah--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
     q:"What is the Sunnah?",
     choices:["Only the Qur’an’s legal verses","The Prophet’s (pbuh) example — his words, actions and silent approvals","The consensus of Islamic scholars","A form of analogical reasoning"],
@@ -1358,19 +1488,129 @@ window.QUESTION_BANK = [
     correct:2, explain:"This is the core relationship this lesson demonstrates through every example — zakat, prayer, hajj, purification, and the grandmother’s inheritance." },
 
   { id:"2-3--ijma--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
-    q:"What does ‘Ijma’’ mean?",
-    choices:["Analogical reasoning from an existing ruling to a new case","The unanimous agreement of qualified Muslim scholars on a question the Qur’an and Sunnah don’t directly settle","The Prophet’s own sayings and actions","A punishment specified directly in the Qur’an"],
-    correct:1, explain:"Ijma’ is consensus — and it only carries authority where the first two sources are silent; it can never invent a ruling that contradicts them." },
+    q:"What is Ijma’?",
+    choices:["The recorded words and actions of the Prophet","The unanimous agreement of qualified Muslim jurists on a matter the Qur’an and Hadith do not address","The literal word-for-word revelation from Allah","Reasoning by analogy from an existing ruling to a new case"],
+    correct:1, explain:"Ijma’ is the consensus of qualified jurists (mujtahids) on a ruling for a question the Qur’an and Hadith are silent on." },
 
   { id:"2-3--ijma--q2", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
-    q:"Which of these is a genuine example of ijma’ actually happening among the early companions?",
-    choices:["The Battle of Badr","The decision to compile the Qur’an into one mus-haf after the Battle of Yamama","The revelation of Surah al-’Alaq","Zayd ibn Thabit’s appointment as a Scribe of Revelation"],
-    correct:1, explain:"The compilation decision wasn’t commanded explicitly by a text — it was the companions’ collective agreement, reached using Qur’an- and Sunnah-based reasoning, in response to a new problem." },
+    q:"Which numbered source of Islamic law is Ijma’?",
+    choices:["First","Second","Third","Fourth"],
+    correct:2, explain:"Ijma’ is the third source, after the Qur’an (first) and Hadith/Sunnah (second), and before qiyas (fourth)." },
 
   { id:"2-3--ijma--q3", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
-    q:"Which of these is a genuine historical example of ijma’ in action?",
-    choices:["The Battle of Siffin","The companions’ collective decision to compile the Qur’an after Yamama","The revelation of the Farewell Sermon","The founding of the city of Kufa"],
-    correct:1, explain:"A course of action agreed collectively, not commanded by a direct text." },
+    q:"Why are Ijma’ and qiyas often described as “secondary” or “derived” sources?",
+    choices:["Because they are less important than the Qur’an and Hadith","Because neither introduces new revealed text — both derive rulings from what the Qur’an and Hadith already establish","Because they were only used after the Prophet’s death","Because they only apply to matters of worship"],
+    correct:1, explain:"Unlike the Qur’an and Hadith, Ijma’ and qiyas do not bring new revelation — they are methods of extending existing rulings to new situations." },
+
+  { id:"2-3--ijma--q4", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which hadith gives Ijma’ its religious authority as a source of law?",
+    choices:["“Pray as you have seen me praying”","“My Ummah will never unite upon error”","“His character was the Qur’an”","“Take from me your rites”"],
+    correct:1, explain:"This hadith, recorded in Sunan Ibn Majah and Sunan al-Tirmidhi, is the classical basis for trusting scholarly consensus as a genuine source of law." },
+
+  { id:"2-3--ijma--q5", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"In which two hadith collections is “My Ummah will never unite upon error” recorded?",
+    choices:["Sahih al-Bukhari and Sahih Muslim only","Sunan Ibn Majah and Sunan al-Tirmidhi","The Qur’an and Sahih Muslim","Muwatta Malik only"],
+    correct:1, explain:"The hadith appears (with some variation in wording) in Sunan Ibn Majah (Hadith 3950) and Sunan al-Tirmidhi (Hadith 2167)." },
+
+  { id:"2-3--ijma--q6", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which Qur’anic verse is commonly cited as supporting evidence for the community’s collective religious judgement?",
+    choices:["Qur’an 16:89","Qur’an 3:110","Qur’an 5:45","Qur’an 4:59"],
+    correct:1, explain:"Qur’an 3:110, “You are the best of peoples...”, is commonly cited alongside the hadith evidence for ijma’." },
+
+  { id:"2-3--ijma--q7", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"What historical event is the standard example of Ijma’ among the Companions?",
+    choices:["The Battle of Badr","The compilation of the Qur’an into a single text","The Farewell Pilgrimage","The first revelation in the Cave of Hira"],
+    correct:1, explain:"The Companions’ agreement, first under Abu Bakr and then under ’Uthman, to compile and standardise the Qur’an is the classic example of Ijma’ al-Sahaba." },
+
+  { id:"2-3--ijma--q8", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which caliph’s committee produced the single standard mushaf accepted by the Companions’ consensus?",
+    choices:["Abu Bakr","’Umar","’Uthman","’Ali"],
+    correct:2, explain:"’Uthman’s committee produced the standardised mushaf; Abu Bakr’s earlier compilation was the first written copy, and both stages involved ijma’ of the Companions." },
+
+  { id:"2-3--ijma--q9", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which type of Ijma’ is given the highest weight, since those reaching it witnessed revelation and the Prophet’s practice directly?",
+    choices:["Ijma’ of the Sahaba (Companions)","Ijma’ of the Mujtahids","Ijma’ Sukuti","All three carry exactly equal weight"],
+    correct:0, explain:"Ijma’ of the Companions is ranked highest because of their direct, firsthand connection to revelation and the Prophet’s own practice." },
+
+  { id:"2-3--ijma--q10", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"What is Ijma’ Sukuti?",
+    choices:["Consensus reached only by the Prophet’s family","Tacit consensus — where scholars are aware of a stated ruling and raise no objection to it","Consensus that is written down in the Qur’an","A type of qiyas"],
+    correct:1, explain:"Ijma’ Sukuti forms when qualified scholars become aware of a ruling and their silence, without objection, is treated as agreement." },
+
+  { id:"2-3--ijma--q11", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Who introduced the second adhan (call to prayer) for the Friday congregational prayer?",
+    choices:["Hazrat Abu Bakr","Hazrat ’Umar","Hazrat ’Uthman","Hazrat ’Ali"],
+    correct:2, explain:"This is recorded in Sahih al-Bukhari — a point often mistakenly attributed to ’Umar instead." },
+
+  { id:"2-3--ijma--q12", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Why was the second adhan introduced?",
+    choices:["To replace the Friday sermon","Because Madinah’s growth meant many people could no longer hear the original single call and were missing the prayer","Because the Qur’an commanded two calls to prayer","To shorten the length of the Friday prayer"],
+    correct:1, explain:"As Madinah grew, people in the marketplace could not hear the original adhan given from the mosque, so an earlier additional call was introduced to prevent them missing the obligatory prayer." },
+
+  { id:"2-3--ijma--q13", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"What does the second-adhan example best demonstrate about Ijma’?",
+    choices:["That Ijma’ can override a clear command of the Qur’an","That Ijma’ can find a practical solution that protects an existing obligation, without contradicting it","That only the Prophet could ever introduce new practices","That the adhan is not actually obligatory in Islam"],
+    correct:1, explain:"The second adhan solved a real problem without changing or contradicting anything the Qur’an or Hadith had already established about the Friday prayer." },
+
+  { id:"2-3--ijma--q14", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which rule must every valid Ijma’ obey?",
+    choices:["It must be reached within one day","It must not contradict a clear ruling already established by the Qur’an or an authentic Hadith","It must involve every Muslim in the world, not just scholars","It can only be used for matters of worship, never for law"],
+    correct:1, explain:"Ijma’ operates only within the boundaries the Qur’an and Hadith already set — it can never override them." },
+
+  { id:"2-3--ijma--q15", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Who is qualified to take part in a valid Ijma’?",
+    choices:["Any adult Muslim","Only the ruling caliph","Recognised, qualified jurists (mujtahids)","Only descendants of the Prophet’s family"],
+    correct:2, explain:"Ijma’ specifically requires the agreement of qualified mujtahids, not popular opinion or a majority vote among ordinary Muslims." },
+
+  { id:"2-3--ijma--q16", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which modern medical procedure is commonly used as an example of Ijma’ addressing a completely new question?",
+    choices:["Organ transplantation","In-vitro fertilisation (IVF)","Vaccination","Blood transfusion"],
+    correct:1, explain:"IVF is a leading modern example, since it is a situation entirely unaddressed by the Qur’an or Hadith." },
+
+  { id:"2-3--ijma--q17", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which body is cited in this lesson as having ruled on the permissibility of IVF?",
+    choices:["The United Nations","The International Islamic Fiqh Academy","A single individual scholar acting alone","The Cambridge examination board"],
+    correct:1, explain:"The International Islamic Fiqh Academy, affiliated with the Organisation of Islamic Cooperation, is a contemporary body that issues collective fiqh rulings of this kind." },
+
+  { id:"2-3--ijma--q18", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Under what condition did scholars generally rule IVF permissible?",
+    choices:["Only if a third-party donor’s egg or sperm is used","Only using the married couple’s own egg and sperm","Only if performed anonymously","IVF was ruled impermissible under all conditions"],
+    correct:1, explain:"Rulings permitting IVF generally require it to use only the married couple’s own gametes, ruling out third-party donation to protect established principles of lineage." },
+
+  { id:"2-3--ijma--q19", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Why is third-party donor IVF generally not permitted under these rulings?",
+    choices:["Because IVF itself is always forbidden","Because it would conflict with established Qur’anic and Hadith principles about lineage and paternity","Because doctors are not permitted to perform the procedure","Because it was explicitly forbidden by name in the Qur’an"],
+    correct:1, explain:"Even in ruling on a new question, ijma’ still cannot contradict principles the Qur’an and Hadith have already firmly established, such as those governing lineage." },
+
+  { id:"2-3--ijma--q20", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"What word describes a qualified Islamic jurist capable of taking part in Ijma’ or performing qiyas?",
+    choices:["Sahabi","Mujtahid","Muhaddith","Hafiz"],
+    correct:1, explain:"A mujtahid is a scholar qualified to exercise independent legal reasoning, whether through ijma’ or qiyas." },
+
+  { id:"2-3--ijma--q21", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which of these is NOT one of the three types of Ijma’ covered in this lesson?",
+    choices:["Ijma’ of the Sahaba","Ijma’ of the Mujtahids","Ijma’ Sukuti","Ijma’ Qiyasi"],
+    correct:3, explain:"“Ijma’ Qiyasi” is not a recognised category — the three types covered are Ijma’ of the Sahaba, Ijma’ of the Mujtahids, and Ijma’ Sukuti." },
+
+  { id:"2-3--ijma--q22", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"What common student error does this lesson specifically warn against regarding the second adhan?",
+    choices:["Forgetting that it happened in Makkah","Attributing it to ’Umar instead of ’Uthman","Saying it happened before the Hijrah","Confusing it with the adhan for Fajr prayer"],
+    correct:1, explain:"The second adhan is often mistakenly credited to ’Umar; it was actually introduced by ’Uthman ibn ’Affan." },
+
+  { id:"2-3--ijma--q23", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Why do scholars still treat “My Ummah will never unite upon error” as reliable evidence, despite some individual chains being weak?",
+    choices:["Because it is supported by multiple independent narrations and by hadiths of similar meaning in Sahih al-Bukhari and Sahih Muslim","Because weak hadith are always treated as fully authentic in Islamic law","Because it appears word-for-word in the Qur’an","Because no scholar has ever questioned any part of its chain"],
+    correct:0, explain:"Its meaning is considered established through the cumulative weight of several corroborating narrations, even though individual chains have some weaknesses." },
+
+  { id:"2-3--ijma--q24", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"What is the key difference between Ijma’ and qiyas as sources of law?",
+    choices:["Ijma’ is a primary, independent source, while qiyas is not a source at all","Ijma’ is agreement among qualified scholars on a ruling; qiyas is reasoning by analogy from an existing ruling to a new case","Ijma’ only applies to worship; qiyas only applies to criminal law","There is no meaningful difference between them"],
+    correct:1, explain:"Ijma’ is a collective agreed ruling; qiyas (covered in the next lesson) is an individual or collective process of analogical reasoning from an existing text-based ruling." },
+
+  { id:"2-3--ijma--q25", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
+    q:"Which of these best summarises why Ijma’ matters as a source of Islamic law?",
+    choices:["It allows any individual Muslim to change the law as they see fit","It lets qualified scholars reach a trusted, collective ruling on matters the Qur’an and Hadith do not directly address, without ever contradicting them","It replaces the need for the Qur’an and Hadith altogether","It only applied during the time of the Companions and has no relevance today"],
+    correct:1, explain:"Ijma’ fills genuine gaps — from compiling the Qur’an to ruling on IVF — while always remaining bound by what the Qur’an and Hadith have already established." },
 
   { id:"2-3--qiyas--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
     q:"In the qiyas example prohibiting a modern intoxicant by analogy with wine (khamr), what is the shared ’illah?",
