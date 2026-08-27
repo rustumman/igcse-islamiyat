@@ -1228,19 +1228,134 @@ window.QUESTION_BANK = [
     correct:1, explain:"Strict hierarchy — the idea examiners reward most in this topic." },
 
   { id:"2-3--quran-and-sunnah--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
-    q:"The Qur’an commands Muslims to “establish prayer” but does not explain how. Which source supplied the missing practical detail?",
-    choices:["Ijma’ (scholarly consensus)","Qiyas (analogy)","The Sunnah — e.g. ‘Pray as you have seen me praying’","A later ruling by the Rightly Guided Caliphs"],
-    correct:2, explain:"The Sunnah’s role is to clarify and apply Qur’anic principle in practice — the Prophet’s own example supplied the number of prayers, their raka’at, and their physical form." },
+    q:"What is the Sunnah?",
+    choices:["Only the Qur’an’s legal verses","The Prophet’s (pbuh) example — his words, actions and silent approvals","The consensus of Islamic scholars","A form of analogical reasoning"],
+    correct:1, explain:"Sunnah refers to the Prophet’s own example — everything he said, did, or approved of in others." },
 
   { id:"2-3--quran-and-sunnah--q2", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
-    q:"Which statement best explains why the Sunnah is needed alongside the Qur’an?",
-    choices:["The Sunnah overrides Qur’anic rulings where the two disagree","The Qur’an often gives commands as broad principle; the Sunnah supplies the practical, applied detail","The Sunnah is only used when scholars disagree","The Sunnah was revealed before the Qur’an"],
-    correct:1, explain:"Salah and zakat are the classic examples — commanded in principle by the Qur’an, with their mechanics supplied entirely by the Prophet’s example." },
+    q:"What is a Hadith, strictly speaking?",
+    choices:["A verse of the Qur’an about law","An individually recorded report transmitting the Prophet’s words, actions or approvals","A ruling reached by scholarly consensus","A legal ruling reached by analogy"],
+    correct:1, explain:"A Hadith is a recorded report, traced through a chain of narrators, that documents part of the Prophet’s Sunnah." },
 
   { id:"2-3--quran-and-sunnah--q3", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
-    q:"Which source explains Qur’anic principle in practical detail, proven by the example of salah?",
-    choices:["Ijma’","Qiyas","The Sunnah — ‘Pray as you have seen me praying’","The Farewell Sermon alone"],
-    correct:2, explain:"The Sunnah supplies the missing mechanics the Qur’an leaves as principle." },
+    q:"Which source of Islamic law is recognised as the second primary source, after the Qur’an?",
+    choices:["Ijma’","Qiyas","Hadith (Sunnah)","’Urf (custom)"],
+    correct:2, explain:"Hadith/Sunnah is the second primary source, following the Qur’an in authority." },
+
+  { id:"2-3--quran-and-sunnah--q4", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Why is Hadith called a “dependent” source rather than an independent one?",
+    choices:["Because it was written down centuries after the Prophet’s death","Because its authority as law rests on the Qur’an’s own command to obey the Prophet (4:59)","Because Hadith only applies outside Arabia","Because scholars disagree about which hadiths are authentic"],
+    correct:1, explain:"Qur’an 4:59 commands obedience to the Messenger, and this Qur’anic instruction is what gives Hadith its authority as a source of law." },
+
+  { id:"2-3--quran-and-sunnah--q5", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What did ’A’ishah say when asked to describe the Prophet’s character?",
+    choices:["“He never made a mistake”","“His character was the Qur’an”","“He was chosen before he was born”","“He could not read or write”"],
+    correct:1, explain:"’A’ishah’s description, recorded in Sahih Muslim, is understood to mean that the Prophet’s life was the Qur’an’s teaching put into practice." },
+
+  { id:"2-3--quran-and-sunnah--q6", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Which matter is settled by Hadith rather than by the Qur’an’s own inheritance verses?",
+    choices:["The son’s share of inheritance","The daughter’s share of inheritance","The grandmother’s share of inheritance","The husband’s share of inheritance"],
+    correct:2, explain:"The Qur’an’s inheritance verses (4:11–12) do not mention the grandmother; her one-sixth share comes from Hadith." },
+
+  { id:"2-3--quran-and-sunnah--q7", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What share of inheritance did the Prophet rule that a grandmother receives, according to Hadith?",
+    choices:["One-half","One-quarter","One-sixth","One-eighth"],
+    correct:2, explain:"This ruling — a one-sixth share — is recorded in Sunan Abu Dawud and Sunan al-Tirmidhi, not in the Qur’an." },
+
+  { id:"2-3--quran-and-sunnah--q8", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"In which collections is the grandmother’s inheritance hadith recorded?",
+    choices:["Sahih al-Bukhari only","Sunan Abu Dawud and Sunan al-Tirmidhi","The Qur’an, Surah an-Nisa","Sahih Muslim only"],
+    correct:1, explain:"The ruling is narrated via al-Mughirah ibn Shu’bah and Muhammad ibn Maslamah, and recorded in Sunan Abu Dawud and Sunan al-Tirmidhi." },
+
+  { id:"2-3--quran-and-sunnah--q9", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"According to Hadith, on how few camels is zakat NOT due?",
+    choices:["Fewer than three","Fewer than five","Fewer than ten","Fewer than twenty"],
+    correct:1, explain:"The hadith narrated by Abu Sa’id al-Khudri in Sahih al-Bukhari states there is no zakat due on fewer than five camels." },
+
+  { id:"2-3--quran-and-sunnah--q10", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What unit does the zakat nisab hadith use for the minimum amount of silver on which zakat becomes due?",
+    choices:["Dinars","Awaq (uqiyyah)","Mithqals","Ratls"],
+    correct:1, explain:"The hadith specifies five awaq (units of uqiyyah) of silver as the minimum before zakat is due." },
+
+  { id:"2-3--quran-and-sunnah--q11", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Which hadith collection records the zakat nisab hadith (five camels, five awsuq, five awaq)?",
+    choices:["Sunan Abu Dawud","Sahih al-Bukhari","Muwatta Malik","Musnad Ahmad only"],
+    correct:1, explain:"This hadith is narrated by Abu Sa’id al-Khudri and recorded in Sahih al-Bukhari’s Book of Zakat." },
+
+  { id:"2-3--quran-and-sunnah--q12", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Who narrated the hadith “Pray as you have seen me praying”?",
+    choices:["Abu Sa’id al-Khudri","Malik ibn al-Huwayrith","’A’ishah","Mu’adh ibn Jabal"],
+    correct:1, explain:"Malik ibn al-Huwayrith narrated this hadith, recorded in Sahih al-Bukhari." },
+
+  { id:"2-3--quran-and-sunnah--q13", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What does “Pray as you have seen me praying” demonstrate about the relationship between Qur’an and Hadith?",
+    choices:["That Hadith can override the Qur’an’s command to pray","That Hadith supplies the exact method for a general Qur’anic command","That the Qur’an contains the full method of prayer already","That prayer is not actually commanded in the Qur’an"],
+    correct:1, explain:"The Qur’an commands prayer but does not detail its method — Hadith supplies that missing practical detail." },
+
+  { id:"2-3--quran-and-sunnah--q14", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What did the Prophet say about the rites of hajj during his Farewell Pilgrimage?",
+    choices:["“Hajj is not obligatory for everyone”","“Take from me your rites [of hajj]”","“Perform hajj only once in your lifetime”","“Hajj may be performed in any month”"],
+    correct:1, explain:"Recorded in Sahih Muslim, this instruction means the exact sequence of hajj rituals is learned from the Prophet’s demonstrated practice." },
+
+  { id:"2-3--quran-and-sunnah--q15", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What example from purification/impurity rulings shows Hadith supplying detail the Qur’an does not give?",
+    choices:["The number of daily prayers","Washing a vessel licked by a dog seven times","The zakat nisab for silver","The grandmother’s inheritance share"],
+    correct:1, explain:"This purification ruling is recorded in Sahih Muslim and is not detailed anywhere in the Qur’an." },
+
+  { id:"2-3--quran-and-sunnah--q16", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Which of the four classical categories describes Hadith adding a brand-new ruling on a matter the Qur’an does not mention at all?",
+    choices:["Ta’kid (confirming)","Bayan/tafsir (explaining)","Taqyid (restricting)","Istiqlal (ruling independently)"],
+    correct:3, explain:"Istiqlal describes Hadith establishing a ruling entirely on its own authority, as with the grandmother’s inheritance share." },
+
+  { id:"2-3--quran-and-sunnah--q17", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Which of the four classical categories best describes the zakat nisab hadith?",
+    choices:["Ta’kid (confirming)","Istiqlal (ruling independently)","Taqyid (restricting)","None of these categories apply"],
+    correct:2, explain:"The nisab hadith narrows and specifies the Qur’an’s general command to pay zakat, which is why it is classed as “restricting.”" },
+
+  { id:"2-3--quran-and-sunnah--q18", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Which of the four classical categories best describes “Pray as you have seen me praying”?",
+    choices:["Taqyid (restricting)","Bayan/tafsir (explaining)","Istiqlal (ruling independently)","Ta’kid (confirming)"],
+    correct:1, explain:"This hadith explains, in practical detail, how to carry out the Qur’an’s general command to pray." },
+
+  { id:"2-3--quran-and-sunnah--q19", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Can a Hadith ever contradict a clear ruling already established in the Qur’an?",
+    choices:["No — it can only confirm, explain, restrict, or fill a genuine silence","Yes, if enough scholars agree","Yes, but only regarding worship, not law","Yes, if the Hadith is very well authenticated"],
+    correct:0, explain:"Hadith’s role is always to work with the Qur’an — confirming, explaining, restricting, or ruling where the Qur’an is silent — never to override it." },
+
+  { id:"2-3--quran-and-sunnah--q20", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What was Mu’adh ibn Jabal’s answer when the Prophet asked how he would judge cases as a governor sent to Yemen?",
+    choices:["By local custom alone","By the Qur’an first, then the Sunnah, then his own reasoning if neither addressed the case","By asking the Prophet every time","By majority vote of the community"],
+    correct:1, explain:"This exchange, recorded in Sunan Abu Dawud and Sunan al-Tirmidhi, is often cited as the origin of using personal reasoning (ijtihad/qiyas) once the Qur’an and Sunnah are exhausted." },
+
+  { id:"2-3--quran-and-sunnah--q21", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What did the Prophet do when Mu’adh ibn Jabal gave this answer?",
+    choices:["He corrected Mu’adh and told him to rely on custom instead","He approved of Mu’adh’s approach","He forbade any use of personal reasoning","He sent someone else in Mu’adh’s place"],
+    correct:1, explain:"The Prophet’s approval of Mu’adh’s answer is used as evidence that personal reasoning was sanctioned as a legitimate last resort in Islamic law." },
+
+  { id:"2-3--quran-and-sunnah--q22", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What is the “isnad” of a Hadith?",
+    choices:["The chain of narrators transmitting it back to the Prophet","The actual wording/content of the hadith","A collection arranged by topic","A collection arranged by narrator"],
+    correct:0, explain:"Isnad refers to the chain of transmission — the list of narrators through whom a hadith was passed down." },
+
+  { id:"2-3--quran-and-sunnah--q23", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What is the “matn” of a Hadith?",
+    choices:["The chain of narrators","The actual text/content being transmitted","A synonym for Sunnah","The scholar who first compiled it"],
+    correct:1, explain:"Matn is the substantive wording of the hadith itself, distinct from its chain of transmission (isnad)." },
+
+  { id:"2-3--quran-and-sunnah--q24", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"What distinguishes a “musannaf” hadith collection from a “musnad” one?",
+    choices:["Musannaf is arranged by topic; musnad is arranged by narrator","Musannaf only contains weak hadith; musnad only contains authentic ones","Musannaf is written in Arabic; musnad is translated","There is no real difference between them"],
+    correct:0, explain:"Musannaf collections group hadith by subject (e.g. zakat, inheritance); musnad collections group them by the Companion who first narrated them." },
+
+  { id:"2-3--quran-and-sunnah--q25", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Why does it matter for Muslims today that hadith were compiled with checked isnad and matn?",
+    choices:["It allows the exact wording and chain behind a ruling to still be verified, protecting Islamic law from corruption or invention","It means every hadith automatically overrides the Qur’an","It means Hadith no longer needs to be studied today","It replaced the need to compile the Qur’an"],
+    correct:0, explain:"Careful compilation means today’s Muslims can trace a ruling like the zakat nisab or the grandmother’s inheritance share back to a verified, checkable source rather than rumour." },
+
+  { id:"2-3--quran-and-sunnah--q26", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
+    q:"Which of these best summarises the overall relationship between the Qur’an and Hadith in Islamic law?",
+    choices:["Hadith is more authoritative than the Qur’an because it gives more detail","Hadith and Qur’an are unrelated, separate legal systems","Hadith explains, restricts, confirms, or fills genuine silences in the Qur’an, but can never override it","The Qur’an only covers worship, and Hadith only covers law"],
+    correct:2, explain:"This is the core relationship this lesson demonstrates through every example — zakat, prayer, hajj, purification, and the grandmother’s inheritance." },
 
   { id:"2-3--ijma--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
     q:"What does ‘Ijma’’ mean?",
