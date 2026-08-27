@@ -71,7 +71,7 @@
   /* =========================================================
      ASSESSMENT ID PARSING + POOL BUILDING
      ========================================================= */
-  var PER_ATTEMPT = { practice:3, quiz:4, "unit-test":15, "topic-challenge":12, "paper-challenge":16 };
+  var PER_ATTEMPT = { practice:3, quiz:4, "unit-test":15, "topic-challenge":25, "paper-challenge":16 };
   /* Per-assessment overrides of PER_ATTEMPT, keyed by full assessment id.
      Used when one assessment's pool has outgrown the kind-wide default. */
   var PER_ATTEMPT_OVERRIDE = {};
@@ -966,17 +966,23 @@
     var sameIdSet = state && state.order && state.order.length === poolIds.length &&
       state.order.slice().sort().join("|") === poolIds.slice().sort().join("|");
     if(!sameIdSet){
-      state = { order: shuffleArr(poolIds), cursor: 0 };
+      state = { order: shuffleArr(poolIds), cursor: 0, lastBatch: [] };
     }
 
     var order = state.order.slice();
     var cursor = state.cursor;
+    /* Also keep the previous attempt's batch out of a fresh reshuffle —
+       otherwise a question drawn just before the deck wraps around can
+       come right back in the very next attempt. */
+    var avoidFromLastBatch = {};
+    (state.lastBatch || []).forEach(function(id){ avoidFromLastBatch[id] = true; });
     var batchIds = [];
     while(batchIds.length < perAttempt){
       if(cursor >= order.length){
         var fresh = shuffleArr(poolIds);
         var picked = {};
         batchIds.forEach(function(id){ picked[id] = true; });
+        Object.keys(avoidFromLastBatch).forEach(function(id){ picked[id] = true; });
         var clean = fresh.filter(function(id){ return !picked[id]; });
         var clashing = fresh.filter(function(id){ return picked[id]; });
         order = clean.concat(clashing);
@@ -988,7 +994,7 @@
 
     return {
       questions: batchIds.map(function(id){ return byId[id]; }),
-      state: { order: order, cursor: cursor }
+      state: { order: order, cursor: cursor, lastBatch: batchIds }
     };
   }
 
