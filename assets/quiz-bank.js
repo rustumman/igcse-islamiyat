@@ -1613,33 +1613,128 @@ window.QUESTION_BANK = [
     correct:1, explain:"Ijma’ fills genuine gaps — from compiling the Qur’an to ruling on IVF — while always remaining bound by what the Qur’an and Hadith have already established." },
 
   { id:"2-3--qiyas--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"In the qiyas example prohibiting a modern intoxicant by analogy with wine (khamr), what is the shared ’illah?",
-    choices:["That both are liquids","That both cause intoxication","That both are mentioned in the same surah","That both were banned by ’Umar"],
-    correct:1, explain:"The ’illah (underlying reason) shared by khamr and the new case is intoxication — that shared reason is what lets the ruling (hukm) transfer from the asl to the far’." },
+    q:"What is Qiyas?",
+    choices:["The literal word-for-word revelation of Allah","The unanimous agreement of qualified scholars","Deriving a ruling for a new case by analogy with an existing ruling that shares the same underlying cause","The recorded words and actions of the Prophet"],
+    correct:2, explain:"Qiyas is analogical reasoning: extending an existing ruling to a new case on the basis of a shared effective cause." },
 
   { id:"2-3--qiyas--q2", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"Which statement correctly describes how the four sources of Islamic law relate to each other?",
-    choices:["All four sources are used together equally on every question","A later source only applies where the sources above it are silent, and none may contradict the Qur’an","Qiyas can overrule the Qur’an if scholars agree","Ijma’ replaces the need for the Sunnah once established"],
-    correct:1, explain:"This is the single principle examiners reward most: strict hierarchy, and no source may ever contradict the Qur’an." },
+    q:"Which source of Islamic law is Qiyas?",
+    choices:["First","Second","Third","Fourth (and last)"],
+    correct:3, explain:"Qiyas is the fourth and final source, used only once the Qur’an, Hadith and ijma’ have all been consulted and found silent." },
 
   { id:"2-3--qiyas--q3", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"In the qiyas framework, what is the ‘asl’?",
-    choices:["The new case with no direct textual ruling","The shared underlying reason","The original case already ruled on directly by the Qur’an or Sunnah","The final transferred ruling"],
-    correct:2, explain:"Asl = the original, textually-settled case (e.g. the Qur’anic prohibition of khamr) that a new case is compared against." },
+    q:"When is qiyas used?",
+    choices:["Whenever a jurist personally prefers a different ruling","Only when the Qur’an, Hadith and ijma’ are all silent on a matter","Before consulting the Qur’an or Hadith","Only during the lifetime of the Prophet"],
+    correct:1, explain:"Qiyas is a last resort, used only after the first three sources have offered no answer." },
 
   { id:"2-3--qiyas--q4", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"Why is qiyas used only as a last resort, after the other three sources?",
-    choices:["It’s considered less important than the beliefs it produces","Because it depends on human reasoning to identify the shared ’illah correctly, which carries a risk of error a direct text does not","Because the Prophet forbade its use entirely","Because it only applies to matters of worship, not daily life"],
-    correct:1, explain:"An incorrectly identified ’illah risks producing a ruling God never actually intended — which is exactly why it’s used last, and only where the first three sources are silent." },
+    q:"Which hadith is the classical basis for treating personal reasoning (and therefore qiyas) as legitimate?",
+    choices:["“My Ummah will never unite upon error”","The Prophet’s exchange with Mu’adh ibn Jabal before sending him to Yemen","“His character was the Qur’an”","“Pray as you have seen me praying”"],
+    correct:1, explain:"The Prophet’s approval of Mu’adh’s plan to use his own reasoning (ijtihad) if the Qur’an and Sunnah offered no answer is the classical foundation for qiyas." },
 
   { id:"2-3--qiyas--q5", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"What is the modern relevance most commonly tested about ijma’ and qiyas?",
-    choices:["Whether they were ever used historically at all","Whether they are more or less important today, given questions the 7th-century sources never addressed directly","Whether the Qur’an ever mentions them by name","Whether only the four Rightly Guided Caliphs were allowed to use them"],
-    correct:1, explain:"This is the classic AO2 (b)-part prompt — modern medicine, finance and technology raise new questions arguably making both sources more essential now." },
+    q:"In the Mu’adh ibn Jabal hadith, what did Mu’adh say he would consult first?",
+    choices:["The Book of Allah (the Qur’an)","His own opinion","The consensus of scholars","Local custom"],
+    correct:0, explain:"Mu’adh said he would judge by the Qur’an first, then the Sunnah, and only then by his own reasoning." },
 
   { id:"2-3--qiyas--q6", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"Which source of Islamic law comes fourth, and what are its four components called?",
-    choices:["Ijma’ — asl, far’, hukm, illah","Qiyas — asl, far’, ’illah, hukm","Sunnah — matn, isnad, sahih, da’if","Qur’an — makki, madani, naskh, mansukh"],
-    correct:1, explain:"Qiyas: asl (original case), far’ (new case), ’illah (shared reason), hukm (transferred ruling)." }
+    q:"What did the Prophet do when Mu’adh explained this approach?",
+    choices:["He forbade Mu’adh from ever using his own reasoning","He approved of it","He sent a different judge instead","He said only the Qur’an should ever be used"],
+    correct:1, explain:"The Prophet expressed approval, which is treated as sanctioning qualified personal reasoning as a legitimate last resort." },
+
+  { id:"2-3--qiyas--q7", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What is the “asl” in a qiyas?",
+    choices:["The original case with an existing, established ruling","The new case with no ruling of its own","The shared underlying cause","The extended ruling"],
+    correct:0, explain:"The asl is the existing case already ruled on directly by the Qur’an or Hadith." },
+
+  { id:"2-3--qiyas--q8", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What is the “’illah” in a qiyas?",
+    choices:["The new, unaddressed case","The effective cause shared between the original and new cases","The final extended ruling","A type of scholarly consensus"],
+    correct:1, explain:"The ’illah is the underlying reason that connects the original case to the new one, making the analogy valid." },
+
+  { id:"2-3--qiyas--q9", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What is the “far’” in a qiyas?",
+    choices:["The existing case with a clear ruling","The shared cause","The new case with no ruling of its own","The scholar performing the reasoning"],
+    correct:2, explain:"The far’ is the new, previously unaddressed situation that qiyas is being used to rule on." },
+
+  { id:"2-3--qiyas--q10", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What is the “hukm” in a qiyas?",
+    choices:["The original case","The shared cause","The new case","The ruling, extended from the original case to the new one"],
+    correct:3, explain:"The hukm is the actual legal ruling that gets transferred from the asl to the far’, once the shared ’illah is established." },
+
+  { id:"2-3--qiyas--q11", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"In the khamr example, what is the asl?",
+    choices:["The Qur’an’s prohibition of khamr (wine)","Modern synthetic drugs","Intoxication","The prohibition extended to modern drugs"],
+    correct:0, explain:"The Qur’anic prohibition of khamr in 5:90–91 is the existing, established ruling that forms the asl." },
+
+  { id:"2-3--qiyas--q12", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"In the khamr example, what is identified as the ’illah?",
+    choices:["The taste of grapes","Intoxication — impairing the mind and judgement","The method of production","The price of the substance"],
+    correct:1, explain:"Jurists identify intoxication as the underlying reason khamr was prohibited, which is why the ruling can be extended to anything sharing that effect." },
+
+  { id:"2-3--qiyas--q13", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"In the khamr example, what is the far’?",
+    choices:["The Qur’an’s prohibition itself","Modern drugs and synthetic intoxicants","The Prophet’s own practice","The consensus of the Companions"],
+    correct:1, explain:"Modern drugs, unnamed in the Qur’an or Hadith, are the new case (far’) that qiyas extends the ruling to." },
+
+  { id:"2-3--qiyas--q14", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"Which two Islamic texts together form the “asl” for the wudu/nail-polish example?",
+    choices:["Qur’an 16:89 and the hadith of ’A’ishah on character","Qur’an 5:6 and the hadith of Abu Dharr (Sunan Abu Dawud 332)","Qur’an 5:45 and the hadith on the second adhan","Qur’an 4:59 and the hadith of Mu’adh ibn Jabal"],
+    correct:1, explain:"Qur’an 5:6 commands washing in wudu, and Abu Dharr’s hadith (“let water touch your skin”) establishes that water must physically reach the skin." },
+
+  { id:"2-3--qiyas--q15", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What did classical jurists identify as barriers comparable to nail polish, long before nail polish existed?",
+    choices:["Sand and dust","Dried dough, wax and thick henna","Perfume and oil","Soap"],
+    correct:1, explain:"Classical jurists had already applied the “barrier to water” reasoning to substances like dough, wax and henna on the fingers." },
+
+  { id:"2-3--qiyas--q16", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"Is the statement “’A’ishah said wudu is invalid if dough dries on the nails” an authenticated hadith?",
+    choices:["Yes, recorded in Sahih al-Bukhari","Yes, recorded in Sahih Muslim","No — a Saudi fatwa council confirmed it is not an authenticated hadith, but a later juristic principle","Yes, but only in Sunan Abu Dawud"],
+    correct:2, explain:"This is a commonly repeated claim that is not actually transmitted as an authentic saying of the Prophet or ’A’ishah — it is a juristic maxim built on genuine textual evidence elsewhere." },
+
+  { id:"2-3--qiyas--q17", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What is the actual juristic principle behind the nail-polish ruling, according to this lesson?",
+    choices:["“Anything that prevents water from reaching the skin must be removed”","“Beauty products are always forbidden in Islam”","“Women may not perform wudu”","“Only men are required to complete wudu fully”"],
+    correct:0, explain:"This maxim, derived from Qur’an 5:6 and the hadith of Abu Dharr, is the genuine basis jurists used — not a supposed statement from ’A’ishah about dough specifically." },
+
+  { id:"2-3--qiyas--q18", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"Who is permitted to perform qiyas?",
+    choices:["Any Muslim adult","Only the ruling head of state","Qualified jurists (mujtahids)","Only descendants of the Prophet’s family"],
+    correct:2, explain:"As with ijma’, only mujtahids with deep training in the Qur’an, Hadith and legal method may validly perform qiyas." },
+
+  { id:"2-3--qiyas--q19", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"Can a ruling reached by qiyas ever contradict the Qur’an, Hadith or an established ijma’?",
+    choices:["No — it must always remain consistent with all three","Yes, if the jurist is highly respected","Yes, but only in matters of worship","Yes, if enough people agree with the new ruling"],
+    correct:0, explain:"Qiyas is a derived source and can never override rulings already established by the higher sources." },
+
+  { id:"2-3--qiyas--q20", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"Why is qiyas described as a “secondary” or “derived” source, like ijma’?",
+    choices:["Because it is rarely used in practice","Because it does not introduce new revealed text, only extends existing rulings to new cases","Because only non-Arabic speakers may use it","Because it was invented after the classical period ended"],
+    correct:1, explain:"Like ijma’, qiyas works with rulings the Qur’an and Hadith have already established, rather than producing new revelation." },
+
+  { id:"2-3--qiyas--q21", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What is the correct order of authority among the four sources of Islamic law?",
+    choices:["Hadith, Qur’an, Qiyas, Ijma’","Qur’an, Hadith, Ijma’, Qiyas","Ijma’, Qur’an, Hadith, Qiyas","Qiyas, Ijma’, Hadith, Qur’an"],
+    correct:1, explain:"The Qur’an is first and independent, followed by Hadith, then ijma’, then qiyas as the last resort." },
+
+  { id:"2-3--qiyas--q22", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What is the main difference between how ijma’ and qiyas reach a ruling?",
+    choices:["Ijma’ is agreement among scholars; qiyas is reasoning by analogy from an existing textual ruling","Ijma’ only applies to worship; qiyas only applies to crime","Ijma’ requires no scholars at all; qiyas requires the whole Ummah","There is no meaningful difference between them"],
+    correct:0, explain:"Ijma’ is a collective agreed judgement; qiyas is a method of reasoning that transfers an existing ruling to a new case via a shared ’illah." },
+
+  { id:"2-3--qiyas--q23", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"Why must the ’illah in a valid qiyas be more than “a superficial resemblance”?",
+    choices:["Because a mistaken or superficial ’illah would produce an incorrect ruling, not a genuine analogy","Because Islamic law does not permit any comparisons at all","Because only the Prophet could identify an ’illah","Because ’illah only applies to matters of worship"],
+    correct:0, explain:"A valid qiyas depends on correctly identifying the real underlying cause connecting two cases — a superficial similarity is not sufficient grounds for extending a ruling." },
+
+  { id:"2-3--qiyas--q24", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"Which example in this lesson concerns worship and purification rather than criminal or moral law?",
+    choices:["The khamr-to-modern-drugs example","The wudu-and-nail-polish example","The Mu’adh ibn Jabal hadith","The four sources hierarchy"],
+    correct:1, explain:"The nail-polish example applies qiyas to the requirements of ritual purification (wudu) rather than to criminal or moral law." },
+
+  { id:"2-3--qiyas--q25", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
+    q:"What happens once all four sources — Qur’an, Hadith, ijma’ and qiyas — have been properly consulted in order?",
+    choices:["The process starts again from qiyas backwards","A jurist has followed the complete, correctly ordered method of Islamic legal reasoning","Only qiyas is considered valid, and the earlier three are ignored","The ruling automatically becomes part of the Qur’an"],
+    correct:1, explain:"This is the complete four-source method this whole unit has built up to, each source consulted strictly in order and never contradicted by a later one." }
 
 ];

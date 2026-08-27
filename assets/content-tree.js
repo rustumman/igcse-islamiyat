@@ -67,7 +67,7 @@ window.CONTENT_TREE = {
                   base: "paper-1/topic-2/2-3/quran-and-sunnah/" },
                 { id: "ijma", title: "Ijma’ — Consensus",
                   base: "paper-1/topic-2/2-3/ijma/" },
-                { id: "qiyas", title: "Qiyas — Analogy",
+                { id: "qiyas", title: "Qiyas — Analogical Reasoning",
                   base: "paper-1/topic-2/2-3/qiyas/" }
               ]
             }
