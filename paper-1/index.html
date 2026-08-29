@@ -31,7 +31,7 @@
 
       <section class="wrap" style="padding:clamp(40px,7vw,72px) 0;">
         <p class="eyebrow">Topics</p>
-        <h2 style="max-width:26ch;">Start with Topic 2 &mdash; it's the one that's ready.</h2>
+        <h2 style="max-width:26ch;">Topics 2 and 3 are ready &mdash; start with either.</h2>
         <div class="card-grid" id="topicCards"></div>
       </section>
 
@@ -57,11 +57,15 @@
 (function(){
   var mount = document.getElementById("topicCards");
   var paper = window.CONTENT_TREE.papers.filter(function(p){ return p.id === "paper-1"; })[0];
+  var topicBlurb = {
+    "topic-2": "The Revelation, the Compilation under the Khalifas, and the Qur&rsquo;an in Legal Thinking.",
+    "topic-3": "The Prophet&rsquo;s qualities &mdash; honesty, humility, generosity, justice &mdash; and why he is believed to be the Seal of the Prophets."
+  };
   var html = paper.topics.map(function(t){
     if(t.status === "built"){
       return '<a class="entity-card" href="' + window.ROOT + t.href + '">' +
         '<div class="card-num">' + t.num + '</div><h3>' + t.title + '</h3>' +
-        '<p>The Revelation, the Compilation under the Khalifas, and the Qur&rsquo;an in Legal Thinking.</p></a>';
+        '<p>' + (topicBlurb[t.id] || "") + '</p></a>';
     }
     return '<div class="entity-card soon"><span class="soon-badge">Coming soon</span>' +
       '<div class="card-num">' + t.num + '</div><h3>' + t.title + '</h3><p></p></div>';

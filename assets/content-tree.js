@@ -73,7 +73,37 @@ window.CONTENT_TREE = {
             }
           ]
         },
-        { id: "topic-3", num: "3", title: "The life and importance of the Prophet Muhammad (pbuh)", status: "soon" },
+        {
+          id: "topic-3", num: "3", title: "The life and importance of the Prophet Muhammad (pbuh)",
+          status: "built", href: "paper-1/topic-3/index.html",
+          challengeHref: "paper-1/topic-3/topic-challenge.html",
+          units: [
+            {
+              id: "3-5", num: "3.5", title: "Qualities",
+              href: "paper-1/topic-3/3-5/index.html",
+              testHref: "paper-1/topic-3/3-5/unit-test.html",
+              lessons: [
+                { id: "honesty-and-trustworthiness", title: "Honesty and Trustworthiness",
+                  base: "paper-1/topic-3/3-5/honesty-and-trustworthiness/" },
+                { id: "humility-and-simplicity", title: "Humility and Simplicity",
+                  base: "paper-1/topic-3/3-5/humility-and-simplicity/" },
+                { id: "generosity", title: "Generosity",
+                  base: "paper-1/topic-3/3-5/generosity/" },
+                { id: "justice-and-keeping-promises", title: "Justice and Keeping Promises",
+                  base: "paper-1/topic-3/3-5/justice-and-keeping-promises/" }
+              ]
+            },
+            {
+              id: "3-6", num: "3.6", title: "Seal of the Prophets",
+              href: "paper-1/topic-3/3-6/index.html",
+              testHref: "paper-1/topic-3/3-6/unit-test.html",
+              lessons: [
+                { id: "seal-of-the-prophets", title: "Seal of the Prophets",
+                  base: "paper-1/topic-3/3-6/seal-of-the-prophets/" }
+              ]
+            }
+          ]
+        },
         { id: "topic-4", num: "4", title: "The first Islamic community", status: "soon" }
       ]
     },

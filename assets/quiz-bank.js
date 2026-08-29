@@ -1735,6 +1735,506 @@ window.QUESTION_BANK = [
   { id:"2-3--qiyas--q25", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
     q:"What happens once all four sources — Qur’an, Hadith, ijma’ and qiyas — have been properly consulted in order?",
     choices:["The process starts again from qiyas backwards","A jurist has followed the complete, correctly ordered method of Islamic legal reasoning","Only qiyas is considered valid, and the earlier three are ignored","The ruling automatically becomes part of the Qur’an"],
-    correct:1, explain:"This is the complete four-source method this whole unit has built up to, each source consulted strictly in order and never contradicted by a later one." }
+    correct:1, explain:"This is the complete four-source method this whole unit has built up to, each source consulted strictly in order and never contradicted by a later one." },
+
+  { id:"3-5--honesty-and-trustworthiness--q1", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What was the Prophet (pbuh) known as in Makkah before his prophethood, referring to his honest speech?",
+    choices:["Al-Rasul","Al-Sadiq (the Truthful)","Al-Nabi","Al-Hakim"],
+    correct:1, explain:"Al-Sadiq, “the Truthful,” reflected his reputation for honest speech, earned well before he ever claimed prophethood." },
+
+  { id:"3-5--honesty-and-trustworthiness--q2", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What second title reflected his reputation for handling others’ property and promises reliably?",
+    choices:["Al-Karim","Al-Amin (the Trustworthy)","Al-Rahim","Al-Basir"],
+    correct:1, explain:"Al-Amin, “the Trustworthy,” reflected his reliability with property, deals, and promises." },
+
+  { id:"3-5--honesty-and-trustworthiness--q3", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"Who first entrusted the Prophet (pbuh) with a major trading caravan?",
+    choices:["Abu Talib","Khadijah bint Khuwaylid","Waraqah ibn Nawfal","Abu Bakr"],
+    correct:1, explain:"Khadijah, the wealthiest trader in Makkah, hired him to take charge of a caravan to Busra." },
+
+  { id:"3-5--honesty-and-trustworthiness--q4", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What kind of business arrangement did Khadijah offer the Prophet (pbuh) for the caravan venture?",
+    choices:["A fixed daily wage","A profit-sharing (mudarabah) arrangement","A loan she expected repaid with interest","Unpaid family assistance"],
+    correct:1, explain:"It was a mudarabah, a profit-sharing partnership, reflecting real commercial trust rather than a simple job." },
+
+  { id:"3-5--honesty-and-trustworthiness--q5", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"Who did Khadijah send along to observe the Prophet’s conduct on the journey?",
+    choices:["Her father","Her servant, Maysarah","Waraqah ibn Nawfal","Zayd ibn Harithah"],
+    correct:1, explain:"Maysarah, Khadijah’s servant, accompanied him and reported back on his honest and careful conduct." },
+
+  { id:"3-5--honesty-and-trustworthiness--q6", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What was the outcome of the Busra caravan venture?",
+    choices:["It made a small loss","It broke even","It returned unusually high profits, far exceeding previous ventures","It was cancelled halfway"],
+    correct:2, explain:"The venture returned profits far beyond Khadijah’s usual results, doubling or tripling them." },
+
+  { id:"3-5--honesty-and-trustworthiness--q7", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What ultimately resulted from this successful venture?",
+    choices:["The Prophet was banned from trading again","Khadijah proposed marriage to him","He was accused of theft","Khadijah ended their business relationship"],
+    correct:1, explain:"Impressed by his character and the venture’s success, Khadijah initiated marriage discussions." },
+
+  { id:"3-5--honesty-and-trustworthiness--q8", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"Why is it significant that Makkans continued depositing valuables with the Prophet (pbuh) even after he began preaching Islam?",
+    choices:["It shows his opponents trusted his honesty even while rejecting his religious message","It shows they had converted to Islam secretly","It proves they had no other safe place to store items","It shows they were forced to trust him"],
+    correct:0, explain:"Even Makkans who opposed his teaching kept trusting him with their property, showing his honesty was recognised as a separate, undeniable fact." },
+
+  { id:"3-5--honesty-and-trustworthiness--q9", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"Who is said, according to widely-told tradition, to have stayed behind in Makkah to return deposited valuables to their owners before the Hijrah?",
+    choices:["Abu Bakr","Ali ibn Abi Talib","Umar ibn al-Khattab","Zayd ibn Harithah"],
+    correct:1, explain:"Tradition holds that Ali remained behind in Makkah to see these trusts returned before following the Prophet to Madinah." },
+
+  { id:"3-5--honesty-and-trustworthiness--q10", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"Who was the Byzantine Emperor that questioned Abu Sufyan about the Prophet’s character?",
+    choices:["Justinian","Heraclius","Constantine","Theodosius"],
+    correct:1, explain:"Heraclius summoned Abu Sufyan to question him about the claims of the new prophet from Arabia." },
+
+  { id:"3-5--honesty-and-trustworthiness--q11", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What was Abu Sufyan’s relationship to the Prophet (pbuh) at the time of this questioning?",
+    choices:["A close companion","An active political and religious opponent","A neutral trader with no opinion","Already a secret Muslim"],
+    correct:1, explain:"At the time, Abu Sufyan was still opposed to the Prophet and Islam, making his answers especially significant as evidence." },
+
+  { id:"3-5--honesty-and-trustworthiness--q12", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What did Abu Sufyan admit to Heraclius when asked whether the Prophet had ever lied or broken a promise?",
+    choices:["That he had not, despite Abu Sufyan’s opposition to him","That he had lied frequently","That he refused to answer","That he had broken several promises"],
+    correct:0, explain:"Abu Sufyan, despite every motive to discredit him, admitted he could not name an instance of lying or broken promises." },
+
+  { id:"3-5--honesty-and-trustworthiness--q13", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"Which hadith collection records the Heraclius-Abu Sufyan exchange?",
+    choices:["Sunan al-Tirmidhi","Sahih al-Bukhari’s Book of the Beginning of Revelation","Muwatta Imam Malik","Sunan Ibn Majah only"],
+    correct:1, explain:"This narration is recorded in Sahih al-Bukhari’s Book of the Beginning of Revelation." },
+
+  { id:"3-5--honesty-and-trustworthiness--q14", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"Why is testimony from an opponent like Abu Sufyan considered stronger evidence than testimony from a follower?",
+    choices:["Because an opponent had every motive to discredit him but could not","Because followers are always unreliable narrators","Because opponents are legally required to tell the truth","It is not considered stronger evidence"],
+    correct:0, explain:"A hostile witness admitting something against their own interest is generally treated as stronger evidence than a supporter’s praise." },
+
+  { id:"3-5--honesty-and-trustworthiness--q15", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What conclusion did Heraclius reportedly draw from Abu Sufyan’s admission?",
+    choices:["That the Prophet must be a skilled magician","That a man who never lied to people was unlikely to suddenly lie about God","That the claim should be dismissed regardless","That Abu Sufyan must be lying instead"],
+    correct:1, explain:"Heraclius reasoned that consistent honesty toward people made it implausible the Prophet would begin lying about revelation from God." },
+
+  { id:"3-5--honesty-and-trustworthiness--q16", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What does the title al-Amin specifically emphasise, compared to al-Sadiq?",
+    choices:["Physical strength","Reliability with property, deals and promises, rather than just honest speech","Skill in poetry","Military leadership"],
+    correct:1, explain:"Al-Amin, “the Trustworthy,” emphasises reliability with property and promises, distinct from al-Sadiq’s focus on truthful speech." },
+
+  { id:"3-5--honesty-and-trustworthiness--q17", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"According to this lesson, why does the exam reward specific detail over general statements about honesty?",
+    choices:["Because named people, places, and events (like Khadijah, Busra, Heraclius) demonstrate real recall, not vague impressions","Because dates matter more than any other detail","Because general statements are factually incorrect","Because examiners only accept quotations"],
+    correct:0, explain:"Full marks require named, specific detail rather than general claims like “he was honest in business.”" },
+
+  { id:"3-5--honesty-and-trustworthiness--q18", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"In the N24 w11 exam question bundling honesty and simplicity, what should a well-balanced answer do?",
+    choices:["Focus almost entirely on honesty","Focus almost entirely on simplicity","Give roughly equal space and specific detail to both qualities","Answer only the part (b) section"],
+    correct:2, explain:"Because the question bundles two qualities, an imbalanced answer favouring one over the other loses marks even if each part is individually accurate." },
+
+  { id:"3-5--honesty-and-trustworthiness--q19", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"What is one recommended way people can show trustworthiness today, according to the Exam Lab model answer?",
+    choices:["Only trusting people who are family members","Keeping promises even when inconvenient or unlikely to be noticed","Avoiding all business dealings","Never lending or borrowing anything"],
+    correct:1, explain:"The model answer highlights keeping promises even when inconvenient as a modern application of trustworthiness." },
+
+  { id:"3-5--honesty-and-trustworthiness--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
+    q:"Which of the following best summarises why this lesson treats the Ali/Hijrah deposit-return detail cautiously?",
+    choices:["Because it definitely never happened","Because its precise chain of narration could not be confirmed with full confidence, even though it is widely told","Because it contradicts the Khadijah caravan story","Because Ali was not actually present in Makkah at the time"],
+    correct:1, explain:"The lesson presents this detail as strongly-attested tradition rather than a verified primary citation, in line with this course’s careful sourcing standard." },
+
+  { id:"3-5--humility-and-simplicity--q1", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"What was the Suffa, attached to the mosque in Madinah?",
+    choices:["A market for traders","A covered platform that became home to poor emigrants with no shelter","A private residence for the Prophet’s family","A school for children only"],
+    correct:1, explain:"The Suffa was a covered platform at the mosque where poor emigrants without family, property, or shelter in Madinah came to live." },
+
+  { id:"3-5--humility-and-simplicity--q2", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"What name is given to the group who lived on the Suffa?",
+    choices:["The Muhajirun","The Ahl as-Suffa","The Ansar","The Muakha"],
+    correct:1, explain:"They became known as the Ahl as-Suffa, “the People of the Bench.”" },
+
+  { id:"3-5--humility-and-simplicity--q3", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"How did the Prophet (pbuh) treat the Ahl as-Suffa?",
+    choices:["He kept his distance and left their care entirely to others","He took a direct, personal interest in their welfare","He asked them to leave the mosque area","He charged them rent"],
+    correct:1, explain:"He personally shared food with them, checked on them, and involved the community in supporting them." },
+
+  { id:"3-5--humility-and-simplicity--q4", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"Who is it narrated described the Prophet (pbuh) mending his own sandals and sewing his own clothes?",
+    choices:["Umar ibn al-Khattab","’A’ishah, his wife","Abu Sufyan","Abu Bakr"],
+    correct:1, explain:"This description of his everyday household conduct is narrated by his wife ’A’ishah." },
+
+  { id:"3-5--humility-and-simplicity--q5", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"Why is it significant that the Prophet (pbuh) mended his own sandals rather than assigning the task to a servant?",
+    choices:["Because he did not treat manual, humble tasks as beneath his status as leader","Because he could not afford a servant","Because it was required by law","Because servants refused to do it"],
+    correct:0, explain:"Despite being the leader of the Muslim community, he continued doing ordinary household tasks himself." },
+
+  { id:"3-5--humility-and-simplicity--q6", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"How did the Prophet (pbuh) generally feel about people standing up for him out of exaggerated respect?",
+    choices:["He required it as a sign of leadership","He disliked it","He was indifferent to it","He only allowed it from close family"],
+    correct:1, explain:"He is reported to have disliked this kind of formal, hierarchical display of status, similar to how subjects might rise for a king." },
+
+  { id:"3-5--humility-and-simplicity--q7", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"What did the Prophet (pbuh) prefer instead of formal displays of deference?",
+    choices:["Being addressed only by official titles","Being approached and treated as one of the people","Having a separate entrance built for himself","Being seated on an elevated throne"],
+    correct:1, explain:"He preferred not to be set apart by ceremony, wanting ordinary, direct interaction with people." },
+
+  { id:"3-5--humility-and-simplicity--q8", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"How did the Prophet (pbuh) typically eat in relation to the poor and his own household?",
+    choices:["Always separately, with different food","Together with them, without distinction","Only with visiting dignitaries","Alone, for reflection"],
+    correct:1, explain:"He sat and ate together with the poor, servants, and his household without setting himself apart." },
+
+  { id:"3-5--humility-and-simplicity--q9", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"What material was the Prophet’s (pbuh) house near the mosque in Madinah built from?",
+    choices:["Carved stone","Unfired mud brick with palm-leaf roofing","Imported marble","Reinforced timber"],
+    correct:1, explain:"His living quarters were simple structures of unfired brick with palm-leaf stalk roofing." },
+
+  { id:"3-5--humility-and-simplicity--q10", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"Why is the simplicity of his house especially significant in his final years?",
+    choices:["Because by then he led a growing state and could easily have afforded a grander residence","Because he had no other choice due to poverty","Because it was against religious law to build anything larger","Because his companions refused to help him build one"],
+    correct:0, explain:"Despite leading a state covering much of Arabia by that point, he chose to keep living simply rather than upgrade his residence." },
+
+  { id:"3-5--humility-and-simplicity--q11", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"According to the lesson, what distinguishes the Prophet’s humility from mere shyness?",
+    choices:["Nothing — they are the same","It was a leader deliberately refusing available signs of status while holding real authority","It only applied when he was young and had no power","It was imposed on him by others"],
+    correct:1, explain:"His humility is presented as an active, deliberate choice made while he held real authority, not a passive personality trait." },
+
+  { id:"3-5--humility-and-simplicity--q12", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"What two related qualities does this lesson pair together?",
+    choices:["Justice and generosity","Humility (modesty of manner) and simplicity (modesty of lifestyle)","Patience and honesty","Courage and wisdom"],
+    correct:1, explain:"The lesson treats humility as modesty of manner and simplicity as modesty of lifestyle, two sides of the same consistent choice." },
+
+  { id:"3-5--humility-and-simplicity--q13", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"What does the Source Box say about the specific blog episode this lesson tried to use for the Ahl as-Suffa?",
+    choices:["It fully confirmed all details used in this lesson","It actually covered a different topic (the Muakha pairing), not the Ahl as-Suffa material","It could not be accessed at all","It contradicted the material in this lesson"],
+    correct:1, explain:"The attempted source episode returned content about the Muakha (pairing of Muhajirun and Ansar) rather than the Ahl as-Suffa material, so this lesson relies on well-established tradition instead." },
+
+  { id:"3-5--humility-and-simplicity--q14", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"Which hadith source is cited for the Prophet mending his own sandals and clothes?",
+    choices:["Sunan al-Nasa’i","Musnad Ahmad (narrated by ’A’ishah)","Sahih Muslim’s Book of Prayer","Jami al-Tirmidhi only"],
+    correct:1, explain:"This description is attributed to ’A’ishah’s narration, recorded in sources including Musnad Ahmad." },
+
+  { id:"3-5--humility-and-simplicity--q15", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"In the N24 w11 exam question bundling honesty and simplicity, what happens if a student writes almost entirely about simplicity?",
+    choices:["They lose marks for imbalance, even if the simplicity content is accurate","They automatically fail the question","It does not affect their mark","They gain bonus marks for depth"],
+    correct:0, explain:"Because both qualities are asked for, an unbalanced answer favouring one over the other loses marks for imbalance." },
+
+  { id:"3-5--humility-and-simplicity--q16", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"According to the model answer for “Can Muslims live as simply as the Prophet today?”, what is one honest difficulty acknowledged?",
+    choices:["That simplicity is impossible in any era","That modern consumer-driven society creates different pressures around housing, technology and status","That the Prophet’s example is considered irrelevant today","That simplicity requires taking a vow of poverty"],
+    correct:1, explain:"The model answer acknowledges that modern social and consumer pressures can make living this simply harder than in the Prophet’s time." },
+
+  { id:"3-5--humility-and-simplicity--q17", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"What does the model answer suggest simplicity does NOT require?",
+    choices:["Any restraint at all","Literal poverty","Avoiding luxury entirely","Treating people equally"],
+    correct:1, explain:"The model answer clarifies that simplicity means deliberate restraint and avoiding attachment to material status, not literal poverty." },
+
+  { id:"3-5--humility-and-simplicity--q18", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"Why is the detail “mended his own sandals” considered stronger exam evidence than the general statement “he was humble”?",
+    choices:["Because it is specific, checkable and concrete rather than vague","Because it is longer to write","Because examiners only accept quotations about clothing","Because it is the only true detail about his humility"],
+    correct:0, explain:"Specific, concrete facts like this are exactly what strong AO1 answers are built from, rather than vague general claims." },
+
+  { id:"3-5--humility-and-simplicity--q19", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"Who were the Ahl as-Suffa mostly made up of?",
+    choices:["Wealthy merchants visiting Madinah","Poor emigrants with no family, property or shelter of their own","Foreign diplomats","Only children"],
+    correct:1, explain:"They were largely poor emigrants who had left everything behind in Makkah and had no means of shelter in Madinah." },
+
+  { id:"3-5--humility-and-simplicity--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
+    q:"What overall argument does this lesson make about the relationship between power and simplicity in the Prophet’s life?",
+    choices:["That he lived simply only because he was poor and had no choice","That he continued living simply by deliberate choice even after gaining real power and leadership","That simplicity ended once he became the leader of Madinah","That his simplicity is unrelated to his role as a leader"],
+    correct:1, explain:"The lesson’s central point is that his simple lifestyle was a sustained, deliberate choice held onto even at the height of his authority, not something that changed with status." },
+
+  { id:"3-5--generosity--q1", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"Roughly how many prisoners did the Muslims hold after the Battle of Badr?",
+    choices:["About ten","About thirty","Around seventy","Over two hundred"],
+    correct:2, explain:"The Muslims held roughly seventy to seventy-four prisoners after their unexpected victory at Badr." },
+
+  { id:"3-5--generosity--q2", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"How was ransom generally set for the Badr prisoners?",
+    choices:["The same fixed amount for everyone","According to what each prisoner could actually afford","Decided entirely by lottery","Set only by tribal status, not wealth"],
+    correct:1, explain:"Ransom was set according to means, with the Prophet reportedly knowing the men well enough to judge what each could pay." },
+
+  { id:"3-5--generosity--q3", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What happened to poor, illiterate prisoners at Badr?",
+    choices:["They were executed","They were released without any ransom","They were kept as permanent servants","They were sold to other tribes"],
+    correct:1, explain:"Prisoners who had no money and no literacy to offer were released without ransom." },
+
+  { id:"3-5--generosity--q4", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What alternative to money was offered to literate but poor prisoners?",
+    choices:["Working as soldiers for the Muslims","Freedom in exchange for teaching ten Ansari children to read and write","Freedom in exchange for a public conversion","No alternative was offered"],
+    correct:1, explain:"These prisoners could earn their freedom by teaching literacy to ten children of the Ansar." },
+
+  { id:"3-5--generosity--q5", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What did the Prophet (pbuh) command regarding how prisoners should be treated?",
+    choices:["That they be kept in strict isolation","That they be treated with kindness","That they be given only water","That they work without rest"],
+    correct:1, explain:"He said, “I command you to treat them with kindness.”" },
+
+  { id:"3-5--generosity--q6", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What did the prisoner Abu Aziz report about his Ansari guards?",
+    choices:["That they mistreated him","That they gave him bread and meat while keeping only dates and water for themselves","That they refused to feed him","That they demanded extra ransom from him"],
+    correct:1, explain:"His guards fed him better food than they kept for themselves, illustrating real generosity in practice." },
+
+  { id:"3-5--generosity--q7", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"Why was Abu Azzah al-Jumahi freed without ransom?",
+    choices:["Because of his poverty and dependants, on condition he never fight the Muslims again","Because he converted to Islam immediately","Because he was a relative of the Prophet","Because no ransom system existed yet"],
+    correct:0, explain:"He appealed based on his poverty and family responsibilities, and was freed on the condition he never fight against the Muslims again." },
+
+  { id:"3-5--generosity--q8", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What is meant by “al-mu’allafatu qulubuhum”?",
+    choices:["Prisoners of war generally","Those whose hearts are to be reconciled, given gifts to soften them toward Islam","The permanent poor of Madinah","Wealthy long-standing Muslims"],
+    correct:1, explain:"This term describes people, often recent or not-yet converts, given generous gifts specifically to win over their hearts toward Islam." },
+
+  { id:"3-5--generosity--q9", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"How many camels did Abu Sufyan ibn Harb and Safwan ibn Umayyah each receive after Hunayn?",
+    choices:["Ten","Fifty","One hundred","Five hundred"],
+    correct:2, explain:"Both received one hundred camels each as part of the mu’allafatu qulubuhum gifts." },
+
+  { id:"3-5--generosity--q10", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What did Safwan ibn Umayyah say about the effect of the Prophet’s generosity on him?",
+    choices:["That it made no difference to his opinion","That the Prophet went from being most despised to most beloved to him","That he demanded even more before converting","That he rejected the gift entirely"],
+    correct:1, explain:"Safwan said the Prophet was most despised to him, but continued to give until he became most beloved to him." },
+
+  { id:"3-5--generosity--q11", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"Who did the young Ansar complain to about being left out of the Hunayn wealth distribution?",
+    choices:["Abu Bakr","Sa’d ibn Ubadah, who then raised it with the Prophet","Umar ibn al-Khattab","Khalid ibn al-Walid"],
+    correct:1, explain:"Sa’d ibn Ubadah brought the Ansar’s grievance to the Prophet’s attention." },
+
+  { id:"3-5--generosity--q12", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What did the Prophet (pbuh) say to the Ansar to reassure them of his loyalty?",
+    choices:["“You have contributed the least to Islam”","“If all of mankind went one direction and the Ansar in another, I would go with the Ansar”","“The Muhajirun deserve more than you”","“I will replace you with new converts”"],
+    correct:1, explain:"He affirmed his deep loyalty to the Ansar with this statement before explaining his reasoning for the unequal gifts." },
+
+  { id:"3-5--generosity--q13", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"How did the Prophet (pbuh) explain giving large gifts to some new converts but not others?",
+    choices:["He feared some people’s greed while trusting what Allah had placed in others’ hearts","He simply preferred wealthier tribes","He was following a fixed rule with no reasoning given","He gave equally to everyone in the end"],
+    correct:0, explain:"He explained, “I give to some people because I fear for their greed… I don’t give to others because I trust what Allah has given in their hearts.”" },
+
+  { id:"3-5--generosity--q14", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"How did the Ansar respond after the Prophet’s address to them?",
+    choices:["They remained angry and left","They wept and declared themselves content with Islam and the Prophet alone","They demanded a share of the camels anyway","They asked to fight again immediately"],
+    correct:1, explain:"They wept and said, “We are content with Islam and you, ya Rasulullah!”" },
+
+  { id:"3-5--generosity--q15", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What did the Prophet promise to whoever financed the Jaysh al-Usrah before the Battle of Tabuk?",
+    choices:["A share of future spoils","Paradise (Jannah)","A formal title","Exemption from future battles"],
+    correct:1, explain:"He said, “Whoever finances the Jaysh al-Usrah, he shall be given Jannah.”" },
+
+  { id:"3-5--generosity--q16", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What did the Prophet (pbuh) say after seeing the scale of Uthman’s donation for Tabuk?",
+    choices:["That it was insufficient","“Wallahi, whatever Uthman does after today, it will not harm him.”","That Uthman should give even more","Nothing was recorded"],
+    correct:1, explain:"He remarked that Uthman’s actions from that day forward would not harm him, reflecting the magnitude of the donation." },
+
+  { id:"3-5--generosity--q17", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"When asked what he had kept for his family, what did Abu Bakr answer?",
+    choices:["“Half of everything”","“I left them Allah and His Messenger”","“Enough to survive one year”","“Nothing was asked of me”"],
+    correct:1, explain:"Abu Bakr answered that he had kept nothing back, leaving his family only in the care of Allah and His Messenger." },
+
+  { id:"3-5--generosity--q18", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What had the Prophet (pbuh) already done with the wealth of Hunayn and Ta’if before the Tabuk campaign?",
+    choices:["Kept it in reserve for future battles","Fully distributed it, keeping nothing for himself or the treasury","Returned it to its original owners","Donated only half of it"],
+    correct:1, explain:"In the six months before Tabuk, he had already given away the entire wealth captured at Hunayn and Ta’if." },
+
+  { id:"3-5--generosity--q19", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"According to the Source Box, why is there no dedicated past-paper question purely on “generosity” in this syllabus?",
+    choices:["Because generosity typically appears as supporting detail within battle- or event-focused questions rather than as its own standalone question","Because generosity is not considered an important quality","Because the syllabus excludes this topic entirely","Because all past questions focus only on forgiveness"],
+    correct:0, explain:"No single dedicated Topic 3 question on generosity alone was found; it appears as supporting AO1 material within other questions instead." },
+
+  { id:"3-5--generosity--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
+    q:"What is the best exam strategy for using this lesson’s content, according to the Exam Lab?",
+    choices:["Use its specific detail flexibly within whichever battle or event question appears, and in AO2 “apply this today” answers","Memorise it only for a dedicated generosity question that is unlikely to appear","Ignore it since it has no confirmed past-paper use","Use it only for Topic 2 questions"],
+    correct:0, explain:"Since no standalone generosity question was found, the lesson’s detail is best applied flexibly across battle-related and AO2 questions." },
+
+  { id:"3-5--justice-and-keeping-promises--q1", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"At approximately what age did the Prophet (pbuh) resolve the Black Stone dispute?",
+    choices:["25","30","35","40"],
+    correct:2, explain:"He was around thirty-five years old, years before receiving the first revelation." },
+
+  { id:"3-5--justice-and-keeping-promises--q2", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"What caused the dispute at the Ka’bah’s reconstruction?",
+    choices:["A shortage of building materials","Rivalry over which clan would place the Black Stone","A disagreement over the Ka’bah’s exact location","An argument about the cost of rebuilding"],
+    correct:1, explain:"The clans of Quraysh, especially Banu Abd Manaf and Banu Makhzum, competed for the honour of placing the Black Stone." },
+
+  { id:"3-5--justice-and-keeping-promises--q3", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"How serious did the dispute become before it was resolved?",
+    choices:["It was a minor disagreement, quickly forgotten","The clans made a blood pact to fight, and construction halted for days","It was settled instantly by a single elder’s decision","It led to the Ka’bah being abandoned"],
+    correct:1, explain:"The rivalry escalated to a blood pact between rival clans, and reconstruction stopped for several days." },
+
+  { id:"3-5--justice-and-keeping-promises--q4", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"What method did the Prophet (pbuh) propose to resolve the dispute?",
+    choices:["A vote among all of Makkah","Placing the stone on a cloak lifted together by representatives of every subtribe","Giving the honour to the oldest clan","Postponing the placement indefinitely"],
+    correct:1, explain:"He spread a cloak, placed the stone on it, and had a representative of every subtribe lift an edge together." },
+
+  { id:"3-5--justice-and-keeping-promises--q5", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"Why is the Black Stone episode especially significant for the exam?",
+    choices:["Because it shows his fairness before he held any prophetic or political authority","Because it is the only recorded act of justice in his life","Because it happened after the Hijrah","Because it involved a formal legal ruling"],
+    correct:0, explain:"It demonstrates that his instinct for fair, creative conflict resolution predated his prophethood entirely." },
+
+  { id:"3-5--justice-and-keeping-promises--q6", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"Who was Abu Jandal?",
+    choices:["The son of Suhayl ibn Amr, the Quraysh treaty negotiator, who had converted to Islam","A companion who negotiated the Treaty of Hudaybiyyah","A Madinan Ansari leader","The Prophet’s own relative"],
+    correct:0, explain:"Abu Jandal was the son of Suhayl ibn Amr, held and tortured in Makkah for his conversion to Islam." },
+
+  { id:"3-5--justice-and-keeping-promises--q7", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"In what condition did Abu Jandal arrive at the Muslim camp?",
+    choices:["Healthy and well-dressed","In chains, visibly bearing marks of torture","Disguised as a merchant","Accompanied by an armed escort"],
+    correct:1, explain:"He arrived in chains, showing visible signs of the torture he had suffered in Makkah." },
+
+  { id:"3-5--justice-and-keeping-promises--q8", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"What treaty term required Abu Jandal’s return to the Quraysh?",
+    choices:["A clause about trade rights","A clause requiring any Quraysh man who defected to the Muslims to be returned","A clause about pilgrimage access","There was no such clause; it was a personal decision"],
+    correct:1, explain:"The Treaty of Hudaybiyyah stated that any man from the Quraysh who defected, even as a Muslim, had to be handed back." },
+
+  { id:"3-5--justice-and-keeping-promises--q9", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"How many times is it recorded that the Prophet (pbuh) pleaded with Suhayl regarding his own son?",
+    choices:["Once","Repeatedly — more times than recorded anywhere else in the seerah","He never pleaded at all","Exactly three times, matching a fixed ritual pattern"],
+    correct:1, explain:"It is recorded that in the whole of the seerah, there is no other place where the Prophet pleaded this many times over one request." },
+
+  { id:"3-5--justice-and-keeping-promises--q10", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"What did the Prophet (pbuh) say directly to Abu Jandal as he was returned?",
+    choices:["“There is nothing I can do for you”","“Be patient, O Abu Jandal, for Allah will make a way out for you”","“You should not have converted”","“I will break the treaty for your sake”"],
+    correct:1, explain:"He comforted Abu Jandal with the promise that Allah would provide a way out, even as he upheld the treaty’s terms." },
+
+  { id:"3-5--justice-and-keeping-promises--q11", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"Which companion reacted with strong anger at the decision to honour this treaty term?",
+    choices:["Abu Bakr","Umar ibn al-Khattab","Uthman ibn Affan","Ali ibn Abi Talib"],
+    correct:1, explain:"Umar struggled to accept the treaty’s terms and expressed his anger at the decision." },
+
+  { id:"3-5--justice-and-keeping-promises--q12", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"How did the Prophet (pbuh) explain his decision to Umar?",
+    choices:["By admitting the decision was a mistake","“I am the Messenger of Allah, and I will not disobey Allah, and He will help me.”","By promising to break the treaty later","By blaming Suhayl entirely"],
+    correct:1, explain:"He firmly stated his commitment to obeying Allah’s guidance in upholding the treaty, regardless of how painful it felt." },
+
+  { id:"3-5--justice-and-keeping-promises--q13", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"How did the treaty’s strict, literal wording later benefit the Muslims?",
+    choices:["It did not benefit them in any way","Because it named only “men,” women converts were not covered by the same return clause","Because it was rewritten shortly afterward","Because Suhayl later renounced the treaty"],
+    correct:1, explain:"The treaty’s precise wording specified men only, meaning women who defected were not required to be returned, a distinction that mattered later." },
+
+  { id:"3-5--justice-and-keeping-promises--q14", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"According to widely-told tradition, what did the Prophet (pbuh) arrange regarding Makkan deposits before the Hijrah?",
+    choices:["That they be kept permanently","That they be returned to their rightful owners, even those who opposed him","That they be donated to the poor instead","That they be destroyed"],
+    correct:1, explain:"Tradition holds he arranged for these trusts to reach their owners, honouring the amanah regardless of the owners’ opposition to him." },
+
+  { id:"3-5--justice-and-keeping-promises--q15", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"What is named, in wider hadith tradition, as one of the signs of hypocrisy (nifaq)?",
+    choices:["Excessive generosity","Breaking one’s promises, along with lying and betraying trusts","Praying too frequently","Living simply"],
+    correct:1, explain:"Breaking a promise is widely narrated as one of the signs of hypocrisy, alongside lying and betraying what is entrusted to you." },
+
+  { id:"3-5--justice-and-keeping-promises--q16", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"What overall principle links the Black Stone and Abu Jandal episodes, according to this lesson?",
+    choices:["Both show the Prophet avoiding difficult decisions","Both show fairness and promise-keeping applied consistently, even at real personal cost","Both happened in the same year","Neither involved any conflict"],
+    correct:1, explain:"Both episodes show the same underlying commitment to fairness and keeping one’s word, tested in very different circumstances." },
+
+  { id:"3-5--justice-and-keeping-promises--q17", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"Why does the lesson describe Abu Jandal’s story as the “strongest possible evidence” for promise-keeping?",
+    choices:["Because the promise was kept at real, painful human cost rather than when it was easy","Because it is the only example of promise-keeping in the seerah","Because Abu Jandal was a stranger with no connection to the Muslims","Because the treaty was later cancelled"],
+    correct:0, explain:"A promise kept despite visible anguish and cost is stronger evidence of principle than one kept only when convenient." },
+
+  { id:"3-5--justice-and-keeping-promises--q18", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"According to the Source Box, why is this lesson’s Ali/Hijrah deposit-return detail treated cautiously?",
+    choices:["Because the attempted source did not directly confirm the deposit-return element","Because it directly contradicts the Black Stone episode","Because it is considered definitely false","Because Ali was not present at the Hijrah at all"],
+    correct:0, explain:"The lesson notes it could not directly confirm this specific detail from its attempted source, so it presents it as widely-told tradition rather than a verified quotation." },
+
+  { id:"3-5--justice-and-keeping-promises--q19", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"According to the Source Box on past exams, how should students expect to use this lesson’s content in an exam?",
+    choices:["As supporting detail within Hudaybiyyah or pre-prophethood character questions, not a standalone question","Only for a dedicated “justice” question guaranteed to appear","It has no use in any past-paper style question","Only for Topic 2 questions"],
+    correct:0, explain:"No dedicated standalone question on justice or promise-keeping was found, so this content is best applied within related event questions." },
+
+  { id:"3-5--justice-and-keeping-promises--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
+    q:"What is a suggested modern application of the Black Stone episode, according to the Elaborate Box?",
+    choices:["Finding solutions to disputes where no one is made to feel entirely defeated","Always deciding disputes by majority vote","Avoiding all group disputes entirely","Letting the most senior person decide alone"],
+    correct:0, explain:"The lesson suggests applying the “everyone shares the outcome together” approach to modern disputes among friends or in group work." },
+
+  { id:"3-6--seal-of-the-prophets--q1", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"What Arabic title, found in the Qur’an, means “Seal of the Prophets”?",
+    choices:["Rasul Allah","Khatam an-Nabiyyin","Ummi","Sayyid al-Mursalin"],
+    correct:1, explain:"Khatam an-Nabiyyin is the Qur’anic title meaning “Seal of the Prophets,” found in Surah al-Ahzab 33:40." },
+
+  { id:"3-6--seal-of-the-prophets--q2", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"In which surah and verse does the Qur’an call Muhammad (pbuh) the “seal of the prophets”?",
+    choices:["Surah al-Baqarah 2:255","Surah al-Ahzab 33:40","Surah al-Fatiha 1:1","Surah Ya-Sin 36:1"],
+    correct:1, explain:"The title appears in Surah al-Ahzab, verse 40." },
+
+  { id:"3-6--seal-of-the-prophets--q3", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"According to Qur’an 33:40, what social claim about Muhammad (pbuh) is being corrected in the same verse that calls him “seal of the prophets”?",
+    choices:["That he was not truly a messenger","That he was the biological father of an adult son","That he could not read or write","That he had many wives"],
+    correct:1, explain:"The verse states Muhammad “is not the father of any one of you men,” correcting an expectation tied to his adopted son Zayd, before naming him God’s Messenger and the seal of the prophets." },
+
+  { id:"3-6--seal-of-the-prophets--q4", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"What does “seal of the prophets” mean as a belief?",
+    choices:["Muhammad (pbuh) is the last prophet; no further prophet will come after him","Muhammad (pbuh) sealed the Qur’an in a physical box for safekeeping","Muhammad (pbuh) was the first prophet in history","Muhammad (pbuh) personally approved all earlier scriptures"],
+    correct:0, explain:"It means the line of prophecy is believed to have closed permanently with him — no future prophet is expected." },
+
+  { id:"3-6--seal-of-the-prophets--q5", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Which of these prophets does Islamic belief hold came before Muhammad (pbuh) in the same prophetic chain?",
+    choices:["None — Muhammad is believed to be the only prophet","Musa, Isa and Ibrahim, among others","Only Isa","Only prophets mentioned in the Torah, not the Gospel"],
+    correct:1, explain:"Muslims believe in a long chain of earlier prophets including Adam, Ibrahim, Musa and Isa, among others, before Muhammad closed the line." },
+
+  { id:"3-6--seal-of-the-prophets--q6", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"How, according to this lesson, did earlier prophets’ missions typically differ from Muhammad’s?",
+    choices:["They were generally sent to one specific people, place or time period","They were sent with no scripture at all","They were sent only to warn, never with good news","They were sent after Muhammad, not before him"],
+    correct:0, explain:"Earlier prophets are understood to have been sent to specific nations or periods, whereas Muhammad’s message is presented as universal and final." },
+
+  { id:"3-6--seal-of-the-prophets--q7", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Which verse is commonly cited alongside 33:40 to show Muhammad’s message was sent “only as a mercy… to all people”?",
+    choices:["Qur’an 2:255","Qur’an 21:107","Qur’an 112:1","Qur’an 5:3"],
+    correct:1, explain:"Qur’an 21:107 states he was sent “only as a mercy… to all people,” supporting the universal scope of his mission." },
+
+  { id:"3-6--seal-of-the-prophets--q8", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Which verse states Muhammad (pbuh) was sent “to bring good news and warning to all people”?",
+    choices:["Qur’an 33:40","Qur’an 21:107","Qur’an 34:28","Qur’an 5:3"],
+    correct:2, explain:"Qur’an 34:28 makes this statement, reinforcing that his message was not limited to one nation." },
+
+  { id:"3-6--seal-of-the-prophets--q9", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Why, in Islamic theological reasoning, does the universal and final nature of Muhammad’s message mean no further prophet is needed?",
+    choices:["There is no remaining people, place or time period left for a new prophet’s message to address","Because Allah stopped sending revelation after the Torah","Because earlier prophets asked for the line to end","Because the Qur’an has never been translated"],
+    correct:0, explain:"If the message is already for all people and all time, and is believed to be preserved unaltered, there is no gap left for a further prophet’s revelation to fill." },
+
+  { id:"3-6--seal-of-the-prophets--q10", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"In which year, and at which location, did the Prophet deliver the Farewell Sermon material discussed in this lesson?",
+    choices:["2 AH, in Madinah","10 AH, at Arafat","8 AH, in Makkah’s Ka’bah","1 AH, at Badr"],
+    correct:1, explain:"The Farewell Sermon was delivered at Arafat during the Prophet’s only Hajj, in 10 AH." },
+
+  { id:"3-6--seal-of-the-prophets--q11", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Why is this pilgrimage remembered as the “Farewell Hajj”?",
+    choices:["Because the Prophet was, in effect, bidding the people farewell before his death","Because it was the first Hajj ever performed","Because non-Muslims were farewelled from Makkah that year","Because it marked the end of the Ramadan fast"],
+    correct:0, explain:"It is called the Farewell Hajj because it turned out to be the Prophet’s only and final pilgrimage before his death." },
+
+  { id:"3-6--seal-of-the-prophets--q12", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"What did the Prophet say to the crowd at Arafat that signalled this might be their last time together?",
+    choices:["“This is the final Hajj Allah will ever permit”","“I know not whether I shall meet you again after this year”","“No prophet will ever come after me”","“This sermon will never be repeated”"],
+    correct:1, explain:"He told the gathered Muslims he did not know whether he would meet them again after that year." },
+
+  { id:"3-6--seal-of-the-prophets--q13", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Which verse, revealed during the Farewell Hajj, declares the religion “perfected” and “completed”?",
+    choices:["Qur’an 33:40","Qur’an 96:1","Qur’an 5:3","Qur’an 112:1"],
+    correct:2, explain:"Qur’an 5:3 states, “Today I have perfected your religion for you, completed My blessing upon you,” and was revealed during this Hajj." },
+
+  { id:"3-6--seal-of-the-prophets--q14", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"What did the Prophet tell the people to hold onto so they would never go astray?",
+    choices:["The advice of the tribal elders","The Kitabullah (Book of Allah)","His own family line","The Ka’bah alone"],
+    correct:1, explain:"He told them that holding to the Kitabullah, the Book of Allah, would keep them from going astray." },
+
+  { id:"3-6--seal-of-the-prophets--q15", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"The statement “there will be no prophet after me” comes from which source?",
+    choices:["The Farewell Sermon at Arafat directly","A separate hadith recorded in Sahih al-Bukhari","Surah al-Ahzab 33:40 directly","A statement made at the Battle of Badr"],
+    correct:1, explain:"This exact sentence is preserved as its own hadith in Sahih al-Bukhari, comparing Muhammad’s succession to that of the earlier Israelite prophets — it is not part of the Arafat sermon transcript itself." },
+
+  { id:"3-6--seal-of-the-prophets--q16", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"In the Sahih al-Bukhari hadith quoted in this lesson, what pattern among the Israelites is Muhammad’s own situation contrasted with?",
+    choices:["Whenever an Israelite prophet died, another prophet succeeded him","The Israelites never had any prophets","Israelite prophets never died","Israelite prophets were always kings as well"],
+    correct:0, explain:"The hadith explains that among the Israelites, one prophet’s death meant God sent the next one — but Muhammad states no next prophet is coming after him." },
+
+  { id:"3-6--seal-of-the-prophets--q17", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Which phrase from the Shahada is understood by Muslims to carry the “seal of the prophets” belief within it?",
+    choices:["“There is no god but Allah”","“Muhammad is the Messenger of Allah”","“Allahu Akbar”","“La ilaha illallah, Muhammadur Rasulullah” in Arabic script only"],
+    correct:1, explain:"Affirming Muhammad as the Messenger of Allah is understood to include accepting that his prophethood is final." },
+
+  { id:"3-6--seal-of-the-prophets--q18", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Why do Muslims rely on the Qur’an and the Prophet’s Sunnah as complete guidance, according to this lesson?",
+    choices:["Because no further revelation is expected after the final prophet","Because no other sources of Islamic guidance exist","Because the Sunnah replaces the Qur’an","Because earlier scriptures were never written down"],
+    correct:0, explain:"Since prophethood and revelation are believed to have closed with Muhammad, the Qur’an and Sunnah are treated as the complete and sufficient guidance, with nothing further to wait for." },
+
+  { id:"3-6--seal-of-the-prophets--q19", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Which of the following is the safest way to describe how a past exam might test this lesson’s content?",
+    choices:["As supporting AO2 material within a broader question, not as its own standalone (a) question","As a guaranteed standalone 10-mark question every session","It has never appeared in any form in the syllabus","Only as a (a) question about the Battle of Badr"],
+    correct:0, explain:"No past paper sets this as its own dedicated question; it is best learned as reasoning to support answers on the Farewell Sermon or the Qur’an’s completeness." },
+
+  { id:"3-6--seal-of-the-prophets--q20", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
+    q:"Why is it important, for exam accuracy, to keep the Farewell Sermon quotations and the “no prophet after me” hadith cited separately?",
+    choices:["Because they come from different sources and merging them risks misattributing a quotation","Because they contradict each other","Because only one of them is actually about Muhammad","Because examiners never accept hadith evidence"],
+    correct:0, explain:"Blending sources together risks quoting one text but citing another, which examiners can penalise for inaccuracy even when the underlying facts are correct." }
 
 ];
