@@ -2235,6 +2235,106 @@ window.QUESTION_BANK = [
   { id:"3-6--seal-of-the-prophets--q20", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
     q:"Why is it important, for exam accuracy, to keep the Farewell Sermon quotations and the “no prophet after me” hadith cited separately?",
     choices:["Because they come from different sources and merging them risks misattributing a quotation","Because they contradict each other","Because only one of them is actually about Muhammad","Because examiners never accept hadith evidence"],
-    correct:0, explain:"Blending sources together risks quoting one text but citing another, which examiners can penalise for inaccuracy even when the underlying facts are correct." }
+    correct:0, explain:"Blending sources together risks quoting one text but citing another, which examiners can penalise for inaccuracy even when the underlying facts are correct." },
+
+  { id:"3-5--forgiveness-and-patience--q1", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Why did the Prophet (pbuh) travel to Ta’if?",
+    choices:["To trade goods","To seek support for Islam after losing his protectors in Makkah","To visit relatives","To perform pilgrimage"],
+    correct:1, explain:"He went hoping the leaders of Ta’if might accept Islam after the deaths of Khadijah and Abu Talib left him without protection in Makkah." },
+
+  { id:"3-5--forgiveness-and-patience--q2", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Who accompanied the Prophet (pbuh) to Ta’if?",
+    choices:["Abu Bakr","Zayd ibn Harithah","Ali ibn Abi Talib","Umar ibn al-Khattab"],
+    correct:1, explain:"Zayd ibn Harithah travelled with him and was himself injured trying to shield the Prophet from the stones." },
+
+  { id:"3-5--forgiveness-and-patience--q3", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"How did the people of Ta’if respond to the Prophet’s preaching?",
+    choices:["They welcomed him warmly","They ignored him completely","They mocked him and had a mob stone him out of the town","They offered him a treaty"],
+    correct:2, explain:"The town’s leaders mocked him, and when he continued preaching to commoners, a mob was sent to stone and expel him." },
+
+  { id:"3-5--forgiveness-and-patience--q4", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Where did the Prophet (pbuh) take shelter after the stoning?",
+    choices:["Inside a mosque","Beside an orchard wall belonging to Utbah and Shaybah","In the house of Abu Sufyan","In a nearby cave"],
+    correct:1, explain:"He sheltered by the wall of an orchard belonging to Utbah and Shaybah, who sent him grapes out of kindness though they were not Muslim." },
+
+  { id:"3-5--forgiveness-and-patience--q5", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"What did the Prophet (pbuh) say in his supplication at that moment?",
+    choices:["A request for revenge against Ta’if","A complaint to Allah of his weakness and lack of resources","A demand that Zayd be healed first","A prayer asking to return to Makkah immediately"],
+    correct:1, explain:"He said, “O Allah, to You I complain of my weakness, and my lack of resources, and my lowliness before man.”" },
+
+  { id:"3-5--forgiveness-and-patience--q6", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Who appeared alongside Jibreel at this moment?",
+    choices:["Mika’il","The Angel of the Mountains","Israfil","No angel appeared"],
+    correct:1, explain:"The Angel of the Mountains appeared with Jibreel and offered to act on the Prophet’s behalf." },
+
+  { id:"3-5--forgiveness-and-patience--q7", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"What did the Angel of the Mountains offer to do?",
+    choices:["Heal his wounds instantly","Crush Ta’if between the two surrounding mountains","Carry him back to Makkah","Send down fire on the town"],
+    correct:1, explain:"The angel offered to squeeze the city between the two mountains if the Prophet wished it." },
+
+  { id:"3-5--forgiveness-and-patience--q8", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"How did the Prophet (pbuh) respond to this offer?",
+    choices:["He accepted immediately","He asked for time to think","He declined and expressed hope for future believers from the town","He asked for a lesser punishment instead"],
+    correct:2, explain:"He refused, saying he hoped Allah would bring forth believers from the descendants of the very people who had just harmed him." },
+
+  { id:"3-5--forgiveness-and-patience--q9", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"What does the Ta’if episode illustrate about the Prophet’s forgiveness?",
+    choices:["That he forgave only after being persuaded by others","That he refused a real offer of total revenge at his physically weakest moment","That he never actually forgave Ta’if","That forgiveness only applied to his own family"],
+    correct:1, explain:"He was offered genuine, total power to destroy the town while badly wounded, and chose restraint over revenge." },
+
+  { id:"3-5--forgiveness-and-patience--q10", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"What major event years later tested the Prophet’s forgiveness on a much larger scale?",
+    choices:["The Battle of Uhud","The Conquest of Makkah","The signing of the Treaty of Hudaybiyyah","The Farewell Pilgrimage"],
+    correct:1, explain:"At the Conquest of Makkah, he had the power to punish the city that had persecuted the Muslims for over a decade." },
+
+  { id:"3-5--forgiveness-and-patience--q11", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"What declaration did the Prophet (pbuh) make regarding the people of Makkah at the conquest?",
+    choices:["“You must all convert immediately”","“Go forth, you are free today”","“You are all exiled from this city”","“Your property is now forfeit”"],
+    correct:1, explain:"This became the defining statement of the general amnesty at the Conquest of Makkah." },
+
+  { id:"3-5--forgiveness-and-patience--q12", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Whose household did the Prophet (pbuh) specifically guarantee safety to, despite past enmity?",
+    choices:["Abu Jahl’s","Abu Sufyan’s","Abu Lahab’s","Al-Walid ibn al-Mughirah’s"],
+    correct:1, explain:"He declared that whoever sheltered in the house of Abu Sufyan, a former enemy commander, would be safe." },
+
+  { id:"3-5--forgiveness-and-patience--q13", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Besides Abu Sufyan’s house, what other two places did the Prophet (pbuh) declare safe at the conquest?",
+    choices:["Marketplaces and wells","The Sacred Mosque and people’s own homes","Only the Ka’bah itself","The city gates"],
+    correct:1, explain:"He declared that whoever remained in the Haram or in their own home would be safe." },
+
+  { id:"3-5--forgiveness-and-patience--q14", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Why is the Conquest of Makkah considered a stronger test of forgiveness than many other events?",
+    choices:["Because the persecution had lasted over a decade and came from his own tribe","Because it happened early in his life","Because no one had actually been harmed","Because the Quraysh had never opposed him"],
+    correct:0, explain:"Unlike a single incident, this persecution was sustained for years by his own people, making the amnesty especially significant." },
+
+  { id:"3-5--forgiveness-and-patience--q15", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"What is the difference between “patience” (sabr) and “forgiveness” as shown in this lesson?",
+    choices:["They mean exactly the same thing","Patience is enduring hardship without losing control; forgiveness is choosing not to punish once you have power to","Patience only applies to physical pain; forgiveness only applies to speech","Forgiveness always comes before patience chronologically"],
+    correct:1, explain:"Patience was tested during the stoning itself; forgiveness was tested afterward, when he was offered the power to retaliate." },
+
+  { id:"3-5--forgiveness-and-patience--q16", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"What did Utbah and Shaybah do for the Prophet (pbuh) at Ta’if, despite not being Muslim?",
+    choices:["They joined the mob","They sent him grapes as an act of kindness","They reported him to the town leaders","They demanded he leave their land"],
+    correct:1, explain:"Though not Muslims, they showed him basic human kindness by sending grapes while he sheltered by their orchard wall." },
+
+  { id:"3-5--forgiveness-and-patience--q17", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"In the J21 s12 exam question on patience and forgiveness, which TWO episodes give the strongest named examples?",
+    choices:["The Hijrah and the Battle of Badr","Ta’if and the Conquest of Makkah","The first revelation and the Night Journey","The Treaty of Hudaybiyyah and the Battle of Hunayn"],
+    correct:1, explain:"These two events, at very different scales, are the headline examples of forgiveness and patience covered in this lesson." },
+
+  { id:"3-5--forgiveness-and-patience--q18", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"According to the Exam Lab, why do vague answers about “the Prophet being very patient” lose marks?",
+    choices:["Because patience is not actually a valid Islamic quality","Because examiners require specific, named, checkable detail rather than general statements","Because the question only wants dates","Because forgiveness cannot be assessed in an exam"],
+    correct:1, explain:"Full marks require specific facts such as the Angel of the Mountains’ offer or the exact wording “Go forth, you are free today,” not vague generalisations." },
+
+  { id:"3-5--forgiveness-and-patience--q19", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Which past paper question restricts its answer to the Makkan period only, excluding the Conquest of Makkah?",
+    choices:["J21 s12","J23 s11","J23 s12","None of them"],
+    correct:2, explain:"J23 s12 asks specifically about patience and self-restraint “while in Makka,” meaning the post-Hijrah Conquest of Makkah material would be off-topic there." },
+
+  { id:"3-5--forgiveness-and-patience--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
+    q:"Why does the lesson advise caution about the story of a woman who threw rubbish on the Prophet’s path?",
+    choices:["Because it is definitely false","Because its exact chain of narration cannot be confirmed with confidence here","Because it contradicts the Ta’if story","Because it is not related to forgiveness at all"],
+    correct:1, explain:"The lesson notes this popular story is widely told but its precise sourcing could not be confirmed, so it is mentioned only as background, not as confirmed exam-ready fact." }
 
 ];

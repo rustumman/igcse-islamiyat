@@ -90,7 +90,9 @@ window.CONTENT_TREE = {
                 { id: "generosity", title: "Generosity",
                   base: "paper-1/topic-3/3-5/generosity/" },
                 { id: "justice-and-keeping-promises", title: "Justice and Keeping Promises",
-                  base: "paper-1/topic-3/3-5/justice-and-keeping-promises/" }
+                  base: "paper-1/topic-3/3-5/justice-and-keeping-promises/" },
+                { id: "forgiveness-and-patience", title: "Forgiveness and Patience",
+                  base: "paper-1/topic-3/3-5/forgiveness-and-patience/" }
               ]
             },
             {
