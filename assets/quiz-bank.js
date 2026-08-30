@@ -272,11 +272,6 @@ window.QUESTION_BANK = [
     choices:["The “Why Gradual Revelation” lesson","This lesson (“Conditions of Revelation”)","The “Makki and Madani Surahs” lesson","None of the above"],
     correct:0, explain:"Timing and pacing questions belong to the “Why Gradual Revelation” lesson, not this one, which covers the forms revelation took." },
 
-  { id:"2-1--conditions-of-revelation--q25", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
-    q:"Which three real past-paper questions does this lesson’s “forms of revelation” material most directly answer, in their part (a)?",
-    choices:["J21 s11, J23 s12, and N24 w11","J22 s12 and J23 s11 only","N25 w11 only","None — this content has never been examined"],
-    correct:0, explain:"These three sessions all set “different ways revelation came to the Prophet” as their part (a), each paired with a different part (b)." },
-
   { id:"2-1--conditions-of-revelation--q26", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
     q:"What is the most common mark-losing mistake on the “different ways revelation came” question, according to this lesson’s Exam Lab notes?",
     choices:["Answering with the Cave of Hira narrative instead of the range of forms revelation took","Writing too briefly","Quoting too many Qur’an verses","Discussing Khadija in too much detail"],
@@ -416,11 +411,6 @@ window.QUESTION_BANK = [
     q:"Which past-paper question is explicitly about the “forms” revelation took, rather than why it came gradually?",
     choices:["“Different ways revelation came to the Prophet” (e.g. N24 w11 part a)","“Why was it important for revelations to come over time?” (J23 s12 part b)","“Significance of the Qur’an being revealed over 23 years” (J22 s12 part b)","All of the above are about gradual revelation"],
     correct:0, explain:"“Different ways revelation came” tests the forms of wahy (e.g. bell-sound, angel as a man) — a separate topic from this lesson’s focus on why revelation was gradual." },
-
-  { id:"2-1--why-gradual-revelation--q25", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
-    q:"Which two real past-paper questions does this lesson’s “why gradual” material most directly answer?",
-    choices:["J22 s12(b) and J23 s12(b)","J21 s11(a) and N24 w11(a)","Only questions about the compilation of the Qur’an","Only questions about Makki and Madani surahs"],
-    correct:0, explain:"J22 s12(b) (“significance of 23 years”) and J23 s12(b) (“why important for revelations to come over time”) are functionally the same underlying question this lesson equips students to answer." },
 
   { id:"2-1--why-gradual-revelation--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
     q:"What is the safest way to distinguish “why gradual revelation mattered” answers from “different ways revelation came” answers in an exam?",
@@ -667,21 +657,6 @@ window.QUESTION_BANK = [
     choices:["The Battle of Yamama, in which a large number of huffaz were killed","The Battle of Badr","The Farewell Pilgrimage","The Treaty of Hudaybiyyah"],
     correct:0, explain:"The Battle of Yamama (12 AH) killed a large number of the Qur’an’s memorisers, prompting the later compilation effort — covered in the following unit." },
 
-  { id:"2-1--preservation-of-quran--q21", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Both Exam Lab questions in this lesson are catalogued by the exam board under which broader topic area?",
-    choices:["The First Islamic Community","History and Importance of the Qur’an","Articles of Faith","The Pillars of Islam"],
-    correct:0, explain:"Both questions are filed under “The First Islamic Community” because they’re framed around the Scribes as companions, even though their content matches this Qur’an-history lesson closely." },
-
-  { id:"2-1--preservation-of-quran--q22", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"In session J22 s11, what part (b) question was paired with “tasks performed by the Scribes”?",
-    choices:["Benefits of the Qur’an being available to everyone on the internet","Is it easier to record Islamic knowledge now than in the Prophet’s time?","Why was it important the Qur’an wasn’t revealed all at once?","Significance of the Qur’an being written as a book"],
-    correct:0, explain:"J22 s11’s part (b) asked about the benefits of the Qur’an’s availability on the internet." },
-
-  { id:"2-1--preservation-of-quran--q23", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"In session N25 w12, what part (b) question was paired with “main roles played by the Scribes of the Prophet”?",
-    choices:["Is it easier to record Islamic knowledge now than in the Prophet’s time?","Benefits of the Qur’an being available to everyone on the internet","Significance of the Qur’an being written as a book","How useful is it that Muslims can access the Qur’an in many formats?"],
-    correct:0, explain:"N25 w12’s part (b) asked whether recording Islamic knowledge is easier now than in the Prophet’s time." },
-
   { id:"2-1--preservation-of-quran--q24", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
     q:"What is the strongest way to answer “Is it easier to record Islamic knowledge now than in the Prophet’s time?” for full marks?",
     choices:["Give a balanced answer: recording is faster and more accessible now, but accuracy still depends on the same kind of careful verification the Scribes and huffaz provided then","Simply answer “yes” with no further explanation","Simply answer “no” with no further explanation","Describe only the writing materials used in the Prophet’s time"],
@@ -801,21 +776,6 @@ window.QUESTION_BANK = [
     q:"What event, occurring within a year of the Prophet’s death, showed how the memorisation track alone could be put at risk?",
     choices:["The Battle of Yamama, in which a large number of huffaz were killed","The Battle of Badr","The Farewell Pilgrimage","The Treaty of Hudaybiyyah"],
     correct:0, explain:"The Battle of Yamama (12 AH) killed a large number of the Qur’an’s memorisers, prompting the compilation covered in the next chapter of this unit." },
-
-  { id:"2-2--preservation-before-compilation--q21", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Both Exam Lab questions in this lesson are catalogued by the exam board under which broader topic area?",
-    choices:["The First Islamic Community","History and Importance of the Qur’an","Articles of Faith","The Pillars of Islam"],
-    correct:0, explain:"Both questions are filed under “The First Islamic Community” because they’re framed around the Scribes as companions, even though their content matches this Qur’an-history lesson closely." },
-
-  { id:"2-2--preservation-before-compilation--q22", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"In session J22 s11, what part (b) question was paired with “tasks performed by the Scribes”?",
-    choices:["Benefits of the Qur’an being available to everyone on the internet","Is it easier to record Islamic knowledge now than in the Prophet’s time?","Why was it important the Qur’an wasn’t revealed all at once?","Significance of the Qur’an being written as a book"],
-    correct:0, explain:"J22 s11’s part (b) asked about the benefits of the Qur’an’s availability on the internet." },
-
-  { id:"2-2--preservation-before-compilation--q23", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"In session N25 w12, what part (b) question was paired with “main roles played by the Scribes of the Prophet”?",
-    choices:["Is it easier to record Islamic knowledge now than in the Prophet’s time?","Benefits of the Qur’an being available to everyone on the internet","Significance of the Qur’an being written as a book","How useful is it that Muslims can access the Qur’an in many formats?"],
-    correct:0, explain:"N25 w12’s part (b) asked whether recording Islamic knowledge is easier now than in the Prophet’s time." },
 
   { id:"2-2--preservation-before-compilation--q24", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
     q:"What is the strongest way to answer “Is it easier to record Islamic knowledge now than in the Prophet’s time?” for full marks?",
