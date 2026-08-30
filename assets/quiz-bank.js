@@ -142,11 +142,6 @@ window.QUESTION_BANK = [
     choices:["He was an independent, scripturally trained outsider with no reason to flatter the Prophet","He was the Prophet’s closest family member","He had witnessed the revelation himself","He was a well-known Makkan idol-worshipper"],
     correct:0, explain:"Waraqah had no personal stake in flattering the Prophet — his recognition came from independent knowledge of earlier scripture, which strengthens it as evidence." },
 
-  { id:"2-1--first-revelation--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"first-revelation",
-    q:"What is the primary academic source used in this lesson for the classification of forms of revelation (wahy)?",
-    choices:["The Sealed Nectar by Safiur Rahman al-Mubarakpuri","An Introduction to the Sciences of the Qur’aan by Abu Ammaar Yasir Qadhi","The Life of Muhammad by A. Guillaume","Sunan Abu Dawud"],
-    correct:1, explain:"Yasir Qadhi’s An Introduction to the Sciences of the Qur’aan (Al-Hidaayah, 1999) is the academic source used for the classification of wahy and its Qur’anic framing (42:51)." },
-
   { id:"2-1--first-revelation--q29", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"first-revelation",
     q:"In an exam answer about “the first revelation,” which sequence of events is the safest and most tightly source-supported to write?",
     choices:["Cave of Hira → “Iqra” x3 → Surah al-’Alaq 96:1–5 → home to Khadija → her reassurance → Waraqah’s confirmation","Surah al-Muddaththir → the fatrah → Cave of Hira → Waraqah’s confirmation","Khadija’s reassurance → Cave of Hira → “Iqra” x3 → Waraqah’s confirmation","Waraqah’s confirmation → Cave of Hira → Khadija’s reassurance"],
@@ -286,11 +281,6 @@ window.QUESTION_BANK = [
     q:"What is the most common mark-losing mistake on the “different ways revelation came” question, according to this lesson’s Exam Lab notes?",
     choices:["Answering with the Cave of Hira narrative instead of the range of forms revelation took","Writing too briefly","Quoting too many Qur’an verses","Discussing Khadija in too much detail"],
     correct:0, explain:"Candidates frequently substitute the specific first-revelation story for the broader “range of forms” this question actually asks for." },
-
-  { id:"2-1--conditions-of-revelation--q27", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
-    q:"Which academic source structures this lesson’s account of the procedure of wahy?",
-    choices:["Chapter 3, “Inspiration — al-Wahy,” in Yasir Qadhi’s An Introduction to the Sciences of the Qur’aan","Ibn Ishaq’s Sirat Rasul Allah","The Sealed Nectar by Safiur Rahman al-Mubarakpuri","Sahih Muslim alone"],
-    correct:0, explain:"This lesson follows Chapter 3, Section III (“The Procedure of Wahy”) of Yasir Qadhi’s book." },
 
   { id:"2-1--conditions-of-revelation--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
     q:"Why, according to this lesson, might it matter as evidence of authenticity that the Qur’an’s actual wording never came through a private dream?",
@@ -432,16 +422,6 @@ window.QUESTION_BANK = [
     choices:["J22 s12(b) and J23 s12(b)","J21 s11(a) and N24 w11(a)","Only questions about the compilation of the Qur’an","Only questions about Makki and Madani surahs"],
     correct:0, explain:"J22 s12(b) (“significance of 23 years”) and J23 s12(b) (“why important for revelations to come over time”) are functionally the same underlying question this lesson equips students to answer." },
 
-  { id:"2-1--why-gradual-revelation--q26", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
-    q:"What is the primary academic source this lesson’s account of the three stages and safeguards is drawn from?",
-    choices:["Chapter 4, “Gradual Revelation,” in Yasir Qadhi’s An Introduction to the Sciences of the Qur’aan","Sahih Muslim alone","The Sealed Nectar by Safiur Rahman al-Mubarakpuri","Ibn Ishaq’s Sirat Rasul Allah"],
-    correct:0, explain:"This lesson follows Chapter 4 of Yasir Qadhi’s An Introduction to the Sciences of the Qur’aan for the stages of revelation and the safeguards against corruption." },
-
-  { id:"2-1--why-gradual-revelation--q27", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
-    q:"Why does this lesson note that its list of “wisdom” reasons was built from broader scholarship rather than quoted directly from the project’s copy of Qadhi’s book?",
-    choices:["The Drive extraction of the book cuts off before reaching that specific section","Qadhi’s book does not discuss the wisdom of gradual revelation at all","The reasons are disputed and have no scholarly basis","The syllabus forbids referencing that section"],
-    correct:0, explain:"The available extracted copy of Qadhi’s book ends partway through Chapter 4, before its “Wisdom Behind the Gradual Revelation” section — so that material was built from cross-checked standard scholarship instead." },
-
   { id:"2-1--why-gradual-revelation--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
     q:"What is the safest way to distinguish “why gradual revelation mattered” answers from “different ways revelation came” answers in an exam?",
     choices:["Focus on reasons for timing and pacing, not on the physical forms wahy took","Always answer both questions the same way","Focus only on Jibreel’s physical appearance","Focus only on the length of individual surahs"],
@@ -562,11 +542,6 @@ window.QUESTION_BANK = [
     choices:["Knowing which of two seemingly contradictory verses came first","Knowing how many letters a surah contains","Knowing which reciter transmitted a verse","Knowing the surah’s position in the mushaf"],
     correct:0, explain:"When two verses appear to conflict, knowing their chronological order (via Makki/Madani classification) is the essential first step in understanding how later guidance refined earlier guidance." },
 
-  { id:"2-1--makki-madani-surahs--q22", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
-    q:"Which academic source structures this lesson’s classification of Makki and Madani verses?",
-    choices:["Sahih al-Bukhari alone","Abu Ammaar Yasir Qadhi’s An Introduction to the Sciences of the Qur’aan","The Sealed Nectar by Safiur Rahman al-Mubarakpuri","The Qur’an’s own index"],
-    correct:1, explain:"This lesson follows Chapter 6 of Yasir Qadhi’s An Introduction to the Sciences of the Qur’aan (Al-Hidaayah, 1999)." },
-
   { id:"2-1--makki-madani-surahs--q23", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
     q:"Which past-paper question type does deep Makki/Madani knowledge most directly strengthen?",
     choices:["“Why was it important for revelations to come over time?” — the significance of gradual, 23-year revelation","“Roles of Abu Bakr, ’Umar and ’Uthman in compiling the Qur’an”","“How Qur’an and Sunna are used in Islamic Law”","“Life of Khadija, the Prophet’s first wife”"],
@@ -596,11 +571,6 @@ window.QUESTION_BANK = [
     q:"What historical corroboration benefit does Makki/Madani classification offer, according to this lesson?",
     choices:["The internal evidence in the verses independently matches the outside historical account of the Prophet’s life","It proves the exact date every verse was revealed to the day","It replaces the need for hadith literature entirely","It has no historical value, only linguistic value"],
     correct:0, explain:"The themes and concerns visible inside Makki and Madani verses line up with the separately known historical timeline of the Prophet’s life, reinforcing both records." },
-
-  { id:"2-1--makki-madani-surahs--q29", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
-    q:"Which chapter of Yasir Qadhi’s book comes immediately after “The Makkee and the Madanee Verses”?",
-    choices:["The Causes of Revelation (Asbaab an-Nuzool)","The Qur’an","Inspiration — al-Wahy","The Compilation of the Qur’an"],
-    correct:0, explain:"Chapter 7 in Qadhi’s book, immediately following the Makki/Madani chapter, covers Asbaab an-Nuzool — the causes/occasions of revelation." },
 
   { id:"2-1--makki-madani-surahs--q30", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
     q:"What is the safest way to justify a surah’s Makki or Madani classification in an exam answer?",
@@ -697,16 +667,6 @@ window.QUESTION_BANK = [
     choices:["The Battle of Yamama, in which a large number of huffaz were killed","The Battle of Badr","The Farewell Pilgrimage","The Treaty of Hudaybiyyah"],
     correct:0, explain:"The Battle of Yamama (12 AH) killed a large number of the Qur’an’s memorisers, prompting the later compilation effort — covered in the following unit." },
 
-  { id:"2-1--preservation-of-quran--q19", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Which unit of this course covers Abu Bakr’s and ’Uthman’s roles in compiling the Qur’an into one book?",
-    choices:["A separate unit (2.2), not this lesson","This same lesson, in full","The “Why Gradual Revelation” lesson","The “Conditions of Revelation” lesson"],
-    correct:0, explain:"Compilation after the Prophet’s death belongs to a separate unit (2.2), already covered in this project’s textbook, not to this during-his-lifetime lesson." },
-
-  { id:"2-1--preservation-of-quran--q20", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Why does this lesson’s Source Box disclose a gap in the Yasir Qadhi extraction used across this project?",
-    choices:["The relevant section of Qadhi’s book (Ch. 8, Section I, p. 125) falls outside the page range currently available, so cross-checked alternative sources were used instead","Yasir Qadhi’s book does not cover this topic at all","The Qadhi extraction contradicts all other sources on this topic","This lesson uses no academic sourcing at all"],
-    correct:0, explain:"The available extraction of Qadhi’s book reaches only to roughly page 80, short of Chapter 8’s page 125 — so this lesson draws on other cross-checked material instead." },
-
   { id:"2-1--preservation-of-quran--q21", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
     q:"Both Exam Lab questions in this lesson are catalogued by the exam board under which broader topic area?",
     choices:["The First Islamic Community","History and Importance of the Qur’an","Articles of Faith","The Pillars of Islam"],
@@ -782,11 +742,6 @@ window.QUESTION_BANK = [
     choices:["Kuttab al-Wahy (Scribes of the Revelation)","Huffaz al-Qur’an","Ahl as-Suffah","Al-Muhajirun"],
     correct:0, explain:"Kuttab al-Wahy, “Scribes of the Revelation,” is the specific title for those who wrote down verses as they came." },
 
-  { id:"2-2--preservation-before-compilation--q6", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Which companion is named in this lesson as one of the Scribes of the Revelation, and later plays a central role in the very next chapter of this unit?",
-    choices:["Zayd ibn Thabit","Waraqah ibn Nawfal","’Ubadah ibn as-Samit","Ya’la ibn Umayyah"],
-    correct:0, explain:"Zayd ibn Thabit served as a scribe during the Prophet’s lifetime and goes on to lead the compilation covered in the next chapter, “Compilation under Abu Bakr.”" },
-
   { id:"2-2--preservation-before-compilation--q7", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
     q:"Which of the following was NOT one of the materials used to write down verses during the Prophet’s lifetime, according to this lesson?",
     choices:["Palm-leaf stalks","Shoulder blades of animals","Sheets of paper from a bound printed book","Pieces of leather and parchment"],
@@ -846,16 +801,6 @@ window.QUESTION_BANK = [
     q:"What event, occurring within a year of the Prophet’s death, showed how the memorisation track alone could be put at risk?",
     choices:["The Battle of Yamama, in which a large number of huffaz were killed","The Battle of Badr","The Farewell Pilgrimage","The Treaty of Hudaybiyyah"],
     correct:0, explain:"The Battle of Yamama (12 AH) killed a large number of the Qur’an’s memorisers, prompting the compilation covered in the next chapter of this unit." },
-
-  { id:"2-2--preservation-before-compilation--q19", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Which chapter of this unit covers Abu Bakr’s role in compiling the Qur’an into one book?",
-    choices:["“Compilation under Abu Bakr,” the next chapter in this unit","This same lesson, in full","A lesson under a completely different topic","The syllabus overview document only"],
-    correct:0, explain:"Compilation after the Prophet’s death is covered in the next chapter of this same unit (2.2), not in this before-compilation lesson." },
-
-  { id:"2-2--preservation-before-compilation--q20", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Why does this lesson’s Source Box disclose a gap in the Yasir Qadhi extraction used across this project?",
-    choices:["The relevant section of Qadhi’s book (Ch. 8, Section I) falls outside the page range currently available, so cross-checked alternative sources were used instead","Yasir Qadhi’s book does not cover this topic at all","The Qadhi extraction contradicts all other sources on this topic","This lesson uses no academic sourcing at all"],
-    correct:0, explain:"The available extraction of Qadhi’s book reaches only to roughly page 80, short of Chapter 8’s material — so this lesson draws on other cross-checked material instead." },
 
   { id:"2-2--preservation-before-compilation--q21", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
     q:"Both Exam Lab questions in this lesson are catalogued by the exam board under which broader topic area?",
@@ -1041,11 +986,6 @@ window.QUESTION_BANK = [
     q:"In which hadith collection is the core account of Abu Bakr’s compilation preserved?",
     choices:["Sahih Muslim","Sahih al-Bukhari","Sunan Abu Dawud","Muwatta Malik"],
     correct:1, explain:"The account is preserved in Sahih al-Bukhari, Kitab Fada’il al-Qur’an, narrated by Zayd ibn Thabit." },
-
-  { id:"2-2--compilation-under-abu-bakr--q28", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-abu-bakr",
-    q:"Which unit’s content does this lesson’s final Source Box warn against confusing this lesson with?",
-    choices:["“Compilation under ’Uthman” — Hudhayfah’s warning, the committee, and the Quraysh-dialect rule belong there, not here","“Preservation of the Qur’an” — the two tracks during the Prophet’s lifetime","“The First Revelation” — the Cave of Hira narrative","“Why Gradual Revelation” — the reasons for revelation over 23 years"],
-    correct:0, explain:"This lesson stops at Hafsa’s custody of the suhuf; ’Uthman’s standardisation is a separate, later lesson." },
 
   { id:"2-2--compilation-under-abu-bakr--q29", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-abu-bakr",
     q:"Why did Abu Bakr’s compilation happen only once, producing one manuscript, rather than being an ongoing open project?",
@@ -1897,11 +1837,6 @@ window.QUESTION_BANK = [
     choices:["Justice and generosity","Humility (modesty of manner) and simplicity (modesty of lifestyle)","Patience and honesty","Courage and wisdom"],
     correct:1, explain:"The lesson treats humility as modesty of manner and simplicity as modesty of lifestyle, two sides of the same consistent choice." },
 
-  { id:"3-5--humility-and-simplicity--q13", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
-    q:"What does the Source Box say about the specific blog episode this lesson tried to use for the Ahl as-Suffa?",
-    choices:["It fully confirmed all details used in this lesson","It actually covered a different topic (the Muakha pairing), not the Ahl as-Suffa material","It could not be accessed at all","It contradicted the material in this lesson"],
-    correct:1, explain:"The attempted source episode returned content about the Muakha (pairing of Muhajirun and Ansar) rather than the Ahl as-Suffa material, so this lesson relies on well-established tradition instead." },
-
   { id:"3-5--humility-and-simplicity--q14", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
     q:"Which hadith source is cited for the Prophet mending his own sandals and clothes?",
     choices:["Sunan al-Nasa’i","Musnad Ahmad (narrated by ’A’ishah)","Sahih Muslim’s Book of Prayer","Jami al-Tirmidhi only"],
@@ -2121,11 +2056,6 @@ window.QUESTION_BANK = [
     q:"Why does the lesson describe Abu Jandal’s story as the “strongest possible evidence” for promise-keeping?",
     choices:["Because the promise was kept at real, painful human cost rather than when it was easy","Because it is the only example of promise-keeping in the seerah","Because Abu Jandal was a stranger with no connection to the Muslims","Because the treaty was later cancelled"],
     correct:0, explain:"A promise kept despite visible anguish and cost is stronger evidence of principle than one kept only when convenient." },
-
-  { id:"3-5--justice-and-keeping-promises--q18", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
-    q:"According to the Source Box, why is this lesson’s Ali/Hijrah deposit-return detail treated cautiously?",
-    choices:["Because the attempted source did not directly confirm the deposit-return element","Because it directly contradicts the Black Stone episode","Because it is considered definitely false","Because Ali was not present at the Hijrah at all"],
-    correct:0, explain:"The lesson notes it could not directly confirm this specific detail from its attempted source, so it presents it as widely-told tradition rather than a verified quotation." },
 
   { id:"3-5--justice-and-keeping-promises--q19", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
     q:"According to the Source Box on past exams, how should students expect to use this lesson’s content in an exam?",
@@ -2943,11 +2873,6 @@ window.QUESTION_BANK = [
     q:"Whose earlier prediction is shown to be accurate by the change in how the Makkan clans treated the Prophet after revelation became public?",
     choices:["Khadija’s","Waraqah ibn Nawfal’s","Zayd ibn Harithah’s","Abu Talib’s"],
     correct:1, explain:"Waraqah had warned that anyone bringing something similar to what the Prophet brought would be treated with hostility — a warning later borne out once the message became public." },
-
-  { id:"3-2--second-revelation-and-declaration--q23", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"second-revelation-and-declaration",
-    q:"Which source provides the account of the fatrat al-wahy and the second revelation used in this lesson?",
-    choices:["Episode 010 of Yasir Qadhi’s Seerah lecture series","Episode 011 of Yasir Qadhi’s Seerah lecture series","Episode 012 of Yasir Qadhi’s Seerah lecture series","The Qur’an alone, with no lecture source"],
-    correct:1, explain:"The fatrat al-wahy and second revelation narrative in this lesson is drawn from episode 011, “Second Revelation,” of the arqadhi.blogspot.com transcript series." },
 
   { id:"3-2--second-revelation-and-declaration--q24", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"second-revelation-and-declaration",
     q:"In an exam answer about “before and after” treatment by the clans of Makkah, what structure earns the most marks?",
