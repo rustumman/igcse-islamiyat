@@ -128,7 +128,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"Ibn Ishaq’s Sira records that as he descended the mountainside in fear, he heard a voice and saw the angel filling the horizon, announcing “I am Jibreel.”" },
 
   { id:"2-1--first-revelation--q25", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"first-revelation",
-    q:"Why do many students confuse two separate “angel in the sky” moments in this story?",
+    q:"Why do many students confuse two separate “angel in the sky” moments in the accounts of the first revelation and the fatrah?",
     choices:["A near-identical vision is recorded by Bukhari at a later point too, after the fatrah","There is only one such vision and no risk of confusion","Jibreel appeared in the sky every night of Ramadan","The Qur’an describes the vision twice in the same surah"],
     correct:0, explain:"Sahih al-Bukhari places a very similar “angel filling the horizon” vision after the fatrah, just before Surah al-Muddaththir — distinct from the version some Sira sources place right after Hira." },
 
@@ -248,12 +248,12 @@ window.QUESTION_BANK = [
     correct:0, explain:"Zayd ibn Thabit reported this account of physical weight during a revelation while his thigh was beneath the Prophet’s." },
 
   { id:"2-1--conditions-of-revelation--q20", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
-    q:"Which Qur’an verse describes revelation in terms matching this sense of physical weight?",
+    q:"Which Qur’an verse describes revelation in terms matching the sense of physical weight companions described (e.g. the Prophet’s thigh growing heavy during revelation)?",
     choices:["Qur’an 25:32","Qur’an 73:5 — “a heavy word”","Qur’an 96:1–5","Qur’an 42:51"],
     correct:1, explain:"Qur’an 73:5 states, “Verily, We shall cast upon you a heavy word,” matching the physical sense of weight companions described." },
 
   { id:"2-1--conditions-of-revelation--q21", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
-    q:"Why does this lesson argue that the “hardest” form of revelation (the bell-sound) mattered, rather than God only ever using the easier form?",
+    q:"Why might the “hardest” form of revelation (the bell-sound) have mattered, rather than God only ever using the easier form?",
     choices:["It reflects the seriousness and weight of what was being delivered, not just the Prophet’s comfort","It made the Prophet stronger physically over time","It was used only once and then abandoned","It has no particular significance"],
     correct:0, explain:"The continued use of the harder form throughout 23 years is read as a sign the process was about conveying weighty truth, not mere convenience." },
 
@@ -263,9 +263,9 @@ window.QUESTION_BANK = [
     correct:0, explain:"Multiple independent companions describing different but compatible physical effects strengthens rather than weakens the historical record." },
 
   { id:"2-1--conditions-of-revelation--q23", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
-    q:"Which lesson should a student use for a question about the specific Cave of Hira narrative, rather than this lesson?",
-    choices:["The “First Revelation” lesson","The “Why Gradual Revelation” lesson","The “Makki and Madani Surahs” lesson","None — this lesson covers it fully"],
-    correct:0, explain:"The Cave of Hira story, Khadija and Waraqah belong to the dedicated “First Revelation” lesson, not this one." },
+    q:"A question asks specifically about the Cave of Hira, Khadija’s reassurance, and Waraqah’s confirmation. Which topic does this belong to?",
+    choices:["The specific “First Revelation” narrative","The general “forms/conditions of revelation” topic","The “Why Gradual Revelation” topic","The “Makki and Madani Surahs” topic"],
+    correct:0, explain:"The Cave of Hira story, Khadija and Waraqah belong to the dedicated “First Revelation” narrative, not the general forms-of-revelation topic." },
 
   { id:"2-1--conditions-of-revelation--q24", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
     q:"Which lesson should a student use for a question about why revelation was spread across 23 years?",
@@ -273,12 +273,12 @@ window.QUESTION_BANK = [
     correct:0, explain:"Timing and pacing questions belong to the “Why Gradual Revelation” lesson, not this one, which covers the forms revelation took." },
 
   { id:"2-1--conditions-of-revelation--q26", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
-    q:"What is the most common mark-losing mistake on the “different ways revelation came” question, according to this lesson’s Exam Lab notes?",
+    q:"What is the most common mark-losing mistake on the “different ways revelation came” exam question?",
     choices:["Answering with the Cave of Hira narrative instead of the range of forms revelation took","Writing too briefly","Quoting too many Qur’an verses","Discussing Khadija in too much detail"],
     correct:0, explain:"Candidates frequently substitute the specific first-revelation story for the broader “range of forms” this question actually asks for." },
 
   { id:"2-1--conditions-of-revelation--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
-    q:"Why, according to this lesson, might it matter as evidence of authenticity that the Qur’an’s actual wording never came through a private dream?",
+    q:"Why might it matter as evidence of authenticity that the Qur’an’s actual wording never came through a private dream?",
     choices:["A dream is unverifiable by anyone else, while an angel’s appearance with observable physical effects could at least be partly witnessed","Dreams are considered unreliable in every context","The Prophet never had any dreams at all","It has no bearing on authenticity"],
     correct:0, explain:"Choosing the more externally observable channel, with physical effects others could see, is harder to dismiss as a purely private, unverifiable claim." },
 
@@ -288,9 +288,9 @@ window.QUESTION_BANK = [
     correct:0, explain:"The Prophet described what remains of prophethood as “mubashshirat,” explained as a true dream." },
 
   { id:"2-1--conditions-of-revelation--q30", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"conditions-of-revelation",
-    q:"What is the safest exam strategy for distinguishing this lesson’s content from the “Why Gradual Revelation” lesson’s content?",
-    choices:["This lesson covers the forms revelation took; the other covers why it was spread over time","They are the same content and can be used interchangeably","This lesson only covers dreams; the other covers everything else","Neither lesson is linked to any real past paper"],
-    correct:0, explain:"Keeping “forms” (this lesson) and “timing” (the sibling lesson) separate is the key distinction examiners test for." },
+    q:"What is the safest way to distinguish the “forms revelation took” topic from the “why revelation was gradual” topic in an exam answer?",
+    choices:["The “forms” topic covers how revelation came; the “why gradual” topic covers why it was spread over time","They are the same content and can be used interchangeably","The “forms” topic only covers dreams; the “why gradual” topic covers everything else","Neither topic is linked to any real past paper"],
+    correct:0, explain:"Keeping “forms” and “timing” separate is the key distinction examiners test for." },
 
   { id:"2-1--why-gradual-revelation--q1", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
     q:"According to Qur’an 25:32, why did opponents object to how the Qur’an was revealed?",
@@ -348,9 +348,9 @@ window.QUESTION_BANK = [
     correct:0, explain:"Short, regular portions matched a society reliant on memorisation, especially given the Prophet himself could not read or write." },
 
   { id:"2-1--why-gradual-revelation--q12", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
-    q:"Which case study is used in this lesson to illustrate gradual, staged legislation?",
+    q:"Which case study illustrates gradual, staged legislation in the Qur’an?",
     choices:["The prohibition of gambling","The prohibition of alcohol","The introduction of the five daily prayers","The rules of inheritance"],
-    correct:1, explain:"The staged prohibition of alcohol (16:67 → 2:219 → 4:43 → 5:90–91) is the lesson’s example of gradual legal implementation." },
+    correct:1, explain:"The staged prohibition of alcohol (16:67 → 2:219 → 4:43 → 5:90–91) is a key example of gradual legal implementation." },
 
   { id:"2-1--why-gradual-revelation--q13", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
     q:"What did Qur’an 4:43 specifically restrict, as one stage in the alcohol case study?",
@@ -378,7 +378,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"Detailed legislation only makes sense for an existing, believing community — which is why belief (Makki) preceded law (Madani)." },
 
   { id:"2-1--why-gradual-revelation--q18", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
-    q:"What is described in this lesson as a “standing miracle” of gradual revelation?",
+    q:"What is considered a “standing miracle” of gradual revelation?",
     choices:["The Qur’an’s stylistic and thematic consistency despite 23 years of fragmented, varied circumstances","The exact number of verses in the Qur’an","The fact that it was written in Arabic","The fact that it has 114 surahs"],
     correct:0, explain:"Remaining consistent across decades of fragmented delivery, under wildly different circumstances, is seen by Muslims as evidence against ordinary human authorship." },
 
@@ -403,14 +403,14 @@ window.QUESTION_BANK = [
     correct:0, explain:"53:3–4 states he does not speak from his own desire, and 69:44–46 warns of severe punishment for forging a false revelation." },
 
   { id:"2-1--why-gradual-revelation--q23", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
-    q:"Why does “The Qur’an has remained unchanged since revelation” benefit Muslims today, according to this lesson?",
+    q:"Why does “The Qur’an has remained unchanged since revelation” benefit Muslims today?",
     choices:["It gives confidence the text is the same message revealed 1,400 years ago, unifying belief and law worldwide","It means no translation of the Qur’an is ever needed","It means every Muslim automatically memorises it","It has no practical benefit, only historical interest"],
     correct:0, explain:"Knowing the text is unaltered gives Muslims a single, trustworthy, unifying reference point for belief and law across the world." },
 
   { id:"2-1--why-gradual-revelation--q24", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
     q:"Which past-paper question is explicitly about the “forms” revelation took, rather than why it came gradually?",
     choices:["“Different ways revelation came to the Prophet” (e.g. N24 w11 part a)","“Why was it important for revelations to come over time?” (J23 s12 part b)","“Significance of the Qur’an being revealed over 23 years” (J22 s12 part b)","All of the above are about gradual revelation"],
-    correct:0, explain:"“Different ways revelation came” tests the forms of wahy (e.g. bell-sound, angel as a man) — a separate topic from this lesson’s focus on why revelation was gradual." },
+    correct:0, explain:"“Different ways revelation came” tests the forms of wahy (e.g. bell-sound, angel as a man) — a separate topic from why revelation was gradual." },
 
   { id:"2-1--why-gradual-revelation--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
     q:"What is the safest way to distinguish “why gradual revelation mattered” answers from “different ways revelation came” answers in an exam?",
@@ -418,12 +418,12 @@ window.QUESTION_BANK = [
     correct:0, explain:"“Why gradual” questions want reasons for the 23-year pacing; “different ways” questions want the physical forms revelation took — keep the two separate." },
 
   { id:"2-1--why-gradual-revelation--q29", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
-    q:"Which verse pairs with 25:32 to form the core Qur’anic justification cited in this lesson for gradual revelation?",
+    q:"Which verse pairs with 25:32 to form the core Qur’anic justification for gradual revelation?",
     choices:["Qur’an 96:1–5","No second verse is needed — 25:32 alone gives the Qur’an’s own explicit reason","Qur’an 112:1–4","Qur’an 108:1–3"],
-    correct:1, explain:"25:32 is the Qur’an’s own direct statement of purpose (“that We may strengthen your heart thereby”) — the other reasons in this lesson are scholarly elaborations built around it." },
+    correct:1, explain:"25:32 is the Qur’an’s own direct statement of purpose (“that We may strengthen your heart thereby”) — other cited reasons are scholarly elaborations built around it." },
 
   { id:"2-1--why-gradual-revelation--q30", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"why-gradual-revelation",
-    q:"What overall exam strategy does this lesson recommend for “why gradual” questions worth 4 marks?",
+    q:"What is the best exam strategy for “why gradual” questions worth 4 marks?",
     choices:["Name and briefly develop three to four genuinely distinct reasons, not one reason repeated","Write as much as possible about the first revelation narrative instead","Give only one very long, detailed reason","List every verse number you can remember without explanation"],
     correct:0, explain:"Full marks come from distinct, developed points — three to four separate reasons briefly explained beats one idea repeated in different words." },
 
@@ -508,7 +508,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"Surah al-Baqarah was revealed after the Hijrah and is dense with Madinan-period legislation." },
 
   { id:"2-1--makki-madani-surahs--q17", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
-    q:"What is a “mixed” surah, in this classification system?",
+    q:"What is a “mixed” surah, in the Makki/Madani classification?",
     choices:["A surah containing verses revealed in both the Makki and Madani periods","A surah with no clear theme","A surah revealed to more than one prophet","A surah with disputed authorship"],
     correct:0, explain:"Mixed surahs combine verses from different periods within the single, final chapter as it appears in the mushaf." },
 
@@ -558,7 +558,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"Its brevity, oath (“By Time”), and broad moral warning are characteristic of Makki-style revelation." },
 
   { id:"2-1--makki-madani-surahs--q28", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"makki-madani-surahs",
-    q:"What historical corroboration benefit does Makki/Madani classification offer, according to this lesson?",
+    q:"What historical corroboration benefit does Makki/Madani classification offer?",
     choices:["The internal evidence in the verses independently matches the outside historical account of the Prophet’s life","It proves the exact date every verse was revealed to the day","It replaces the need for hadith literature entirely","It has no historical value, only linguistic value"],
     correct:0, explain:"The themes and concerns visible inside Makki and Madani verses line up with the separately known historical timeline of the Prophet’s life, reinforcing both records." },
 
@@ -568,7 +568,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"The chronological (Hijrah-based) criterion is the standard, exam-safe justification — location, length and mushaf position can all mislead." },
 
   { id:"2-1--preservation-of-quran--q1", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"How many independent “tracks” of preservation does this lesson describe as running during the Prophet’s lifetime?",
+    q:"How many independent “tracks” of Qur’an preservation ran during the Prophet’s lifetime?",
     choices:["One","Two","Three","Four"],
     correct:1, explain:"The two tracks were memorisation (by the huffaz) and writing (by the Scribes of the Revelation), running in parallel." },
 
@@ -593,17 +593,17 @@ window.QUESTION_BANK = [
     correct:0, explain:"Kuttab al-Wahy, “Scribes of the Revelation,” is the specific title for those who wrote down verses as they came." },
 
   { id:"2-1--preservation-of-quran--q6", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Which companion is named in this lesson as one of the Scribes of the Revelation, and later played a central role in compiling the Qur’an after the Prophet’s death?",
+    q:"Which companion served as one of the Scribes of the Revelation, and later played a central role in compiling the Qur’an after the Prophet’s death?",
     choices:["Zayd ibn Thabit","Waraqah ibn Nawfal","’Ubadah ibn as-Samit","Ya’la ibn Umayyah"],
     correct:0, explain:"Zayd ibn Thabit served as a scribe during the Prophet’s lifetime and was later chosen to lead the compilation of the Qur’an after his death." },
 
   { id:"2-1--preservation-of-quran--q7", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Which of the following was NOT one of the materials used to write down verses during the Prophet’s lifetime, according to this lesson?",
+    q:"Which of the following was NOT one of the materials used to write down Qur’an verses during the Prophet’s lifetime?",
     choices:["Palm-leaf stalks","Shoulder blades of animals","Sheets of paper from a bound printed book","Pieces of leather and parchment"],
     correct:2, explain:"No printed paper or bound book existed yet — materials included palm-leaf stalks, flat stones, shoulder blades, leather and parchment." },
 
   { id:"2-1--preservation-of-quran--q8", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Why, according to this lesson, was there still no single bound copy of the Qur’an during the Prophet’s own lifetime?",
+    q:"Why was there still no single bound copy of the Qur’an during the Prophet’s own lifetime?",
     choices:["Revelation was still ongoing, and verses could still be abrogated or reassigned in order","Writing materials did not exist at all","The Prophet forbade anyone from writing the Qur’an down","No companions were literate enough to write"],
     correct:0, explain:"Binding a book before revelation itself had finished, while verses could still be abrogated or reordered, would not have made sense." },
 
@@ -638,7 +638,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"The Treaty of Hudaybiyyah is the example given of a formal agreement the Scribes recorded." },
 
   { id:"2-1--preservation-of-quran--q15", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Which two companions does this lesson name as the ones most closely associated with recording the Qur’an specifically, among the several dozen who served as scribes?",
+    q:"Which two companions are most closely associated with recording the Qur’an specifically, among the several dozen who served as scribes?",
     choices:["Zayd ibn Thabit and Ubay ibn Ka’b","Abu Bakr and ’Umar","Waraqah and Khadija","Bilal and Salman"],
     correct:0, explain:"Zayd ibn Thabit and Ubay ibn Ka’b are the two names that recur most often in connection with writing down the Qur’an." },
 
@@ -663,14 +663,14 @@ window.QUESTION_BANK = [
     correct:0, explain:"This AO2 question rewards weighing both sides rather than a one-sided yes/no answer." },
 
   { id:"2-1--preservation-of-quran--q25", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"What common exam mistake does this lesson’s third Source Box warn candidates about?",
+    q:"What common exam mistake should students avoid when a past-paper question about the Qur’an’s Scribes is filed under a different topic area (e.g. “First Islamic Community”)?",
     choices:["Assuming a question filed under “First Islamic Community” cannot be about the Scribes’ Qur’an-writing role","Confusing the Scribes with the Rightly Guided Caliphs","Writing about the wrong battle entirely","Naming the wrong angel as the source of revelation"],
-    correct:0, explain:"The Source Box explains that despite the exam board’s topic label, these two questions’ content matches this lesson closely and should not be overlooked." },
+    correct:0, explain:"Despite the exam board’s topic label, questions about the Scribes’ Qur’an-writing role match Qur’an-history content closely and should not be overlooked." },
 
   { id:"2-1--preservation-of-quran--q26", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Which of these correctly separates this lesson’s scope from the next unit’s scope?",
-    choices:["This lesson: preservation while the Prophet was alive. The next unit: compilation after his death.","This lesson: compilation after his death. The next unit: preservation while he was alive.","Both lessons cover exactly the same time period.","Neither lesson has any defined time period."],
-    correct:0, explain:"This lesson is strictly about during-the-Prophet’s-lifetime preservation; the post-death compilation is a separate unit’s territory." },
+    q:"Which of these correctly separates the Qur’an’s preservation during the Prophet’s lifetime from its compilation after his death?",
+    choices:["Preservation happened during the Prophet’s lifetime; compilation happened after his death","Compilation happened during the Prophet’s lifetime; preservation happened after his death","Both cover exactly the same time period","Neither has any defined time period"],
+    correct:0, explain:"Preservation (memorisation and scribal writing) ran during the Prophet’s lifetime; compilation into one book is a separate, later process after his death." },
 
   { id:"2-1--preservation-of-quran--q27", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
     q:"What convinced companions, in hindsight, that the Prophet’s death was approaching?",
@@ -683,7 +683,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"A culture already skilled at memorising long poetic works gave companions a strong foundation for memorising the Qur’an precisely." },
 
   { id:"2-1--preservation-of-quran--q29", paper:"paper-1", topic:"topic-2", unit:"2-1", lesson:"preservation-of-quran",
-    q:"Why does the Prophet’s practice of directing verse-placement himself matter for this lesson’s argument?",
+    q:"Why does the Prophet’s practice of directing verse-placement himself matter for the case that the Qur’an was preserved from the moment of revelation?",
     choices:["It shows the Qur’an’s order was fixed by revelation itself, not decided later by editors or compilers","It shows the Qur’an had no fixed order until ’Uthman’s time","It shows the scribes were free to arrange verses however they liked","It has no real significance for preservation"],
     correct:0, explain:"Because the Prophet fixed each verse’s place under Jibreel’s instruction, the order was never left to later editorial choice — reinforcing that the text was safeguarded from the moment of revelation." },
 
@@ -693,7 +693,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"Keeping strictly to the during-lifetime content (memorisation, writing, Jibreel’s reviews) avoids the most common mark-losing drift into the later, separate compilation story." },
 
   { id:"2-2--preservation-before-compilation--q1", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"How many independent “tracks” of preservation does this lesson describe as running during the Prophet’s lifetime?",
+    q:"How many independent “tracks” of Qur’an preservation ran during the Prophet’s lifetime?",
     choices:["One","Two","Three","Four"],
     correct:1, explain:"The two tracks were memorisation (by the huffaz) and writing (by the Scribes of the Revelation), running in parallel." },
 
@@ -718,12 +718,12 @@ window.QUESTION_BANK = [
     correct:0, explain:"Kuttab al-Wahy, “Scribes of the Revelation,” is the specific title for those who wrote down verses as they came." },
 
   { id:"2-2--preservation-before-compilation--q7", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Which of the following was NOT one of the materials used to write down verses during the Prophet’s lifetime, according to this lesson?",
+    q:"Which of the following was NOT one of the materials used to write down Qur’an verses during the Prophet’s lifetime?",
     choices:["Palm-leaf stalks","Shoulder blades of animals","Sheets of paper from a bound printed book","Pieces of leather and parchment"],
     correct:2, explain:"No printed paper or bound book existed yet — materials included palm-leaf stalks, flat stones, shoulder blades, leather and parchment." },
 
   { id:"2-2--preservation-before-compilation--q8", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Why, according to this lesson, was there still no single bound copy of the Qur’an during the Prophet’s own lifetime?",
+    q:"Why was there still no single bound copy of the Qur’an during the Prophet’s own lifetime?",
     choices:["Revelation was still ongoing, and verses could still be abrogated or reassigned in order","Writing materials did not exist at all","The Prophet forbade anyone from writing the Qur’an down","No companions were literate enough to write"],
     correct:0, explain:"Binding a book before revelation itself had finished, while verses could still be abrogated or reordered, would not have made sense." },
 
@@ -758,7 +758,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"The Treaty of Hudaybiyyah is the example given of a formal agreement the Scribes recorded." },
 
   { id:"2-2--preservation-before-compilation--q15", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Which two companions does this lesson name as the ones most closely associated with recording the Qur’an specifically, among the several dozen who served as scribes?",
+    q:"Which two companions are most closely associated with recording the Qur’an specifically, among the several dozen who served as scribes?",
     choices:["Zayd ibn Thabit and Ubay ibn Ka’b","Abu Bakr and ’Umar","Waraqah and Khadija","Bilal and Salman"],
     correct:0, explain:"Zayd ibn Thabit and Ubay ibn Ka’b are the two names that recur most often in connection with writing down the Qur’an." },
 
@@ -788,7 +788,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"A culture already skilled at memorising long poetic works gave companions a strong foundation for memorising the Qur’an precisely." },
 
   { id:"2-2--preservation-before-compilation--q26", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Why does the Prophet’s practice of directing verse-placement himself matter for this lesson’s argument?",
+    q:"Why does the Prophet’s practice of directing verse-placement himself matter for the case that the Qur’an was preserved from the moment of revelation?",
     choices:["It shows the Qur’an’s order was fixed by revelation itself, not decided later by editors or compilers","It shows the Qur’an had no fixed order until ’Uthman’s time","It shows the scribes were free to arrange verses however they liked","It has no real significance for preservation"],
     correct:0, explain:"Because the Prophet fixed each verse’s place under Jibreel’s instruction, the order was never left to later editorial choice — reinforcing that the text was safeguarded from the moment of revelation." },
 
@@ -798,9 +798,9 @@ window.QUESTION_BANK = [
     correct:0, explain:"The doubling of the final Ramadan review was understood afterwards as a sign that the Prophet’s death was near — the Yamama losses came later, after his death." },
 
   { id:"2-2--preservation-before-compilation--q28", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
-    q:"Which of these correctly separates this lesson’s scope from the rest of this unit?",
-    choices:["This lesson: preservation while the Prophet was alive. The rest of the unit: compilation and standardisation after his death.","This lesson: compilation after his death. The rest of the unit: preservation while he was alive.","Both cover exactly the same time period.","Neither has any defined time period."],
-    correct:0, explain:"This lesson is strictly about during-the-Prophet’s-lifetime preservation; the post-death compilation and standardisation is this unit’s remaining chapters’ territory." },
+    q:"Which of these correctly separates the Qur’an’s preservation during the Prophet’s lifetime from its compilation and standardisation after his death?",
+    choices:["Preservation happened while the Prophet was alive; compilation and standardisation happened after his death","Compilation happened while the Prophet was alive; preservation happened after his death","Both cover exactly the same time period","Neither has any defined time period"],
+    correct:0, explain:"Preservation is strictly about during-the-Prophet’s-lifetime memorisation and writing; the post-death compilation and standardisation are separate, later chapters of the story." },
 
   { id:"2-2--preservation-before-compilation--q29", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"preservation-before-compilation",
     q:"Why did having both memory and writing still not fully protect the Qur’an once the Prophet had died?",
@@ -878,7 +878,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"The hadith describes Zayd searching parchments, animal shoulder-blade bones, palm-leaf stalks, and corroborating human memory." },
 
   { id:"2-2--compilation-under-abu-bakr--q14", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-abu-bakr",
-    q:"Which two verses were, according to this account, found written down only in the possession of one companion?",
+    q:"During Zayd ibn Thabit’s compilation of the Qur’an under Abu Bakr, which two verses were found written down only in the possession of one companion?",
     choices:["The closing verses of Surah al-Tawbah (9:128–129)","The opening verses of Surah al-’Alaq","Ayat al-Kursi","The opening of Surah al-Fatiha"],
     correct:0, explain:"The last two verses of Surah al-Tawbah were found written only with one companion, making them the hardest case in Zayd’s compilation." },
 
@@ -893,7 +893,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"The Prophet’s own prior testimony to Khuzaymah’s reliability was treated as making his single witness sufficient, as a specific, explained exception." },
 
   { id:"2-2--compilation-under-abu-bakr--q17", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-abu-bakr",
-    q:"Who decided exactly where each verse belonged within its surah, according to this lesson?",
+    q:"During Abu Bakr’s compilation of the Qur’an, who decided exactly where each verse belonged within its surah?",
     choices:["The order the Prophet himself had specified, following Jibreel’s instruction","Zayd ibn Thabit’s own personal judgement","’Umar’s personal judgement","Whichever order the earliest written fragment happened to use"],
     correct:0, explain:"Zayd confirmed each verse’s placement against the order the Prophet had specified during his own lifetime, rather than deciding order himself." },
 
@@ -928,12 +928,12 @@ window.QUESTION_BANK = [
     correct:0, explain:"’Uthman’s standardisation, covered in the next lesson, was only possible because Hafsa’s suhuf still existed safely when he needed it." },
 
   { id:"2-2--compilation-under-abu-bakr--q24", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-abu-bakr",
-    q:"Which two men’s initial hesitation to compile the Qur’an is highlighted in this lesson?",
+    q:"Which two men’s initial hesitation to compile the Qur’an is recorded in the sources?",
     choices:["Abu Bakr and Zayd ibn Thabit","’Umar and ’Uthman","Hudhayfah ibn al-Yaman and Zayd ibn Thabit","Khalid ibn al-Walid and ’Umar"],
     correct:0, explain:"Both Abu Bakr and Zayd ibn Thabit initially hesitated, on the same grounds — that the Prophet had not himself ordered the compilation." },
 
   { id:"2-2--compilation-under-abu-bakr--q25", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-abu-bakr",
-    q:"What does the shared hesitation of Abu Bakr and Zayd suggest about the compilation, according to this lesson’s reasoning?",
+    q:"What does the shared hesitation of Abu Bakr and Zayd suggest about the compilation of the Qur’an?",
     choices:["That it was undertaken carefully and conscientiously, only after real deliberation, not casually","That neither man actually believed the task was necessary","That the compilation was rushed and poorly checked","That ’Umar acted alone without their input"],
     correct:0, explain:"Their hesitation shows the decision was weighed seriously against religious principle before being carried out, supporting rather than undermining its careful execution." },
 
@@ -953,7 +953,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"It was a focused, urgent project completed once in response to the specific threat exposed at Yamama, then preserved rather than reopened." },
 
   { id:"2-2--compilation-under-abu-bakr--q30", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-abu-bakr",
-    q:"Which of the following best summarises the purpose of Abu Bakr’s compilation, according to this lesson?",
+    q:"Which of the following best summarises the purpose of Abu Bakr’s compilation of the Qur’an?",
     choices:["To guarantee the complete Qur’an existed in one fixed, carefully verified written place, in case memory alone was ever put under pressure again","To create multiple official copies for distribution across a growing empire","To resolve regional disputes over correct recitation between Syria and Iraq","To replace memorisation entirely with a written text"],
     correct:0, explain:"Abu Bakr’s compilation was about guaranteeing one safe, verified written record — distribution across a growing empire was ’Uthman’s later, different purpose." },
 
@@ -1048,7 +1048,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"’Uthman ordered rival personal copies gathered and destroyed, to remove any competing “correct version” once one standard text existed." },
 
   { id:"2-2--compilation-under-uthman--q19", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-uthman",
-    q:"Why, according to this lesson, were rival personal copies destroyed rather than simply left in circulation?",
+    q:"Once ’Uthman’s standard text of the Qur’an existed, why were rival personal copies destroyed rather than simply left in circulation?",
     choices:["To remove the possibility of multiple competing “correct versions” once a single standard text existed","Because they were believed to contain false verses","Because ’Uthman disliked the companions who owned them","Because they were physically damaged and unusable"],
     correct:0, explain:"The goal was uniformity — removing competing written versions — not a judgement that the companions’ personal copies were inaccurate." },
 
@@ -1058,7 +1058,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"’Abdullah ibn Mas’ud is reported to have been unhappy, both at not being on the committee and at his own copy being called in." },
 
   { id:"2-2--compilation-under-uthman--q21", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-uthman",
-    q:"What two reasons does this lesson give for Ibn Mas’ud’s unhappiness?",
+    q:"What two reasons are given for Ibn Mas’ud’s unhappiness with ’Uthman’s standardisation of the Qur’an?",
     choices:["Not being included on the standardising committee, and having his own long-used personal copy called in","Being exiled from Madinah as punishment","Disagreeing with the Quraysh-dialect rule on religious grounds","Being blamed personally for the Syrian/Iraqi dispute"],
     correct:0, explain:"Ibn Mas’ud’s reported unhappiness stemmed from being excluded from the committee and from his personal copy being gathered in." },
 
@@ -1095,17 +1095,17 @@ window.QUESTION_BANK = [
   { id:"2-2--compilation-under-uthman--q28", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-uthman",
     q:"Which of these correctly separates the two lessons’ scope?",
     choices:["“Compilation under Abu Bakr”: the Yamama crisis and the suhuf. “Compilation under ’Uthman”: Hudhayfah’s warning and the standardised mushaf copies.","Both lessons cover exactly the same events in the same order.","“Compilation under Abu Bakr” covers events after ’Uthman’s caliphate.","Neither lesson involves Zayd ibn Thabit."],
-    correct:0, explain:"The two lessons split the story at Hafsa’s custody of the suhuf — everything before that point is the Abu Bakr lesson, everything from Hudhayfah’s warning onward is this lesson." },
+    correct:0, explain:"The story splits at Hafsa’s custody of the suhuf — everything before that point is Abu Bakr’s compilation, everything from Hudhayfah’s warning onward is ’Uthman’s standardisation." },
 
   { id:"2-2--compilation-under-uthman--q29", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-uthman",
-    q:"What single past-paper detail most reliably signals that a question needs this lesson’s content specifically, rather than the Abu Bakr lesson?",
+    q:"What single detail most reliably signals that a past-paper question is about ’Uthman’s standardisation of the Qur’an specifically, rather than Abu Bakr’s earlier compilation?",
     choices:["Any explicit mention of ’Uthman, multiple standard copies, different regions, or recitation disputes","Any mention of the word “Qur’an” at all","Any mention of the Prophet’s own lifetime","Any mention of Zayd ibn Thabit, since he appears in both lessons"],
-    correct:0, explain:"Mentions of ’Uthman by name, multiple copies, regional distribution, or recitation disputes point specifically to this lesson’s content, even though Zayd ibn Thabit appears in both lessons." },
+    correct:0, explain:"Mentions of ’Uthman by name, multiple copies, regional distribution, or recitation disputes point specifically to the standardisation under ’Uthman, even though Zayd ibn Thabit is involved in both episodes." },
 
   { id:"2-2--compilation-under-uthman--q30", paper:"paper-1", topic:"topic-2", unit:"2-2", lesson:"compilation-under-uthman",
     q:"What is the safest way to open an answer to a question that names both Abu Bakr and ’Uthman, such as “compilation and standardisation of the Qur’an”?",
     choices:["Cover Abu Bakr’s compilation first (Yamama, Zayd, the suhuf, the custody chain), then ’Uthman’s standardisation second (Hudhayfah, the committee, the Quraysh rule, distribution and destruction of rivals)","Cover only ’Uthman’s standardisation, since it came later and is more detailed","Cover only Abu Bakr’s compilation, since it came first","Discuss the Battle of Badr as background before either compilation"],
-    correct:0, explain:"A full-marks answer to a question naming both Caliphs needs both stages, told in chronological order — this lesson’s Exam Lab entries model exactly that structure." },
+    correct:0, explain:"A full-marks answer to a question naming both Caliphs needs both stages, told in chronological order." },
 
   { id:"2-3--four-sources-of-law--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"four-sources-of-law",
     q:"Put the four sources of Islamic law in their correct order of authority, highest first.",
@@ -1253,7 +1253,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"“Primary” means the Qur’an takes precedence — it is consulted first, and Sunnah, ijma’ and qiyas must all operate within the limits it sets." },
 
   { id:"2-3--quran-first-source-of-law--q26", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-first-source-of-law",
-    q:"What does the completeness described in Qur’an 16:89 actually mean, according to this lesson?",
+    q:"What does the completeness described in Qur’an 16:89 actually mean?",
     choices:["That every possible legal case is spelled out explicitly in the text","That the Qur’an lays down the essential principles and clearest rulings needed to guide every sphere of life, leaving detail to the other sources","That no further legal reasoning is ever needed after the Qur’an","That the Qur’an only addresses spiritual matters, not practical ones"],
     correct:1, explain:"The Qur’an does not list a rule for every conceivable situation; it provides the guiding principles and clear rulings, with the Sunnah, ijma’ and qiyas working out further detail within that framework." },
 
@@ -1358,7 +1358,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"This exchange, recorded in Sunan Abu Dawud and Sunan al-Tirmidhi, is often cited as the origin of using personal reasoning (ijtihad/qiyas) once the Qur’an and Sunnah are exhausted." },
 
   { id:"2-3--quran-and-sunnah--q21", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
-    q:"What did the Prophet do when Mu’adh ibn Jabal gave this answer?",
+    q:"What did the Prophet do when Mu’adh ibn Jabal explained that, if he found no ruling in the Qur’an or Sunnah, he would use his own reasoning (ijtihad)?",
     choices:["He corrected Mu’adh and told him to rely on custom instead","He approved of Mu’adh’s approach","He forbade any use of personal reasoning","He sent someone else in Mu’adh’s place"],
     correct:1, explain:"The Prophet’s approval of Mu’adh’s answer is used as evidence that personal reasoning was sanctioned as a legitimate last resort in Islamic law." },
 
@@ -1385,7 +1385,7 @@ window.QUESTION_BANK = [
   { id:"2-3--quran-and-sunnah--q26", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"quran-and-sunnah",
     q:"Which of these best summarises the overall relationship between the Qur’an and Hadith in Islamic law?",
     choices:["Hadith is more authoritative than the Qur’an because it gives more detail","Hadith and Qur’an are unrelated, separate legal systems","Hadith explains, restricts, confirms, or fills genuine silences in the Qur’an, but can never override it","The Qur’an only covers worship, and Hadith only covers law"],
-    correct:2, explain:"This is the core relationship this lesson demonstrates through every example — zakat, prayer, hajj, purification, and the grandmother’s inheritance." },
+    correct:2, explain:"This is the core relationship demonstrated through every example — zakat, prayer, hajj, purification, and the grandmother’s inheritance." },
 
   { id:"2-3--ijma--q1", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
     q:"What is Ijma’?",
@@ -1468,7 +1468,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"IVF is a leading modern example, since it is a situation entirely unaddressed by the Qur’an or Hadith." },
 
   { id:"2-3--ijma--q17", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
-    q:"Which body is cited in this lesson as having ruled on the permissibility of IVF?",
+    q:"Which body has ruled on the permissibility of IVF as a modern example of Ijma’?",
     choices:["The United Nations","The International Islamic Fiqh Academy","A single individual scholar acting alone","The Cambridge examination board"],
     correct:1, explain:"The International Islamic Fiqh Academy, affiliated with the Organisation of Islamic Cooperation, is a contemporary body that issues collective fiqh rulings of this kind." },
 
@@ -1488,12 +1488,12 @@ window.QUESTION_BANK = [
     correct:1, explain:"A mujtahid is a scholar qualified to exercise independent legal reasoning, whether through ijma’ or qiyas." },
 
   { id:"2-3--ijma--q21", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
-    q:"Which of these is NOT one of the three types of Ijma’ covered in this lesson?",
+    q:"Which of these is NOT one of the three recognised types of Ijma’?",
     choices:["Ijma’ of the Sahaba","Ijma’ of the Mujtahids","Ijma’ Sukuti","Ijma’ Qiyasi"],
     correct:3, explain:"“Ijma’ Qiyasi” is not a recognised category — the three types covered are Ijma’ of the Sahaba, Ijma’ of the Mujtahids, and Ijma’ Sukuti." },
 
   { id:"2-3--ijma--q22", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"ijma",
-    q:"What common student error does this lesson specifically warn against regarding the second adhan?",
+    q:"What common student error should be avoided regarding the second adhan?",
     choices:["Forgetting that it happened in Makkah","Attributing it to ’Umar instead of ’Uthman","Saying it happened before the Hijrah","Confusing it with the adhan for Fajr prayer"],
     correct:1, explain:"The second adhan is often mistakenly credited to ’Umar; it was actually introduced by ’Uthman ibn ’Affan." },
 
@@ -1538,7 +1538,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"Mu’adh said he would judge by the Qur’an first, then the Sunnah, and only then by his own reasoning." },
 
   { id:"2-3--qiyas--q6", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"What did the Prophet do when Mu’adh explained this approach?",
+    q:"What did the Prophet do when Mu’adh ibn Jabal explained that, if he found no ruling in the Qur’an or Sunnah, he would use his own reasoning (ijtihad)?",
     choices:["He forbade Mu’adh from ever using his own reasoning","He approved of it","He sent a different judge instead","He said only the Qur’an should ever be used"],
     correct:1, explain:"The Prophet expressed approval, which is treated as sanctioning qualified personal reasoning as a legitimate last resort." },
 
@@ -1593,7 +1593,7 @@ window.QUESTION_BANK = [
     correct:2, explain:"This is a commonly repeated claim that is not actually transmitted as an authentic saying of the Prophet or ’A’ishah — it is a juristic maxim built on genuine textual evidence elsewhere." },
 
   { id:"2-3--qiyas--q17", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"What is the actual juristic principle behind the nail-polish ruling, according to this lesson?",
+    q:"What is the actual juristic principle behind the nail-polish ruling?",
     choices:["“Anything that prevents water from reaching the skin must be removed”","“Beauty products are always forbidden in Islam”","“Women may not perform wudu”","“Only men are required to complete wudu fully”"],
     correct:0, explain:"This maxim, derived from Qur’an 5:6 and the hadith of Abu Dharr, is the genuine basis jurists used — not a supposed statement from ’A’ishah about dough specifically." },
 
@@ -1628,7 +1628,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"A valid qiyas depends on correctly identifying the real underlying cause connecting two cases — a superficial similarity is not sufficient grounds for extending a ruling." },
 
   { id:"2-3--qiyas--q24", paper:"paper-1", topic:"topic-2", unit:"2-3", lesson:"qiyas",
-    q:"Which example in this lesson concerns worship and purification rather than criminal or moral law?",
+    q:"Which of the following qiyas examples concerns worship and purification rather than criminal or moral law?",
     choices:["The khamr-to-modern-drugs example","The wudu-and-nail-polish example","The Mu’adh ibn Jabal hadith","The four sources hierarchy"],
     correct:1, explain:"The nail-polish example applies qiyas to the requirements of ritual purification (wudu) rather than to criminal or moral law." },
 
@@ -1668,7 +1668,7 @@ window.QUESTION_BANK = [
     correct:2, explain:"The venture returned profits far beyond Khadijah’s usual results, doubling or tripling them." },
 
   { id:"3-5--honesty-and-trustworthiness--q7", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
-    q:"What ultimately resulted from this successful venture?",
+    q:"What ultimately resulted from the successful Busra caravan venture?",
     choices:["The Prophet was banned from trading again","Khadijah proposed marriage to him","He was accused of theft","Khadijah ended their business relationship"],
     correct:1, explain:"Impressed by his character and the venture’s success, Khadijah initiated marriage discussions." },
 
@@ -1688,7 +1688,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"Heraclius summoned Abu Sufyan to question him about the claims of the new prophet from Arabia." },
 
   { id:"3-5--honesty-and-trustworthiness--q11", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
-    q:"What was Abu Sufyan’s relationship to the Prophet (pbuh) at the time of this questioning?",
+    q:"What was Abu Sufyan’s relationship to the Prophet (pbuh) when Heraclius questioned him about the Prophet’s character?",
     choices:["A close companion","An active political and religious opponent","A neutral trader with no opinion","Already a secret Muslim"],
     correct:1, explain:"At the time, Abu Sufyan was still opposed to the Prophet and Islam, making his answers especially significant as evidence." },
 
@@ -1718,7 +1718,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"Al-Amin, “the Trustworthy,” emphasises reliability with property and promises, distinct from al-Sadiq’s focus on truthful speech." },
 
   { id:"3-5--honesty-and-trustworthiness--q17", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
-    q:"According to this lesson, why does the exam reward specific detail over general statements about honesty?",
+    q:"Why does the exam reward specific detail over general statements about honesty?",
     choices:["Because named people, places, and events (like Khadijah, Busra, Heraclius) demonstrate real recall, not vague impressions","Because dates matter more than any other detail","Because general statements are factually incorrect","Because examiners only accept quotations"],
     correct:0, explain:"Full marks require named, specific detail rather than general claims like “he was honest in business.”" },
 
@@ -1733,9 +1733,9 @@ window.QUESTION_BANK = [
     correct:1, explain:"The model answer highlights keeping promises even when inconvenient as a modern application of trustworthiness." },
 
   { id:"3-5--honesty-and-trustworthiness--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"honesty-and-trustworthiness",
-    q:"Which of the following best summarises why this lesson treats the Ali/Hijrah deposit-return detail cautiously?",
+    q:"Which of the following best explains why the Ali/Hijrah deposit-return detail is treated cautiously?",
     choices:["Because it definitely never happened","Because its precise chain of narration could not be confirmed with full confidence, even though it is widely told","Because it contradicts the Khadijah caravan story","Because Ali was not actually present in Makkah at the time"],
-    correct:1, explain:"The lesson presents this detail as strongly-attested tradition rather than a verified primary citation, in line with this course’s careful sourcing standard." },
+    correct:1, explain:"It is presented as strongly-attested tradition rather than a verified primary citation, in line with careful historical sourcing standards." },
 
   { id:"3-5--humility-and-simplicity--q1", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
     q:"What was the Suffa, attached to the mosque in Madinah?",
@@ -1788,12 +1788,12 @@ window.QUESTION_BANK = [
     correct:0, explain:"Despite leading a state covering much of Arabia by that point, he chose to keep living simply rather than upgrade his residence." },
 
   { id:"3-5--humility-and-simplicity--q11", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
-    q:"According to the lesson, what distinguishes the Prophet’s humility from mere shyness?",
+    q:"What distinguishes the Prophet’s humility from mere shyness?",
     choices:["Nothing — they are the same","It was a leader deliberately refusing available signs of status while holding real authority","It only applied when he was young and had no power","It was imposed on him by others"],
     correct:1, explain:"His humility is presented as an active, deliberate choice made while he held real authority, not a passive personality trait." },
 
   { id:"3-5--humility-and-simplicity--q12", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
-    q:"What two related qualities does this lesson pair together?",
+    q:"“Humility” and “simplicity” are often studied together as related qualities of the Prophet’s character. What does each refer to?",
     choices:["Justice and generosity","Humility (modesty of manner) and simplicity (modesty of lifestyle)","Patience and honesty","Courage and wisdom"],
     correct:1, explain:"The lesson treats humility as modesty of manner and simplicity as modesty of lifestyle, two sides of the same consistent choice." },
 
@@ -1828,7 +1828,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"They were largely poor emigrants who had left everything behind in Makkah and had no means of shelter in Madinah." },
 
   { id:"3-5--humility-and-simplicity--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"humility-and-simplicity",
-    q:"What overall argument does this lesson make about the relationship between power and simplicity in the Prophet’s life?",
+    q:"What is the relationship between power and simplicity in the Prophet’s life?",
     choices:["That he lived simply only because he was poor and had no choice","That he continued living simply by deliberate choice even after gaining real power and leadership","That simplicity ended once he became the leader of Madinah","That his simplicity is unrelated to his role as a leader"],
     correct:1, explain:"The lesson’s central point is that his simple lifestyle was a sustained, deliberate choice held onto even at the height of his authority, not something that changed with status." },
 
@@ -1923,14 +1923,14 @@ window.QUESTION_BANK = [
     correct:1, explain:"In the six months before Tabuk, he had already given away the entire wealth captured at Hunayn and Ta’if." },
 
   { id:"3-5--generosity--q19", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
-    q:"According to the Source Box, why is there no dedicated past-paper question purely on “generosity” in this syllabus?",
+    q:"Why is there no dedicated past-paper question purely on “generosity”?",
     choices:["Because generosity typically appears as supporting detail within battle- or event-focused questions rather than as its own standalone question","Because generosity is not considered an important quality","Because the syllabus excludes this topic entirely","Because all past questions focus only on forgiveness"],
     correct:0, explain:"No single dedicated Topic 3 question on generosity alone was found; it appears as supporting AO1 material within other questions instead." },
 
   { id:"3-5--generosity--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"generosity",
-    q:"What is the best exam strategy for using this lesson’s content, according to the Exam Lab?",
-    choices:["Use its specific detail flexibly within whichever battle or event question appears, and in AO2 “apply this today” answers","Memorise it only for a dedicated generosity question that is unlikely to appear","Ignore it since it has no confirmed past-paper use","Use it only for Topic 2 questions"],
-    correct:0, explain:"Since no standalone generosity question was found, the lesson’s detail is best applied flexibly across battle-related and AO2 questions." },
+    q:"Since no standalone past-paper question exists purely on “generosity,” what is the best way to use this quality’s supporting detail in an exam?",
+    choices:["Use generosity’s specific detail flexibly within whichever battle or event question appears, and in AO2 “apply this today” answers","Memorise it only for a dedicated generosity question that is unlikely to appear","Ignore it since it has no confirmed past-paper use","Use it only for Topic 2 questions"],
+    correct:0, explain:"Since no standalone generosity question was found, its detail is best applied flexibly across battle-related and AO2 questions." },
 
   { id:"3-5--justice-and-keeping-promises--q1", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
     q:"At approximately what age did the Prophet (pbuh) resolve the Black Stone dispute?",
@@ -1983,7 +1983,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"He comforted Abu Jandal with the promise that Allah would provide a way out, even as he upheld the treaty’s terms." },
 
   { id:"3-5--justice-and-keeping-promises--q11", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
-    q:"Which companion reacted with strong anger at the decision to honour this treaty term?",
+    q:"Which companion reacted with strong anger at the decision to honour the Hudaybiyyah treaty term requiring Abu Jandal’s return?",
     choices:["Abu Bakr","Umar ibn al-Khattab","Uthman ibn Affan","Ali ibn Abi Talib"],
     correct:1, explain:"Umar struggled to accept the treaty’s terms and expressed his anger at the decision." },
 
@@ -2008,17 +2008,17 @@ window.QUESTION_BANK = [
     correct:1, explain:"Breaking a promise is widely narrated as one of the signs of hypocrisy, alongside lying and betraying what is entrusted to you." },
 
   { id:"3-5--justice-and-keeping-promises--q16", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
-    q:"What overall principle links the Black Stone and Abu Jandal episodes, according to this lesson?",
+    q:"What overall principle links the Black Stone and Abu Jandal episodes?",
     choices:["Both show the Prophet avoiding difficult decisions","Both show fairness and promise-keeping applied consistently, even at real personal cost","Both happened in the same year","Neither involved any conflict"],
     correct:1, explain:"Both episodes show the same underlying commitment to fairness and keeping one’s word, tested in very different circumstances." },
 
   { id:"3-5--justice-and-keeping-promises--q17", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
-    q:"Why does the lesson describe Abu Jandal’s story as the “strongest possible evidence” for promise-keeping?",
+    q:"Why is Abu Jandal’s story considered the “strongest possible evidence” for the Prophet’s promise-keeping?",
     choices:["Because the promise was kept at real, painful human cost rather than when it was easy","Because it is the only example of promise-keeping in the seerah","Because Abu Jandal was a stranger with no connection to the Muslims","Because the treaty was later cancelled"],
     correct:0, explain:"A promise kept despite visible anguish and cost is stronger evidence of principle than one kept only when convenient." },
 
   { id:"3-5--justice-and-keeping-promises--q19", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"justice-and-keeping-promises",
-    q:"According to the Source Box on past exams, how should students expect to use this lesson’s content in an exam?",
+    q:"Since no standalone past-paper question exists purely on “justice” or “promise-keeping,” how should this content be used in an exam?",
     choices:["As supporting detail within Hudaybiyyah or pre-prophethood character questions, not a standalone question","Only for a dedicated “justice” question guaranteed to appear","It has no use in any past-paper style question","Only for Topic 2 questions"],
     correct:0, explain:"No dedicated standalone question on justice or promise-keeping was found, so this content is best applied within related event questions." },
 
@@ -2053,7 +2053,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"Muslims believe in a long chain of earlier prophets including Adam, Ibrahim, Musa and Isa, among others, before Muhammad closed the line." },
 
   { id:"3-6--seal-of-the-prophets--q6", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
-    q:"How, according to this lesson, did earlier prophets’ missions typically differ from Muhammad’s?",
+    q:"How did earlier prophets’ missions typically differ from Muhammad’s?",
     choices:["They were generally sent to one specific people, place or time period","They were sent with no scripture at all","They were sent only to warn, never with good news","They were sent after Muhammad, not before him"],
     correct:0, explain:"Earlier prophets are understood to have been sent to specific nations or periods, whereas Muhammad’s message is presented as universal and final." },
 
@@ -2073,12 +2073,12 @@ window.QUESTION_BANK = [
     correct:0, explain:"If the message is already for all people and all time, and is believed to be preserved unaltered, there is no gap left for a further prophet’s revelation to fill." },
 
   { id:"3-6--seal-of-the-prophets--q10", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
-    q:"In which year, and at which location, did the Prophet deliver the Farewell Sermon material discussed in this lesson?",
+    q:"In which year, and at which location, did the Prophet deliver the Farewell Sermon?",
     choices:["2 AH, in Madinah","10 AH, at Arafat","8 AH, in Makkah’s Ka’bah","1 AH, at Badr"],
     correct:1, explain:"The Farewell Sermon was delivered at Arafat during the Prophet’s only Hajj, in 10 AH." },
 
   { id:"3-6--seal-of-the-prophets--q11", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
-    q:"Why is this pilgrimage remembered as the “Farewell Hajj”?",
+    q:"Why is the Prophet’s final Hajj (10 AH, at Arafat) remembered as the “Farewell Hajj”?",
     choices:["Because the Prophet was, in effect, bidding the people farewell before his death","Because it was the first Hajj ever performed","Because non-Muslims were farewelled from Makkah that year","Because it marked the end of the Ramadan fast"],
     correct:0, explain:"It is called the Farewell Hajj because it turned out to be the Prophet’s only and final pilgrimage before his death." },
 
@@ -2103,7 +2103,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"This exact sentence is preserved as its own hadith in Sahih al-Bukhari, comparing Muhammad’s succession to that of the earlier Israelite prophets — it is not part of the Arafat sermon transcript itself." },
 
   { id:"3-6--seal-of-the-prophets--q16", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
-    q:"In the Sahih al-Bukhari hadith quoted in this lesson, what pattern among the Israelites is Muhammad’s own situation contrasted with?",
+    q:"In the Sahih al-Bukhari hadith about the succession of prophets, what pattern among the Israelites is Muhammad’s own situation contrasted with?",
     choices:["Whenever an Israelite prophet died, another prophet succeeded him","The Israelites never had any prophets","Israelite prophets never died","Israelite prophets were always kings as well"],
     correct:0, explain:"The hadith explains that among the Israelites, one prophet’s death meant God sent the next one — but Muhammad states no next prophet is coming after him." },
 
@@ -2113,12 +2113,12 @@ window.QUESTION_BANK = [
     correct:1, explain:"Affirming Muhammad as the Messenger of Allah is understood to include accepting that his prophethood is final." },
 
   { id:"3-6--seal-of-the-prophets--q18", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
-    q:"Why do Muslims rely on the Qur’an and the Prophet’s Sunnah as complete guidance, according to this lesson?",
+    q:"Why do Muslims rely on the Qur’an and the Prophet’s Sunnah as complete guidance?",
     choices:["Because no further revelation is expected after the final prophet","Because no other sources of Islamic guidance exist","Because the Sunnah replaces the Qur’an","Because earlier scriptures were never written down"],
     correct:0, explain:"Since prophethood and revelation are believed to have closed with Muhammad, the Qur’an and Sunnah are treated as the complete and sufficient guidance, with nothing further to wait for." },
 
   { id:"3-6--seal-of-the-prophets--q19", paper:"paper-1", topic:"topic-3", unit:"3-6", lesson:"seal-of-the-prophets",
-    q:"Which of the following is the safest way to describe how a past exam might test this lesson’s content?",
+    q:"Which of the following is the safest way to describe how a past exam might test the “Seal of the Prophets” topic?",
     choices:["As supporting AO2 material within a broader question, not as its own standalone (a) question","As a guaranteed standalone 10-mark question every session","It has never appeared in any form in the syllabus","Only as a (a) question about the Battle of Badr"],
     correct:0, explain:"No past paper sets this as its own dedicated question; it is best learned as reasoning to support answers on the Farewell Sermon or the Qur’an’s completeness." },
 
@@ -2153,7 +2153,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"He said, “O Allah, to You I complain of my weakness, and my lack of resources, and my lowliness before man.”" },
 
   { id:"3-5--forgiveness-and-patience--q6", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
-    q:"Who appeared alongside Jibreel at this moment?",
+    q:"Who appeared alongside Jibreel when the Prophet was stoned and rejected at Ta’if?",
     choices:["Mika’il","The Angel of the Mountains","Israfil","No angel appeared"],
     correct:1, explain:"The Angel of the Mountains appeared with Jibreel and offered to act on the Prophet’s behalf." },
 
@@ -2163,7 +2163,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"The angel offered to squeeze the city between the two mountains if the Prophet wished it." },
 
   { id:"3-5--forgiveness-and-patience--q8", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
-    q:"How did the Prophet (pbuh) respond to this offer?",
+    q:"How did the Prophet (pbuh) respond when the Angel of the Mountains offered to crush Ta’if between the two surrounding mountains?",
     choices:["He accepted immediately","He asked for time to think","He declined and expressed hope for future believers from the town","He asked for a lesser punishment instead"],
     correct:2, explain:"He refused, saying he hoped Allah would bring forth believers from the descendants of the very people who had just harmed him." },
 
@@ -2198,7 +2198,7 @@ window.QUESTION_BANK = [
     correct:0, explain:"Unlike a single incident, this persecution was sustained for years by his own people, making the amnesty especially significant." },
 
   { id:"3-5--forgiveness-and-patience--q15", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
-    q:"What is the difference between “patience” (sabr) and “forgiveness” as shown in this lesson?",
+    q:"What is the difference between “patience” (sabr) and “forgiveness,” as shown in the events at Ta’if?",
     choices:["They mean exactly the same thing","Patience is enduring hardship without losing control; forgiveness is choosing not to punish once you have power to","Patience only applies to physical pain; forgiveness only applies to speech","Forgiveness always comes before patience chronologically"],
     correct:1, explain:"Patience was tested during the stoning itself; forgiveness was tested afterward, when he was offered the power to retaliate." },
 
@@ -2210,7 +2210,7 @@ window.QUESTION_BANK = [
   { id:"3-5--forgiveness-and-patience--q17", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
     q:"In the J21 s12 exam question on patience and forgiveness, which TWO episodes give the strongest named examples?",
     choices:["The Hijrah and the Battle of Badr","Ta’if and the Conquest of Makkah","The first revelation and the Night Journey","The Treaty of Hudaybiyyah and the Battle of Hunayn"],
-    correct:1, explain:"These two events, at very different scales, are the headline examples of forgiveness and patience covered in this lesson." },
+    correct:1, explain:"These two events, at very different scales, are the headline examples of the Prophet’s forgiveness and patience." },
 
   { id:"3-5--forgiveness-and-patience--q18", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
     q:"According to the Exam Lab, why do vague answers about “the Prophet being very patient” lose marks?",
@@ -2223,7 +2223,7 @@ window.QUESTION_BANK = [
     correct:2, explain:"J23 s12 asks specifically about patience and self-restraint “while in Makka,” meaning the post-Hijrah Conquest of Makkah material would be off-topic there." },
 
   { id:"3-5--forgiveness-and-patience--q20", paper:"paper-1", topic:"topic-3", unit:"3-5", lesson:"forgiveness-and-patience",
-    q:"Why does the lesson advise caution about the story of a woman who threw rubbish on the Prophet’s path?",
+    q:"Why should students treat with caution the story of a woman who threw rubbish on the Prophet’s path?",
     choices:["Because it is definitely false","Because its exact chain of narration cannot be confirmed with confidence here","Because it contradicts the Ta’if story","Because it is not related to forgiveness at all"],
     correct:1, explain:"The lesson notes this popular story is widely told but its precise sourcing could not be confirmed, so it is mentioned only as background, not as confirmed exam-ready fact." },
 
@@ -2344,7 +2344,7 @@ window.QUESTION_BANK = [
     choices:["Abu Talib", "Abdul Muttalib", "Khadijah bint Khuwaylid", "Abdullah ibn Jud’an"],
     correct:2, explain:"Khadijah bint Khuwaylid, a successful widowed merchant, later hired him to lead a trading venture to Syria because of his trusted reputation." },
   { id:"3-1--shepherd-and-trade-journey--q10", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"shepherd-and-trade-journey",
-    q:"What does the seerah source used in this course caution students against when studying this period of the Prophet’s life?",
+    q:"What should students be cautious of when studying the Prophet’s early life as a shepherd and trader, given how little detailed narrative survives for this period?",
     choices:["Studying it at all, since it isn’t examinable", "Treating popular retellings with more invented detail or dialogue as if they were as reliable as the sparse, well-attested sources", "Believing that he worked as a shepherd", "Believing that shepherding built useful character traits"],
     correct:1, explain:"Because so little detailed narrative survives for this period, students should be cautious of embellished retellings and stick to what is genuinely well attested." },
   { id:"3-1--shepherd-and-trade-journey--q11", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"shepherd-and-trade-journey",
@@ -2364,11 +2364,11 @@ window.QUESTION_BANK = [
     choices:["A type of animal", "A unit of land", "A small unit of payment/currency", "A tribal title"],
     correct:2, explain:"Qararit refers to a small unit of payment — the modest wage he received for shepherding work." },
   { id:"3-1--shepherd-and-trade-journey--q15", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"shepherd-and-trade-journey",
-    q:"Which of the following is the most accurate description of the transition covered in this lesson?",
+    q:"Which of the following most accurately describes the Prophet’s transition from shepherd to trader in his youth?",
     choices:["From warrior to merchant", "From shepherd, tending others’ flocks for pay, toward the trading life that would later connect him with Khadijah", "From scholar to shepherd", "From ruler of Makkah to trader"],
     correct:1, explain:"The lesson traces his path from humble paid shepherding work toward the world of Makkan trade, setting up the Khadijah episode covered in a later lesson." },
   { id:"3-1--shepherd-and-trade-journey--q16", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"shepherd-and-trade-journey",
-    q:"Why is it particularly important not to guess or invent extra narrative detail for this period of the Prophet’s life in an exam answer?",
+    q:"Why is it particularly important not to guess or invent extra narrative detail for the Prophet’s youth as a shepherd and trader in an exam answer?",
     choices:["Because the authentic sources themselves record very little for this stage, so invented detail risks being historically inaccurate", "Because this period is not part of the syllabus", "Because examiners specifically forbid mentioning shepherding", "Because Islamic teaching forbids discussing his youth"],
     correct:0, explain:"Good exam technique means staying within what is actually well attested — for this sparsely-documented period, that means focusing on the shepherding account and its character lessons rather than embellishing." },
   { id:"3-1--shepherd-and-trade-journey--q17", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"shepherd-and-trade-journey",
@@ -2388,7 +2388,7 @@ window.QUESTION_BANK = [
     choices:["Kinana (including Quraysh) against Qays Aylan", "Makkah against Yathrib", "Banu Hashim against Banu Umayyah", "Byzantines against Sassanids"],
     correct:0, explain:"The war was fought between the Kinana confederation, which included the Quraysh, and the rival tribe of Qays Aylan." },
   { id:"3-1--harb-al-fijar-and-hilf-al-fudul--q3", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"harb-al-fijar-and-hilf-al-fudul",
-    q:"Why is this conflict known as Harb al-Fijar, “the sacrilegious war”?",
+    q:"Why is Harb al-Fijar known as “the sacrilegious war”?",
     choices:["Because it was fought inside the Kaabah itself", "Because it involved violations of the sanctity of the sacred months and the Haram around Makkah", "Because non-Arabs took part in it", "Because it was fought using forbidden weapons"],
     correct:1, explain:"It is called the “war of sacrilege” because it broke the sanctity that was supposed to be observed during sacred months and within the Haram." },
   { id:"3-1--harb-al-fijar-and-hilf-al-fudul--q4", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"harb-al-fijar-and-hilf-al-fudul",
@@ -2438,7 +2438,7 @@ window.QUESTION_BANK = [
   { id:"3-1--harb-al-fijar-and-hilf-al-fudul--q15", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"harb-al-fijar-and-hilf-al-fudul",
     q:"Which alternative popular phrasing is sometimes used for the Prophet’s later comment valuing Hilf al-Fudul?",
     choices:["“I regret ever attending that house”", "“I would not exchange it for a herd of red camels”", "“It was the beginning of my prophethood”", "“No pact before Islam has any value”"],
-    correct:1, explain:"A commonly cited popular version has him valuing the pact above a herd of red camels — a byword for great wealth — carrying the same meaning as the version quoted in this lesson." },
+    correct:1, explain:"A commonly cited popular version has him valuing the pact above a herd of red camels — a byword for great wealth — carrying the same meaning as the version quoted above." },
   { id:"3-1--harb-al-fijar-and-hilf-al-fudul--q16", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"harb-al-fijar-and-hilf-al-fudul",
     q:"What can a strong exam answer draw from these two episodes together about Muhammad’s character before prophethood?",
     choices:["An early dislike of unnecessary violence, combined with a genuine commitment to justice for the wronged", "Ambition to become a tribal war leader", "Indifference to the suffering caused by tribal conflict", "A preference for staying uninvolved in Makkah’s affairs"],
@@ -2476,11 +2476,11 @@ window.QUESTION_BANK = [
     choices:["Nafisa", "Maysarah", "Abu Talib", "Umm Ayman"],
     correct:1, explain:"Khadijah’s servant Maysarah accompanied Muhammad on the journey and later reported back on his conduct." },
   { id:"3-1--marriage-to-khadijah--q7", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"marriage-to-khadijah",
-    q:"Which market town in Syria did this trading journey travel to?",
+    q:"Which market town in Syria did Muhammad’s trading journey on Khadijah’s behalf travel to?",
     choices:["Damascus itself", "Bosra, roughly 100 km beyond Damascus", "Yathrib", "Jeddah"],
     correct:1, explain:"The caravan travelled to Bosra, a marketplace town roughly 100 km beyond Damascus." },
   { id:"3-1--marriage-to-khadijah--q8", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"marriage-to-khadijah",
-    q:"How successful was this trading venture, according to the sources?",
+    q:"How successful was Muhammad’s trading journey to Syria on Khadijah’s behalf, according to the sources?",
     choices:["It made a small loss", "It broke even", "It yielded double or triple the usual profit", "Its outcome is not recorded"],
     correct:2, explain:"The venture was highly profitable, yielding double or triple the profit anyone else had made before." },
   { id:"3-1--marriage-to-khadijah--q9", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"marriage-to-khadijah",
@@ -2528,7 +2528,7 @@ window.QUESTION_BANK = [
     choices:["It shows her later belief in his message was grounded in decades of firsthand experience of his honesty, not blind loyalty", "It proves she had no real relationship with him before marriage", "It shows Islamic marriage customs were invented after this marriage", "It is not relevant to understanding her later role"],
     correct:0, explain:"Her long, trust-based relationship with him explains why she became the first person to believe in his message once revelation began." },
   { id:"3-1--marriage-to-khadijah--q20", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"marriage-to-khadijah",
-    q:"Which servant’s role is most often confused with the other in this story?",
+    q:"Which two servants’ roles are most often confused with each other in accounts of the Prophet’s trade journey to Syria and his marriage to Khadijah?",
     choices:["Abu Talib and Amr ibn Asad", "Maysarah (the trade journey) and Nafisa (the marriage proposal)", "Umm Ayman and Halimah", "Abdul Muttalib and Abdullah"],
     correct:1, explain:"Maysarah accompanied him on the Syria trade journey; Nafisa was the separate servant who later raised the marriage proposal — a common point of confusion." },
   { id:"3-1--rebuilding-the-kaaba--q1", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"rebuilding-the-kaaba",
@@ -2552,7 +2552,7 @@ window.QUESTION_BANK = [
     choices:["Banu Abd Manaf and Banu Makhzum", "Banu Hashim and Banu Umayyah", "Banu Sa’d and Banu Zuhrah", "Banu Makhzum and Banu Sa’d"],
     correct:0, explain:"Banu Abd Manaf and Banu Makhzum both claimed the right to place the Black Stone, leading to a serious dispute." },
   { id:"3-1--rebuilding-the-kaaba--q6", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"rebuilding-the-kaaba",
-    q:"For how long did construction stop because of this dispute?",
+    q:"For how long did construction of the Kaabah stop because of the Black Stone placement dispute?",
     choices:["One day", "Two days", "Five days", "A full month"],
     correct:2, explain:"The disagreement was serious enough to halt construction for five days." },
   { id:"3-1--rebuilding-the-kaaba--q7", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"rebuilding-the-kaaba",
@@ -2584,7 +2584,7 @@ window.QUESTION_BANK = [
     choices:["Military leadership", "Practical wisdom, fairness and impartial conflict resolution", "Wealth and generosity", "Skill in trade negotiation"],
     correct:1, explain:"This episode is used in teaching to show his creative wisdom and complete impartiality between rival factions, years before revelation began." },
   { id:"3-1--rebuilding-the-kaaba--q14", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"rebuilding-the-kaaba",
-    q:"Why is this episode considered strong evidence for an exam answer about Muhammad’s character before prophethood?",
+    q:"Why is the Black Stone dispute during the rebuilding of the Kaaba considered strong evidence for an exam answer about Muhammad’s character before prophethood?",
     choices:["It shows he was already trusted and respected as fair-minded by the whole of Makkah, independent of any religious claim", "It shows the Quraysh had already accepted Islam", "It shows he had military authority in Makkah", "It proves the Kaabah was originally built by him"],
     correct:0, explain:"It demonstrates that his reputation for wisdom and fairness was recognised by all of Makkah’s clans years before he became a prophet, making it powerful independent evidence of his character." },
   { id:"3-1--rebuilding-the-kaaba--q15", paper:"paper-1", topic:"topic-3", unit:"3-1", lesson:"rebuilding-the-kaaba",
@@ -2670,7 +2670,7 @@ window.QUESTION_BANK = [
     correct:2, explain:"She reasoned that God would never disgrace a man who was good to his relatives, truthful, generous to the poor and hospitable to guests." },
 
   { id:"3-2--first-revelation-in-the-cave-of-hira--q14", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"first-revelation-in-the-cave-of-hira",
-    q:"Which source records Khadija’s words of reassurance as quoted in this lesson?",
+    q:"Which source records Khadija’s words of reassurance after the first revelation?",
     choices:["Sunan Abu Dawud","Sahih al-Bukhari, as narrated by ’A’ishah","The Muwatta of Imam Malik","Sahih Muslim only"],
     correct:1, explain:"This narration is recorded in Sahih al-Bukhari’s Book of the Beginning of Revelation, narrated by ’A’ishah." },
 
@@ -2695,7 +2695,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"Waraqah said that anyone who came with something similar to what the Prophet brought had always been treated with hostility." },
 
   { id:"3-2--first-revelation-in-the-cave-of-hira--q19", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"first-revelation-in-the-cave-of-hira",
-    q:"What happened to Waraqah not long after this event?",
+    q:"What happened to Waraqah not long after the first revelation?",
     choices:["He became the Prophet’s closest advisor","He renounced Christianity","He died, before the predicted persecution fully began","He led the persecution himself"],
     correct:2, explain:"Waraqah died shortly afterward, before the hostility he had predicted fully unfolded." },
 
@@ -2705,17 +2705,17 @@ window.QUESTION_BANK = [
     correct:0, explain:"A fabricated claim to prophethood would not typically come with an accurate prediction of the severe hardship it would bring — this makes Waraqah’s warning notable as indirect evidence." },
 
   { id:"3-2--first-revelation-in-the-cave-of-hira--q21", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"first-revelation-in-the-cave-of-hira",
-    q:"According to this lesson, what distinguishes a Topic 2 question about this night from a Topic 3 question about it?",
+    q:"What distinguishes how a Topic 2 exam question would test the night of the first revelation compared to a Topic 3 question about the same event?",
     choices:["Topic 2 questions do not require any factual detail","Topic 2 wants the mechanics of how revelation felt; Topic 3 wants it as part of the continuous life-story","Topic 3 questions never mention Khadija or Waraqah","There is no meaningful difference between the two"],
     correct:1, explain:"The same facts are tested differently depending on the question: Topic 2 focuses on the experience and forms of revelation, while Topic 3 wants the event narrated within the ongoing story of the Prophet’s life." },
 
   { id:"3-2--first-revelation-in-the-cave-of-hira--q22", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"first-revelation-in-the-cave-of-hira",
     q:"In an exam answer describing “the first revelation,” which sequence is correct and safest to write?",
     choices:["Cave of Hira → “Iqra” x3 → Surah al-’Alaq 96:1–5 → home to Khadija → her reassurance → Waraqah’s confirmation","Waraqah’s confirmation → Cave of Hira → Khadija’s reassurance → “Iqra” x3","Khadija’s reassurance → Cave of Hira → Waraqah’s confirmation → “Iqra” x3","Surah al-Muddaththir → Cave of Hira → “Iqra” x3"],
-    correct:0, explain:"This is the correct chronological order, drawn from the core hadith tradition and the Seerah lecture source used in this lesson." },
+    correct:0, explain:"This is the correct chronological order, drawn from the core hadith tradition." },
 
   { id:"3-2--first-revelation-in-the-cave-of-hira--q23", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"first-revelation-in-the-cave-of-hira",
-    q:"Which detail is most useful as a specific, checkable AO1 fact examiners commonly credit in this story?",
+    q:"Which detail is most useful as a specific, checkable AO1 fact examiners commonly credit in the account of the first revelation?",
     choices:["That the Prophet was wealthy","That Jibreel repeated “Iqra” exactly three times","That the cave was very large","That the revelation took ten years to complete"],
     correct:1, explain:"Precise, checkable details like “three times” are exactly the kind of specific fact that separates a full-marks answer from a vague one." },
 
@@ -2785,7 +2785,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"Verse 6 instructs him not to confer favour expecting more in return — not to seek worldly gain from the message." },
 
   { id:"3-2--second-revelation-and-declaration--q13", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"second-revelation-and-declaration",
-    q:"What is the final instruction given in Surah al-Muddaththir 74:1–7, as quoted in this lesson?",
+    q:"What is the final instruction given in Surah al-Muddaththir 74:1–7?",
     choices:["Gather an army","Be patient for the sake of your Lord","Return to trading","Seek reward from your people"],
     correct:1, explain:"Verse 7 closes with the instruction to be patient for the Lord’s sake." },
 
@@ -2810,9 +2810,9 @@ window.QUESTION_BANK = [
     correct:1, explain:"The command “arise and warn” turned a private, receptive experience into an active mission, marking the true shift into declared prophethood." },
 
   { id:"3-2--second-revelation-and-declaration--q18", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"second-revelation-and-declaration",
-    q:"What does this lesson identify as belonging to the next unit (3.3) rather than being covered here?",
+    q:"Which of the following belongs to the later preaching campaign (Unit 3.3) rather than to the second revelation and declaration itself?",
     choices:["The content of Surah al-Muddaththir","The campaign of preaching itself — earliest converts and the public declaration on Mount Safa","The length of the fatrat al-wahy","The location of the second revelation"],
-    correct:1, explain:"The detailed preaching campaign, earliest converts, and the eventual public declaration on Mount Safa belong to Unit 3.3, building on the hinge point covered in this lesson." },
+    correct:1, explain:"The detailed preaching campaign, earliest converts, and the eventual public declaration on Mount Safa belong to Unit 3.3, building on this hinge point." },
 
   { id:"3-2--second-revelation-and-declaration--q19", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"second-revelation-and-declaration",
     q:"What title had Makkan society given the Prophet before revelation began?",
@@ -2880,7 +2880,7 @@ window.QUESTION_BANK = [
     correct:2, explain:"The Prophet told Zayd’s father it was entirely Zayd’s own choice, with no ransom required either way." },
 
   { id:"3-2--zayd-ibn-haritha-and-seekers-of-truth--q9", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"zayd-ibn-haritha-and-seekers-of-truth",
-    q:"Roughly how old was Zayd when he was offered this choice?",
+    q:"Roughly how old was Zayd when the Prophet let him freely choose whether to stay in Makkah or return to his family?",
     choices:["About 10","About 40","About 25","About 60"],
     correct:2, explain:"Zayd was a young man of about twenty-five at the time." },
 
@@ -2895,7 +2895,7 @@ window.QUESTION_BANK = [
     correct:1, explain:"He made the declaration at the Hijr Isma’il, the area beside the Ka’bah." },
 
   { id:"3-2--zayd-ibn-haritha-and-seekers-of-truth--q12", paper:"paper-1", topic:"topic-3", unit:"3-2", lesson:"zayd-ibn-haritha-and-seekers-of-truth",
-    q:"What was Zayd commonly known as after this adoption, before later revelation changed the practice?",
+    q:"What was Zayd commonly known as after the Prophet adopted him, before later revelation changed the practice?",
     choices:["Zayd ibn Harithah","Zayd ibn Muhammad","Zayd al-Hanif","Zayd al-Ameen"],
     correct:1, explain:"After the adoption he was known as “Zayd ibn Muhammad,” according to Abdullah ibn Umar." },
 
@@ -3040,7 +3040,7 @@ window.QUESTION_BANK = [
     choices:["Wealth, status, or marriage alliances", "Political exile", "A share of the Ka'bah's custodianship only", "Nothing was ever offered"],
     correct:0, explain:"Quraysh made offers of wealth, status, and marriage alliances to try to persuade the Prophet to abandon his message." },
   { id:"3-3--preaching-in-secret-and-in-public--q21", paper:"paper-1", topic:"topic-3", unit:"3-3", lesson:"preaching-in-secret-and-in-public",
-    q:"What is the correct order of events in this lesson?",
+    q:"What is the correct order of these events in the early preaching period?",
     choices:["Safa address → private dawah → Banu Hashim feast → Surah al-Hijr revealed", "Private dawah → Banu Hashim feast → Surah al-Hijr revealed → Safa address", "Surah al-Hijr revealed → Banu Hashim feast → private dawah → Safa address", "Banu Hashim feast → Safa address → private dawah → Surah al-Hijr revealed"],
     correct:1, explain:"The correct sequence is: private preaching for ~3 years, then the Banu Hashim feast, then the revelation commanding open proclamation (15:94), then the Safa hill address." },
   { id:"3-3--preaching-in-secret-and-in-public--q22", paper:"paper-1", topic:"topic-3", unit:"3-3", lesson:"preaching-in-secret-and-in-public",
@@ -3444,7 +3444,7 @@ window.QUESTION_BANK = [
     choices:["Crush it between the two surrounding mountains", "Send a plague upon it", "Flood the city", "Burn it to the ground"],
     correct:0, explain:"The Angel of the Mountains offered to squeeze Ta'if between the two mountains surrounding it." },
   { id:"3-3--year-of-sorrow-and-taif--q22", paper:"paper-1", topic:"topic-3", unit:"3-3", lesson:"year-of-sorrow-and-taif",
-    q:"How did the Prophet respond to this offer?",
+    q:"How did the Prophet respond when the Angel of the Mountains offered to crush Ta'if between the two surrounding mountains?",
     choices:["He refused, hoping for righteous descendants of the people of Ta'if", "He accepted immediately", "He asked for more time to decide", "He asked that only the three leaders be punished"],
     correct:0, explain:"The Prophet refused, saying he hoped Allah would bring forth from their descendants people who would worship Him alone." },
   { id:"3-3--year-of-sorrow-and-taif--q23", paper:"paper-1", topic:"topic-3", unit:"3-3", lesson:"year-of-sorrow-and-taif",
@@ -3564,7 +3564,7 @@ window.QUESTION_BANK = [
     choices:["As-Siddiq", "Al-Faruq", "Al-Amin", "Al-Mustafa"],
     correct:0, explain:"Abu Bakr earned the title as-Siddiq, \"the Testifier to Truth,\" for his immediate and unwavering belief." },
   { id:"3-3--night-journey-and-ascension--q25", paper:"paper-1", topic:"topic-3", unit:"3-3", lesson:"night-journey-and-ascension",
-    q:"Why is this event often read as coming at a significant moment for the Prophet personally?",
+    q:"Why is the Night Journey and Ascension (al-Isra wal-Mi’raj) often read as coming at a significant moment for the Prophet personally?",
     choices:["It followed the Year of Sorrow and the humiliation at Ta'if", "It followed his first meeting with Khadijah", "It occurred immediately after the Hijrah", "It occurred during the boycott"],
     correct:0, explain:"The event came directly after the losses of the Year of Sorrow and the rejection at Ta'if, and is read as a source of comfort and reassurance at a low point." },
   { id:"3-3--pledges-of-aqabah-and-the-hijrah--q1", paper:"paper-1", topic:"topic-3", unit:"3-3", lesson:"pledges-of-aqabah-and-the-hijrah",
@@ -3664,7 +3664,7 @@ window.QUESTION_BANK = [
     choices:["\"Do not grieve; indeed Allah is with us.\"", "\"Have patience, for victory is near.\"", "\"Trust in Allah, and tie your camel.\"", "\"Fear not, for Ali will protect us.\""],
     correct:0, explain:"The Prophet reassured Abu Bakr with these words, later confirmed in Surah at-Tawbah 9:40." },
   { id:"3-3--pledges-of-aqabah-and-the-hijrah--q25", paper:"paper-1", topic:"topic-3", unit:"3-3", lesson:"pledges-of-aqabah-and-the-hijrah",
-    q:"Which Qur'anic verse refers to this moment in the cave?",
+    q:"Which Qur'anic verse refers to the moment in the cave of Thawr during the Hijrah?",
     choices:["Surah al-Isra 17:1", "Surah at-Tawbah 9:40", "Surah al-Masad 111:1", "Surah ash-Shu'ara 26:214"],
     correct:1, explain:"Surah at-Tawbah 9:40 refers directly to this moment, describing the Prophet reassuring \"his companion\" that Allah was with them." },
   { id:"3-3--pledges-of-aqabah-and-the-hijrah--q26", paper:"paper-1", topic:"topic-3", unit:"3-3", lesson:"pledges-of-aqabah-and-the-hijrah",
@@ -3757,7 +3757,7 @@ window.QUESTION_BANK = [
     choices:["Surah al-Hajj 22:39", "Surah al-Anfal 8:17", "Surah Aal-Imran 3:144", "Surah al-Fath 48:18"],
     correct:0, explain:"\"Permission [to fight] has been given to those who are being fought, because they were wronged\" (22:39)." },
   { id:"3-4--foundations-in-madinah--q15", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"foundations-in-madinah",
-    q:"Before this permission was revealed, how had Muslims been commanded to respond to persecution in Makkah?",
+    q:"Before the Qur’an granted permission to fight in self-defence (Surah al-Hajj 22:39), how had Muslims been commanded to respond to persecution in Makkah?",
     choices:["With immediate armed retaliation", "With migration only, never worship", "With patient endurance, without fighting back", "With secret assassination of persecutors"],
     correct:2, explain:"For the thirteen Makkan years, Muslims endured persecution without permission to fight; this changed only once they had a state in Madinah." },
   { id:"3-4--foundations-in-madinah--q16", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"foundations-in-madinah",
@@ -4069,7 +4069,7 @@ window.QUESTION_BANK = [
     choices:["It was requested by Banu Qurayza themselves and judged treaty-breaking during an active siege", "Because all Jewish tribes were treated identically regardless of conduct", "Because the Prophet acted alone without any arbitration", "Because it targeted religious belief specifically"],
     correct:0, explain:"It followed Banu Qurayza's own request for an allied arbitrator and addressed a specific wartime betrayal, not religious identity." },
   { id:"3-4--banu-nadir-and-the-trench--q23", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"banu-nadir-and-the-trench",
-    q:"What common thread links the fates of Banu Qaynuqa, Banu Nadir, and Banu Qurayza across this unit?",
+    q:"What common thread links the fates of Banu Qaynuqa, Banu Nadir, and Banu Qurayza?",
     choices:["Each broke the terms of the Constitution of Madinah during a period of crisis", "Each converted to Islam voluntarily", "Each was expelled with no cause given", "Each allied permanently with the Muslims"],
     correct:0, explain:"All three tribes' expulsions or punishments are framed as consequences of breaking their political agreement, escalating in severity with the scale of the threat each posed." },
   { id:"3-4--banu-nadir-and-the-trench--q24", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"banu-nadir-and-the-trench",
@@ -4273,7 +4273,7 @@ window.QUESTION_BANK = [
     choices:["Khaybar's population was allowed to remain as sharecroppers rather than being exiled", "Khaybar's population suffered the same fate as Banu Qurayza", "Khaybar's population was entirely enslaved", "Khaybar's population converted to Islam en masse"],
     correct:0, explain:"This shows a pragmatic, negotiated settlement rather than expulsion or harsher punishment." },
   { id:"3-4--khaybar-and-letters-to-rulers--q24", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"khaybar-and-letters-to-rulers",
-    q:"Why does examiners' guidance link the Khaybar lesson with the Tabuk lesson in this unit?",
+    q:"Why are Khaybar and Tabuk often studied together for exam purposes?",
     choices:["One past paper question asks candidates to describe both battles together", "They occurred in the same year", "They had identical causes", "They both ended in treaties rather than sieges"],
     correct:0, explain:"The J22 s12 paper pairs Khaybar and Tabuk in a single (a) question, so candidates should be ready to discuss both." },
   { id:"3-4--khaybar-and-letters-to-rulers--q25", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"khaybar-and-letters-to-rulers",
@@ -4369,7 +4369,7 @@ window.QUESTION_BANK = [
     choices:["A single day", "About 19 days", "Six months", "A full year"],
     correct:1, explain:"He stayed roughly nineteen days, during which further rulings and conversions occurred." },
   { id:"3-4--conquest-of-makkah--q23", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"conquest-of-makkah",
-    q:"What does Surah an-Nasr, revealed around this time, hint at according to Ibn Abbas's interpretation?",
+    q:"What does Surah an-Nasr, revealed around the time of the Conquest of Makkah, hint at according to Ibn Abbas's interpretation?",
     choices:["The Prophet's earthly mission and life were nearing completion", "A further military campaign was imminent", "The Quraysh would soon rebel again", "Makkah would be abandoned"],
     correct:0, explain:"Ibn Abbas understood the surah's message of victory and multitudes converting as a sign of the Prophet's approaching death." },
   { id:"3-4--conquest-of-makkah--q24", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"conquest-of-makkah",
@@ -4489,7 +4489,7 @@ window.QUESTION_BANK = [
     choices:["Fewer than 20 out of about 3,000", "About half the army", "Nearly the entire army", "Exactly 70", "None at all"],
     correct:0, explain:"Khalid's skilful withdrawal kept Muslim losses remarkably low given the disparity in forces." },
   { id:"3-4--mutah-and-hunayn--q25", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"mutah-and-hunayn",
-    q:"What broader theme links Mu'tah and Hunayn as a pair in this lesson?",
+    q:"What broader theme links Mu'tah and Hunayn as a pair?",
     choices:["Both show the Prophet turning a moment of crisis into a demonstrated act of steady leadership", "Both ended in outright military catastrophe", "Both were fought purely for economic gain", "Both took place before the Conquest of Makkah"],
     correct:0, explain:"In both cases, initial setbacks (heavy losses at Mu'tah, an ambush at Hunayn) were met with calm, decisive leadership that preserved or won the day." },
   { id:"3-4--tabuk-expedition--q1", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"tabuk-expedition",
@@ -4501,7 +4501,7 @@ window.QUESTION_BANK = [
     choices:["Reports of a major Byzantine military mobilisation on the northern frontier", "A direct Byzantine invasion of Madinah", "A request from the Ghassanids for help", "The breaking of the Hudaybiyyah truce"],
     correct:0, explain:"Rumours of Byzantine mobilisation prompted the Prophet to call for this large-scale expedition." },
   { id:"3-4--tabuk-expedition--q3", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"tabuk-expedition",
-    q:"What name is commonly given to this expedition, reflecting its difficulty?",
+    q:"What name is commonly given to the Tabuk expedition, reflecting its difficulty?",
     choices:["Ghazwat al-Fath", "Jaysh al-Usrah (\"the Army/Year of Hardship\")", "Ghazwat al-Ahzab", "Sariyyat Nakhla"],
     correct:1, explain:"The expedition's severe conditions earned it this name." },
   { id:"3-4--tabuk-expedition--q4", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"tabuk-expedition",
@@ -4513,7 +4513,7 @@ window.QUESTION_BANK = [
     choices:["It coincided with the harvest season", "It coincided with the Hajj season", "It fell during the sacred months", "It coincided with a famine in Madinah", "There was no economic difficulty at all"],
     correct:0, explain:"Many participants had to abandon their main annual harvest income to join." },
   { id:"3-4--tabuk-expedition--q6", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"tabuk-expedition",
-    q:"What was unusual about how the Prophet announced this expedition compared to previous campaigns?",
+    q:"What was unusual about how the Prophet announced the Tabuk expedition compared to previous campaigns?",
     choices:["He openly announced the destination and the seriousness of the threat in advance", "He kept it entirely secret until arrival", "He delegated the announcement to Abu Bakr", "He announced it only to the Ansar", "He cancelled it multiple times before departure"],
     correct:0, explain:"Unlike earlier campaigns relying on secrecy, Tabuk's destination and gravity were announced openly." },
   { id:"3-4--tabuk-expedition--q7", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"tabuk-expedition",
@@ -4589,7 +4589,7 @@ window.QUESTION_BANK = [
     choices:["Extracting water from slaughtered camels' stomachs", "Eating leather from their sandals", "Drinking seawater", "Abandoning the expedition entirely"],
     correct:0, explain:"Supply shortages became so severe that such extreme measures were reportedly used." },
   { id:"3-4--tabuk-expedition--q25", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"tabuk-expedition",
-    q:"What is the key contrast this lesson draws between the hypocrites and the three truthful Companions?",
+    q:"What is the key contrast between the hypocrites and the three truthful Companions after Tabuk?",
     choices:["False excuses faced no immediate punishment, while honest admission faced a harsh but ultimately forgiven boycott", "Both groups were punished equally", "The hypocrites were punished more harshly than the truthful three", "Neither group faced any consequences"],
     correct:0, explain:"This contrast is central to the moral and religious lesson Cambridge expects candidates to draw from Tabuk's aftermath." },
   { id:"3-4--farewell-hajj-and-death--q1", paper:"paper-1", topic:"topic-3", unit:"3-4", lesson:"farewell-hajj-and-death",
