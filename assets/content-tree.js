@@ -18,7 +18,64 @@ window.CONTENT_TREE = {
       href: "paper-1/index.html",
       challengeHref: "paper-1/paper-challenge.html",
       topics: [
-        { id: "topic-1", num: "1", title: "Major themes of the Qur’an", status: "soon" },
+        {
+          id: "topic-1", num: "1", title: "Major themes of the Qur’an",
+          status: "built", href: "paper-1/topic-1/index.html",
+          challengeHref: "paper-1/topic-1/topic-challenge.html",
+          units: [
+            {
+              id: "1-1", num: "1.1", title: "Allah in Himself",
+              href: "paper-1/topic-1/1-1/index.html",
+              testHref: "paper-1/topic-1/1-1/unit-test.html",
+              lessons: [
+                { id: "ayat-al-kursi", title: "Ayat al-Kursi — The Throne Verse",
+                  base: "paper-1/topic-1/1-1/ayat-al-kursi/" },
+                { id: "allah-the-originator", title: "Allah, the Originator of the Heavens and Earth",
+                  base: "paper-1/topic-1/1-1/allah-the-originator/" },
+                { id: "signs-in-the-night-and-day", title: "Signs in the Night, the Day, and the Sky",
+                  base: "paper-1/topic-1/1-1/signs-in-the-night-and-day/" },
+                { id: "allahs-sovereignty-and-mercy", title: "Allah’s Sovereignty, Majesty, and Mercy",
+                  base: "paper-1/topic-1/1-1/allahs-sovereignty-and-mercy/" },
+                { id: "absolute-oneness-al-ikhlas", title: "Absolute Oneness — Surah al-Ikhlas",
+                  base: "paper-1/topic-1/1-1/absolute-oneness-al-ikhlas/" }
+              ]
+            },
+            {
+              id: "1-2", num: "1.2", title: "Allah’s Relationship with the Created World",
+              href: "paper-1/topic-1/1-2/index.html",
+              testHref: "paper-1/topic-1/1-2/unit-test.html",
+              lessons: [
+                { id: "al-fatihah-the-opening", title: "Al-Fatihah — The Opening of Every Prayer",
+                  base: "paper-1/topic-1/1-2/al-fatihah-the-opening/" },
+                { id: "creator-and-sustainer", title: "Creator and Sustainer — Surah al-Baqarah 2:21–22",
+                  base: "paper-1/topic-1/1-2/creator-and-sustainer/" },
+                { id: "read-the-first-revelation", title: "“Read” — The First Revelation",
+                  base: "paper-1/topic-1/1-2/read-the-first-revelation/" },
+                { id: "the-day-the-earth-is-shaken", title: "The Day the Earth is Shaken — Surah az-Zalzalah",
+                  base: "paper-1/topic-1/1-2/the-day-the-earth-is-shaken/" },
+                { id: "seeking-refuge-an-nas", title: "Seeking Refuge — Surah an-Nas",
+                  base: "paper-1/topic-1/1-2/seeking-refuge-an-nas/" }
+              ]
+            },
+            {
+              id: "1-3", num: "1.3", title: "Allah’s Messengers",
+              href: "paper-1/topic-1/1-3/index.html",
+              testHref: "paper-1/topic-1/1-3/unit-test.html",
+              lessons: [
+                { id: "adam-the-first-vicegerent", title: "Adam — The First Vicegerent",
+                  base: "paper-1/topic-1/1-3/adam-the-first-vicegerent/" },
+                { id: "ibrahims-search-for-the-truth", title: "Ibrahim’s Search for the Truth",
+                  base: "paper-1/topic-1/1-3/ibrahims-search-for-the-truth/" },
+                { id: "isa-a-servant-and-messenger", title: "Isa — A Servant and Messenger",
+                  base: "paper-1/topic-1/1-3/isa-a-servant-and-messenger/" },
+                { id: "your-lord-has-not-forsaken-you", title: "“Your Lord Has Not Forsaken You” — Surah ad-Duha",
+                  base: "paper-1/topic-1/1-3/your-lord-has-not-forsaken-you/" },
+                { id: "abundance-after-insult", title: "Abundance After Insult — Surah al-Kawthar",
+                  base: "paper-1/topic-1/1-3/abundance-after-insult/" }
+              ]
+            }
+          ]
+        },
         {
           id: "topic-2", num: "2", title: "The history and importance of the Qur’an",
           status: "built", href: "paper-1/topic-2/index.html",
