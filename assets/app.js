@@ -43,6 +43,11 @@
   var THEME_KEY = "islamiyat-theme";
   var NUDGE_SNOOZE_KEY = "islamiyat-nudge-snooze-until";
   var NUDGE_POPUP_SESSION_KEY = "islamiyat-nudge-popup-shown";
+  /* In-progress (unfinished) attempts, keyed by assessment id. Lets a quiz
+     resume exactly where it was — same questions, same order, same answers
+     so far — after a page reload, e.g. the full-page redirect a Google
+     sign-in triggers mid-attempt. Cleared as soon as the attempt finishes. */
+  var IN_PROGRESS_KEY = "islamiyat-inprogress";
   /* Pages that already carry an inline nudge banner of their own —
      skip the floating popup there so a signed-out student never sees both. */
   var PAGES_WITH_INLINE_NUDGE = { quiz:1, "unit-test":1, "topic-challenge":1, "paper-challenge":1, progress:1 };
@@ -51,7 +56,17 @@
   var plan = loadJSON(PLAN_KEY, {});
   var deck = loadJSON(DECK_KEY, {});
   var history = loadJSON(HISTORY_KEY, []);
+  var inProgress = loadJSON(IN_PROGRESS_KEY, {});
   var pendingCloudPush = null;
+  function saveAttemptProgress(assessmentId, snapshot){
+    inProgress[assessmentId] = snapshot;
+    try{ localStorage.setItem(IN_PROGRESS_KEY, JSON.stringify(inProgress)); }catch(e){ /* ignore */ }
+  }
+  function clearAttemptProgress(assessmentId){
+    if(!inProgress[assessmentId]) return;
+    delete inProgress[assessmentId];
+    try{ localStorage.setItem(IN_PROGRESS_KEY, JSON.stringify(inProgress)); }catch(e){ /* ignore */ }
+  }
 
   /* =========================================================
      HISTORY — an append-only log of every graded attempt
@@ -315,6 +330,14 @@
   function shouldShowNudge(){
     return !!supa && !currentUser && history.length > 0 && !nudgeSnoozed();
   }
+  /* Same "has something to lose" gate as shouldShowNudge, but also fires
+     mid-attempt once the student has answered at least one question in the
+     quiz/test/challenge currently on screen — otherwise a signed-out student
+     taking their very first assessment gets no warning at all until the
+     results screen, by which point a lost attempt is already lost. */
+  function shouldShowInProgressNudge(hasAnsweredCurrent){
+    return !!supa && !currentUser && !nudgeSnoozed() && (history.length > 0 || hasAnsweredCurrent);
+  }
   function nudgeBannerHTML(copy){
     return '<div class="nudge-banner" role="status">' +
       '<div class="nudge-copy"><strong>Keep this.</strong> ' + copy + '</div>' +
@@ -383,11 +406,13 @@
     plan = {};
     deck = {};
     history = [];
+    inProgress = {};
     try{ localStorage.removeItem(MASTERY_KEY); }catch(e){}
     try{ localStorage.removeItem(ANSWERED_KEY); }catch(e){}
     try{ localStorage.removeItem(PLAN_KEY); }catch(e){}
     try{ localStorage.removeItem(DECK_KEY); }catch(e){}
     try{ localStorage.removeItem(HISTORY_KEY); }catch(e){}
+    try{ localStorage.removeItem(IN_PROGRESS_KEY); }catch(e){}
   }
   function persistProgressState(){
     try{ localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
@@ -1020,14 +1045,54 @@
 
     var order, idx, answeredFlags, correctCount, batch, pendingDeckState;
 
+    /* Resume an unfinished attempt from a prior page load (e.g. the
+       full-page redirect a Google sign-in triggers) if one is saved and
+       still lines up with this pool; otherwise draw a fresh batch. */
+    function resumeSavedAttempt(){
+      var saved = inProgress[assessmentId];
+      if(!saved || !saved.batchIds || saved.batchIds.length !== perAttempt) return false;
+      if(!saved.answeredFlags || saved.answeredFlags.length !== saved.batchIds.length) return false;
+      if(!saved.order || saved.order.length !== saved.batchIds.length) return false;
+      var byIdPool = {};
+      pool.forEach(function(q){ byIdPool[q.id] = q; });
+      var stillValid = saved.batchIds.every(function(id){ return !!byIdPool[id]; });
+      if(!stillValid) return false;
+
+      batch = saved.batchIds.map(function(id){ return byIdPool[id]; });
+      order = saved.order.slice();
+      answeredFlags = saved.answeredFlags.slice();
+      correctCount = saved.correctCount || 0;
+      idx = Math.min(saved.idx || 0, order.length - 1);
+      pendingDeckState = saved.deckState || { order: shuffleArr(batch.map(function(q){ return q.id; })), cursor: 0, lastBatch: [] };
+      return true;
+    }
+
+    function persistAttempt(){
+      var hasProgress = idx > 0 || answeredFlags.some(function(f){ return f !== null; });
+      if(!hasProgress){
+        clearAttemptProgress(assessmentId);
+        return;
+      }
+      saveAttemptProgress(assessmentId, {
+        batchIds: batch.map(function(q){ return q.id; }),
+        order: order,
+        idx: idx,
+        answeredFlags: answeredFlags,
+        correctCount: correctCount,
+        deckState: pendingDeckState
+      });
+    }
+
     function start(){
-      var draw = nextBatch(assessmentId, pool, perAttempt);
-      batch = draw.questions;
-      pendingDeckState = draw.state;
-      order = shuffleArr(batch.map(function(_, i){ return i; }));
-      idx = 0;
-      answeredFlags = new Array(order.length).fill(null);
-      correctCount = 0;
+      if(!resumeSavedAttempt()){
+        var draw = nextBatch(assessmentId, pool, perAttempt);
+        batch = draw.questions;
+        pendingDeckState = draw.state;
+        order = shuffleArr(batch.map(function(_, i){ return i; }));
+        idx = 0;
+        answeredFlags = new Array(order.length).fill(null);
+        correctCount = 0;
+      }
       wrap.setAttribute("data-attempt-active", "true");
       drawHead();
       drawQuestion();
@@ -1041,13 +1106,20 @@
         if(answeredFlags[i] === false) cls += " answered-wrong";
         return '<span class="' + cls + '" aria-hidden="true"></span>';
       }).join("");
+      var hasAnsweredCurrent = answeredFlags.some(function(f){ return f !== null; });
+      var nudgeHtml = (tracksMastery && shouldShowInProgressNudge(hasAnsweredCurrent))
+        ? nudgeBannerHTML("Your answers so far are only saved on this device — sign in with Google before you lose this attempt.")
+        : "";
       wrap.innerHTML =
         '<div class="quiz-head">' +
           '<span class="quiz-kind' + (tracksMastery && kind !== "quiz" ? " kind-test" : "") + '">' + kindLabel + '</span>' +
           '<div class="quiz-dots">' + dotsHtml + '</div>' +
           '<span class="quiz-counter" aria-live="polite">Q ' + (idx + 1) + ' of ' + order.length + '</span>' +
         '</div>' +
+        nudgeHtml +
         '<div class="quiz-body"></div>';
+      if(nudgeHtml) wireNudge(wrap);
+      persistAttempt();
     }
 
     function drawQuestion(){
@@ -1095,6 +1167,7 @@
           nextBtn.disabled = false;
           nextBtn.textContent = (idx === order.length - 1) ? "See results" : "Next";
           refreshDots();
+          persistAttempt();
         });
         li.appendChild(btn);
         listEl.appendChild(li);
@@ -1117,6 +1190,7 @@
 
     function finish(){
       wrap.removeAttribute("data-attempt-active");
+      clearAttemptProgress(assessmentId);
       deck[assessmentId] = pendingDeckState;
       saveJSON(DECK_KEY, deck);
       var pct = correctCount / order.length;
