@@ -18,7 +18,30 @@ window.CONTENT_TREE = {
       href: "paper-1/index.html",
       challengeHref: "paper-1/paper-challenge.html",
       topics: [
-        { id: "topic-1", num: "1", title: "Major themes of the Qur’an", status: "soon" },
+        {
+          id: "topic-1", num: "1", title: "Major themes of the Qur’an",
+          status: "built", href: "paper-1/topic-1/index.html",
+          challengeHref: "paper-1/topic-1/topic-challenge.html",
+          units: [
+            {
+              id: "1-2", num: "1.2", title: "Allah’s Relationship with the Created World",
+              href: "paper-1/topic-1/1-2/index.html",
+              testHref: "paper-1/topic-1/1-2/unit-test.html",
+              lessons: [
+                { id: "al-fatihah-the-opening", title: "Al-Fatihah — The Opening of Every Prayer",
+                  base: "paper-1/topic-1/1-2/al-fatihah-the-opening/" },
+                { id: "creator-and-sustainer", title: "Creator and Sustainer",
+                  base: "paper-1/topic-1/1-2/creator-and-sustainer/" },
+                { id: "read-the-first-revelation", title: "“Read” — The First Revelation",
+                  base: "paper-1/topic-1/1-2/read-the-first-revelation/" },
+                { id: "the-day-the-earth-is-shaken", title: "The Day the Earth is Shaken",
+                  base: "paper-1/topic-1/1-2/the-day-the-earth-is-shaken/" },
+                { id: "seeking-refuge-an-nas", title: "Seeking Refuge — Surah an-Nas",
+                  base: "paper-1/topic-1/1-2/seeking-refuge-an-nas/" }
+              ]
+            }
+          ]
+        },
         {
           id: "topic-2", num: "2", title: "The history and importance of the Qur’an",
           status: "built", href: "paper-1/topic-2/index.html",

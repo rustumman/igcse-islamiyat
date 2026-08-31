@@ -4693,4 +4693,628 @@ window.QUESTION_BANK = [
     choices:["The completion of the Prophet's mission and the transition of the community to life without him", "The beginning of new military conquests", "The rejection of the Qur'an as a source of guidance", "The abolition of the Hajj pilgrimage"],
     correct:0, explain:"Together, these events mark the closing of the Prophet's mission and the community's first steps into succession and continuity without him." },
 
+  { id:"1-2--al-fatihah-the-opening--q1", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"How many verses does Surah al-Fatihah contain?",
+    choices:["4", "5", "7", "10"],
+    correct:2, explain:"Al-Fatihah has seven verses and is recited in every unit (rak’ah) of the five daily prayers." },
+
+  { id:"1-2--al-fatihah-the-opening--q2", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"According to Ibn Kathir, what is the difference between Ar-Rahman and Ar-Rahim in Al-Fatihah?",
+    choices:["Ar-Rahman is mercy for all creation; Ar-Rahim is mercy specifically for believers", "They are simply two words for the exact same thing with no distinction", "Ar-Rahman refers to mercy in this life only; Ar-Rahim to the next life only", "Ar-Rahim is a name used only by the earlier prophets"],
+    correct:0, explain:"Ibn Kathir explains Ar-Rahman as mercy that encompasses all creation, while Ar-Rahim specifically describes the mercy reserved for believers." },
+
+  { id:"1-2--al-fatihah-the-opening--q3", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What title is given to Allah in Al-Fatihah that means “Owner/Sovereign of the Day of Judgement”?",
+    choices:["Rabb al-’Alamin", "Maliki Yawm ad-Din", "Ar-Rahman ar-Rahim", "As-Sirat al-Mustaqim"],
+    correct:1, explain:"“Maliki Yawm ad-Din” (Owner/Master of the Day of Judgement) reminds the worshipper that accountability is certain and belongs to Allah alone." },
+
+  { id:"1-2--al-fatihah-the-opening--q4", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"According to the hadith recorded in Sahih Muslim, how is the recitation of Al-Fatihah in prayer described?",
+    choices:["As entirely a private matter for the servant alone", "As divided between Allah and His servant, with Allah responding to each line", "As only valid if recited silently", "As optional if the worshipper is in a hurry"],
+    correct:1, explain:"The hadith describes Allah saying that the prayer is divided between Him and His servant — for example, when the servant says “You alone we worship, You alone we ask for help,” Allah responds, “This is between Me and My servant.”" },
+
+  { id:"1-2--al-fatihah-the-opening--q5", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Classical tafsir (citing a hadith in Jami’ at-Tirmidhi) identifies “those who earned Your anger” as people who did what?",
+    choices:["Had knowledge of the truth but did not act upon it", "Never received any revelation at all", "Worshipped sincerely but without correct knowledge", "Lived before the time of Prophet Ibrahim"],
+    correct:0, explain:"This group is understood as having knowledge of the truth without acting on it — traditionally identified with the Jews, according to classical tafsir." },
+
+  { id:"1-2--al-fatihah-the-opening--q6", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Why is Al-Fatihah sometimes called “Umm al-Kitab” (the Mother of the Book)?",
+    choices:["Because it summarises the entire message of the Qur’an in seven verses", "Because it was the very first surah ever revealed", "Because it contains the longest single verse in the Qur’an", "Because it lists the names of all the prophets"],
+    correct:0, explain:"Al-Fatihah is called the “Mother of the Book” because its seven verses summarise the Qur’an’s core themes — praise, mercy, sovereignty, worship, and guidance." },
+
+  { id:"1-2--al-fatihah-the-opening--q7", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What does “Rabb al-’Alamin” mean, as it appears in verse 2?",
+    choices:["Lord/Sustainer of all the worlds", "The Most Forgiving of sins", "King of the Day of Judgement", "The One who guides to the Straight Path"],
+    correct:0, explain:"“Rabb al-’Alamin” means Lord of all the worlds, establishing Allah as Sustainer and Master over everything that exists, not only human beings." },
+
+  { id:"1-2--al-fatihah-the-opening--q8", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What are the two linked declarations Ibn Kathir identifies within “Iyyaka na’budu wa iyyaka nasta’in” (verse 5)?",
+    choices:["Exclusive worship of Allah, and reliance on Him alone for help", "A promise to fast and a promise to give charity", "A request for wealth and a request for children", "A description of Paradise and a description of Hell"],
+    correct:0, explain:"Ibn Kathir explains this verse contains two linked ideas: worship belongs exclusively to Allah, and all real help and power come only from Him." },
+
+  { id:"1-2--al-fatihah-the-opening--q9", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"According to classical tafsir, “those who went astray” (in verse 7) are traditionally identified with which group?",
+    choices:["The Christians", "The Jews", "The Zoroastrians", "The Makkan polytheists"],
+    correct:0, explain:"Classical tafsir traditionally identifies “those who went astray” — those who worship sincerely but without correct knowledge — with the Christians." },
+
+  { id:"1-2--al-fatihah-the-opening--q10", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What linguistic/stylistic shift does Ibn Kathir highlight occurring at verse 5 of Al-Fatihah?",
+    choices:["A shift from speaking about Allah in the third person to addressing Him directly", "A shift from Arabic to another language", "A shift from prose to poetry", "A shift from past tense to future tense"],
+    correct:0, explain:"Ibn Kathir notes that after praising and thanking Allah (verses 1–4, third person), the surah shifts to direct address (“You alone we worship”) from verse 5 onward." },
+
+  { id:"1-2--al-fatihah-the-opening--q11", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Why does Ibn Kathir mention the false prophet Musaylimah in relation to the name Ar-Rahman?",
+    choices:["Because Musaylimah tried to claim this name for himself and became permanently known as “the Liar” as a result", "Because Musaylimah first revealed Surah al-Fatihah", "Because Musaylimah translated the Qur’an into Persian", "Because Musaylimah was a companion of the Prophet"],
+    correct:0, explain:"Ibn Kathir notes that Ar-Rahman is exclusive to Allah; Musaylimah’s attempt to claim this name for himself resulted in him being remembered in history as “the Liar.”" },
+
+  { id:"1-2--al-fatihah-the-opening--q12", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What is the significance of Al-Fatihah’s role in Islamic prayer (salah)?",
+    choices:["It is compulsory in every unit (rak’ah) of every prayer; a prayer without it is considered invalid according to hadith", "It is recited only once a week, during Friday prayer", "It is optional and rarely recited by most Muslims", "It is recited only during the month of Ramadan"],
+    correct:0, explain:"According to hadith, Al-Fatihah must be recited in every rak’ah of every prayer, making it the most frequently repeated passage in a practising Muslim’s daily life." },
+
+  { id:"1-2--al-fatihah-the-opening--q13", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"A candidate’s exam answer states: “Al-Fatihah is important because it tells the story of Prophet Ibrahim.” Why is this incorrect?",
+    choices:["Al-Fatihah contains no narrative about Ibrahim; it is a prayer of praise, sovereignty, worship, and guidance", "It is correct, since Al-Fatihah is entirely about Ibrahim", "It is correct, but only partially", "Ibrahim’s story appears only in verse 7"],
+    correct:0, explain:"Al-Fatihah does not narrate any prophet’s story; that content belongs to different passages (such as Surah al-An’am 6:75–79 for Ibrahim). This is a common exam confusion to avoid." },
+
+  { id:"1-2--al-fatihah-the-opening--q14", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What does the surah ask Allah for in its final two verses (6–7)?",
+    choices:["Guidance to the Straight Path, avoiding the paths of those who earned anger or went astray", "Forgiveness for a specific sin", "Victory in battle", "Provision of wealth and children"],
+    correct:0, explain:"Verses 6–7 form a direct request for guidance to the Straight Path, defined by contrast with two other paths to avoid." },
+
+  { id:"1-2--al-fatihah-the-opening--q15", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Which of these best describes the overall structure of Al-Fatihah?",
+    choices:["Praise and description of Allah (verses 1–4), followed by direct address, worship, and request for guidance (verses 5–7)", "A list of the Ten Commandments", "A chronological account of the Prophet’s life", "A set of legal rulings about marriage and divorce"],
+    correct:0, explain:"Al-Fatihah moves from praising and describing Allah’s attributes to directly addressing Him with worship and a request for guidance — a clear two-part structure." },
+
+  { id:"1-2--al-fatihah-the-opening--q16", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Why might understanding “those who earned anger” versus “those who went astray” as two distinct errors be useful for a Muslim’s own self-reflection?",
+    choices:["It highlights two different ways to go wrong — having knowledge without acting on it, or acting sincerely without correct knowledge — both worth guarding against", "It only applies historically and has no relevance today", "It suggests only non-Muslims can make these errors", "It means Muslims should avoid gaining religious knowledge altogether"],
+    correct:0, explain:"Recognising these as two distinct, ongoing risks (inaction despite knowledge, or sincerity without correct understanding) makes the verse a tool for personal reflection, not just historical description." },
+
+  { id:"1-2--al-fatihah-the-opening--q17", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What is “As-Sirat al-Mustaqim,” requested in verse 6?",
+    choices:["The Straight Path", "The Day of Judgement", "The Throne of Allah", "The Gate of Paradise"],
+    correct:0, explain:"“As-Sirat al-Mustaqim” means “the Straight Path” — the guidance Al-Fatihah’s final verses specifically ask Allah to provide." },
+
+  { id:"1-2--al-fatihah-the-opening--q18", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Which of the following is the single strongest point to make about Al-Fatihah’s “importance in a Muslim’s life today,” according to the Exam Lab note?",
+    choices:["Its unique liturgical role — recited in every unit of every daily prayer", "Its length compared to other surahs", "Its position as the final surah of the Qur’an", "Its exclusive use during Hajj only", "The fact that it was revealed in Madinah"],
+    correct:0, explain:"Examiners specifically flag the surah’s compulsory role in every rak’ah of every prayer as the strongest and most distinctive “importance” point for this passage — a detail candidates often forget to include." },
+
+  { id:"1-2--al-fatihah-the-opening--q19", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What comes immediately before the request for guidance to the Straight Path in the surah’s sequence?",
+    choices:["“You alone we worship, You alone we ask for help”", "“Owner of the Day of Judgement”", "“In the name of Allah, the Most Gracious, the Most Merciful”", "“Praise be to Allah, Lord of all the worlds”"],
+    correct:0, explain:"The request for guidance (verse 6) directly follows the declaration of exclusive worship and reliance on Allah (verse 5)." },
+
+  { id:"1-2--al-fatihah-the-opening--q20", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Al-Fatihah is the surah with which position in the standard order of the Qur’an?",
+    choices:["The first surah", "The last surah", "The middle surah", "It has no fixed position"],
+    correct:0, explain:"Al-Fatihah (“The Opening”) is positioned as the very first surah in the standard order of the Qur’an." },
+
+  { id:"1-2--al-fatihah-the-opening--q21", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"How does Al-Fatihah’s content connect to the broader theme of Unit 1.2, “Allah’s Relationship with the Created World”?",
+    choices:["It models the correct relationship between a worshipper and Allah — praise, dependence, and request for guidance", "It focuses exclusively on the physical creation of the heavens and earth", "It has no connection to this theme and belongs in a different unit entirely", "It only discusses Allah’s relationship with angels, not humans"],
+    correct:0, explain:"Al-Fatihah demonstrates the relationship between Allah and His worshippers directly — praise, exclusive worship, dependence, and a request for guidance — fitting the unit’s focus on Allah’s relationship with His creation." },
+
+  { id:"1-2--al-fatihah-the-opening--q22", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Why does the hadith about the prayer being “divided between Allah and His servant” matter for understanding Al-Fatihah’s importance?",
+    choices:["It shows that reciting Al-Fatihah is presented as a direct, responsive conversation with Allah, not just a recited text", "It proves that Al-Fatihah should only be recited in private, never aloud", "It shows that only the Prophet was permitted to recite this surah", "It suggests the surah is optional in prayer"],
+    correct:0, explain:"This hadith frames the recitation of Al-Fatihah as a genuine two-way exchange — Allah responds to each line — deepening its significance beyond simple recitation." },
+
+  { id:"1-2--al-fatihah-the-opening--q23", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"Which of the following statements about Al-Fatihah is FALSE?",
+    choices:["It is recited in every rak’ah of the five daily prayers.", "It opens with “In the name of Allah, the Most Gracious, the Most Merciful.”", "It describes Ibrahim’s rejection of star, moon, and sun worship.", "It closes with a request to avoid the paths of those who earned anger or went astray."],
+    correct:2, explain:"Al-Fatihah contains no account of Ibrahim’s rejection of celestial worship — that narrative belongs to Surah al-An’am 6:75–79, a separate passage." },
+
+  { id:"1-2--al-fatihah-the-opening--q24", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"What is the significance of Al-Fatihah beginning with praise (Al-Hamd) before making any request?",
+    choices:["It models a pattern of gratitude and acknowledgment of Allah before asking for anything, shaping how Muslims are taught to approach prayer", "It has no particular teaching value and is simply traditional wording", "It means requests are discouraged in Islamic prayer", "It indicates the surah was revealed after all other surahs"],
+    correct:0, explain:"The surah’s structure — praise first, then request — is often cited as a model for how a believer should approach Allah, with gratitude preceding any request." },
+
+  { id:"1-2--al-fatihah-the-opening--q25", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
+    q:"In the four sessions this passage was tested in the last decade, which TWO surahs each appeared alongside it twice?",
+    choices:["Surah 2:255 (Ayat al-Kursi) and Surah 112 (Al-Ikhlas)", "Surah 114 (An-Nas) and Surah 108 (Al-Kawthar)", "Surah 2:30–37 and Surah 93 (Ad-Duha)", "Surah 96:1–5 and Surah 5:110"],
+    correct:0, explain:"According to the past-paper mapping, Al-Fatihah was paired with Surah 2:255 in May/June 2016 and Oct/Nov 2023, and with Surah 112 in Oct/Nov 2021 and Oct/Nov 2023 — each appearing alongside it twice across its four recorded sessions." },
+
+  { id:"1-2--creator-and-sustainer--q1", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"Who is Surah al-Baqarah 2:21 addressed to?",
+    choices:["Only the Prophet’s companions", "All of mankind", "Only the people of Makkah", "Only those who already believe"],
+    correct:1, explain:"The verse opens with “O mankind,” addressing all of humanity, not a specific group." },
+
+  { id:"1-2--creator-and-sustainer--q2", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What goal does verse 21 say worship should lead a person toward?",
+    choices:["Wealth", "Long life", "Taqwa (God-consciousness/mindfulness of Allah)", "Political power"],
+    correct:2, explain:"Verse 21 states people should worship their Lord “so that you may attain Taqwa” — mindfulness and consciousness of Allah." },
+
+  { id:"1-2--creator-and-sustainer--q3", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"In verse 22, what two things does Allah say He made for humanity’s benefit regarding the earth and sky?",
+    choices:["The earth a resting place, and the sky a canopy", "The earth flat and the sky invisible", "The earth an ocean and the sky a fire", "The earth a desert and the sky a wall"],
+    correct:0, explain:"Verse 22 describes Allah making “the earth a resting place for you, and the sky as a canopy.”" },
+
+  { id:"1-2--creator-and-sustainer--q4", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"According to the hadith Ibn Kathir cites on this passage, what did the Prophet (pbuh) identify as the greatest sin?",
+    choices:["Setting up a rival for Allah, who alone created a person", "Lying to one’s parents", "Missing a single prayer", "Breaking a promise"],
+    correct:0, explain:"The Prophet (pbuh) was asked which sin is greatest and replied that it is making a rival for Allah, while He alone created the person." },
+
+  { id:"1-2--creator-and-sustainer--q5", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What is the specific command given at the end of verse 22?",
+    choices:["To build mosques in every city", "Not to set up rivals to Allah while knowing the truth", "To migrate to Madinah", "To fast every Monday and Thursday"],
+    correct:1, explain:"The verse closes: “So do not set up rivals to Allah while you know [the truth]” — a direct warning against shirk." },
+
+  { id:"1-2--creator-and-sustainer--q6", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What does verse 22 say Allah sends down from the sky, leading to sustenance?",
+    choices:["Rain, which produces fruit", "Snow, which forms rivers", "Angels, who guide people", "Fire, which purifies the land"],
+    correct:0, explain:"Verse 22 describes Allah sending down rain from the sky and bringing forth fruit by means of it, as provision for humanity." },
+
+  { id:"1-2--creator-and-sustainer--q7", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"Who, besides those currently living, does verse 21 mention as also having been created by Allah?",
+    choices:["“Those before you” — previous generations of people", "Only the angels", "Only the jinn", "Only the Prophet’s own ancestors"],
+    correct:0, explain:"Verse 21 addresses worship of “your Lord, who created you and those before you,” referring to previous generations of humanity as well." },
+
+  { id:"1-2--creator-and-sustainer--q8", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What Arabic term describes the specific category of Tawheed (monotheism) that this passage focuses on?",
+    choices:["Tawheed al-Uluhiyyah (oneness in worship)", "Tawheed al-Asma wa’s-Sifat only", "Fiqh al-Mu’amalat", "’Ilm al-Kalam"],
+    correct:0, explain:"This passage centres on directing worship to Allah alone, based on His being the sole Creator and Provider — the category known as Tawheed al-Uluhiyyah." },
+
+  { id:"1-2--creator-and-sustainer--q9", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What does “andad” (rivals), as used in verse 22, refer to?",
+    choices:["Anything treated as equal or comparable to Allah in worship or devotion", "A specific idol worshipped only in Makkah", "A title used only for false prophets", "A type of angel mentioned elsewhere in the Qur’an"],
+    correct:0, explain:"“Andad” (rivals/equals) refers broadly to anything a person might wrongly treat as comparable or equal to Allah in devotion or worship — the essence of shirk." },
+
+  { id:"1-2--creator-and-sustainer--q10", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"According to this passage’s own internal logic, why should people worship Allah?",
+    choices:["Because He alone created them and provides for them, as shown by evidence in creation", "Because earlier prophets commanded it without giving any reason", "Because worship guarantees wealth in this life", "Because it is culturally traditional, regardless of belief"],
+    correct:0, explain:"The passage’s logic is explicit: since Allah alone created humanity and provides sustenance, worship of Him alone is the reasonable response — not an arbitrary command." },
+
+  { id:"1-2--creator-and-sustainer--q11", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"A student’s exam answer states: “This passage says the sky is used only for rain.” Why is this an incomplete description?",
+    choices:["The passage also describes the sky as a protective “canopy,” and connects rain to producing fruit as sustenance — more detail is expected", "The statement is fully complete and needs no more detail", "The passage never mentions rain at all", "The passage is entirely about the sky, with no mention of the earth"],
+    correct:0, explain:"A stronger answer would mention both roles given to the sky (a canopy, and the source of rain) and connect rain to the production of fruit as sustenance, rather than a single vague statement." },
+
+  { id:"1-2--creator-and-sustainer--q12", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"Why might Ibn Kathir describe verses 21–22 as an “argument,” rather than simply a command?",
+    choices:["Because the verses present evidence (creation, provision) that leads logically to a conclusion (worship Allah alone), rather than issuing a bare command with no reasoning", "Because the verses contain a formal legal debate between two scholars", "Because the verses are addressed only to disbelievers, never to believers", "Because Ibn Kathir rejected the verses’ authenticity"],
+    correct:0, explain:"Ibn Kathir treats the passage as reasoned evidence — creation and provision as observable facts leading logically to the conclusion that Allah alone deserves worship — rather than a command given without justification." },
+
+  { id:"1-2--creator-and-sustainer--q13", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"Which of these best completes the phrase from verse 21: “Worship your Lord, who created you and those before you, so that you may...”?",
+    choices:["“...attain Taqwa”", "“...become wealthy”", "“...live forever”", "“...gain political power”"],
+    correct:0, explain:"The verse states the purpose of worship is to attain Taqwa — God-consciousness and mindfulness of Allah." },
+
+  { id:"1-2--creator-and-sustainer--q14", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"How does this passage relate to the broader theme of Unit 1.2, “Allah’s Relationship with the Created World”?",
+    choices:["It directly describes Allah’s provision for humanity through the earth, sky, and rain, and calls for a fitting response of worship", "It focuses on a specific historical battle", "It describes the compilation of the Qur’an into a single book", "It has no connection to this unit’s theme"],
+    correct:0, explain:"This passage is a clear example of the unit’s theme: it describes concrete ways Allah relates to and provides for the created world, and what response that provision calls for." },
+
+  { id:"1-2--creator-and-sustainer--q15", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What comparison does the passage draw between the earth and the sky?",
+    choices:["The earth is described as a resting place; the sky as a canopy — both prepared for humanity’s benefit", "The earth is described as dangerous; the sky as safe", "The earth is compared to a sea; the sky to a desert", "No comparison is drawn between them"],
+    correct:0, explain:"Verse 22 pairs two images — the earth as a stable “resting place” (firash) and the sky as a protective “canopy” (bina) — both prepared deliberately for human benefit." },
+
+  { id:"1-2--creator-and-sustainer--q16", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What is the significance of the phrase “while you know [the truth]” at the end of verse 22?",
+    choices:["It implies the warning against shirk applies especially to those who understand the evidence but still choose to set up rivals to Allah", "It means the warning applies only to scholars", "It suggests ignorance is an acceptable excuse for shirk", "It has no particular significance"],
+    correct:0, explain:"This phrase sharpens the warning: it targets those who have seen and understood the evidence of Allah’s sole creative power, yet still choose to associate partners with Him." },
+
+  { id:"1-2--creator-and-sustainer--q17", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"Which of the following is the best one-sentence theme summary for Surah al-Baqarah 2:21–22?",
+    choices:["Allah’s sole right to worship, demonstrated through His creation and provision for humanity", "The rules for performing Hajj", "The story of the Prophet’s first revelation", "The importance of patience during hardship"],
+    correct:0, explain:"The passage’s central theme links Allah’s role as Creator and Provider directly to His exclusive right to worship." },
+
+  { id:"1-2--creator-and-sustainer--q18", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"In the three sessions this passage was tested in the last decade, which passage was offered alongside it every time?",
+    choices:["No single passage was repeated in all three sessions; the three sessions each had different combinations", "Surah 99 (Az-Zalzalah), in all three", "Surah 1 (Al-Fatihah), in all three", "Surah 41:37, in all three"],
+    correct:0, explain:"Checking the past-paper mapping: Oct/Nov 2019 paired it with 99 and 5:110; May/June 2021 paired it with 41:37 and 42:4–5; Oct/Nov 2024 paired it with 41:37 and 96:1–5 — no single passage repeats across all three." },
+
+  { id:"1-2--creator-and-sustainer--q19", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What does Ibn Kathir’s citation of the “greatest sin” hadith add to this passage’s meaning?",
+    choices:["It shows that shirk (rivalling Allah despite Him alone being the Creator) is treated as the most serious sin a person can commit", "It shows that lying is considered worse than shirk", "It suggests this passage is unrelated to sin at all", "It implies shirk can only be committed unintentionally"],
+    correct:0, explain:"This hadith reinforces the seriousness of the passage’s warning: shirk is identified by the Prophet (pbuh) as the greatest of all sins, given that Allah alone created the person committing it." },
+
+  { id:"1-2--creator-and-sustainer--q20", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"Which of these correctly identifies the surah and verse numbers of this passage?",
+    choices:["Surah al-Baqarah, verses 21–22", "Surah al-Baqarah, verses 30–37", "Surah Al-Fatihah, verses 1–7", "Surah al-An’am, verses 101–103"],
+    correct:0, explain:"This passage is Surah al-Baqarah (chapter 2), verses 21–22." },
+
+  { id:"1-2--creator-and-sustainer--q21", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"How might a Muslim today apply the reasoning of this passage when reflecting on modern scientific descriptions of the earth’s atmosphere or ecosystem?",
+    choices:["By seeing such descriptions as further evidence of the deliberate design and provision the passage attributes to Allah", "By concluding that scientific explanations replace the need to worship Allah entirely", "By rejecting all scientific descriptions as contradicting the passage", "The passage offers no basis for this kind of reflection"],
+    correct:0, explain:"Many Muslims read passages like this as compatible with, and reinforced by, scientific understanding of the earth’s supportive systems — seen as further evidence of deliberate design pointing to a Creator." },
+
+  { id:"1-2--creator-and-sustainer--q22", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What is the effect of addressing this passage to “mankind” (an-nas) rather than only to “believers” (al-mu’minun)?",
+    choices:["It frames the argument as one any person, regardless of current belief, should be able to follow and accept based on evidence", "It means the message applies only to non-Arabs", "It restricts the message to those already convinced", "It has no particular significance"],
+    correct:0, explain:"Addressing “mankind” broadly (rather than only believers) reflects that the passage’s reasoning — from creation and provision to worship — is meant to be universally accessible and persuasive." },
+
+  { id:"1-2--creator-and-sustainer--q23", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"Which of these is NOT mentioned as evidence of Allah’s provision in this passage?",
+    choices:["The earth as a resting place", "The sky as a canopy", "Rain producing fruit", "The Kursi extending over the heavens and earth"],
+    correct:3, explain:"The Kursi (Throne/Footstool) is described in Ayat al-Kursi (2:255), a different passage — it is not mentioned in Surah al-Baqarah 2:21–22." },
+
+  { id:"1-2--creator-and-sustainer--q24", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"What is the relationship between verse 21’s command to worship and verse 22’s description of provision?",
+    choices:["Verse 22 provides the evidence and reasoning that supports the command given in verse 21", "The two verses are entirely unrelated in meaning", "Verse 22 cancels out the command given in verse 21", "Verse 21 was revealed centuries after verse 22"],
+    correct:0, explain:"Verse 22 functions as the supporting evidence (creation, provision) for the command to worship given in verse 21 — together they form a single connected argument." },
+
+  { id:"1-2--creator-and-sustainer--q25", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"creator-and-sustainer",
+    q:"Why do examiners specifically warn against treating verse 22 as “just a nature description” separate from verse 21?",
+    choices:["Because the two verses form one connected argument, and treating them separately misses the passage’s actual logical structure and theme", "Because verse 22 is not actually part of the set passage", "Because nature descriptions are never relevant to Islamic theology", "Because verse 21 is more important and verse 22 can be ignored"],
+    correct:0, explain:"Examiners want candidates to show they understand the passage as a connected whole — provision (verse 22) as evidence supporting the command to worship (verse 21) — not as two disconnected ideas." },
+
+  { id:"1-2--read-the-first-revelation--q1", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"In which location did the Prophet (pbuh) first receive revelation, recorded in Surah al-Alaq?",
+    choices:["The Ka’bah", "The Cave of Hira", "Masjid al-Aqsa", "Mount Uhud"],
+    correct:1, explain:"The first revelation, Surah al-Alaq 96:1–5, was given to the Prophet while he was in the Cave of Hira." },
+
+  { id:"1-2--read-the-first-revelation--q2", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"What was the very first word revealed to the Prophet (pbuh), according to this passage?",
+    choices:["“Believe”", "“Iqra” (Read)", "“Pray”", "“Warn”"],
+    correct:1, explain:"The angel Jibreel commanded “Iqra” — “Read!” — three times before reciting the opening verses of Surah al-Alaq." },
+
+  { id:"1-2--read-the-first-revelation--q3", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"According to this passage, what was man created from?",
+    choices:["Light", "A clot (’alaq)", "Water alone", "Fire"],
+    correct:1, explain:"Verse 2 states “He created man from a clot (’alaq)” — a humble biological beginning contrasted with the dignity of receiving knowledge." },
+
+  { id:"1-2--read-the-first-revelation--q4", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Who confirmed to the Prophet (pbuh) that the being he encountered in the cave was the angel previously sent to Musa (Moses)?",
+    choices:["Abu Bakr", "Waraqah ibn Nawfal", "Bilal", "Umar ibn al-Khattab"],
+    correct:1, explain:"Khadijah took the Prophet to her cousin Waraqah ibn Nawfal, a Christian scholar, who confirmed the angel was “An-Namus,” previously sent to Musa." },
+
+  { id:"1-2--read-the-first-revelation--q5", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"According to Ibn Kathir, what does “taught by the pen” highlight as a distinct method of transmitting knowledge?",
+    choices:["Writing, which allows knowledge to be recorded and passed to later generations", "Dreams and visions", "Telepathy between prophets", "Music and poetry"],
+    correct:0, explain:"Ibn Kathir notes three ways knowledge is transmitted — intellect, speech, and writing — with writing (the pen) singled out because it preserves knowledge beyond a single generation." },
+
+  { id:"1-2--read-the-first-revelation--q6", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Which of these best captures the overall theme of Surah al-Alaq 96:1–5?",
+    choices:["Knowledge and learning as a gift from Allah", "The importance of fasting in Ramadan", "The rules of inheritance", "The story of Adam and Iblis"],
+    correct:0, explain:"The passage’s central theme is that knowledge — reading, writing, learning what was previously unknown — originates from and is granted by Allah." },
+
+  { id:"1-2--read-the-first-revelation--q7", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"How many verses of Surah al-Alaq are covered by this specific “Major themes” passage?",
+    choices:["All 19 verses of the surah", "The first 5 verses", "Only the final verse", "Verses 6–10"],
+    correct:1, explain:"The syllabus sets specifically verses 1–5 of Surah al-Alaq (the very first revelation), not the surah’s later verses." },
+
+  { id:"1-2--read-the-first-revelation--q8", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"How many times did Jibreel command “Iqra” before the Prophet (pbuh) recited the verses after him?",
+    choices:["Once", "Twice", "Three times", "Seven times"],
+    correct:2, explain:"Ibn Kathir records that Jibreel commanded “Iqra” three times, each time embracing the Prophet tightly, before he recited the opening verses." },
+
+  { id:"1-2--read-the-first-revelation--q9", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"What name did Waraqah ibn Nawfal give to the angel who appeared to the Prophet (pbuh)?",
+    choices:["An-Namus", "Al-Waswas", "Al-Malak al-Kabir", "Ar-Rasul al-Awwal"],
+    correct:0, explain:"Waraqah identified the visiting angel as “An-Namus,” the same angel he understood to have been sent previously to the Prophet Musa (Moses)." },
+
+  { id:"1-2--read-the-first-revelation--q10", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"What title is given to Allah in verse 3, following the second command to “Read”?",
+    choices:["Al-Akram (the Most Generous)", "Al-Ghafoor (the Most Forgiving)", "Al-Malik (the King)", "As-Samad (the Self-Sufficient)"],
+    correct:0, explain:"Verse 3 states, “Read! And your Lord is the Most Generous (Al-Akram),” directly linking the act of reading to Allah’s generosity." },
+
+  { id:"1-2--read-the-first-revelation--q11", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"A student answers an exam question on this passage by retelling the full story of the Cave of Hira in detail, without naming the passage’s theme. What does the Exam Lab note say about this approach?",
+    choices:["It is a common error — examiners want the theme (knowledge as a divine gift) analysed, with the story used only briefly as context", "It is the ideal, most complete way to answer this question", "The story should never be mentioned at all", "This approach is only wrong if the story is inaccurate"],
+    correct:0, explain:"The Exam Lab note specifically warns that candidates often retell the Cave of Hira narrative instead of analysing the verses’ actual theme — a mistake that costs marks even if the story itself is accurate." },
+
+  { id:"1-2--read-the-first-revelation--q12", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Which unit/topic of the syllabus covers the fuller narrative sequence of the Cave of Hira as a historical event, distinct from this “Major themes” passage?",
+    choices:["Topic 3 (The life and importance of the Prophet Muhammad)", "Topic 2 (The history and importance of the Qur’an) only", "Topic 4 (The first Islamic community) only", "It is not covered anywhere else in the syllabus"],
+    correct:0, explain:"The Source Box notes that the fuller seerah (biography) account of the Cave of Hira belongs under Topic 3, while this Topic 1 passage focuses specifically on the verses’ theme." },
+
+  { id:"1-2--read-the-first-revelation--q13", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Why does Ibn Kathir emphasise that man’s humble origin (“a clot”) is followed immediately by the gift of knowledge?",
+    choices:["To show that human dignity comes from Allah’s generosity in granting knowledge, not from physical or biological status alone", "To argue that human beings are inherently impure", "To suggest that only some humans are capable of receiving knowledge", "To explain the biological process of gestation in scientific detail"],
+    correct:0, explain:"Ibn Kathir reads the sequence (humble creation, then the gift of knowledge) as establishing that human dignity and potential come from what Allah grants, not from biological origin alone." },
+
+  { id:"1-2--read-the-first-revelation--q14", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"What three methods of knowledge transmission does Ibn Kathir identify within this passage?",
+    choices:["Intellect, speech, and writing", "Dreams, intuition, and instinct", "Only writing", "Only speech"],
+    correct:0, explain:"Ibn Kathir notes the passage highlights three forms through which knowledge is transmitted: the intellect, spoken word, and writing (the pen)." },
+
+  { id:"1-2--read-the-first-revelation--q15", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"What is the final phrase of this passage’s message about Allah’s teaching?",
+    choices:["“Taught man what he did not know”", "“Taught the angels first, then mankind”", "“Taught only the prophets”", "“Taught nothing that could be written down”"],
+    correct:0, explain:"The passage closes with “’allama al-insana ma lam ya’lam” — “taught man what he did not know” — summarising the theme that all human knowledge ultimately depends on Allah." },
+
+  { id:"1-2--read-the-first-revelation--q16", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Which of the following best explains why this passage is often cited to support the value of education in Muslim communities?",
+    choices:["Because it is literally the first message ever revealed in the Qur’an, and it centres entirely on reading, writing, and learning", "Because it lists specific subjects Muslims must study", "Because it describes a university built during the Prophet’s lifetime", "Because it is the longest passage in this topic"],
+    correct:0, explain:"Because this passage was the very first revelation and focuses entirely on reading, writing, and the granting of knowledge, it is frequently used to justify the strong value placed on education and literacy in Muslim tradition." },
+
+  { id:"1-2--read-the-first-revelation--q17", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Why did the Prophet (pbuh) return home trembling after this first revelation, according to the account Ibn Kathir records?",
+    choices:["He was overwhelmed by the unprecedented encounter with the angel", "He had just come from a battle", "He had received news of a death in his family", "He had fallen ill from fasting too long"],
+    correct:0, explain:"Ibn Kathir’s account describes the Prophet returning home trembling, overwhelmed by the intensity and unprecedented nature of the encounter with Jibreel." },
+
+  { id:"1-2--read-the-first-revelation--q18", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"This passage is the single most frequently tested passage in Topic 1 over the last decade. How many of the 20 sessions has it appeared in?",
+    choices:["7 sessions", "2 sessions", "15 sessions", "It has never been tested"],
+    correct:0, explain:"According to the past-paper mapping, Surah al-Alaq 96:1–5 has appeared as a passage option in 7 of the 20 sessions from 2016–2025 — more than any other passage." },
+
+  { id:"1-2--read-the-first-revelation--q19", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"What is the relationship between “Iqra bismi Rabbik” and the passage’s overall theme, according to Ibn Kathir?",
+    choices:["It ties the very act of learning to Allah’s authority from the outset, framing knowledge as something granted, not self-generated", "It suggests learning should always be done aloud", "It has no particular theological significance", "It refers only to reading the Torah and Gospel"],
+    correct:0, explain:"Ibn Kathir stresses that beginning the command to “Read” with “in the name of your Lord” ties learning directly to divine authority from its very first mention in the Qur’an." },
+
+  { id:"1-2--read-the-first-revelation--q20", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Which of these correctly identifies where Surah al-Alaq is positioned in relation to the rest of the Qur’an’s content?",
+    choices:["Its first five verses are the very first revelation, though the surah appears later in the Qur’an’s standard written order", "It is both the first surah revealed and the first surah in the Qur’an’s written order", "It was revealed last, at the end of the Prophet’s life", "It has no connection to the start of revelation at all"],
+    correct:0, explain:"While Surah al-Alaq’s opening verses were the first ever revealed, the Qur’an’s standard written order (used in printed copies) does not follow the order of revelation, so this surah appears later in that order." },
+
+  { id:"1-2--read-the-first-revelation--q21", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"What does the phrase “who taught by the pen” specifically add to the passage’s message, beyond simply “who taught man”?",
+    choices:["It highlights writing specifically as a distinct and valuable method of preserving and transmitting knowledge across generations", "It suggests only written knowledge is valid in Islam", "It refers to a specific pen owned by the Prophet", "It has no distinct meaning beyond general teaching"],
+    correct:0, explain:"By specifically naming “the pen,” the verse highlights writing as a distinctively valuable method of knowledge transmission, since it preserves knowledge beyond spoken transmission alone." },
+
+  { id:"1-2--read-the-first-revelation--q22", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"A candidate is asked to explain “the importance of this theme in a Muslim’s life today” for this passage. Which answer best fits the passage’s specific content?",
+    choices:["It reminds Muslims that seeking knowledge is a form of worship rooted in the very first revelation, encouraging lifelong learning", "It reminds Muslims to give charity every Friday", "It reminds Muslims to perform Hajj at least once", "It reminds Muslims about the rules of fasting"],
+    correct:0, explain:"A strong answer connects the “importance today” specifically to this passage’s theme — the value of knowledge and learning as something rooted in the first revelation itself." },
+
+  { id:"1-2--read-the-first-revelation--q23", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Which of the following statements about Surah al-Alaq 96:1–5 is FALSE?",
+    choices:["It contains the first words ever revealed of the Qur’an.", "It describes man being created from a clot.", "It describes Allah’s mercy toward those on earth through the angels’ intercession.", "It mentions Allah teaching by the pen."],
+    correct:2, explain:"The description of angels interceding and asking forgiveness for those on earth belongs to Surah ash-Shura 42:4–5, a different passage — not to Surah al-Alaq." },
+
+  { id:"1-2--read-the-first-revelation--q24", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"Why might examiners consider this passage especially high-value to prepare thoroughly, based on past-paper frequency?",
+    choices:["Because it has been tested more often than any other of the 15 set passages in the last decade", "Because it is the only passage that is compulsory to answer", "Because it carries double the usual marks", "Because it has never actually appeared in a real exam"],
+    correct:0, explain:"With 7 appearances out of 20 sessions, this is statistically the most frequently tested of all 15 passages in this topic, making thorough preparation especially valuable." },
+
+  { id:"1-2--read-the-first-revelation--q25", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"read-the-first-revelation",
+    q:"What best describes the overall shift in this passage from its opening to its close?",
+    choices:["From a command to read, through humanity’s humble creation, to the broader theme of Allah’s role as the teacher of all human knowledge", "From a legal ruling to a historical account", "From praise of angels to praise of prophets", "From a description of Paradise to a description of Hell"],
+    correct:0, explain:"The passage moves from the command “Iqra,” through the description of human creation, to a broader statement about Allah as the source of all knowledge — a clear thematic progression." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q1", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What does the earth do, according to Surah az-Zalzalah, when it is shaken on the Last Day?",
+    choices:["Throws out its burdens/contents", "Splits permanently in half", "Turns to gold", "Disappears entirely"],
+    correct:0, explain:"The surah describes the earth throwing forth “that which is in it” — its contents, including the dead of every generation." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q2", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"According to the hadith Ibn Kathir cites, what will the earth’s “testimony” consist of?",
+    choices:["A report of what every person did upon its surface", "A record of every earthquake in history", "The names of the prophets who walked on it", "A count of how many people lived on it"],
+    correct:0, explain:"The Prophet (pbuh) explained that the earth will testify against every person, reporting exactly what they did on its surface." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q3", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What is the smallest unit of deed mentioned in Surah az-Zalzalah as still being fully accounted for?",
+    choices:["A grain of sand", "The weight of an atom (dharrah)", "A single word", "A single breath"],
+    correct:1, explain:"The surah’s famous closing lines state that whoever does even an atom’s weight of good or evil will see it." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q4", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Surah az-Zalzalah is primarily about which theme?",
+    choices:["The rules of hajj", "The Day of Judgement and total accountability for deeds", "The story of Ibrahim", "The five daily prayers"],
+    correct:1, explain:"This short surah’s central theme is the earthquake of the Last Day and the complete accountability for every deed, however small." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q5", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Why, according to the tafsir, will the earth be able to report what happened on it?",
+    choices:["Because Allah inspires/commands it to do so", "Because it has always had this ability naturally", "Because angels write on the earth’s surface", "Because the earth absorbs human memories"],
+    correct:0, explain:"The surah states the earth reports its news “because your Lord has inspired it” — its testimony happens by Allah’s direct command." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q6", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"How many verses does Surah az-Zalzalah contain?",
+    choices:["3", "5", "8", "11"],
+    correct:2, explain:"Surah az-Zalzalah has 8 verses, moving from the description of the earthquake to the principle of total accountability." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q7", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What does verse 3 describe as man’s reaction to the earthquake?",
+    choices:["Confusion — asking “What is with it?”", "Immediate repentance", "Silence and calm acceptance", "Celebration"],
+    correct:0, explain:"Verse 3 describes man asking, in confusion, “Ma laha” — “What is [wrong] with it?” — reacting to the unprecedented upheaval." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q8", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"According to verse 6, how will mankind proceed on that Day?",
+    choices:["In scattered groups, to be shown their deeds", "All together in a single unified crowd", "Hidden underground", "Only the righteous will proceed; others will remain still"],
+    correct:0, explain:"Verse 6 states, “That Day mankind will proceed in scattered groups to be shown their deeds” — emphasising individual accountability within this larger scattering." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q9", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What warning does Ibn Kathir reinforce using hadith alongside the “atom’s weight” principle?",
+    choices:["Against belittling small sins or undervaluing small good deeds", "Against praying too frequently", "Against giving too much in charity", "Against studying the Qur’an too closely"],
+    correct:0, explain:"Ibn Kathir reinforces the atom’s-weight principle with hadith warning against dismissing small sins as unimportant or undervaluing small acts of good, since all deeds accumulate and are shown." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q10", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Which of the following best describes the earth’s contents that are said to be “thrown out” during the earthquake?",
+    choices:["Its buried contents, including the dead of every generation and things like precious metals", "Only volcanic ash", "Only rainwater stored underground", "Nothing specific is mentioned"],
+    correct:0, explain:"Ibn Kathir explains the earth throwing out “that which is in it” refers to its contents, including the dead of every generation and things buried within it." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q11", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"A candidate answers: “This surah is about the Day of Judgement” without further detail. Why would this likely receive limited credit?",
+    choices:["It is too general — examiners look for the surah’s specific distinctive content: the earth’s testimony and the atom’s-weight principle", "It is already a perfect and complete answer", "The Day of Judgement is not actually the topic of this surah", "It should instead describe the Prophet’s biography", "This surah has no connection to the Day of Judgement"],
+    correct:0, explain:"While correct as a broad theme, examiners want the passage’s own specific and distinctive details (the earth testifying, the atom’s-weight principle) rather than only the general topic label." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q12", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What is the effect of the surah choosing the image of an “atom’s weight” rather than simply saying “every deed”?",
+    choices:["It makes the scale of accountability vivid and inescapable, emphasising that literally nothing, however small, is overlooked", "It suggests only physically small people will be judged", "It has no rhetorical effect and is simply a stylistic choice", "It implies deeds are measured in physical weight using scales visible to humans"],
+    correct:0, explain:"Choosing the smallest conceivable unit (an atom’s weight) makes the principle of total accountability vivid and inescapable — nothing, however minor, will be missed." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q13", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"In the four sessions this passage was tested (Oct/Nov 2017, Oct/Nov 2019, May/June 2022, Oct/Nov 2025), which passage from Unit 1.2 appeared alongside it most often?",
+    choices:["Surah 96:1–5 (Al-Alaq) — appearing alongside it in Oct/Nov 2017 and May/June 2022", "Surah 1 (Al-Fatihah) — appearing alongside it in all four sessions", "Surah 2:21–22 — appearing alongside it in all four sessions", "Surah 114 (An-Nas) — appearing alongside it in all four sessions"],
+    correct:0, explain:"Checking the past-paper mapping: Oct/Nov 2017 paired it with 96:1–5, 2:30–37, and 6:75–79; Oct/Nov 2019 with 2:21–22 and 5:110; May/June 2022 with 96:1–5 and 6:101–103; Oct/Nov 2025 with 6:101–103 and 41:37. Surah 96:1–5 appears twice." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q14", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What does the phrase “yawma’idhin tuhaddithu akhbaraha” mean in this surah?",
+    choices:["“That Day it will report its news”", "“That Day the sun will rise in the west”", "“That Day the angels will descend”", "“That Day the sky will split open”"],
+    correct:0, explain:"This phrase describes the earth reporting or narrating its news on the Day of Judgement — its testimony about what occurred on its surface." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q15", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Why might this surah be considered especially relevant to a Muslim’s everyday, small-scale choices, rather than only major life decisions?",
+    choices:["Because its central principle — an atom’s weight of good or evil being seen — applies to even the smallest, most ordinary actions", "Because it only discusses major sins like murder", "Because it focuses solely on national or political events", "Because it applies only to actions performed in public"],
+    correct:0, explain:"The surah’s atom’s-weight principle deliberately emphasises that even the smallest, most easily overlooked actions in daily life carry real weight and will be accounted for." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q16", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Which of these correctly identifies the surah’s structure?",
+    choices:["Description of the earthquake and the earth’s testimony (verses 1–5), followed by the principle of total accountability (verses 6–8)", "A list of legal rulings, followed by a story", "A description of Paradise, followed by a description of Hell", "A dialogue between two prophets"],
+    correct:0, explain:"The surah moves from describing the physical event of the earthquake and the earth’s testimony to the broader principle that every deed, however small, will be seen." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q17", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What is the significance of the earth testifying specifically “against every male and female servant,” according to the hadith Ibn Kathir cites?",
+    choices:["It shows the testimony applies individually and universally, without exception by gender or status", "It shows only men will be judged", "It shows only slaves will be judged, not free people", "It has no particular significance"],
+    correct:0, explain:"The hadith’s phrasing (“every male and female servant”) emphasises that this testimony applies universally to every individual, without exception." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q18", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Which of the following is the strongest way to explain “importance in a Muslim’s life today” for this passage in an exam answer?",
+    choices:["Explaining that it encourages taking even small acts of kindness seriously, since nothing good is ever wasted or overlooked", "Simply repeating the surah’s Arabic wording", "Describing the geography of the earth’s tectonic plates", "Listing unrelated facts about the Prophet’s family"],
+    correct:0, explain:"A strong answer ties the specific principle of this surah (atom’s-weight accountability) to a concrete behavioural consequence — taking small good deeds seriously, since none are wasted." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q19", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What best distinguishes Surah az-Zalzalah’s description of the Last Day from a general statement like “the Day of Judgement will come”?",
+    choices:["It gives specific, vivid details unique to this surah: the earth’s physical upheaval, its testimony, and the atom’s-weight principle", "It gives no specific details at all", "It focuses only on the fate of prophets", "It describes the Day of Judgement as identical to an ordinary day"],
+    correct:0, explain:"This surah’s value lies in its specific, memorable details — the earthquake, the earth’s testimony, and the atom’s-weight principle — which distinguish it from a vague general statement about Judgement Day." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q20", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Which surah number is Az-Zalzalah in the Qur’an?",
+    choices:["99", "96", "112", "114"],
+    correct:0, explain:"Az-Zalzalah is chapter (surah) 99 of the Qur’an." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q21", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"What does “la takrahu” (a phrase NOT found in this surah, but sometimes confused with related themes) mean, and why is it important not to confuse it with this surah’s content?",
+    choices:["It is unrelated to this surah entirely — a reminder to only cite content that genuinely appears in Az-Zalzalah, not phrases from other verses", "It means “the atom’s weight,” a key phrase in this surah", "It means “the earth’s testimony,” a key phrase in this surah", "It is the opening phrase of this surah"],
+    correct:0, explain:"This is a deliberate check: examiners reward candidates who accurately cite only what genuinely appears in the specific passage being discussed, rather than blending in unrelated phrases from elsewhere in the Qur’an." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q22", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"How does the theme of this surah connect to the broader theme of Unit 1.2, “Allah’s Relationship with the Created World”?",
+    choices:["It shows Allah’s authority over the created world extending even to its final, dramatic transformation on the Last Day", "It focuses only on Allah’s relationship with the angels", "It has no connection to this unit’s theme", "It focuses only on Allah’s relationship with earlier prophets"],
+    correct:0, explain:"This surah demonstrates Allah’s total authority over the created world (the earth itself), extending even to commanding it to testify on the Last Day — fitting the unit’s focus on that relationship." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q23", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Which of the following statements about Surah az-Zalzalah is FALSE?",
+    choices:["It describes the earth being shaken with a violent earthquake.", "It states that even an atom’s weight of good or evil will be seen.", "It describes Ibrahim rejecting the worship of the sun, moon, and stars.", "It describes mankind proceeding in scattered groups to be shown their deeds."],
+    correct:2, explain:"Ibrahim’s rejection of celestial worship is described in Surah al-An’am 6:75–79, a completely different passage — not in Surah az-Zalzalah." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q24", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"Why might this surah’s message be considered a source of both hope and caution at the same time?",
+    choices:["Because it promises that even the smallest good deed will be rewarded (hope), while warning that even the smallest wrong will be accounted for (caution)", "Because it promises automatic forgiveness for all sins", "Because it focuses only on punishment, offering no encouragement at all", "Because it applies only to disbelievers, not believers"],
+    correct:0, explain:"The atom’s-weight principle cuts both ways — offering hope that no good deed, however small, is wasted, while cautioning that no wrongdoing, however small, is overlooked." },
+
+  { id:"1-2--the-day-the-earth-is-shaken--q25", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"the-day-the-earth-is-shaken",
+    q:"If a Muslim wanted a short, memorable Qur’anic reminder to encourage consistent small acts of charity, which of the 15 set passages in this topic would be most directly relevant?",
+    choices:["Surah az-Zalzalah (99)", "Surah al-Ikhlas (112)", "Surah 6:101–103", "Surah 42:4–5"],
+    correct:0, explain:"Az-Zalzalah’s specific “atom’s weight of good” principle makes it the most directly relevant of the 15 passages for encouraging consistent, even small-scale, good deeds." },
+
+  { id:"1-2--seeking-refuge-an-nas--q1", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Surah an-Nas seeks refuge in Allah under how many of His names, and which ones?",
+    choices:["Three: Lord, King, and God of mankind", "One: only “Lord of mankind”", "Five: including Most Merciful and Most Gracious", "Two: Lord and Sustainer only"],
+    correct:0, explain:"The surah opens by seeking refuge with “the Lord of mankind, the King of mankind, the God of mankind” — three names together." },
+
+  { id:"1-2--seeking-refuge-an-nas--q2", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"What specific danger does Surah an-Nas ask for protection from?",
+    choices:["Wild animals", "The whisperer who withdraws (Shaytan)", "Natural disasters", "Illness"],
+    correct:1, explain:"The surah names “the evil of the whisperer who withdraws” — identified by Ibn Kathir as Shaytan — as the specific danger." },
+
+  { id:"1-2--seeking-refuge-an-nas--q3", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"According to Ibn Kathir, what happens to the whisperer when a person remembers Allah?",
+    choices:["He withdraws/retreats", "He becomes stronger", "He disappears permanently from that person’s life", "He turns into a jinn"],
+    correct:0, explain:"Ibn Kathir explains that the whisperer withdraws when a person remembers Allah — describing an ongoing back-and-forth struggle, not a single defeat." },
+
+  { id:"1-2--seeking-refuge-an-nas--q4", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Where does the surah say this whispering specifically targets?",
+    choices:["The eyes", "The breasts/hearts of mankind", "The ears only", "The hands"],
+    correct:1, explain:"The surah specifies the whisperer works “in the breasts of mankind” — targeting the heart and inner thoughts." },
+
+  { id:"1-2--seeking-refuge-an-nas--q5", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"According to the final verse of Surah an-Nas, whispering toward evil can come from which two sources?",
+    choices:["Jinn and mankind", "Angels and jinn", "Animals and jinn", "Only jinn, never humans"],
+    correct:0, explain:"The surah’s last verse states the whispering can be “of the jinn and mankind” — meaning temptation can come from other people, not only unseen beings." },
+
+  { id:"1-2--seeking-refuge-an-nas--q6", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"What does the hadith about the Prophet’s own “qarin” (devil-companion) illustrate?",
+    choices:["That the struggle against whispered temptation, though universal, can be overcome", "That only prophets are free from any devil-companion", "That the qarin disappears after death", "That every person has more than one qarin"],
+    correct:0, explain:"The hadith notes every person has an assigned qarin, but the Prophet’s own had submitted to Islam and only commanded good — showing this struggle can be overcome." },
+
+  { id:"1-2--seeking-refuge-an-nas--q7", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Surah an-Nas is notable as being which surah in the order of the Qur’an?",
+    choices:["The final (last) surah", "The first surah", "The longest surah", "The only Madani surah revealed at night"],
+    correct:0, explain:"Surah an-Nas (114) is the final surah of the Qur’an in its standard order." },
+
+  { id:"1-2--seeking-refuge-an-nas--q8", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Which surah is An-Nas most commonly paired with in recitation, and what does that surah focus on instead?",
+    choices:["Al-Falaq (113) — which focuses on refuge from external harms like darkness, witchcraft, and envy", "Al-Ikhlas (112) — which focuses on Allah’s oneness", "Al-Kawthar (108) — which focuses on abundance", "Al-Fatihah (1) — which focuses on praise and guidance"],
+    correct:0, explain:"An-Nas is commonly paired with Al-Falaq (113), which seeks refuge from external harms (darkness, witchcraft, envy), contrasting with An-Nas’s focus on internal, whispered temptation." },
+
+  { id:"1-2--seeking-refuge-an-nas--q9", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"What Arabic term describes the “withdrawing” characteristic of the whisperer named in this surah?",
+    choices:["Khannas", "Samad", "Ahad", "Qayyum"],
+    correct:0, explain:"“Al-Khannas” describes the whisperer’s characteristic of withdrawing or retreating (specifically when Allah is remembered)." },
+
+  { id:"1-2--seeking-refuge-an-nas--q10", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Which three Arabic titles are used for Allah in the opening three verses of An-Nas, in order?",
+    choices:["Rabb (Lord), Malik (King), Ilah (God)", "Ilah, Malik, Rabb", "Malik, Rabb, Ilah", "Rahman, Rahim, Ahad"],
+    correct:0, explain:"The surah’s opening moves through Rabb an-Nas (Lord of mankind), Malik an-Nas (King of mankind), and Ilah an-Nas (God of mankind), in that order." },
+
+  { id:"1-2--seeking-refuge-an-nas--q11", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"A student answers: “This surah asks for protection from witchcraft and the evil eye.” Why might this be marked as inaccurate for An-Nas specifically?",
+    choices:["That specific content belongs more to Surah al-Falaq (113); An-Nas focuses specifically on the whisperer targeting the heart", "It is entirely accurate for An-Nas", "An-Nas never mentions seeking refuge in Allah at all", "Witchcraft is mentioned by name in An-Nas"],
+    correct:0, explain:"Witchcraft and related external harms are more associated with Al-Falaq (113); An-Nas’s distinctive content is the whisperer (Shaytan) targeting the heart — candidates should avoid conflating the two." },
+
+  { id:"1-2--seeking-refuge-an-nas--q12", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Why might using three different names for Allah (Lord, King, God) strengthen this surah’s request for refuge, according to Ibn Kathir’s reading?",
+    choices:["Because together they cover Allah’s role as Sustainer, Ruler, and sole object of worship — the strongest possible basis for seeking protection", "Because using more names is simply a poetic convention with no theological meaning", "Because each name refers to a different being, not all to Allah", "Because only one of the three names is actually about Allah"],
+    correct:0, explain:"Ibn Kathir explains that combining Rabb, Malik, and Ilah draws on three complementary aspects of Allah’s authority and relationship to mankind, together forming the strongest possible basis for seeking refuge." },
+
+  { id:"1-2--seeking-refuge-an-nas--q13", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"What does the phrase “min sharri” at the start of verse 4 introduce?",
+    choices:["The specific evil/danger being sought refuge from", "A blessing being requested", "A description of Paradise", "A command to pray"],
+    correct:0, explain:"“Min sharri” (“from the evil of”) introduces the specific danger the surah asks for protection from — the whisperer who withdraws." },
+
+  { id:"1-2--seeking-refuge-an-nas--q14", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Why is this surah particularly suited to being recited for protection in daily life, according to its content?",
+    choices:["Because it directly addresses an ongoing, everyday spiritual struggle (whispered temptation) rather than a rare or historical event", "Because it is the longest surah in the Qur’an", "Because it discusses a specific historical battle", "Because it is only recited once a year"],
+    correct:0, explain:"An-Nas addresses a universal, everyday struggle (resisting whispered temptation), which is precisely why it is so commonly recited for ongoing daily protection." },
+
+  { id:"1-2--seeking-refuge-an-nas--q15", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"In the seven sessions this passage was tested in the last decade, how does its frequency compare to Surah al-Alaq 96:1–5?",
+    choices:["They are tied as the two most frequently tested passages, each appearing 7 times", "An-Nas is tested far more often than Al-Alaq", "Al-Alaq is tested far more often than An-Nas", "Neither has been tested more than twice"],
+    correct:0, explain:"According to the past-paper mapping, both An-Nas and Al-Alaq 96:1–5 have each appeared 7 times across the 20 sessions from 2016–2025 — tied as the most frequently tested passages in this topic." },
+
+  { id:"1-2--seeking-refuge-an-nas--q16", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"What does “min al-jinnati wan-nas” (the final verse) add to the surah’s meaning?",
+    choices:["It broadens the source of harmful whispering beyond unseen beings (jinn) to include other human beings", "It limits the whispering to jinn alone, excluding humans entirely", "It refers only to a specific historical enemy of the Prophet", "It has no bearing on the surah’s overall meaning"],
+    correct:0, explain:"This closing phrase broadens the surah’s warning: harmful, tempting influence is not only supernatural (jinn) but can also come from other people." },
+
+  { id:"1-2--seeking-refuge-an-nas--q17", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Which of the following would be the strongest way to explain “importance in a Muslim’s life today” for this passage?",
+    choices:["Explaining that it is widely recited for daily protection and reassures believers that resisting temptation, though a constant struggle, can be won", "Simply stating that Muslims like short surahs", "Focusing only on its position as the last surah in the Qur’an’s order", "Describing unrelated historical events from the Prophet’s life"],
+    correct:0, explain:"A strong answer connects the surah’s specific content — protection from whispered temptation — to its ongoing daily relevance and the reassurance that this struggle can be overcome." },
+
+  { id:"1-2--seeking-refuge-an-nas--q18", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Which of these statements about Surah an-Nas is FALSE?",
+    choices:["It seeks refuge under three names: Lord, King, and God of mankind.", "It names the “whisperer who withdraws” as the danger to be protected from.", "It describes Allah’s creation of the heavens and earth without any precedent.", "It states the whispering can come from jinn and mankind."],
+    correct:2, explain:"The description of Allah as Originator of the heavens and earth without precedent belongs to Surah al-An’am 6:101–103, a different passage — not to Surah an-Nas." },
+
+  { id:"1-2--seeking-refuge-an-nas--q19", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"How many verses does Surah an-Nas contain?",
+    choices:["3", "4", "6", "8"],
+    correct:2, explain:"Surah an-Nas has 6 verses, moving from the three names of Allah to the description of the whisperer and its sources." },
+
+  { id:"1-2--seeking-refuge-an-nas--q20", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"What is the significance of the surah’s position as the very last surah of the Qur’an?",
+    choices:["It closes the Qur’an with a practical, universally applicable prayer for protection that every believer can use in daily life", "It has no particular significance and is placed there arbitrarily", "It means the surah was the last one ever revealed chronologically", "It means only the Prophet was permitted to recite it"],
+    correct:0, explain:"Its position as the Qur’an’s closing surah is often noted for ending the text with a practical, timeless prayer of protection, though this position does not necessarily reflect the chronological order of revelation." },
+
+  { id:"1-2--seeking-refuge-an-nas--q21", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Which term describes the being(s) mentioned in verse 6 alongside mankind as a possible source of harmful whispering?",
+    choices:["Jinn", "Angels", "Prophets", "Companions"],
+    correct:0, explain:"Verse 6 mentions “min al-jinnati wan-nas” — “from among the jinn and mankind” — as the possible sources of harmful whispering." },
+
+  { id:"1-2--seeking-refuge-an-nas--q22", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"A candidate confuses An-Nas with Al-Falaq in an exam answer, describing “refuge from the darkness of night” as An-Nas’s theme. What is the correct correction?",
+    choices:["“Refuge from the darkness of night” is Al-Falaq’s theme; An-Nas specifically addresses refuge from the whisperer targeting the heart", "The two surahs have identical content, so no correction is needed", "An-Nas does mention darkness of night as its main theme", "Al-Falaq is not a real surah"],
+    correct:0, explain:"This is exactly the kind of mix-up examiners warn against — Al-Falaq addresses external harms like darkness, while An-Nas addresses the internal whisperer targeting the heart." },
+
+  { id:"1-2--seeking-refuge-an-nas--q23", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Why might Ibn Kathir’s explanation of “qarin” (devil-companion) be reassuring rather than frightening for a Muslim reading this surah?",
+    choices:["Because it shows that even the Prophet had a qarin, yet through Allah’s aid it was overcome and turned toward good — showing the struggle is universal and can be won", "Because it proves that all Muslims are free from any qarin", "Because it suggests the qarin cannot be resisted at all", "Because it has no connection to reassurance"],
+    correct:0, explain:"The hadith is often read as reassuring precisely because it shows this struggle is universal (even the Prophet had a qarin) and can be overcome, rather than being a source of despair." },
+
+  { id:"1-2--seeking-refuge-an-nas--q24", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Which of these best summarises the overall theme of Surah an-Nas?",
+    choices:["Seeking Allah’s protection, under three complementary names, from the ongoing whispered temptation of Shaytan and harmful human influence", "The rules of inheritance in Islamic law", "The story of the Prophet’s migration to Madinah", "The importance of fasting during Ramadan"],
+    correct:0, explain:"The surah’s entire six verses build toward this theme: seeking Allah’s protection from an ongoing, internal struggle against whispered temptation." },
+
+  { id:"1-2--seeking-refuge-an-nas--q25", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"seeking-refuge-an-nas",
+    q:"Why is it important, for exam purposes, to note that An-Nas’s whisperer specifically “withdraws” when Allah is remembered, rather than simply saying “Shaytan is evil”?",
+    choices:["Because the specific detail (withdrawing upon remembrance of Allah) is unique to this passage and shows detailed knowledge, rather than a vague general statement", "Because the detail is incorrect and should not be mentioned", "Because examiners never reward specific details", "Because this detail applies equally to every passage in the syllabus"],
+    correct:0, explain:"Examiners reward candidates who cite the passage’s own specific, distinctive vocabulary and details (like the whisperer withdrawing at the remembrance of Allah) rather than only vague general statements." },
 ];
