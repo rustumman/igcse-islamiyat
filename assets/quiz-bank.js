@@ -4737,6 +4737,96 @@ window.QUESTION_BANK = [
     choices:["Allah&rsquo;s total knowledge of past and future", "The vastness of Allah&rsquo;s Kursi compared to creation", "The Prophet&rsquo;s night journey to Jerusalem", "No one may intercede with Allah except by His permission"],
     correct:2, explain:"The night journey (Al-Isra wal Mi&rsquo;raj) is not mentioned in Ayat al-Kursi. The verse focuses entirely on Allah&rsquo;s own attributes: life, sustenance, knowledge, the Kursi, and permission for intercession." },
 
+  { id:"1-1--ayat-al-kursi--q9", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"In the story behind the Bukhari hadith, who did Abu Hurayrah encounter stealing from the charity he was guarding?",
+    choices:["A hungry traveller", "Shaytan, in disguise", "A disbelieving Quraysh chief", "A jinn king"],
+    correct:1, explain:"Abu Hurayrah caught a figure stealing from the charity store he guarded three nights in a row; it turned out to be Shaytan, who taught him to recite Ayat al-Kursi before sleep for protection." },
+
+  { id:"1-1--ayat-al-kursi--q10", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"What did the Prophet (pbuh) say when Abu Hurayrah reported what Shaytan had told him about Ayat al-Kursi?",
+    choices:["&ldquo;Never listen to Shaytan again&rdquo;", "&ldquo;He told you the truth, although he is a liar&rdquo;", "&ldquo;This is a lie, ignore it&rdquo;", "&ldquo;Shaytan cannot speak the truth&rdquo;"],
+    correct:1, explain:"The Prophet (pbuh) confirmed that Shaytan&rsquo;s advice was accurate this time, even though Shaytan himself is a liar by nature — a well-known detail of this authentic hadith." },
+
+  { id:"1-1--ayat-al-kursi--q11", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"According to Ayat al-Kursi, human beings can grasp Allah&rsquo;s knowledge only under what condition?",
+    choices:["Never, under any circumstances", "Except for what Allah wills to reveal to them", "Only after death", "Only if they are prophets"],
+    correct:1, explain:"The verse states people &ldquo;grasp not of His knowledge except for what He wills&rdquo; — knowledge is a gift Allah chooses to give, not something creation possesses independently." },
+
+  { id:"1-1--ayat-al-kursi--q12", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"What does Ayat al-Kursi say about intercession with Allah?",
+    choices:["No one may intercede except by His permission", "Only angels may intercede", "Intercession is impossible for anyone", "Only prophets may intercede, without needing permission"],
+    correct:0, explain:"The verse states, &ldquo;Who is there that can intercede with Him except by His permission?&rdquo; — ruling out the idea that any being can act as an independent go-between with Allah." },
+
+  { id:"1-1--ayat-al-kursi--q13", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"Which of the following best describes the overall structure of Ayat al-Kursi?",
+    choices:["A sequence of Allah&rsquo;s own names and attributes, addressed to no one in particular until its final words", "A set of five commands to the believer", "A story about a Prophet&rsquo;s encounter with Allah", "A list of the Ninety-Nine Names in full", "A description of the Day of Judgement&rsquo;s events"],
+    correct:0, explain:"Ayat al-Kursi is built almost entirely from statements about Allah Himself (His life, knowledge, Kursi, and power), rather than direct commands or narrative." },
+
+  { id:"1-1--ayat-al-kursi--q14", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"Why do many Muslims recite Ayat al-Kursi after each of the five daily prayers?",
+    choices:["Because of hadith recommending its regular recitation for protection and reward", "Because it is compulsory within the prayer itself", "Because it replaces the need for Al-Fatihah", "Because it must be recited only in congregation"],
+    correct:0, explain:"Ayat al-Kursi is widely recited after the five daily prayers, based on hadith recommending its virtue, though it is not part of the compulsory recitation within the prayer itself." },
+
+  { id:"1-1--ayat-al-kursi--q15", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"&ldquo;Al-&rsquo;Aliyy al-&rsquo;Azim&rdquo; (the Most High, the Most Great) appears at which point in Ayat al-Kursi?",
+    choices:["At the very end of the verse", "At the very beginning of the verse", "Immediately after &ldquo;there is no god but He&rdquo;", "It does not appear in this verse at all"],
+    correct:0, explain:"The verse closes with &ldquo;And He is the Most High, the Most Great&rdquo; (Al-&rsquo;Aliyy al-&rsquo;Azim), summing up the verse&rsquo;s description of Allah&rsquo;s majesty." },
+
+  { id:"1-1--ayat-al-kursi--q16", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"What is the Kursi, as referred to in this verse, generally understood to be?",
+    choices:["A vast seat/footstool describing the extent of Allah&rsquo;s dominion, distinct from the &rsquo;Arsh (Throne)", "A physical object Muslims must locate and face in prayer", "Another name for the Ka&rsquo;bah", "A book containing the names of all believers"],
+    correct:0, explain:"The Kursi is generally understood by scholars as distinct from the greater &rsquo;Arsh (Throne), and is described in this verse as extending over the heavens and the earth to illustrate the vastness of Allah&rsquo;s dominion." },
+
+  { id:"1-1--ayat-al-kursi--q17", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"Which phrase in Ayat al-Kursi most directly expresses Allah&rsquo;s total ownership of creation?",
+    choices:["&ldquo;To Him belongs whatever is in the heavens and whatever is on the earth&rdquo;", "&ldquo;Neither slumber nor sleep overtakes Him&rdquo;", "&ldquo;He is the Most High, the Most Great&rdquo;", "&ldquo;There is no god but He&rdquo;"],
+    correct:0, explain:"This clause states directly that everything in the heavens and earth belongs to Allah, expressing His total ownership and authority over creation." },
+
+  { id:"1-1--ayat-al-kursi--q18", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"A student writes in an exam: &ldquo;Ayat al-Kursi teaches that Muslims should pray five times a day.&rdquo; What is the main problem with this answer?",
+    choices:["The verse does not mention the five daily prayers at all; it focuses on Allah&rsquo;s own attributes", "It is completely correct and needs no changes", "It should mention Ramadan instead", "It is only wrong because it&rsquo;s too short"],
+    correct:0, explain:"Ayat al-Kursi does not discuss the five daily prayers; it is a statement of Allah&rsquo;s attributes (life, knowledge, power). This is a common exam error — answering with general Islamic knowledge instead of the passage&rsquo;s actual content." },
+
+  { id:"1-1--ayat-al-kursi--q19", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"Which of these correctly pairs an attribute in Ayat al-Kursi with its meaning?",
+    choices:["Al-Qayyum — all creation depends on Him, while He depends on nothing", "Al-Hayy — He created the heavens in six days", "Al-&rsquo;Azim — He forgives all sins immediately", "Al-&rsquo;Aliyy — He is present only in the heavens, not the earth"],
+    correct:0, explain:"Al-Qayyum (the Self-Sustaining) describes Allah as the One all creation relies upon completely, while He relies on nothing and no one." },
+
+  { id:"1-1--ayat-al-kursi--q20", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"Why might Ayat al-Kursi be considered especially useful for a Muslim experiencing fear or anxiety?",
+    choices:["It emphasises Allah&rsquo;s constant, unfailing awareness, power, and protection, offering reassurance", "It promises immediate wealth to whoever recites it", "It guarantees the person will never feel afraid again", "It focuses on punishment, which motivates better behaviour through fear alone"],
+    correct:0, explain:"The verse&rsquo;s emphasis on Allah&rsquo;s unceasing awareness, knowledge, and power (with no fatigue or sleep) is often drawn on for reassurance and comfort, since Allah is described as constantly attentive and in control." },
+
+  { id:"1-1--ayat-al-kursi--q21", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"In an exam answer describing &ldquo;the importance of this theme in a Muslim&rsquo;s life today,&rdquo; which of the following would earn the strongest marks?",
+    choices:["Explaining that reciting it builds constant awareness that nothing is hidden from Allah, discouraging sin even in private", "Simply stating &ldquo;Muslims like this verse a lot&rdquo;", "Describing only the Arabic pronunciation of the verse", "Listing unrelated facts about the Prophet&rsquo;s biography", "Restating the verse&rsquo;s content without any explanation of importance"],
+    correct:0, explain:"A strong part (b) answer explains a specific consequence of believing the verse&rsquo;s content for how a Muslim lives — such as behaving well even unseen, since Allah&rsquo;s awareness never lapses — rather than a vague or unrelated statement." },
+
+  { id:"1-1--ayat-al-kursi--q22", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"What is a &ldquo;shafi&rsquo;&rdquo; (one who intercedes), and what does Ayat al-Kursi say about this role?",
+    choices:["Someone who might plead on another&rsquo;s behalf, but only by Allah&rsquo;s permission", "A title reserved only for the Prophet Muhammad (pbuh)", "A being with independent power to forgive sins", "A term not found anywhere in this verse"],
+    correct:0, explain:"The verse asks, &ldquo;Who is there that can intercede with Him except by His permission?&rdquo; — establishing that any intercession is entirely dependent on Allah allowing it, not on independent power." },
+
+  { id:"1-1--ayat-al-kursi--q23", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"Which best summarises the single overarching theme of Ayat al-Kursi as a whole?",
+    choices:["Tawheed — Allah&rsquo;s complete, unmatched oneness in life, knowledge, and power", "The importance of charity to the poor", "The rules of fasting in Ramadan", "The reward of pilgrimage to Makkah"],
+    correct:0, explain:"Every clause of Ayat al-Kursi builds toward a single theme: Allah&rsquo;s absolute oneness, demonstrated through His unmatched life, knowledge, and power." },
+
+  { id:"1-1--ayat-al-kursi--q24", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"How does Ayat al-Kursi&rsquo;s structure differ from many other verses studied in this topic that describe a story or event?",
+    choices:["It is built entirely from statements about Allah&rsquo;s own nature, without narrating any story or event", "It is the only verse in the Qur&rsquo;an written entirely in the past tense", "It contains dialogue between two named individuals", "It describes a specific historical battle"],
+    correct:0, explain:"Unlike passages that narrate events (such as Ibrahim&rsquo;s search for truth or the story of Adam), Ayat al-Kursi is a direct, non-narrative statement of Allah&rsquo;s own attributes." },
+
+  { id:"1-1--ayat-al-kursi--q25", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"Why is memorising and understanding Ayat al-Kursi considered especially high-value exam preparation for this topic, according to the last decade of past papers?",
+    choices:["Because it has been set as a passage option more often than any other single passage", "Because it is the only passage ever set in this topic", "Because it is not connected to any past paper questions", "Because it is the longest passage in the syllabus list"],
+    correct:0, explain:"Across the last 10 exam years (20 sessions), Ayat al-Kursi appeared as a passage option 6 times — more than any other of the 15 set passages — making it especially high-value to prepare thoroughly." },
+
+  { id:"1-1--ayat-al-kursi--q26", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"ayat-al-kursi",
+    q:"According to the hadith recorded by An-Nasa&rsquo;i and graded sahih by Ibn Hibban and Al-Albani, what is promised to whoever recites Ayat al-Kursi immediately after every obligatory prayer?",
+    choices:["Nothing but death will prevent him from entering Paradise", "He will never fall ill again", "He will be granted wealth in this life", "He will be forgiven without needing to repent"],
+    correct:0, explain:"Abu Umamah reported the Prophet (pbuh) said that reciting Ayat al-Kursi after every obligatory prayer means nothing but death stands between that person and Paradise — a hadith recorded by An-Nasa&rsquo;i and graded sahih by Ibn Hibban and Al-Albani." },
+
   { id:"1-1--allah-the-originator--q1", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
     q:"In Surah al-An&rsquo;am 6:101–103, what title is given to Allah that means &ldquo;the Originator&rdquo; of the heavens and earth?",
     choices:["Al-Khaliq", "Al-Badi&rsquo;", "Al-Malik", "Ar-Razzaq"],
@@ -4767,6 +4857,106 @@ window.QUESTION_BANK = [
     choices:["Al-Qayyum", "As-Samad", "Al-&rsquo;Alim (the All-Knower)", "Al-Ghafoor"],
     correct:2, explain:"Verse 101 states Allah &ldquo;is the All-Knower of everything&rdquo; (Al-&rsquo;Alim), directly following the statement that He created all things." },
 
+  { id:"1-1--allah-the-originator--q7", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Verse 102 commands what, immediately after re-stating that Allah is &ldquo;your Lord&rdquo; and &ldquo;there is no god but He&rdquo;?",
+    choices:["To worship Him (fa&rsquo;buduhu)", "To migrate to Madinah", "To fast for thirty days", "To recite the Torah"],
+    correct:0, explain:"Verse 102 states &ldquo;Khaliqu kulli shay&rsquo;in fa&rsquo;buduhu&rdquo; — &ldquo;the Creator of all things, so worship Him&rdquo; — the command to worship follows directly from His being the sole Creator." },
+
+  { id:"1-1--allah-the-originator--q8", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"What title appears in verse 102 describing Allah as the One in charge of, and trusted with, all affairs?",
+    choices:["As-Samad", "Al-Wakil (the Trustee/Disposer of affairs)", "Al-Hayy", "Al-&rsquo;Aliyy"],
+    correct:1, explain:"Verse 102 ends &ldquo;wa huwa &rsquo;ala kulli shay&rsquo;in wakil&rdquo; — &ldquo;and He is the Disposer of all affairs&rdquo; (Al-Wakil), meaning He alone manages and is trusted with everything." },
+
+  { id:"1-1--allah-the-originator--q9", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"What two names close verse 103, describing Allah&rsquo;s subtle awareness of everything?",
+    choices:["Al-Ghafoor and Ar-Rahim", "Al-Latif (the Most Subtle) and Al-Khabir (the All-Aware)", "Al-&rsquo;Aliyy and Al-&rsquo;Azim", "Al-Hayy and Al-Qayyum"],
+    correct:1, explain:"Verse 103 closes with &ldquo;wa huwa al-latifu al-khabir&rdquo; — &ldquo;He is the Most Subtle, the All-Aware&rdquo; — describing Allah&rsquo;s perfect, detailed awareness of all things." },
+
+  { id:"1-1--allah-the-originator--q10", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Which of these best explains why this passage is grouped under &ldquo;Allah in Himself&rdquo; rather than &ldquo;Allah&rsquo;s Messengers&rdquo;?",
+    choices:["It focuses entirely on Allah&rsquo;s own nature, origin, and knowledge, not on any prophet&rsquo;s story", "It names a specific prophet as its main subject", "It describes an event in Madinah", "It focuses on the Day of Judgement"],
+    correct:0, explain:"Despite briefly refuting claims made about various prophets/angels as Allah&rsquo;s &ldquo;children,&rdquo; the passage&rsquo;s actual content is entirely about Allah&rsquo;s own nature (originator, knowledge, perception) — not a narrative about any messenger." },
+
+  { id:"1-1--allah-the-originator--q11", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Why does the passage specifically mention that Allah has no consort (sahibah)?",
+    choices:["To show the idea of Him having a son is logically impossible, since a child needs two parents", "To argue that marriage is forbidden in Islam", "To describe Allah&rsquo;s relationship with the angels", "To contrast with the Prophet&rsquo;s own marriages"],
+    correct:0, explain:"The absence of a consort is given as the direct logical reason Allah cannot have offspring — the argument works through ordinary human reasoning about what a &ldquo;child&rdquo; requires." },
+
+  { id:"1-1--allah-the-originator--q12", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"A student answers: &ldquo;This passage is about the Prophet Ibrahim rejecting idols.&rdquo; Why is this incorrect for Surah al-An&rsquo;am 6:101–103?",
+    choices:["That is the theme of a different passage (6:75–79); this passage is about Allah&rsquo;s own nature and origin, not Ibrahim&rsquo;s story", "It is correct, because both passages are in Surah al-An&rsquo;am", "It is correct, because Ibrahim is mentioned by name in 6:101–103", "It is incorrect only because Ibrahim&rsquo;s name is spelled differently in Arabic"],
+    correct:0, explain:"Surah al-An&rsquo;am 6:75–79 (Ibrahim&rsquo;s story) is a separate set passage; candidates sometimes confuse the two simply because they are both in Surah al-An&rsquo;am. 6:101–103 does not mention Ibrahim at all." },
+
+  { id:"1-1--allah-the-originator--q13", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"What does &ldquo;He created all things&rdquo; in this passage logically rule out about the status of any prophet or angel?",
+    choices:["That they could share Allah&rsquo;s status, since they too are among the things He created", "That they could ever be forgiven for sin", "That they could ever perform miracles", "That they could be honoured or respected by believers"],
+    correct:0, explain:"If Allah &ldquo;created all things,&rdquo; then every prophet and angel is also among His creation, and therefore cannot share His unique divine status." },
+
+  { id:"1-1--allah-the-originator--q14", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Which best captures the logical structure of verses 101–103 as a whole?",
+    choices:["Origin of creation → refutation of a son → total knowledge and worship → the limits of human perception of Allah", "A list of the five daily prayers", "A historical account of a battle", "A description of Paradise and Hell", "A set of laws about inheritance"],
+    correct:0, explain:"The passage moves logically: Allah as sole Originator, therefore no son is possible, therefore He alone deserves worship as Creator and Trustee, and finally His perception exceeds anything humans can perceive of Him." },
+
+  { id:"1-1--allah-the-originator--q15", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Why might this passage be particularly useful for a Muslim in interfaith conversations about the nature of God?",
+    choices:["It provides a clear, reasoned Qur&rsquo;anic basis for rejecting the idea that God has a literal son", "It lists the names of other religions&rsquo; prophets", "It describes the compilation of the Torah", "It focuses only on rituals, not beliefs"],
+    correct:0, explain:"Because the passage directly and logically addresses claims about Allah having offspring, Muslims often draw on it when discussing differences between Islamic monotheism and other religious doctrines." },
+
+  { id:"1-1--allah-the-originator--q16", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"What does &ldquo;He is the All-Aware&rdquo; (Al-Khabir) add to the passage&rsquo;s picture of Allah, beyond &ldquo;He is the All-Knower&rdquo; (Al-&rsquo;Alim)?",
+    choices:["A sense of detailed, intimate awareness of hidden and subtle matters, not just general knowledge", "Nothing — the two terms are used interchangeably with identical meaning in all contexts", "That Allah only became aware of creation after creating it", "That awareness applies only to human beings, not the rest of creation"],
+    correct:0, explain:"Al-Khabir (paired with Al-Latif, the Subtle) conveys a fine-grained, intimate awareness of even hidden or subtle matters, complementing the broader statement that Allah is All-Knowing." },
+
+  { id:"1-1--allah-the-originator--q17", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"This passage is set alongside which TWO other passages as options in the Oct/Nov 2025 exam session, according to past-paper records?",
+    choices:["Surah 41:37 and Surah 99", "Surah 1 and Surah 112", "Surah 2:30–37 and Surah 5:110", "Surah 93 and Surah 108"],
+    correct:0, explain:"Past-paper records show that in the Oct/Nov 2025 session, Question 1 offered Surah 6:101–103, Surah 41:37, and Surah 99 as the three passage choices." },
+
+  { id:"1-1--allah-the-originator--q18", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"What is the key difference between how this passage treats &ldquo;creation&rdquo; compared to how Surah al-Baqarah 2:30–37 treats it?",
+    choices:["This passage discusses Allah&rsquo;s origination of the heavens and earth in general terms; 2:30–37 narrates the specific creation and testing of Adam", "There is no difference; both passages describe exactly the same event", "This passage is about Adam; 2:30–37 is about the heavens and earth", "Only 2:30–37 mentions Allah&rsquo;s knowledge"],
+    correct:0, explain:"6:101–103 makes a general theological argument about Allah as Originator of all existence, while 2:30–37 is a specific narrative about the creation and testing of Adam — different passages with related but distinct purposes." },
+
+  { id:"1-1--allah-the-originator--q19", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Which of the following is the best one-sentence summary of this passage&rsquo;s central theme?",
+    choices:["Allah&rsquo;s absolute uniqueness as Creator, with no partner, no offspring, and unmatched knowledge and perception", "The importance of prayer five times a day", "The story of the Prophet&rsquo;s first revelation", "The rules for fasting during Ramadan"],
+    correct:0, explain:"The passage&rsquo;s various points (Originator, no son, total knowledge, limits of human perception) all build toward a single theme: Allah&rsquo;s absolute and unmatched uniqueness." },
+
+  { id:"1-1--allah-the-originator--q20", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"In an exam answer, which detail would most strengthen a part (a) description of this passage&rsquo;s theme?",
+    choices:["Explicitly naming &ldquo;Badi&rsquo;&rdquo; and explaining what it means, rather than only saying &ldquo;Allah created everything&rdquo;", "Describing the geography of Makkah", "Quoting a hadith unrelated to this verse", "Listing the Five Pillars of Islam"],
+    correct:0, explain:"Examiners reward candidates who identify and explain the passage&rsquo;s specific vocabulary (like Badi&rsquo;, &ldquo;no consort,&rdquo; &ldquo;grasps all vision&rdquo;) rather than only paraphrasing loosely." },
+
+  { id:"1-1--allah-the-originator--q21", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Why does Ibn Kathir emphasise that Allah &ldquo;created all things&rdquo; immediately after naming Him Badi&rsquo; (the Originator)?",
+    choices:["To reinforce that nothing exists independently of Allah, so nothing could be His partner or equal", "To suggest creation happened gradually over many prophets&rsquo; lifetimes", "To introduce a discussion of angels specifically", "To explain the rules of inheritance"],
+    correct:0, explain:"Linking &ldquo;Originator&rdquo; directly to &ldquo;Creator of all things&rdquo; reinforces the passage&rsquo;s core argument: since everything depends on Allah for its existence, nothing can be His partner or equal." },
+
+  { id:"1-1--allah-the-originator--q22", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"How does this passage&rsquo;s argument differ in style from Surah al-Ikhlas (112), even though both address similar themes?",
+    choices:["This passage uses an extended rhetorical question and reasoning (&ldquo;how can He have a son...?&rdquo;), while Al-Ikhlas states its points as direct, compact declarations", "They are identical in every way, including length and style", "Al-Ikhlas uses reasoning and rhetorical questions, while this passage only makes direct statements", "Neither passage discusses Allah having no son"],
+    correct:0, explain:"While both passages reject the idea of Allah having offspring, 6:101–103 develops the point through a reasoned question, while Al-Ikhlas (112) states it as a short, direct declaration." },
+
+  { id:"1-1--allah-the-originator--q23", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"What is the significance of the phrase &ldquo;wa huwa bikulli shay&rsquo;in &rsquo;alim&rdquo; (&ldquo;and He is the All-Knower of everything&rdquo;) appearing right after &ldquo;He created all things&rdquo;?",
+    choices:["It links Allah&rsquo;s creative power directly to complete knowledge of what He created", "It suggests Allah&rsquo;s knowledge is limited to what already existed before creation", "It refers only to Allah&rsquo;s knowledge of the angels", "It has no connection to the surrounding verses"],
+    correct:0, explain:"The pairing shows that the One who created everything also necessarily and completely knows everything about it — creation and knowledge are presented as inseparable." },
+
+  { id:"1-1--allah-the-originator--q24", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"If a Muslim wanted to explain, using this passage, why associating any being with Allah in worship (shirk) is a serious error, which point would be most directly relevant?",
+    choices:["That Allah alone is Badi&rsquo; (the Originator) with no partner, so nothing else has any share in creation or deserves worship", "That Allah forgives all sins automatically", "That prophets are more important than angels", "That the Qur&rsquo;an was revealed over 23 years"],
+    correct:0, explain:"The passage&rsquo;s emphasis that Allah alone originated and created everything, with no partner, directly supports the argument that worship belongs to Him exclusively." },
+
+  { id:"1-1--allah-the-originator--q25", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Which of the following statements about this passage is FALSE?",
+    choices:["It refutes the idea that Allah has a son by pointing out He has no consort.", "It states that human vision cannot grasp Allah, but His perception grasps all vision.", "It describes the Prophet&rsquo;s migration from Makkah to Madinah.", "It names Allah as Al-Latif and Al-Khabir."],
+    correct:2, explain:"This passage contains no reference to the Prophet&rsquo;s migration (Hijrah) — that event belongs to a different part of the syllabus (Topic 3/4), not to this &ldquo;Allah in Himself&rdquo; passage." },
+
+  { id:"1-1--allah-the-originator--q26", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allah-the-originator",
+    q:"Besides understanding Tawheed and avoiding shirk, which additional character trait does this passage&rsquo;s revision-notes summary link to reflecting on Allah as sole Originator of everything?",
+    choices:["Humility — since nothing a person has is independently their own", "Ambition — since Allah rewards effort above all else", "Patience — specifically with fellow believers", "Generosity — specifically in giving to orphans"],
+    correct:0, explain:"Because this passage shows that everything, however great, originates from and depends on Allah alone, it is linked to cultivating humility — a person has nothing to be independently proud of." },
+
   { id:"1-1--signs-in-the-night-and-day--q1", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
     q:"In Surah Fussilat 41:37, which two celestial bodies are Muslims explicitly told NOT to prostrate to?",
     choices:["Venus and Mars", "The sun and the moon", "The stars and comets", "The Kaaba and the Black Stone"],
@@ -4792,6 +4982,106 @@ window.QUESTION_BANK = [
     choices:["Nothing — Allah&rsquo;s glory is undiminished, and the angels glorify Him regardless", "Allah&rsquo;s power over the sun and moon decreases", "The Day of Judgement is delayed", "Prophets are sent again to that community"],
     correct:0, explain:"Ibn Kathir notes that rejection by some people cannot diminish Allah&rsquo;s glory in any way, since the angels around Him constantly glorify Him." },
 
+  { id:"1-1--signs-in-the-night-and-day--q6", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"What condition does the verse attach to the command &ldquo;prostrate to Allah who created them&rdquo;?",
+    choices:["&ldquo;If it is Him that you [truly] worship&rdquo;", "&ldquo;If you have already prayed five times that day&rdquo;", "&ldquo;Only during the month of Ramadan&rdquo;", "&ldquo;Only if you are able to see the sun and moon&rdquo;"],
+    correct:0, explain:"The verse ends with the condition &ldquo;in kuntum iyyahu ta&rsquo;budun&rdquo; — &ldquo;if it is Him that you [truly] worship&rdquo; — challenging the sincerity of anyone who claims to worship Allah but still turns to other objects." },
+
+  { id:"1-1--signs-in-the-night-and-day--q7", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Which surah contains this verse about not prostrating to the sun or moon?",
+    choices:["Surah al-Baqarah", "Surah Fussilat", "Surah al-Ikhlas", "Surah ash-Shura"],
+    correct:1, explain:"This verse is 41:37, found in Surah Fussilat (also known as Ha-Mim Sajdah)." },
+
+  { id:"1-1--signs-in-the-night-and-day--q8", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Ibn Kathir links the creative power shown in the day/night cycle to which other divine ability?",
+    choices:["The ability to resurrect the dead", "The ability to change the Qiblah direction", "The ability to reveal new scriptures", "The ability to end prophethood"],
+    correct:0, explain:"Ibn Kathir connects the power that governs the regular cycle of day and night to Allah&rsquo;s power to bring about resurrection on the Last Day." },
+
+  { id:"1-1--signs-in-the-night-and-day--q9", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"What modern practice might this verse&rsquo;s warning against sun/moon worship be extended to caution against, in a broader sense?",
+    choices:["Astrology or attributing power/fate to celestial bodies", "Studying astronomy as a science", "Using a calendar based on the moon&rsquo;s phases", "Praying at sunrise and sunset specifically"],
+    correct:0, explain:"While the verse historically addresses literal sun/moon worship, its underlying principle — not attributing independent power to created things — is often extended by scholars to caution against practices like astrology." },
+
+  { id:"1-1--signs-in-the-night-and-day--q10", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Which of the following is the correct order of the four &ldquo;signs&rdquo; named at the start of this verse?",
+    choices:["Night, day, sun, moon", "Sun, moon, night, day", "Day, night, moon, sun", "Moon, sun, day, night"],
+    correct:0, explain:"The verse lists them in this order: &ldquo;the night and the day, and the sun and the moon.&rdquo;" },
+
+  { id:"1-1--signs-in-the-night-and-day--q11", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"What is the underlying theological term for the specific type of Tawheed (monotheism) emphasised in this verse?",
+    choices:["Tawheed al-Uluhiyyah (oneness in worship)", "Tawheed ar-Rububiyyah only, with no reference to worship", "Aqeedah al-Ghayb", "Fiqh al-&rsquo;Ibadat"],
+    correct:0, explain:"This verse focuses on directing worship (prostration) to Allah alone rather than to created things — the specific category of Tawheed al-Uluhiyyah (oneness in worship/devotion)." },
+
+  { id:"1-1--signs-in-the-night-and-day--q12", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"A candidate writes: &ldquo;This verse teaches that Muslims should study astronomy.&rdquo; Why would this likely receive limited credit in an exam?",
+    choices:["It misses the verse&rsquo;s actual command (not to worship sun/moon, but Allah) in favour of an unrelated modern inference", "It is exactly what the verse says, word for word", "Astronomy is forbidden in Islam, making this answer correct", "The verse never mentions the sun or moon at all"],
+    correct:0, explain:"While the sun/moon cycle can relate to astronomy, the verse&rsquo;s actual content and command is about correct worship (Tawheed), not a general endorsement of studying astronomy — examiners want the verse&rsquo;s real theme addressed directly." },
+
+  { id:"1-1--signs-in-the-night-and-day--q13", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Which of these best matches Ibn Kathir&rsquo;s explanation of &ldquo;prostrate to Allah who created them&rdquo;?",
+    choices:["Only the Creator of the sun and moon deserves prostration, not the created objects themselves", "Muslims should prostrate toward the sun during Fajr prayer", "The sun and moon should be honoured equally alongside Allah", "Prostration is only valid if performed at night"],
+    correct:0, explain:"Ibn Kathir&rsquo;s explanation centres on directing worship only to the Creator, since the sun and moon — however impressive — are themselves created and subject to Allah&rsquo;s power." },
+
+  { id:"1-1--signs-in-the-night-and-day--q14", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"How does this verse&rsquo;s message relate to the broader theme of Unit 1.1, &ldquo;Allah in Himself&rdquo;?",
+    choices:["It reinforces Allah&rsquo;s uniqueness by contrasting Him with created things that must not be worshipped", "It focuses on the story of a specific prophet", "It describes events on the Day of Judgement", "It lists rules for inheritance and family law"],
+    correct:0, explain:"Like the other passages in this unit, 41:37 emphasises an aspect of Allah&rsquo;s unique nature (here, His sole right to worship as Creator) rather than narrating events or laws." },
+
+  { id:"1-1--signs-in-the-night-and-day--q15", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"In the last decade of past papers, how many times has this passage (41:37) appeared as an exam option?",
+    choices:["Five times", "Once", "Ten times", "It has never appeared"],
+    correct:0, explain:"According to the past-paper mapping for 0493 Paper 1 (2016–2025), Surah Fussilat 41:37 appeared as an option in five sessions." },
+
+  { id:"1-1--signs-in-the-night-and-day--q16", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"What is the effect of pairing &ldquo;night and day&rdquo; with &ldquo;sun and moon&rdquo; in the same verse, rather than mentioning them separately in different places?",
+    choices:["It links the visible cause (sun, moon) with its visible effect (night, day), reinforcing that both together are signs of one Creator&rsquo;s design", "It has no particular significance and is simply poetic style", "It suggests the sun and moon are more powerful than night and day", "It implies night and day exist independently of the sun and moon"],
+    correct:0, explain:"By naming both the cycle (night/day) and its visible causes (sun/moon) together, the verse presents a complete, connected system as evidence of deliberate design by a single Creator." },
+
+  { id:"1-1--signs-in-the-night-and-day--q17", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Which of these statements about 41:37 is FALSE?",
+    choices:["It commands Muslims to prostrate to Allah rather than the sun or moon.", "It describes the night, day, sun, and moon as signs (ayat) of Allah.", "It narrates the story of a Prophet debating with his people about idols.", "It appears in Surah Fussilat."],
+    correct:2, explain:"This verse contains no narrative about a Prophet debating his people — that description matches Surah al-An&rsquo;am 6:75–79 (Ibrahim&rsquo;s story), a different passage entirely." },
+
+  { id:"1-1--signs-in-the-night-and-day--q18", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Why might examiners consider it important that candidates quote or closely paraphrase &ldquo;do not prostrate to the sun or to the moon&rdquo;?",
+    choices:["Because it is the verse&rsquo;s most specific and distinctive content, showing genuine knowledge of this exact passage", "Because exact quotation is worth double marks automatically", "Because paraphrasing is against the exam rules", "Because the phrase does not actually appear in the verse"],
+    correct:0, explain:"This specific prohibition is what most clearly identifies this passage and distinguishes it from more general &ldquo;signs in creation&rdquo; statements elsewhere in the Qur&rsquo;an — examiners look for this level of detail." },
+
+  { id:"1-1--signs-in-the-night-and-day--q19", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"What does the verse suggest about people who claim to worship Allah but still give special reverence to celestial objects or omens?",
+    choices:["Their claim to true worship of Allah is called into question by the verse&rsquo;s closing condition", "The verse fully approves of this dual practice", "The verse does not address this situation at all", "The verse only addresses this for non-Muslims"],
+    correct:0, explain:"The verse&rsquo;s closing phrase, &ldquo;if it is Him that you [truly] worship,&rdquo; directly challenges any inconsistency between claiming to worship Allah and still reverencing created things." },
+
+  { id:"1-1--signs-in-the-night-and-day--q20", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"How does Ibn Kathir explain the phrase &ldquo;your worship of Him will be of no benefit to you if you worship others alongside Him&rdquo;?",
+    choices:["Worship must be entirely exclusive to Allah; mixing it with worship of anything else invalidates its benefit", "Worship of Allah is only beneficial if performed in a mosque", "Any amount of worship, however mixed with other practices, is equally valid", "It refers only to worship performed during daylight hours"],
+    correct:0, explain:"Ibn Kathir stresses that worship must be given exclusively to Allah — combining it with worship of anything else (shirk) removes its value entirely." },
+
+  { id:"1-1--signs-in-the-night-and-day--q21", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Which of the following daily experiences does this verse most directly draw on as evidence for its argument?",
+    choices:["The regular, observable cycle of night, day, sunrise, and sunset", "The experience of fasting during Ramadan", "The experience of performing Hajj", "The experience of giving Zakat"],
+    correct:0, explain:"The verse&rsquo;s evidence is built entirely from the ordinary, universally observable cycle of night and day and the movement of the sun and moon." },
+
+  { id:"1-1--signs-in-the-night-and-day--q22", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"If a student is asked to explain &ldquo;the importance of this theme in a Muslim&rsquo;s life today&rdquo; for 41:37, which answer best fits the passage&rsquo;s specific content?",
+    choices:["It reminds Muslims daily, through the sunrise and sunset they see every day, that even the most powerful visible things are still only creation", "It reminds Muslims to fast every Monday and Thursday", "It reminds Muslims to give a fixed percentage of wealth in charity", "It reminds Muslims to perform Hajj once in their lifetime"],
+    correct:0, explain:"A strong answer ties the &ldquo;importance today&rdquo; directly to the verse&rsquo;s specific content: the daily, visible cycle of sun/moon/night/day as a constant, built-in reminder against misplaced worship." },
+
+  { id:"1-1--signs-in-the-night-and-day--q23", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"What comes immediately before the command not to prostrate to the sun or moon in this verse?",
+    choices:["The statement that night, day, sun, and moon are among Allah&rsquo;s signs", "A description of the Day of Judgement", "A list of the Prophet&rsquo;s companions", "A description of Paradise"],
+    correct:0, explain:"The verse first names night, day, sun, and moon as signs (ayat) of Allah, and then immediately gives the command not to prostrate to the sun or moon." },
+
+  { id:"1-1--signs-in-the-night-and-day--q24", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Which of these is the most accurate paraphrase of the verse&rsquo;s overall message?",
+    choices:["Created things, however impressive or reliable, must never be given the worship that belongs to their Creator alone", "All natural phenomena should be avoided by believers", "The sun and moon have no relationship to Allah&rsquo;s power", "Prostration is optional in Islamic worship"],
+    correct:0, explain:"The verse&rsquo;s core message is that the sun and moon — despite their power and reliability — are created and must never receive the worship reserved for Allah alone." },
+
+  { id:"1-1--signs-in-the-night-and-day--q25", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"signs-in-the-night-and-day",
+    q:"Surah Fussilat is also known by which alternative name, sometimes seen in translations or commentaries?",
+    choices:["Ha-Mim Sajdah", "Al-Isra", "Al-Ma&rsquo;un", "Al-Falaq"],
+    correct:0, explain:"Surah Fussilat (41) is also referred to as Ha-Mim Sajdah in some classical and translated sources, due to its opening letters and a prostration verse within it." },
+
   { id:"1-1--allahs-sovereignty-and-mercy--q1", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
     q:"In Surah ash-Shura 42:4, which two names of Allah are given to describe His supreme authority?",
     choices:["Al-Hayy and Al-Qayyum", "Al-&rsquo;Aliyy (Most High) and Al-&rsquo;Azim (Most Great)", "Ar-Razzaq and Al-Wahhab", "As-Salam and Al-Mu&rsquo;min"],
@@ -4816,6 +5106,106 @@ window.QUESTION_BANK = [
     q:"What is the Prophet&rsquo;s role described as, according to Ibn Kathir&rsquo;s reading of this passage&rsquo;s wider context?",
     choices:["To warn and convey the message; the management of all affairs belongs to Allah", "To forgive sins on Allah&rsquo;s behalf", "To judge people on the Day of Resurrection", "To control when the heavens tremble"],
     correct:0, explain:"Ibn Kathir clarifies that the Prophet&rsquo;s role is only to warn humanity; Allah alone manages all affairs as the ultimate authority." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q6", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Why, according to Ibn Kathir, do the angels ask forgiveness for people on earth rather than for themselves?",
+    choices:["Because the angels do not sin; their intercession is on humanity&rsquo;s behalf, by Allah&rsquo;s permission", "Because angels are unable to speak to Allah directly", "Because only some angels are permitted to worship", "Because this request only occurs once a year"],
+    correct:0, explain:"Ibn Kathir explains that since angels do not commit sin, their request for forgiveness is an act of intercession specifically on behalf of human beings, and only occurs by Allah&rsquo;s permission." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q7", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Which surah contains this passage about the heavens and the angels&rsquo; intercession?",
+    choices:["Surah al-Fatihah", "Surah ash-Shura", "Surah al-Kawthar", "Surah an-Nas"],
+    correct:1, explain:"This passage is verses 4–5 of Surah ash-Shura (&ldquo;Consultation&rdquo;)." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q8", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"What does verse 4&rsquo;s opening statement, &ldquo;To Him belongs all that is in the heavens and the earth,&rdquo; establish about Allah?",
+    choices:["His complete ownership and sovereignty over all creation", "That He shares ownership with the angels", "That His dominion is limited to the earth only", "That ownership will pass to humanity on the Day of Judgement"],
+    correct:0, explain:"This opening phrase is a direct statement of Allah&rsquo;s complete and exclusive ownership over everything that exists, in the heavens and on earth alike." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q9", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"How does this passage&rsquo;s structure move from majesty to mercy?",
+    choices:["It begins with Allah&rsquo;s total ownership and greatness, then moves to the heavens&rsquo; awe, and closes with the angels&rsquo; plea for forgiveness and Allah&rsquo;s mercy", "It begins with a story about a Prophet and ends with a law", "It only discusses mercy, with no mention of majesty", "It only discusses majesty, with no mention of mercy"],
+    correct:0, explain:"The passage&rsquo;s structure deliberately pairs overwhelming majesty (ownership, &ldquo;Most High, Most Great,&rdquo; the trembling heavens) with reassurance of mercy (angels seeking forgiveness, &ldquo;Oft-Forgiving, Most Merciful&rdquo;)." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q10", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"&ldquo;Tekadu as-samawatu yatafattarna min fawqihinna&rdquo; is best translated as which phrase in this passage?",
+    choices:["&ldquo;The heavens are almost torn apart from above them&rdquo;", "&ldquo;The heavens praise Allah forever&rdquo;", "&ldquo;The heavens will end on Judgement Day&rdquo;", "&ldquo;The heavens contain seven levels&rdquo;"],
+    correct:0, explain:"This is the Arabic phrase behind &ldquo;the heavens are almost torn asunder from above them,&rdquo; describing the heavens&rsquo; awe before Allah&rsquo;s majesty." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q11", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Why is this passage considered one of the &ldquo;under-revised&rdquo; passages according to past-paper frequency data?",
+    choices:["Because it has appeared as an exam option only twice in the last ten years, compared to passages like Ayat al-Kursi (six times)", "Because it has never been tested", "Because it is not part of the official syllabus", "Because it is identical in content to Ayat al-Kursi"],
+    correct:0, explain:"Past-paper mapping shows this passage appeared only twice (May/June 2021 and May/June 2025) in the last decade, making it a lower-frequency but still fully examinable passage." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q12", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"A student writes: &ldquo;This passage says angels ask forgiveness for themselves because they occasionally sin.&rdquo; What is wrong with this statement?",
+    choices:["Angels are understood in Islamic teaching not to sin; the angels&rsquo; request for forgiveness in this verse is specifically for people on earth", "Nothing is wrong; this is an accurate description", "The verse says angels ask forgiveness for the Prophet only", "The verse does not mention angels at all"],
+    correct:0, explain:"The verse and Ibn Kathir&rsquo;s tafsir are clear that the angels ask forgiveness on behalf of people on earth, not for themselves, since angels do not commit sin." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q13", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"What is the overall theological pairing this passage is best known for illustrating?",
+    choices:["Allah&rsquo;s majesty and power alongside His mercy and forgiveness", "The five daily prayers and their timings", "The difference between Makki and Madani surahs", "The rules of halal and haram food"],
+    correct:0, explain:"This passage is notable for holding together two seemingly contrasting ideas — Allah&rsquo;s overwhelming greatness and His constant mercy — within the same short passage." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q14", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Which of the following would be the strongest way to explain &ldquo;importance in a Muslim&rsquo;s life today&rdquo; for this passage in an exam answer?",
+    choices:["Explaining that it offers both awe of Allah&rsquo;s power and hope in His mercy, encouraging believers to seek forgiveness rather than despair", "Simply repeating the verse&rsquo;s wording with no explanation", "Focusing only on the geography of the heavens", "Describing unrelated historical events"],
+    correct:0, explain:"A strong answer connects the passage&rsquo;s specific pairing of majesty and mercy to a believer&rsquo;s emotional and spiritual response — awe balanced with hope, rather than fear alone." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q15", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"What does the phrase &ldquo;Ala inna Allaha huwa al-Ghafooru ar-Raheem&rdquo; (verse 5&rsquo;s closing) function as within the passage?",
+    choices:["A reassuring conclusion, confirming Allah&rsquo;s forgiveness and mercy despite the awe described just before it", "A warning of punishment for disbelievers", "A description of the Day of Judgement&rsquo;s timing", "An instruction about how to perform Hajj"],
+    correct:0, explain:"This closing phrase — &ldquo;Indeed, Allah is the Oft-Forgiving, the Most Merciful&rdquo; — reassures the reader that mercy is central to Allah&rsquo;s nature, even after describing the heavens trembling in awe." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q16", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Which of these best distinguishes this passage from Ayat al-Kursi (2:255), despite both describing Allah&rsquo;s greatness?",
+    choices:["This passage explicitly highlights Allah&rsquo;s mercy and forgiveness through the angels&rsquo; intercession; Ayat al-Kursi focuses more on His unceasing knowledge, life, and preservation of creation", "They are functionally identical with no distinguishing content", "Only Ayat al-Kursi mentions Allah&rsquo;s ownership of the heavens and earth", "Only this passage mentions Allah&rsquo;s names"],
+    correct:0, explain:"While both passages describe Allah&rsquo;s majesty, this passage (42:4–5) uniquely foregrounds His mercy through the image of angels seeking forgiveness for humanity, a theme not present in Ayat al-Kursi." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q17", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"What does the phrase &ldquo;wa huwa al-&rsquo;Aliyy al-&rsquo;Azim&rdquo; contribute to verse 4&rsquo;s meaning?",
+    choices:["It reinforces Allah&rsquo;s supreme authority and majesty immediately after stating His total ownership", "It describes the physical size of the heavens", "It refers to a specific angel&rsquo;s name", "It is unrelated to the rest of the verse"],
+    correct:0, explain:"Following the statement of Allah&rsquo;s ownership of the heavens and earth, &ldquo;He is the Most High, the Most Great&rdquo; reinforces His supreme authority and majesty." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q18", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"In the two sessions where this passage was tested (May/June 2021 and May/June 2025), which other passages were offered alongside it?",
+    choices:["Surah 41:37 and Surah 2:21–22 (2021); Surah 2:255 and Surah 6:75–79 (2025)", "Surah 1 and Surah 112, in both sessions", "Surah 93 and Surah 108, in both sessions", "Surah 2:30–37 and Surah 5:110, in both sessions"],
+    correct:0, explain:"According to the past-paper mapping, May/June 2021 offered 41:37, 42:4–5, and 2:21–22; May/June 2025 offered 2:255, 42:4–5, and 6:75–79." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q19", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Which of the following is the best single-sentence theme statement for this passage?",
+    choices:["Allah&rsquo;s absolute sovereignty and majesty are held together with His constant mercy and readiness to forgive", "Allah created the heavens and earth in six days", "The angels were created before Adam", "Prayer must be performed facing the Ka&rsquo;bah", "The Qur&rsquo;an was revealed over 23 years"],
+    correct:0, explain:"This is the passage&rsquo;s central theme: the pairing of Allah&rsquo;s overwhelming greatness with His ongoing mercy toward creation." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q20", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"What role do angels play throughout this passage, according to Ibn Kathir&rsquo;s tafsir?",
+    choices:["Glorifying Allah&rsquo;s praise and interceding by asking forgiveness for people on earth, by His permission", "Recording every human being&rsquo;s deeds in a book", "Delivering revelation directly to ordinary people", "Punishing disbelievers on Allah&rsquo;s behalf during this life"],
+    correct:0, explain:"The angels in this passage are described specifically as glorifying Allah and seeking forgiveness for humanity — a distinct role from recording deeds or delivering revelation, which appear elsewhere in Islamic teaching." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q21", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"How might a Muslim use this passage specifically to respond to feelings of hopelessness after committing a sin?",
+    choices:["By recalling that alongside Allah&rsquo;s overwhelming greatness, His mercy is described as constant and readily available through forgiveness", "By concluding that Allah&rsquo;s mercy applies only to angels, not humans", "By assuming forgiveness is automatic regardless of repentance", "By avoiding prayer until the sin is forgotten"],
+    correct:0, explain:"The passage&rsquo;s explicit pairing of majesty with mercy is often drawn on precisely to counter feelings of hopelessness, reassuring believers that Allah&rsquo;s forgiveness is real and constant." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q22", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"What does &ldquo;yusabbihuna bihamdi rabbihim&rdquo; mean in the context of this passage?",
+    choices:["&ldquo;They [the angels] glorify the praise of their Lord&rdquo;", "&ldquo;They fear their Lord&rsquo;s punishment&rdquo;", "&ldquo;They question their Lord&rsquo;s decisions&rdquo;", "&ldquo;They rest from worship&rdquo;"],
+    correct:0, explain:"This phrase describes the angels continuously glorifying and praising their Lord, immediately before the mention of their seeking forgiveness for people on earth." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q23", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Why might examiners consider this passage a good opportunity for candidates to stand out, according to the Exam Lab note?",
+    choices:["Because it is under-revised relative to more frequently tested passages, so well-prepared candidates can outperform their peers when it appears", "Because it is worth more marks than other passages", "Because it is the only passage that requires Arabic recitation", "Because it cannot be selected as one of the &ldquo;any two&rdquo; choices"],
+    correct:0, explain:"Since this passage is tested less often, many candidates under-prepare it — meaning a candidate who has studied it thoroughly has a real advantage when it does appear as an option." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q24", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Which of these correctly completes the passage&rsquo;s logical flow: Ownership (v.4) → Majesty (v.4) → ? → Mercy (v.5)",
+    choices:["The heavens trembling in awe (v.5)", "A description of the Day of Judgement", "The story of a Prophet&rsquo;s migration", "A list of the Ten Commandments"],
+    correct:0, explain:"The passage&rsquo;s flow moves from Allah&rsquo;s ownership and majesty (verse 4) to the heavens trembling in awe (verse 5, first half) and then to His mercy shown through the angels&rsquo; intercession (verse 5, second half)." },
+
+  { id:"1-1--allahs-sovereignty-and-mercy--q25", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"allahs-sovereignty-and-mercy",
+    q:"Which of the following statements about Surah ash-Shura 42:4–5 is FALSE?",
+    choices:["It states that everything in the heavens and earth belongs to Allah.", "It describes angels asking forgiveness for people on earth.", "It narrates the Prophet&rsquo;s first revelation in the Cave of Hira.", "It closes by affirming Allah as Oft-Forgiving and Most Merciful."],
+    correct:2, explain:"The account of the first revelation in the Cave of Hira belongs to Surah al-Alaq 96:1–5, a different passage — not to Surah ash-Shura 42:4–5." },
 
   { id:"1-1--absolute-oneness-al-ikhlas--q1", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
     q:"What event prompted the revelation of Surah al-Ikhlas, according to Ibn Kathir (citing Ikrimah)?",
@@ -4846,6 +5236,111 @@ window.QUESTION_BANK = [
     q:"How many verses does Surah al-Ikhlas contain?",
     choices:["2", "3", "4", "7"],
     correct:2, explain:"Surah al-Ikhlas has 4 verses, making it one of the shortest chapters in the Qur&rsquo;an — yet, per hadith, equal in weight to a third of the entire text." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q7", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Which narrator is credited with recording the Prophet&rsquo;s statement in Sahih al-Bukhari that this surah equals a third of the Qur&rsquo;an?",
+    choices:["Abu Sa&rsquo;id al-Khudri", "Ibn Abbas", "Bilal ibn Rabah", "Khadijah bint Khuwaylid"],
+    correct:0, explain:"Sahih al-Bukhari (5015) records this hadith on the authority of Abu Sa&rsquo;id al-Khudri." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q8", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Which narrator is credited with a parallel hadith on the same subject in Sahih Muslim?",
+    choices:["Abu Hurayrah", "Umar ibn al-Khattab", "Fatimah bint Muhammad", "Zaid ibn Thabit"],
+    correct:0, explain:"Sahih Muslim (812a) records this hadith on the authority of Abu Hurayrah." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q9", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Why is Surah al-Ikhlas considered to summarise a full third of the Qur&rsquo;an&rsquo;s content, according to the traditional explanation?",
+    choices:["Because the Qur&rsquo;an&rsquo;s content is traditionally divided into knowledge of Allah, laws, and stories, and this surah covers the first entirely", "Because it contains exactly one-third of the Qur&rsquo;an&rsquo;s total word count", "Because it was the third surah ever revealed", "Because it takes one-third as long to recite as the whole Qur&rsquo;an"],
+    correct:0, explain:"The traditional explanation is thematic, not literal: since the Qur&rsquo;an broadly covers knowledge of Allah, legal rulings, and narratives, and this surah covers the first category (Tawheed) completely, it is described as equalling a third." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q10", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Which group, according to Ikrimah&rsquo;s report, claimed that Ezra (&rsquo;Uzayr) was Allah&rsquo;s son?",
+    choices:["Some Jews of Madinah", "The Christians of Najran", "The Zoroastrians of Persia", "The Quraysh of Makkah"],
+    correct:0, explain:"Ikrimah&rsquo;s report, recorded by Ibn Kathir, attributes the claim about Ezra specifically to some Jews of Madinah." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q11", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"What does the final verse of Surah al-Ikhlas (&ldquo;wa lam yakun lahu kufuwan ahad&rdquo;) state?",
+    choices:["That there is nothing comparable or equal to Allah in any respect", "That Allah has exactly one equal among the angels", "That Allah&rsquo;s attributes change over time", "That creation shares some qualities with Allah"],
+    correct:0, explain:"This closing verse rules out any equal, likeness, or comparison to Allah whatsoever." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q12", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Why does Ibn Kathir emphasise that As-Samad describes a Master &ldquo;perfect in sovereignty, nobility, magnificence, forbearance, knowledge, and wisdom&rdquo;?",
+    choices:["To show that As-Samad is not just about being &ldquo;depended upon&rdquo; but also about total perfection in every quality", "To argue that As-Samad only applies to earthly kings", "To suggest Allah&rsquo;s qualities are limited to these six alone", "To connect As-Samad to the Day of Judgement specifically"],
+    correct:0, explain:"Ibn Kathir&rsquo;s fuller explanation shows As-Samad encompasses both being depended upon by all creation and possessing total perfection across every conceivable quality." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q13", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Which of the following best distinguishes &ldquo;Al-Ahad&rdquo; from &ldquo;As-Samad&rdquo; as used in this surah?",
+    choices:["Al-Ahad emphasises Allah&rsquo;s uniqueness (no partner); As-Samad emphasises His being needed by all creation while needing nothing Himself", "They are exact synonyms with no difference in meaning", "Al-Ahad refers to creation; As-Samad refers to Allah", "As-Samad is used only in relation to the angels"],
+    correct:0, explain:"While related, these are distinct concepts: Al-Ahad focuses on Allah&rsquo;s singular uniqueness, while As-Samad focuses on His self-sufficiency and creation&rsquo;s total dependence on Him." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q14", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"A candidate&rsquo;s exam answer says only: &ldquo;This surah is about Tawheed.&rdquo; Why might this alone receive limited credit?",
+    choices:["It is too vague — a strong answer should name and briefly explain both Al-Ahad and As-Samad, not just the general label &ldquo;Tawheed&rdquo;", "It is completely wrong and receives no credit", "&ldquo;Tawheed&rdquo; is not related to this surah at all", "The answer is already detailed enough for full marks"],
+    correct:0, explain:"Examiners want candidates to unpack the specific content (Al-Ahad, As-Samad, no offspring, no equal), not just state the general theme label without explanation." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q15", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Surah al-Ikhlas is widely taught to Muslim children early in their religious education mainly because of what?",
+    choices:["Its short length and its direct, memorable summary of Tawheed, reinforced by its &ldquo;one-third of the Qur&rsquo;an&rdquo; status", "It contains detailed legal rulings about marriage", "It describes the Battle of Uhud", "It is the longest surah in the Qur&rsquo;an"],
+    correct:0, explain:"Its brevity, clarity, and the well-known hadith about its virtue make it one of the first surahs commonly taught to children as a foundation for understanding Tawheed." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q16", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Which of these claims about Allah&rsquo;s nature does Surah al-Ikhlas NOT directly address?",
+    choices:["Whether Allah has offspring", "Whether Allah has any equal", "The specific date the Qur&rsquo;an began to be revealed", "Whether Allah depends on creation or creation depends on Him"],
+    correct:2, explain:"Surah al-Ikhlas addresses Allah&rsquo;s oneness, self-sufficiency, and freedom from offspring or equals — it does not mention any date of revelation." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q17", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"How does Surah al-Ikhlas&rsquo;s method of describing Allah (mostly through negation — &ldquo;not begotten,&rdquo; &ldquo;no equal&rdquo;) compare with Ayat al-Kursi&rsquo;s method?",
+    choices:["Ayat al-Kursi mostly describes Allah through positive attributes (Ever-Living, All-Knowing); Al-Ikhlas relies more heavily on ruling out false ideas", "Both surahs use exactly the same method with no differences", "Ayat al-Kursi uses only negation; Al-Ikhlas uses only positive description", "Neither surah discusses Allah&rsquo;s nature at all"],
+    correct:0, explain:"Ayat al-Kursi builds its picture of Allah mainly through positive statements of His attributes, while Al-Ikhlas leans more on ruling out incorrect ideas (no offspring, no equal) alongside its positive names (Ahad, Samad)." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q18", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"What is the significance of the surah opening with the command &ldquo;Say&rdquo; (Qul)?",
+    choices:["It frames the surah as a direct, prepared answer for the Prophet to give in response to being asked about Allah&rsquo;s nature", "It indicates the surah must only be recited silently", "It means only the Prophet, and no one else, may ever recite this surah", "It has no particular significance"],
+    correct:0, explain:"The word &ldquo;Qul&rdquo; (&ldquo;Say&rdquo;) reflects that this surah was revealed specifically as an answer for the Prophet to state directly in response to questions about Allah&rsquo;s nature." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q19", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"If a Muslim wanted a single surah to memorise as the clearest, shortest statement of Tawheed, which of the 15 set passages in this topic would be the most direct match?",
+    choices:["Surah al-Ikhlas (112)", "Surah 93 (Ad-Duha)", "Surah 5:110", "Surah 2:30–37"],
+    correct:0, explain:"Among all 15 passages, Al-Ikhlas is the shortest and most directly focused purely on stating Allah&rsquo;s essential nature (Tawheed), making it the clearest match for this purpose." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q20", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Which of these correctly identifies the surah number and total verse count of Al-Ikhlas?",
+    choices:["Surah 112, 4 verses", "Surah 108, 3 verses", "Surah 114, 6 verses", "Surah 1, 7 verses"],
+    correct:0, explain:"Surah al-Ikhlas is chapter 112 of the Qur&rsquo;an and contains 4 verses." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q21", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"According to Ikrimah&rsquo;s account, which group is linked to worship of celestial bodies among those who prompted this surah&rsquo;s revelation?",
+    choices:["The Zoroastrians", "The Christians", "The Jews of Madinah", "The Sabians of Iraq"],
+    correct:0, explain:"Ikrimah&rsquo;s report, as recorded by Ibn Kathir, links the Zoroastrians to worship of celestial bodies among the groups whose false beliefs this surah responds to." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q22", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Why might examiners specifically reward a candidate who explains WHY Al-Ikhlas was revealed (the occasion of revelation), not just what it says?",
+    choices:["Because understanding the occasion of revelation shows the passage is a direct, historically grounded answer to real claims, deepening the explanation of its importance", "Because the occasion of revelation is worth separate, additional marks under a different question entirely", "Because the content of the surah cannot be understood without it", "Because examiners never ask about content, only context"],
+    correct:0, explain:"While not always required, explaining the occasion of revelation strengthens an answer by grounding the surah&rsquo;s message in a specific historical context, showing deeper understanding." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q23", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Which of the following is the most accurate summary of the surah&rsquo;s overall theme?",
+    choices:["Allah&rsquo;s absolute, unique oneness — with no partner, no offspring, and no equal", "The importance of charity toward orphans", "The events of the Day of Judgement", "The story of the Prophet&rsquo;s night journey"],
+    correct:0, explain:"The surah&rsquo;s entire four verses build toward a single, unified theme: Allah&rsquo;s complete and unmatched oneness." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q24", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"In the two sessions this passage was tested in the last decade (Oct/Nov 2021 and Oct/Nov 2023), which passages was it paired with as options?",
+    choices:["Surah 1 and Surah 108 (2021); Surah 2:255 and Surah 1 (2023)", "Surah 93 and Surah 96:1–5, in both sessions", "Surah 2:30–37 and Surah 6:75–79, in both sessions", "Surah 5:110 and Surah 99, in both sessions"],
+    correct:0, explain:"According to the past-paper mapping, Oct/Nov 2021 offered 112, 1, and 108; Oct/Nov 2023 offered 2:255, 112, and 1." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q25", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"Which of these statements about Surah al-Ikhlas is FALSE?",
+    choices:["It states that Allah is Ahad (One).", "It states that Allah neither begets nor was begotten.", "It describes the earth being shaken on the Day of Judgement.", "It is recorded in hadith as equal to a third of the Qur&rsquo;an."],
+    correct:2, explain:"The description of the earth being shaken on the Day of Judgement belongs to Surah az-Zalzalah (99), a different passage — not to Surah al-Ikhlas." },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q26", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"According to the hadith in Sahih al-Bukhari (774) and Sahih Muslim (813), why did the Prophet (pbuh) say Allah loved a particular companion?",
+    choices:["Because that companion always ended his prayer recitation with Surah al-Ikhlas, out of love for its description of Allah", "Because he had memorised the whole Qur&rsquo;an", "Because he had migrated to Madinah first", "Because he had freed the most slaves"],
+    correct:0, explain:"A man from the Ansar always closed his recitation in prayer with Surah al-Ikhlas because he loved what it said about Allah; when this was reported to the Prophet (pbuh), he said, &ldquo;Inform him that Allah loves him.&rdquo;" },
+
+  { id:"1-1--absolute-oneness-al-ikhlas--q27", paper:"paper-1", topic:"topic-1", unit:"1-1", lesson:"absolute-oneness-al-ikhlas",
+    q:"According to a hadith recorded in Musnad Ahmad and graded sahih by Al-Albani, what is promised to whoever recites Surah al-Ikhlas ten times?",
+    choices:["Allah will build him a palace in Paradise", "All his family members will enter Paradise with him", "He will be forgiven for major sins without repentance", "He will be granted the status of a prophet&rsquo;s companion"],
+    correct:0, explain:"The Prophet (pbuh) said, &ldquo;Whoever recites Qul Huwa Allahu Ahad ten times, Allah will build for him a palace in Paradise&rdquo; — recorded in Musnad Ahmad and graded sahih by Al-Albani in Silsilat al-Ahadith as-Sahihah." },
 
   { id:"1-2--al-fatihah-the-opening--q1", paper:"paper-1", topic:"topic-1", unit:"1-2", lesson:"al-fatihah-the-opening",
     q:"How many verses does Surah al-Fatihah contain?",
