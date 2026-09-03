@@ -43,6 +43,11 @@
   var THEME_KEY = "islamiyat-theme";
   var NUDGE_SNOOZE_KEY = "islamiyat-nudge-snooze-until";
   var NUDGE_POPUP_SESSION_KEY = "islamiyat-nudge-popup-shown";
+  /* In-progress (unfinished) attempts, keyed by assessment id. Lets a quiz
+     resume exactly where it was — same questions, same order, same answers
+     so far — after a page reload, e.g. the full-page redirect a Google
+     sign-in triggers mid-attempt. Cleared as soon as the attempt finishes. */
+  var IN_PROGRESS_KEY = "islamiyat-inprogress";
   /* Pages that already carry an inline nudge banner of their own —
      skip the floating popup there so a signed-out student never sees both. */
   var PAGES_WITH_INLINE_NUDGE = { quiz:1, "unit-test":1, "topic-challenge":1, "paper-challenge":1, progress:1 };
@@ -51,7 +56,17 @@
   var plan = loadJSON(PLAN_KEY, {});
   var deck = loadJSON(DECK_KEY, {});
   var history = loadJSON(HISTORY_KEY, []);
+  var inProgress = loadJSON(IN_PROGRESS_KEY, {});
   var pendingCloudPush = null;
+  function saveAttemptProgress(assessmentId, snapshot){
+    inProgress[assessmentId] = snapshot;
+    try{ localStorage.setItem(IN_PROGRESS_KEY, JSON.stringify(inProgress)); }catch(e){ /* ignore */ }
+  }
+  function clearAttemptProgress(assessmentId){
+    if(!inProgress[assessmentId]) return;
+    delete inProgress[assessmentId];
+    try{ localStorage.setItem(IN_PROGRESS_KEY, JSON.stringify(inProgress)); }catch(e){ /* ignore */ }
+  }
 
   /* =========================================================
      HISTORY — an append-only log of every graded attempt
@@ -71,10 +86,10 @@
   /* =========================================================
      ASSESSMENT ID PARSING + POOL BUILDING
      ========================================================= */
-  var PER_ATTEMPT = { practice:3, quiz:4, "unit-test":8, "topic-challenge":12, "paper-challenge":16 };
+  var PER_ATTEMPT = { practice:3, quiz:4, "unit-test":15, "topic-challenge":25, "paper-challenge":16 };
   /* Per-assessment overrides of PER_ATTEMPT, keyed by full assessment id.
      Used when one assessment's pool has outgrown the kind-wide default. */
-  var PER_ATTEMPT_OVERRIDE = { "unit-test--2-1": 15 };
+  var PER_ATTEMPT_OVERRIDE = {};
   var TRACKS_MASTERY = { practice:false, quiz:true, "unit-test":true, "topic-challenge":true, "paper-challenge":true };
   var KIND_LABEL = { practice:"Practice Quiz", quiz:"Quiz", "unit-test":"Unit Test", "topic-challenge":"Topic Challenge", "paper-challenge":"Paper Challenge" };
   var COMPLETION_XP = {
@@ -315,6 +330,14 @@
   function shouldShowNudge(){
     return !!supa && !currentUser && history.length > 0 && !nudgeSnoozed();
   }
+  /* Same "has something to lose" gate as shouldShowNudge, but also fires
+     mid-attempt once the student has answered at least one question in the
+     quiz/test/challenge currently on screen — otherwise a signed-out student
+     taking their very first assessment gets no warning at all until the
+     results screen, by which point a lost attempt is already lost. */
+  function shouldShowInProgressNudge(hasAnsweredCurrent){
+    return !!supa && !currentUser && !nudgeSnoozed() && (history.length > 0 || hasAnsweredCurrent);
+  }
   function nudgeBannerHTML(copy){
     return '<div class="nudge-banner" role="status">' +
       '<div class="nudge-copy"><strong>Keep this.</strong> ' + copy + '</div>' +
@@ -383,11 +406,13 @@
     plan = {};
     deck = {};
     history = [];
+    inProgress = {};
     try{ localStorage.removeItem(MASTERY_KEY); }catch(e){}
     try{ localStorage.removeItem(ANSWERED_KEY); }catch(e){}
     try{ localStorage.removeItem(PLAN_KEY); }catch(e){}
     try{ localStorage.removeItem(DECK_KEY); }catch(e){}
     try{ localStorage.removeItem(HISTORY_KEY); }catch(e){}
+    try{ localStorage.removeItem(IN_PROGRESS_KEY); }catch(e){}
   }
   function persistProgressState(){
     try{ localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
@@ -539,10 +564,13 @@
   }
 
   /* =========================================================
-     PROGRESS PAGE — renders the historic trend of every graded
-     attempt logged in `history`, broken down lesson by lesson
-     (Quiz attempts) plus a section for Unit Tests / Topic &
-     Paper Challenges. Only runs if #progressMount exists.
+     PROGRESS PAGE — a data-driven dashboard over the historic
+     trend of every graded attempt logged in `history`: headline
+     stat tiles, an accuracy-over-time chart, a study-activity
+     calendar, strengths/weaknesses ranked from the data, a
+     breakdown by assessment kind, and (unchanged in spirit) the
+     lesson-by-lesson detail list. Only runs if #progressMount
+     exists.
      ========================================================= */
   function sparkSVG(pcts, band){
     var w = 140, h = 36, pad = 4;
@@ -563,6 +591,11 @@
   function fmtDate(ts){
     try{ return new Date(ts).toLocaleDateString(undefined, { month:"short", day:"numeric" }); }catch(e){ return ""; }
   }
+  function fmtDeltaPP(delta){
+    var pp = Math.round(delta * 100);
+    if(Math.abs(pp) < 1) return { cls:"flat", text:"steady" };
+    return pp > 0 ? { cls:"up", text:"▲ +" + pp + "pp" } : { cls:"down", text:"▼ " + pp + "pp" };
+  }
   function trendRow(title, sub, entries){
     if(!entries.length){
       return '<div class="trend-row trend-row-empty"><div class="tl-info"><h4>' + title + '</h4><span class="tl-meta">' + sub + ' · not attempted yet</span></div></div>';
@@ -570,12 +603,285 @@
     var sorted = entries.slice().sort(function(a,b){ return a.ts - b.ts; });
     var latest = sorted[sorted.length - 1];
     var band = trendBandClass(latest.pct);
+    var deltaHtml = '<span class="trend-delta flat"></span>';
+    if(sorted.length > 1){
+      var d = fmtDeltaPP(latest.pct - sorted[sorted.length - 2].pct);
+      deltaHtml = '<span class="trend-delta ' + d.cls + '">' + d.text + '</span>';
+    }
     return '<div class="trend-row">' +
       '<div class="tl-info"><h4>' + title + '</h4><span class="tl-meta">' + sub + ' · ' + sorted.length + ' attempt' + (sorted.length === 1 ? "" : "s") + ' · last ' + fmtDate(latest.ts) + '</span></div>' +
       sparkSVG(sorted.map(function(e){ return e.pct; }), band) +
+      deltaHtml +
       '<span class="trend-pct ' + band + '">' + Math.round(latest.pct * 100) + '%</span>' +
       '</div>';
   }
+
+  /* ---- derived-data helpers ---- */
+  function dayKey(ts){
+    var d = new Date(ts);
+    return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+  }
+  function startOfDay(ts){
+    var d = new Date(ts);
+    d.setHours(0,0,0,0);
+    return d.getTime();
+  }
+  function computeStreak(){
+    var days = {};
+    history.forEach(function(h){ days[dayKey(h.ts)] = true; });
+    var oneDay = 86400000;
+    var cursor = startOfDay(Date.now());
+    if(!days[dayKey(cursor)]) cursor -= oneDay;
+    var streak = 0;
+    while(days[dayKey(cursor)]){ streak++; cursor -= oneDay; }
+    return streak;
+  }
+  function buildAssessmentMeta(){
+    var meta = {};
+    TREE.papers.forEach(function(paper){
+      paper.topics.forEach(function(topic){
+        if(topic.status !== "built" || !topic.units) return;
+        topic.units.forEach(function(unit){
+          unit.lessons.forEach(function(lesson){
+            meta["quiz--" + unit.id + "--" + lesson.id] = { title: lesson.title, sub: unit.num + " " + unit.title };
+          });
+          meta["unit-test--" + unit.id] = { title: "Unit Test", sub: unit.num + " " + unit.title };
+        });
+        meta["topic-challenge--" + topic.id] = { title: "Topic Challenge", sub: topic.num + " " + topic.title };
+      });
+      if(paper.challengeHref){
+        meta["paper-challenge--" + paper.id] = { title: "Paper Challenge", sub: paper.title };
+      }
+    });
+    return meta;
+  }
+  function groupByAssessment(entries){
+    var byId = {};
+    entries.forEach(function(h){ (byId[h.id] = byId[h.id] || []).push(h); });
+    Object.keys(byId).forEach(function(id){ byId[id].sort(function(a,b){ return a.ts - b.ts; }); });
+    return byId;
+  }
+  function computeAccuracySnapshot(byId){
+    var ids = Object.keys(byId);
+    if(!ids.length) return null;
+    var latestSum = 0, prevSum = 0;
+    ids.forEach(function(id){
+      var arr = byId[id];
+      var latest = arr[arr.length - 1].pct;
+      var prev = arr.length > 1 ? arr[arr.length - 2].pct : latest;
+      latestSum += latest; prevSum += prev;
+    });
+    return { current: latestSum / ids.length, delta: (latestSum - prevSum) / ids.length, count: ids.length };
+  }
+  function dailyBuckets(entries){
+    var byDay = {};
+    entries.forEach(function(h){
+      var k = dayKey(h.ts);
+      if(!byDay[k]) byDay[k] = { ts: startOfDay(h.ts), sum: 0, count: 0 };
+      byDay[k].sum += h.pct; byDay[k].count++;
+    });
+    return Object.keys(byDay).map(function(k){
+      var b = byDay[k];
+      return { ts: b.ts, pct: b.sum / b.count, count: b.count };
+    }).sort(function(a,b){ return a.ts - b.ts; });
+  }
+
+  /* ---- shared floating tooltip for the two headline charts ---- */
+  function ensureChartTooltip(){
+    var el = document.getElementById("chartTooltip");
+    if(!el){
+      el = document.createElement("div");
+      el.id = "chartTooltip";
+      el.className = "chart-tooltip";
+      el.hidden = true;
+      document.body.appendChild(el);
+    }
+    return el;
+  }
+  function showChartTooltip(x, y, html){
+    var el = ensureChartTooltip();
+    el.innerHTML = html;
+    el.hidden = false;
+    var pad = 14;
+    el.style.left = "0px"; el.style.top = "0px";
+    var rect = el.getBoundingClientRect();
+    var left = x + pad, top = y + pad;
+    if(left + rect.width > window.innerWidth - 8) left = x - rect.width - pad;
+    if(top + rect.height > window.innerHeight - 8) top = y - rect.height - pad;
+    el.style.left = left + "px";
+    el.style.top = top + "px";
+  }
+  function hideChartTooltip(){
+    var el = document.getElementById("chartTooltip");
+    if(el) el.hidden = true;
+  }
+
+  /* ---- accuracy-over-time chart (single-series line + area) ---- */
+  function accuracyTrendChart(buckets){
+    var w = 640, h = 150, padL = 6, padR = 6, padT = 14, padB = 6;
+    var pts0 = buckets.length === 1 ? [buckets[0], buckets[0]] : buckets;
+    var n = pts0.length;
+    var stepX = n > 1 ? (w - padL - padR) / (n - 1) : 0;
+    var pts = pts0.map(function(b, i){
+      return { x: padL + i*stepX, y: padT + (1 - b.pct) * (h - padT - padB), data: b };
+    });
+    var line = pts.map(function(p, i){ return (i===0?"M":"L") + p.x.toFixed(1) + "," + p.y.toFixed(1); }).join(" ");
+    var area = line + " L" + pts[pts.length-1].x.toFixed(1) + "," + (h-padB) + " L" + pts[0].x.toFixed(1) + "," + (h-padB) + " Z";
+    var last = pts[pts.length-1];
+    var svg = '<svg class="accuracy-trend-svg" viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none">' +
+      '<line class="chart-baseline" x1="' + padL + '" y1="' + (h-padB) + '" x2="' + (w-padR) + '" y2="' + (h-padB) + '"></line>' +
+      '<path class="chart-area" d="' + area + '"></path>' +
+      '<path class="chart-line" d="' + line + '"></path>' +
+      '<line class="chart-crosshair" x1="0" y1="' + padT + '" x2="0" y2="' + (h-padB) + '" style="display:none"></line>' +
+      '<circle class="chart-end-dot" cx="' + last.x.toFixed(1) + '" cy="' + last.y.toFixed(1) + '" r="4.5"></circle>' +
+      '</svg>';
+    return { svg: svg, pts: pts, w: w };
+  }
+  function wireAccuracyChart(card, chart){
+    var svg = card.querySelector(".accuracy-trend-svg");
+    if(!svg) return;
+    var crosshair = svg.querySelector(".chart-crosshair");
+    svg.addEventListener("pointermove", function(e){
+      var rect = svg.getBoundingClientRect();
+      if(!rect.width) return;
+      var xSvg = (e.clientX - rect.left) * (chart.w / rect.width);
+      var nearest = chart.pts[0], nearestDist = Infinity;
+      chart.pts.forEach(function(p){
+        var d = Math.abs(p.x - xSvg);
+        if(d < nearestDist){ nearestDist = d; nearest = p; }
+      });
+      crosshair.style.display = "";
+      crosshair.setAttribute("x1", nearest.x.toFixed(1));
+      crosshair.setAttribute("x2", nearest.x.toFixed(1));
+      var d2 = nearest.data;
+      var dateStr = "";
+      try{ dateStr = new Date(d2.ts).toLocaleDateString(undefined, { weekday:"short", month:"short", day:"numeric" }); }catch(e2){}
+      showChartTooltip(e.clientX, e.clientY,
+        '<strong>' + Math.round(d2.pct * 100) + '%</strong> avg accuracy<br>' +
+        '<span>' + dateStr + ' · ' + d2.count + ' attempt' + (d2.count === 1 ? "" : "s") + '</span>');
+    });
+    svg.addEventListener("pointerleave", function(){
+      crosshair.style.display = "none";
+      hideChartTooltip();
+    });
+  }
+
+  /* ---- study-activity heatmap (calendar, last 12 weeks) ---- */
+  function heatLevel(count){
+    if(!count) return 0;
+    if(count === 1) return 1;
+    if(count === 2) return 2;
+    if(count <= 4) return 3;
+    return 4;
+  }
+  function heatmapCard(dayBuckets){
+    var weeks = 12;
+    var oneDay = 86400000;
+    var byDay = {};
+    dayBuckets.forEach(function(b){ byDay[dayKey(b.ts)] = b; });
+    var today = startOfDay(Date.now());
+    var todayDow = new Date(today).getDay();
+    var end = today + (6 - todayDow) * oneDay;
+    var start = end - (weeks*7 - 1) * oneDay;
+    var cells = '';
+    for(var t = start; t <= end; t += oneDay){
+      var b = byDay[dayKey(t)];
+      var count = b ? b.count : 0;
+      var level = t > today ? -1 : heatLevel(count);
+      if(level < 0){
+        cells += '<div class="heat-cell" style="visibility:hidden;"></div>';
+        continue;
+      }
+      cells += '<div class="heat-cell" data-level="' + level + '" data-ts="' + t + '" data-count="' + count + '" data-pct="' + (b ? b.pct : 0) + '"></div>';
+    }
+    return '<div class="heatmap-grid">' + cells + '</div>' +
+      '<div class="heatmap-legend"><span>Less</span>' +
+      '<span class="heat-cell" data-level="0"></span><span class="heat-cell" data-level="1"></span>' +
+      '<span class="heat-cell" data-level="2"></span><span class="heat-cell" data-level="3"></span>' +
+      '<span class="heat-cell" data-level="4"></span><span>More</span></div>';
+  }
+  function wireHeatmap(card){
+    var grid = card.querySelector(".heatmap-grid");
+    if(!grid) return;
+    grid.addEventListener("pointerover", function(e){
+      var cell = e.target.closest ? e.target.closest(".heat-cell[data-ts]") : null;
+      if(!cell) return;
+      var count = +cell.getAttribute("data-count");
+      var dateStr = "";
+      try{ dateStr = new Date(+cell.getAttribute("data-ts")).toLocaleDateString(undefined, { weekday:"short", month:"short", day:"numeric" }); }catch(e2){}
+      var body = count
+        ? '<strong>' + Math.round(+cell.getAttribute("data-pct") * 100) + '%</strong> avg · ' + count + ' attempt' + (count === 1 ? "" : "s")
+        : '<strong>No attempts</strong>';
+      showChartTooltip(e.clientX, e.clientY, body + '<br><span>' + dateStr + '</span>');
+    });
+    grid.addEventListener("pointermove", function(e){
+      if(!ensureChartTooltip().hidden){
+        var cell = e.target.closest ? e.target.closest(".heat-cell[data-ts]") : null;
+        if(cell){ showChartTooltip(e.clientX, e.clientY, ensureChartTooltip().innerHTML); }
+      }
+    });
+    grid.addEventListener("pointerout", function(e){
+      if(e.target.closest && e.target.closest(".heat-cell")) hideChartTooltip();
+    });
+  }
+
+  /* ---- breakdown by assessment kind ---- */
+  var KIND_ORDER = ["quiz","unit-test","topic-challenge","paper-challenge"];
+  function kindBreakdownHTML(){
+    var byKind = {};
+    history.forEach(function(h){ (byKind[h.kind] = byKind[h.kind] || []).push(h); });
+    var rows = KIND_ORDER.filter(function(k){ return byKind[k] && byKind[k].length; }).map(function(k){
+      var byId = groupByAssessment(byKind[k]);
+      var ids = Object.keys(byId);
+      var avg = ids.reduce(function(s, id){ var a = byId[id]; return s + a[a.length-1].pct; }, 0) / ids.length;
+      return { kind: k, label: KIND_LABEL[k], avg: avg, attempts: byKind[k].length, assessments: ids.length };
+    });
+    if(!rows.length) return '';
+    var html = '<p class="eyebrow trend-section-title">Breakdown by assessment kind</p><div class="kind-bars">';
+    rows.forEach(function(r){
+      var band = trendBandClass(r.avg);
+      var pct = Math.round(r.avg * 100);
+      html += '<div class="kind-bar-row">' +
+        '<div class="kind-bar-label"><b>' + r.label + '</b><span>' + r.assessments + ' assessment' + (r.assessments===1?"":"s") + ' · ' + r.attempts + ' attempt' + (r.attempts===1?"":"s") + '</span></div>' +
+        '<div class="kind-bar-track"><div class="kind-bar-fill ' + band + (pct >= 99 ? ' full' : '') + '" style="width:' + Math.max(pct, 2) + '%"></div></div>' +
+        '<span class="kind-bar-pct">' + pct + '%</span>' +
+        '</div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  /* ---- strengths & weaknesses, ranked from the data ---- */
+  function strengthsWeaknessesHTML(meta){
+    var trackedKinds = { quiz:1, "unit-test":1, "topic-challenge":1, "paper-challenge":1 };
+    var byId = groupByAssessment(history.filter(function(h){ return trackedKinds[h.kind]; }));
+    var ids = Object.keys(byId);
+    if(ids.length < 2) return '';
+    var rows = ids.map(function(id){
+      var arr = byId[id];
+      var latest = arr[arr.length - 1];
+      return { id: id, meta: meta[id] || { title: id, sub: "" }, arr: arr, latestPct: latest.pct };
+    }).filter(function(r){ return !!meta[r.id]; });
+
+    var weakest = rows.slice().sort(function(a,b){ return a.latestPct - b.latestPct; }).slice(0, 4);
+    var strongest = rows.slice().sort(function(a,b){ return b.latestPct - a.latestPct; }).slice(0, 4);
+
+    function cardHTML(r){
+      var band = trendBandClass(r.latestPct);
+      return '<div class="sw-card">' +
+        '<div class="tl-info"><h4>' + r.meta.title + '</h4><span class="tl-meta">' + r.meta.sub + ' · ' + r.arr.length + ' attempt' + (r.arr.length===1?"":"s") + '</span></div>' +
+        sparkSVG(r.arr.map(function(e){ return e.pct; }), band) +
+        '<span class="trend-pct ' + band + '">' + Math.round(r.latestPct * 100) + '%</span>' +
+        '</div>';
+    }
+    return '<div class="sw-grid">' +
+      '<div class="sw-col"><h3>Needs another pass</h3><p class="sw-hint">Lowest scoring on your latest attempt</p>' +
+        '<div class="sw-list">' + weakest.map(cardHTML).join("") + '</div></div>' +
+      '<div class="sw-col"><h3>Trending strong</h3><p class="sw-hint">Highest scoring on your latest attempt</p>' +
+        '<div class="sw-list">' + strongest.map(cardHTML).join("") + '</div></div>' +
+      '</div>';
+  }
+
   function renderProgressPage(){
     var mount = document.getElementById("progressMount");
     if(!mount) return;
@@ -594,15 +900,44 @@
       html += nudgeBannerHTML("This history lives on this device only — sign in with Google to carry it across devices, or to stop worrying about clearing your browser.");
     }
 
-    html += '<div class="trend-overall">' +
-      sparkSVG(history.slice().sort(function(a,b){ return a.ts-b.ts; }).map(function(e){ return e.pct; }), trendBandClass(history[history.length-1].pct)) +
-      '<div class="tl-info"><h4>All graded attempts</h4><span class="tl-meta">' + history.length + ' attempt' + (history.length === 1 ? "" : "s") + ' logged since ' + fmtDate(history.slice().sort(function(a,b){ return a.ts-b.ts; })[0].ts) + '</span></div>' +
+    /* ---- headline stat tiles ---- */
+    var byIdAll = groupByAssessment(history);
+    var snapshot = computeAccuracySnapshot(byIdAll);
+    var streak = computeStreak();
+    var xp = computeXP();
+    var li = levelInfo(xp);
+    var accBand = trendBandClass(snapshot.current);
+    var accDelta = fmtDeltaPP(snapshot.delta);
+
+    html += '<div class="progress-kpis">' +
+      '<div class="stat-tile"><span class="stat-label">Level</span><span class="stat-value">' + li.level + '</span><span class="stat-sub">' + xp + ' XP earned</span></div>' +
+      '<div class="stat-tile"><span class="stat-label">Study streak</span><span class="stat-value">' + streak + '</span><span class="stat-sub">' + (streak === 1 ? 'day in a row' : 'days in a row') + '</span></div>' +
+      '<div class="stat-tile"><span class="stat-label">Attempts logged</span><span class="stat-value">' + history.length + '</span><span class="stat-sub">' + quizHist.length + ' quizzes · ' + otherHist.length + ' tests &amp; challenges</span></div>' +
+      '<div class="stat-tile"><span class="stat-label">Current accuracy</span><span class="stat-value ' + accBand + '">' + Math.round(snapshot.current * 100) + '%</span><span class="stat-sub ' + (accDelta.cls === 'flat' ? '' : accDelta.cls) + '">' + accDelta.text + ' since last round</span></div>' +
       '</div>';
+
+    /* ---- accuracy trend + activity heatmap ---- */
+    var buckets = dailyBuckets(history);
+    var chart = accuracyTrendChart(buckets);
+    html += '<div class="progress-charts">' +
+      '<div class="chart-card" id="accuracyChartCard"><h3>Accuracy over time</h3><span class="chart-meta">Daily average across every graded attempt, ' + fmtDate(buckets[0].ts) + ' – ' + fmtDate(buckets[buckets.length-1].ts) + '</span>' + chart.svg + '</div>' +
+      '<div class="chart-card" id="heatmapCard"><h3>Study activity</h3><span class="chart-meta">Last 12 weeks · darker means more attempts that day</span>' + heatmapCard(buckets) + '</div>' +
+      '</div>';
+
+    /* ---- strengths & weaknesses ---- */
+    var assessmentMeta = buildAssessmentMeta();
+    html += strengthsWeaknessesHTML(assessmentMeta);
+
+    /* ---- breakdown by assessment kind ---- */
+    html += kindBreakdownHTML();
+
+    /* ---- lesson-by-lesson detail ---- */
+    html += '<p class="eyebrow trend-section-title">Lesson-by-lesson detail</p>';
 
     TREE.papers.forEach(function(paper){
       paper.topics.forEach(function(topic){
         if(topic.status !== "built" || !topic.units) return;
-        html += '<p class="eyebrow trend-section-title">' + paper.title + ' · ' + topic.num + ' ' + topic.title + '</p>';
+        html += '<p class="progress-subhead">' + paper.title + ' · ' + topic.num + ' ' + topic.title + '</p>';
         html += '<div class="trend-lesson-list">';
         topic.units.forEach(function(unit){
           unit.lessons.forEach(function(lesson){
@@ -618,13 +953,17 @@
       });
       if(paper.challengeHref){
         var pcEntries = otherHist.filter(function(h){ return h.kind === "paper-challenge" && h.paper === paper.id; });
-        html += '<p class="eyebrow trend-section-title">' + paper.title + '</p>';
+        html += '<p class="progress-subhead">' + paper.title + '</p>';
         html += '<div class="trend-lesson-list">' + trendRow("Paper Challenge", paper.title, pcEntries) + '</div>';
       }
     });
 
     mount.innerHTML = html;
     wireNudge(mount);
+    var accCard = document.getElementById("accuracyChartCard");
+    if(accCard) wireAccuracyChart(accCard, chart);
+    var heatCard = document.getElementById("heatmapCard");
+    if(heatCard) wireHeatmap(heatCard);
   }
 
   /* =========================================================
@@ -652,17 +991,23 @@
     var sameIdSet = state && state.order && state.order.length === poolIds.length &&
       state.order.slice().sort().join("|") === poolIds.slice().sort().join("|");
     if(!sameIdSet){
-      state = { order: shuffleArr(poolIds), cursor: 0 };
+      state = { order: shuffleArr(poolIds), cursor: 0, lastBatch: [] };
     }
 
     var order = state.order.slice();
     var cursor = state.cursor;
+    /* Also keep the previous attempt's batch out of a fresh reshuffle —
+       otherwise a question drawn just before the deck wraps around can
+       come right back in the very next attempt. */
+    var avoidFromLastBatch = {};
+    (state.lastBatch || []).forEach(function(id){ avoidFromLastBatch[id] = true; });
     var batchIds = [];
     while(batchIds.length < perAttempt){
       if(cursor >= order.length){
         var fresh = shuffleArr(poolIds);
         var picked = {};
         batchIds.forEach(function(id){ picked[id] = true; });
+        Object.keys(avoidFromLastBatch).forEach(function(id){ picked[id] = true; });
         var clean = fresh.filter(function(id){ return !picked[id]; });
         var clashing = fresh.filter(function(id){ return picked[id]; });
         order = clean.concat(clashing);
@@ -674,7 +1019,7 @@
 
     return {
       questions: batchIds.map(function(id){ return byId[id]; }),
-      state: { order: order, cursor: cursor }
+      state: { order: order, cursor: cursor, lastBatch: batchIds }
     };
   }
 
@@ -700,14 +1045,54 @@
 
     var order, idx, answeredFlags, correctCount, batch, pendingDeckState;
 
+    /* Resume an unfinished attempt from a prior page load (e.g. the
+       full-page redirect a Google sign-in triggers) if one is saved and
+       still lines up with this pool; otherwise draw a fresh batch. */
+    function resumeSavedAttempt(){
+      var saved = inProgress[assessmentId];
+      if(!saved || !saved.batchIds || saved.batchIds.length !== perAttempt) return false;
+      if(!saved.answeredFlags || saved.answeredFlags.length !== saved.batchIds.length) return false;
+      if(!saved.order || saved.order.length !== saved.batchIds.length) return false;
+      var byIdPool = {};
+      pool.forEach(function(q){ byIdPool[q.id] = q; });
+      var stillValid = saved.batchIds.every(function(id){ return !!byIdPool[id]; });
+      if(!stillValid) return false;
+
+      batch = saved.batchIds.map(function(id){ return byIdPool[id]; });
+      order = saved.order.slice();
+      answeredFlags = saved.answeredFlags.slice();
+      correctCount = saved.correctCount || 0;
+      idx = Math.min(saved.idx || 0, order.length - 1);
+      pendingDeckState = saved.deckState || { order: shuffleArr(batch.map(function(q){ return q.id; })), cursor: 0, lastBatch: [] };
+      return true;
+    }
+
+    function persistAttempt(){
+      var hasProgress = idx > 0 || answeredFlags.some(function(f){ return f !== null; });
+      if(!hasProgress){
+        clearAttemptProgress(assessmentId);
+        return;
+      }
+      saveAttemptProgress(assessmentId, {
+        batchIds: batch.map(function(q){ return q.id; }),
+        order: order,
+        idx: idx,
+        answeredFlags: answeredFlags,
+        correctCount: correctCount,
+        deckState: pendingDeckState
+      });
+    }
+
     function start(){
-      var draw = nextBatch(assessmentId, pool, perAttempt);
-      batch = draw.questions;
-      pendingDeckState = draw.state;
-      order = shuffleArr(batch.map(function(_, i){ return i; }));
-      idx = 0;
-      answeredFlags = new Array(order.length).fill(null);
-      correctCount = 0;
+      if(!resumeSavedAttempt()){
+        var draw = nextBatch(assessmentId, pool, perAttempt);
+        batch = draw.questions;
+        pendingDeckState = draw.state;
+        order = shuffleArr(batch.map(function(_, i){ return i; }));
+        idx = 0;
+        answeredFlags = new Array(order.length).fill(null);
+        correctCount = 0;
+      }
       wrap.setAttribute("data-attempt-active", "true");
       drawHead();
       drawQuestion();
@@ -721,13 +1106,20 @@
         if(answeredFlags[i] === false) cls += " answered-wrong";
         return '<span class="' + cls + '" aria-hidden="true"></span>';
       }).join("");
+      var hasAnsweredCurrent = answeredFlags.some(function(f){ return f !== null; });
+      var nudgeHtml = (tracksMastery && shouldShowInProgressNudge(hasAnsweredCurrent))
+        ? nudgeBannerHTML("Your answers so far are only saved on this device — sign in with Google before you lose this attempt.")
+        : "";
       wrap.innerHTML =
         '<div class="quiz-head">' +
           '<span class="quiz-kind' + (tracksMastery && kind !== "quiz" ? " kind-test" : "") + '">' + kindLabel + '</span>' +
           '<div class="quiz-dots">' + dotsHtml + '</div>' +
           '<span class="quiz-counter" aria-live="polite">Q ' + (idx + 1) + ' of ' + order.length + '</span>' +
         '</div>' +
+        nudgeHtml +
         '<div class="quiz-body"></div>';
+      if(nudgeHtml) wireNudge(wrap);
+      persistAttempt();
     }
 
     function drawQuestion(){
@@ -775,6 +1167,7 @@
           nextBtn.disabled = false;
           nextBtn.textContent = (idx === order.length - 1) ? "See results" : "Next";
           refreshDots();
+          persistAttempt();
         });
         li.appendChild(btn);
         listEl.appendChild(li);
@@ -797,6 +1190,7 @@
 
     function finish(){
       wrap.removeAttribute("data-attempt-active");
+      clearAttemptProgress(assessmentId);
       deck[assessmentId] = pendingDeckState;
       saveJSON(DECK_KEY, deck);
       var pct = correctCount / order.length;
