@@ -1,0 +1,1575 @@
+/* =========================================================
+   APP ENGINE — sidebar, breadcrumbs, auth/cloud sync, XP,
+   and the quiz renderer. Shared by every page.
+   Each page sets window.ROOT (relative path to site root)
+   and window.PAGE (breadcrumb/sidebar context) BEFORE this
+   script loads.
+
+   ASSESSMENT IDS encode their own filter, so no separate
+   registry is needed:
+     practice--<unit>--<lesson>     e.g. practice--2-1--first-revelation
+     quiz--<unit>--<lesson>
+     unit-test--<unit>              e.g. unit-test--2-1
+     topic-challenge--<topic>       e.g. topic-challenge--topic-2
+     paper-challenge--<paper>       e.g. paper-challenge--paper-1
+   Every question in assets/quiz-bank.js carries
+   {paper, topic, unit, lesson} tags; a pool for any of the
+   above is just QUESTION_BANK filtered by however much of
+   that path the assessment id specifies.
+   ========================================================= */
+(function(){
+  "use strict";
+
+  var ROOT = window.ROOT || "";
+  var TREE = window.CONTENT_TREE;
+  var PAGE = window.PAGE || {};
+
+  /* =========================================================
+     STORAGE HELPERS (best-effort, never block the page)
+     ========================================================= */
+  function loadJSON(key, fallback){
+    try{ var v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }catch(e){ return fallback; }
+  }
+  function saveJSON(key, val){
+    try{ localStorage.setItem(key, JSON.stringify(val)); }catch(e){ /* ignore */ }
+    scheduleCloudPush();
+  }
+  var MASTERY_KEY = "islamiyat-mastery";
+  var ANSWERED_KEY = "islamiyat-answered";
+  var PLAN_KEY = "islamiyat-planner";
+  var DECK_KEY = "islamiyat-deck";
+  var HISTORY_KEY = "islamiyat-history";
+  var LAST_USER_KEY = "islamiyat-last-user-id";
+  var THEME_KEY = "islamiyat-theme";
+  var NUDGE_SNOOZE_KEY = "islamiyat-nudge-snooze-until";
+  var NUDGE_POPUP_SESSION_KEY = "islamiyat-nudge-popup-shown";
+  /* In-progress (unfinished) attempts, keyed by assessment id. Lets a quiz
+     resume exactly where it was — same questions, same order, same answers
+     so far — after a page reload, e.g. the full-page redirect a Google
+     sign-in triggers mid-attempt. Cleared as soon as the attempt finishes. */
+  var IN_PROGRESS_KEY = "islamiyat-inprogress";
+  /* Pages that already carry an inline nudge banner of their own —
+     skip the floating popup there so a signed-out student never sees both. */
+  var PAGES_WITH_INLINE_NUDGE = { quiz:1, "unit-test":1, "topic-challenge":1, "paper-challenge":1, progress:1 };
+  var mastery = loadJSON(MASTERY_KEY, {});
+  var answered = loadJSON(ANSWERED_KEY, {});
+  var plan = loadJSON(PLAN_KEY, {});
+  var deck = loadJSON(DECK_KEY, {});
+  var history = loadJSON(HISTORY_KEY, []);
+  var inProgress = loadJSON(IN_PROGRESS_KEY, {});
+  var pendingCloudPush = null;
+  function saveAttemptProgress(assessmentId, snapshot){
+    inProgress[assessmentId] = snapshot;
+    try{ localStorage.setItem(IN_PROGRESS_KEY, JSON.stringify(inProgress)); }catch(e){ /* ignore */ }
+  }
+  function clearAttemptProgress(assessmentId){
+    if(!inProgress[assessmentId]) return;
+    delete inProgress[assessmentId];
+    try{ localStorage.setItem(IN_PROGRESS_KEY, JSON.stringify(inProgress)); }catch(e){ /* ignore */ }
+  }
+
+  /* =========================================================
+     HISTORY — an append-only log of every graded attempt
+     (quiz / unit-test / topic-challenge / paper-challenge),
+     timestamped and tagged the same way as its question pool.
+     This is what the Progress page's trend charts read; unlike
+     `mastery` (which only keeps the best score) this keeps
+     every attempt so a trend line over time is possible.
+     ========================================================= */
+  var MAX_HISTORY = 1000;
+  function pushHistory(entry){
+    history.push(entry);
+    if(history.length > MAX_HISTORY){ history = history.slice(history.length - MAX_HISTORY); }
+    saveJSON(HISTORY_KEY, history);
+  }
+
+  /* =========================================================
+     ASSESSMENT ID PARSING + POOL BUILDING
+     ========================================================= */
+  var PER_ATTEMPT = { practice:3, quiz:4, "unit-test":15, "topic-challenge":25, "paper-challenge":16 };
+  /* Per-assessment overrides of PER_ATTEMPT, keyed by full assessment id.
+     Used when one assessment's pool has outgrown the kind-wide default. */
+  var PER_ATTEMPT_OVERRIDE = {};
+  var TRACKS_MASTERY = { practice:false, quiz:true, "unit-test":true, "topic-challenge":true, "paper-challenge":true };
+  var KIND_LABEL = { practice:"Practice Quiz", quiz:"Quiz", "unit-test":"Unit Test", "topic-challenge":"Topic Challenge", "paper-challenge":"Paper Challenge" };
+  var COMPLETION_XP = {
+    quiz: { mastered:30, practicing:12, retry:5 },
+    "unit-test": { mastered:100, practicing:40, retry:15 },
+    "topic-challenge": { mastered:150, practicing:60, retry:20 },
+    "paper-challenge": { mastered:250, practicing:100, retry:35 }
+  };
+
+  function parseAssessmentId(assessmentId){
+    var parts = assessmentId.split("--");
+    var kind = parts[0];
+    var filter = {};
+    if(kind === "practice" || kind === "quiz"){ filter.unit = parts[1]; filter.lesson = parts[2]; }
+    else if(kind === "unit-test"){ filter.unit = parts[1]; }
+    else if(kind === "topic-challenge"){ filter.topic = parts[1]; }
+    else if(kind === "paper-challenge"){ filter.paper = parts[1]; }
+    return { kind: kind, filter: filter };
+  }
+
+  function buildPool(filter){
+    var bank = window.QUESTION_BANK || [];
+    var keys = Object.keys(filter);
+    return bank.filter(function(q){
+      return keys.every(function(k){ return q[k] === filter[k]; });
+    });
+  }
+
+  /* =========================================================
+     XP / LEVEL — derived purely from progress state, never
+     stored separately, so it can never drift out of sync.
+     Two components: a small flat award the first time any
+     question is ever answered correctly (any assessment kind),
+     plus a completion bonus per graded assessment scaled by
+     its mastery band.
+     ========================================================= */
+  var PER_QUESTION_XP = 3;
+
+  function computeXP(){
+    var xp = 0;
+    Object.keys(answered).forEach(function(id){ if(answered[id]) xp += PER_QUESTION_XP; });
+    Object.keys(mastery).forEach(function(assessmentId){
+      var kind = parseAssessmentId(assessmentId).kind;
+      var table = COMPLETION_XP[kind];
+      if(!table) return;
+      var best = mastery[assessmentId].best;
+      xp += best >= 0.8 ? table.mastered : best >= 0.5 ? table.practicing : table.retry;
+    });
+    return xp;
+  }
+  function levelInfo(xp){
+    var level = 1 + Math.floor(xp / 100);
+    var into = xp % 100;
+    return { level: level, into: into, span: 100 };
+  }
+  function paintXP(){
+    var xp = computeXP();
+    var li = levelInfo(xp);
+    var levelEl = document.getElementById("xpLevel");
+    var fillEl = document.getElementById("xpBarFill");
+    var labelEl = document.getElementById("xpLabel");
+    if(levelEl){ levelEl.textContent = li.level; }
+    if(fillEl){ fillEl.style.width = Math.round((li.into / li.span) * 100) + "%"; }
+    if(labelEl){ labelEl.textContent = xp + " XP · Level " + li.level; }
+  }
+  var xpToastTimer = null;
+  function toastXP(amount){
+    if(!amount) return;
+    var el = document.getElementById("xpToast");
+    if(!el) return;
+    el.textContent = "+" + amount + " XP";
+    el.classList.add("show");
+    clearTimeout(xpToastTimer);
+    xpToastTimer = setTimeout(function(){ el.classList.remove("show"); }, 2200);
+  }
+
+  /* =========================================================
+     OPTIONAL CLOUD SIGN-IN (Google via Supabase)
+     Same project used since the sign-in feature was first
+     added. card_state holds { mastery, answered, deck },
+     planner_state holds plan. XP itself is never stored; it's
+     recomputed from these on every page load.
+     ========================================================= */
+  var SUPABASE_URL = (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.PUBLIC_SUPABASE_URL) || "https://puaymjsployigxaozuqo.supabase.co";
+  var SUPABASE_ANON_KEY = (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.PUBLIC_SUPABASE_ANON_KEY) || "sb_publishable_0hzw641YFST9Y0TOICxeEQ_Sk5A-21D";
+  var supa = (SUPABASE_URL && SUPABASE_URL.indexOf("YOUR_SUPABASE") === -1 && SUPABASE_URL.indexOf("your-project") === -1 && window.supabase)
+    ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+    : null;
+  var currentUser = null;
+  var accountOutsideWired = false;
+
+  function userDisplayName(user){
+    var meta = (user && user.user_metadata) || {};
+    return meta.full_name || meta.name || meta.preferred_username ||
+      ((user && user.email) ? user.email.split("@")[0] : "") || "Account";
+  }
+  function userAvatarUrl(user){
+    var meta = (user && user.user_metadata) || {};
+    return meta.avatar_url || meta.picture || "";
+  }
+  function userInitials(name){
+    var parts = String(name || "").trim().split(/\s+/).filter(Boolean);
+    if(!parts.length){ return "?"; }
+    if(parts.length === 1){ return parts[0].slice(0, 1).toUpperCase(); }
+    return (parts[0].slice(0, 1) + parts[parts.length - 1].slice(0, 1)).toUpperCase();
+  }
+  function closeAccountMenu(){
+    var trigger = document.getElementById("accountTrigger");
+    var dropdown = document.getElementById("accountDropdown");
+    if(trigger){ trigger.setAttribute("aria-expanded", "false"); }
+    if(dropdown){ dropdown.hidden = true; }
+  }
+  function paintAuthUI(){
+    var signInBtn = document.getElementById("signInBtn");
+    var accountMenu = document.getElementById("accountMenu");
+    var authRoot = document.getElementById("sidebarAuth");
+    if(!supa){
+      if(authRoot){ authRoot.hidden = true; }
+      return;
+    }
+    if(authRoot){ authRoot.hidden = false; }
+    if(currentUser){
+      if(signInBtn){ signInBtn.hidden = true; }
+      if(accountMenu){ accountMenu.hidden = false; }
+      var name = userDisplayName(currentUser);
+      var email = currentUser.email || "";
+      var avatarUrl = userAvatarUrl(currentUser);
+      var nameEl = document.getElementById("accountName");
+      var emailEl = document.getElementById("accountEmail");
+      var avatarEl = document.getElementById("accountAvatar");
+      var fallbackEl = document.getElementById("accountAvatarFallback");
+      if(nameEl){ nameEl.textContent = name; }
+      if(emailEl){ emailEl.textContent = email; }
+      if(avatarEl && fallbackEl){
+        if(avatarUrl){
+          avatarEl.hidden = false;
+          fallbackEl.hidden = true;
+          avatarEl.onerror = function(){
+            avatarEl.hidden = true;
+            avatarEl.removeAttribute("src");
+            fallbackEl.hidden = false;
+            fallbackEl.textContent = userInitials(name);
+          };
+          if(avatarEl.getAttribute("src") !== avatarUrl){
+            avatarEl.setAttribute("src", avatarUrl);
+          }
+          avatarEl.setAttribute("alt", name);
+        } else {
+          avatarEl.hidden = true;
+          avatarEl.removeAttribute("src");
+          fallbackEl.hidden = false;
+          fallbackEl.textContent = userInitials(name);
+        }
+      }
+    } else {
+      if(signInBtn){ signInBtn.hidden = false; }
+      if(accountMenu){ accountMenu.hidden = true; }
+      closeAccountMenu();
+    }
+  }
+  function wireAuthButtons(){
+    var signInBtn = document.getElementById("signInBtn");
+    var signOutBtn = document.getElementById("signOutBtn");
+    var deleteBtn = document.getElementById("deleteDataBtn");
+    var trigger = document.getElementById("accountTrigger");
+    var dropdown = document.getElementById("accountDropdown");
+    if(signInBtn && !signInBtn.dataset.bound){
+      signInBtn.dataset.bound = "1";
+      signInBtn.addEventListener("click", function(){
+        if(!supa){ return; }
+        var redirectTo = window.location.origin + window.location.pathname;
+        supa.auth.signInWithOAuth({ provider: "google", options: { redirectTo: redirectTo } });
+      });
+    }
+    if(trigger && dropdown && !trigger.dataset.bound){
+      trigger.dataset.bound = "1";
+      trigger.addEventListener("click", function(e){
+        e.stopPropagation();
+        var open = trigger.getAttribute("aria-expanded") === "true";
+        if(open){
+          closeAccountMenu();
+        } else {
+          trigger.setAttribute("aria-expanded", "true");
+          dropdown.hidden = false;
+        }
+      });
+    }
+    if(!accountOutsideWired){
+      accountOutsideWired = true;
+      document.addEventListener("click", function(e){
+        var menuEl = document.getElementById("accountMenu");
+        if(menuEl && !menuEl.contains(e.target)){ closeAccountMenu(); }
+      });
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape"){ closeAccountMenu(); }
+      });
+    }
+    if(signOutBtn && !signOutBtn.dataset.bound){
+      signOutBtn.dataset.bound = "1";
+      signOutBtn.addEventListener("click", function(){
+        if(!supa){ return; }
+        closeAccountMenu();
+        supa.auth.signOut();
+      });
+    }
+    if(deleteBtn && !deleteBtn.dataset.bound){
+      deleteBtn.dataset.bound = "1";
+      deleteBtn.addEventListener("click", function(){
+        if(!supa || !currentUser){ return; }
+        if(!window.confirm("Delete your synced progress and sign out? This cannot be undone.")){ return; }
+        closeAccountMenu();
+        supa.from("progress").delete().eq("user_id", currentUser.id)
+          .then(function(){ return supa.auth.signOut(); })
+          .then(function(){
+            clearProgressState();
+            try{ localStorage.removeItem(LAST_USER_KEY); }catch(e){}
+            refreshPageState();
+            renderSidebar();
+          }, function(){ /* keep local progress if request fails */ });
+      });
+    }
+  }
+  /* =========================================================
+     SOFT SIGN-IN NUDGE — never a modal, never on first visit.
+     Only appears once a signed-out student has something to
+     lose (a graded attempt in `history`), right where that's
+     freshest: the result screen and the Progress page. Dismissing
+     snoozes it for a week rather than hiding it forever, so it
+     resurfaces occasionally without nagging every page load.
+     ========================================================= */
+  function nudgeSnoozed(){
+    var until = loadJSON(NUDGE_SNOOZE_KEY, 0);
+    return Date.now() < until;
+  }
+  function snoozeNudge(days){
+    try{ localStorage.setItem(NUDGE_SNOOZE_KEY, JSON.stringify(Date.now() + days*24*60*60*1000)); }catch(e){}
+  }
+  function shouldShowNudge(){
+    return !!supa && !currentUser && history.length > 0 && !nudgeSnoozed();
+  }
+  /* Same "has something to lose" gate as shouldShowNudge, but also fires
+     mid-attempt once the student has answered at least one question in the
+     quiz/test/challenge currently on screen — otherwise a signed-out student
+     taking their very first assessment gets no warning at all until the
+     results screen, by which point a lost attempt is already lost. */
+  function shouldShowInProgressNudge(hasAnsweredCurrent){
+    return !!supa && !currentUser && !nudgeSnoozed() && (history.length > 0 || hasAnsweredCurrent);
+  }
+  function nudgeBannerHTML(copy){
+    return '<div class="nudge-banner" role="status">' +
+      '<div class="nudge-copy"><strong>Keep this.</strong> ' + copy + '</div>' +
+      '<div class="nudge-actions">' +
+        '<button type="button" class="quiz-btn nudge-signin">Sign in with Google</button>' +
+        '<button type="button" class="nudge-dismiss">Not now</button>' +
+      '</div></div>';
+  }
+  function wireNudgeEl(el){
+    if(!el) return;
+    var signInBtn = el.querySelector(".nudge-signin");
+    var dismissBtn = el.querySelector(".nudge-dismiss");
+    if(signInBtn){
+      signInBtn.addEventListener("click", function(){
+        if(!supa) return;
+        var redirectTo = window.location.origin + window.location.pathname;
+        supa.auth.signInWithOAuth({ provider: "google", options: { redirectTo: redirectTo } });
+      });
+    }
+    if(dismissBtn){
+      dismissBtn.addEventListener("click", function(){
+        snoozeNudge(7);
+        el.remove();
+      });
+    }
+  }
+  function wireNudge(container){
+    wireNudgeEl(container.querySelector(".nudge-banner"));
+  }
+
+  /* ---- floating popup variant — for pages with no inline banner
+     (lessons, home, topic/unit overviews) so those students get a
+     gentle reminder too, not just after finishing a graded attempt.
+     Shows at most once per browser tab session, after a delay so it
+     never appears the instant a page loads. ========================= */
+  function showNudgePopup(){
+    var el = document.createElement("div");
+    el.className = "nudge-popup";
+    el.setAttribute("role", "status");
+    el.innerHTML =
+      '<button type="button" class="nudge-dismiss nudge-popup-close" aria-label="Dismiss">&times;</button>' +
+      '<p class="nudge-popup-copy"><strong>Don’t lose this.</strong> Your quiz history and XP are saved on this device only — sign in with Google to keep them.</p>' +
+      '<button type="button" class="quiz-btn nudge-signin nudge-popup-btn">Sign in with Google</button>';
+    document.body.appendChild(el);
+    wireNudgeEl(el);
+    void el.offsetHeight; /* force layout so the opacity/transform transition below actually animates */
+    el.classList.add("show");
+    setTimeout(function(){ el.classList.remove("show"); setTimeout(function(){ el.remove(); }, 300); }, 16000);
+  }
+  function maybeShowNudgePopup(){
+    if(PAGES_WITH_INLINE_NUDGE[PAGE.page]) return;
+    if(!shouldShowNudge()) return;
+    var alreadyShown;
+    try{ alreadyShown = sessionStorage.getItem(NUDGE_POPUP_SESSION_KEY) === "1"; }catch(e){ alreadyShown = true; }
+    if(alreadyShown) return;
+    setTimeout(function(){
+      if(!shouldShowNudge()) return;
+      try{ sessionStorage.setItem(NUDGE_POPUP_SESSION_KEY, "1"); }catch(e){}
+      showNudgePopup();
+    }, 4000);
+  }
+
+  function clearProgressState(){
+    mastery = {};
+    answered = {};
+    plan = {};
+    deck = {};
+    history = [];
+    inProgress = {};
+    try{ localStorage.removeItem(MASTERY_KEY); }catch(e){}
+    try{ localStorage.removeItem(ANSWERED_KEY); }catch(e){}
+    try{ localStorage.removeItem(PLAN_KEY); }catch(e){}
+    try{ localStorage.removeItem(DECK_KEY); }catch(e){}
+    try{ localStorage.removeItem(HISTORY_KEY); }catch(e){}
+    try{ localStorage.removeItem(IN_PROGRESS_KEY); }catch(e){}
+  }
+  function persistProgressState(){
+    try{ localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
+    try{ localStorage.setItem(ANSWERED_KEY, JSON.stringify(answered)); }catch(e){}
+    try{ localStorage.setItem(DECK_KEY, JSON.stringify(deck)); }catch(e){}
+    try{ localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); }catch(e){}
+    try{ localStorage.setItem(PLAN_KEY, JSON.stringify(plan)); }catch(e){}
+  }
+  function scheduleCloudPush(){
+    clearTimeout(pendingCloudPush);
+    pendingCloudPush = setTimeout(pushToCloud, 500);
+  }
+  function pushToCloud(){
+    if(!supa || !currentUser){ return; }
+    supa.from("progress").upsert({
+      user_id: currentUser.id,
+      card_state: { mastery: mastery, answered: answered, deck: deck, history: history },
+      planner_state: plan
+    }).then(function(){}, function(){ /* offline or RLS error — localStorage still has it */ });
+  }
+  function hasActiveQuizAttempt(){
+    return !!document.querySelector('.quiz-widget[data-attempt-active="true"]');
+  }
+  function refreshPageState(){
+    paintAllBadges();
+    paintXP();
+    if(!hasActiveQuizAttempt()){
+      remountAllQuizzes();
+    }
+    wirePlanner();
+    renderProgressPage();
+  }
+  function mergeMastery(localMap, cloudMap){
+    var out = {};
+    var keys = {};
+    Object.keys(localMap || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(cloudMap || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(keys).forEach(function(k){
+      var l = localMap && localMap[k];
+      var c = cloudMap && cloudMap[k];
+      if(!l){ out[k] = c; return; }
+      if(!c){ out[k] = l; return; }
+      out[k] = {
+        best: Math.max(Number(l.best) || 0, Number(c.best) || 0),
+        attempts: Math.max(Number(l.attempts) || 0, Number(c.attempts) || 0)
+      };
+    });
+    return out;
+  }
+  function mergeBooleanMap(localMap, cloudMap){
+    var out = {};
+    var keys = {};
+    Object.keys(localMap || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(cloudMap || {}).forEach(function(k){ keys[k] = true; });
+    Object.keys(keys).forEach(function(k){
+      out[k] = !!((localMap && localMap[k]) || (cloudMap && cloudMap[k]));
+    });
+    return out;
+  }
+  function mergeHistory(localHist, cloudHist){
+    var combined = (localHist || []).concat(cloudHist || []);
+    var seen = {};
+    var out = [];
+    combined.forEach(function(entry){
+      if(!entry) return;
+      var key = [entry.ts, entry.id, entry.pct, entry.correct, entry.total].join("|");
+      if(seen[key]) return;
+      seen[key] = true;
+      out.push(entry);
+    });
+    out.sort(function(a, b){ return (a.ts || 0) - (b.ts || 0); });
+    if(out.length > MAX_HISTORY){ out = out.slice(out.length - MAX_HISTORY); }
+    return out;
+  }
+  function hasAnyProgressData(){
+    return Object.keys(mastery).length || Object.keys(answered).length || Object.keys(plan).length || Object.keys(deck).length || history.length;
+  }
+  function hydrateFromCloud(){
+    if(!supa || !currentUser){ return; }
+    supa.from("progress").select("card_state,planner_state").eq("user_id", currentUser.id).maybeSingle()
+      .then(function(res){
+        var row = res && res.data;
+        var cloudCard = (row && row.card_state) || {};
+        var cloudPlan = (row && row.planner_state) || {};
+        var hasCloudData = row && (Object.keys(cloudCard).length || Object.keys(cloudPlan).length);
+        if(hasCloudData){
+          mastery = mergeMastery(mastery, cloudCard.mastery || {});
+          answered = mergeBooleanMap(answered, cloudCard.answered || {});
+          deck = Object.keys(deck || {}).length ? deck : (cloudCard.deck || {});
+          history = mergeHistory(history, cloudCard.history || []);
+          plan = Object.assign({}, cloudPlan || {}, plan || {});
+          persistProgressState();
+          refreshPageState();
+          renderSidebar();
+          scheduleCloudPush();
+        } else {
+          if(hasAnyProgressData()){ pushToCloud(); }
+        }
+      }, function(){ /* offline — keep using local state */ });
+  }
+  function initAuth(){
+    paintAuthUI();
+    if(supa){
+      supa.auth.onAuthStateChange(function(event, session){
+        var prevUser = currentUser && currentUser.id;
+        currentUser = session && session.user;
+        if(!currentUser){
+          if(event === "SIGNED_OUT" || prevUser){
+            clearProgressState();
+            try{ localStorage.removeItem(LAST_USER_KEY); }catch(e){}
+            refreshPageState();
+            renderSidebar();
+          }
+        } else {
+          var lastSeen = loadJSON(LAST_USER_KEY, null);
+          if((prevUser && prevUser !== currentUser.id) || (lastSeen && lastSeen !== currentUser.id)){
+            clearProgressState();
+            refreshPageState();
+            renderSidebar();
+          }
+          try{ localStorage.setItem(LAST_USER_KEY, JSON.stringify(currentUser.id)); }catch(e){}
+        }
+        paintAuthUI();
+        if(currentUser){ hydrateFromCloud(); }
+      });
+    }
+  }
+
+  /* =========================================================
+     MASTERY BADGES (quiz / unit-test / topic-challenge / paper-challenge only)
+     ========================================================= */
+  function bandFor(pct){
+    if(pct >= 0.8) return {cls:"st-mastered", label:"Mastered · " + Math.round(pct*100) + "%"};
+    if(pct >= 0.5) return {cls:"st-practicing", label:"Practicing · " + Math.round(pct*100) + "%"};
+    return {cls:"st-retry", label:"Keep going · " + Math.round(pct*100) + "%"};
+  }
+  function paintBadge(el){
+    if(!el) return;
+    var id = el.getAttribute("data-badge-for");
+    var rec = mastery[id];
+    el.classList.remove("st-mastered","st-practicing","st-retry");
+    if(!rec){ el.textContent = "Not started"; return; }
+    var band = bandFor(rec.best);
+    el.classList.add(band.cls);
+    el.textContent = band.label;
+  }
+  function paintAllBadges(){
+    Array.prototype.slice.call(document.querySelectorAll(".mastery-badge[data-badge-for]")).forEach(paintBadge);
+  }
+
+  /* =========================================================
+     PROGRESS PAGE — a data-driven dashboard over the historic
+     trend of every graded attempt logged in `history`: headline
+     stat tiles, an accuracy-over-time chart, a study-activity
+     calendar, strengths/weaknesses ranked from the data, a
+     breakdown by assessment kind, and (unchanged in spirit) the
+     lesson-by-lesson detail list. Only runs if #progressMount
+     exists.
+     ========================================================= */
+  function sparkSVG(pcts, band){
+    var w = 140, h = 36, pad = 4;
+    var pts = pcts.length === 1 ? [pcts[0], pcts[0]] : pcts;
+    var n = pts.length;
+    var stepX = n > 1 ? (w - pad*2) / (n - 1) : 0;
+    var coords = pts.map(function(p, i){
+      return [pad + i*stepX, pad + (1 - p) * (h - pad*2)];
+    });
+    var d = coords.map(function(c, i){ return (i===0?"M":"L") + c[0].toFixed(1) + "," + c[1].toFixed(1); }).join(" ");
+    var dots = coords.map(function(c){ return '<circle cx="' + c[0].toFixed(1) + '" cy="' + c[1].toFixed(1) + '" r="2.2"></circle>'; }).join("");
+    return '<svg class="trend-spark ' + band + '" width="' + w + '" height="' + h + '" viewBox="0 0 ' + w + ' ' + h + '">' +
+      '<path d="' + d + '" fill="none"></path>' + dots + '</svg>';
+  }
+  function trendBandClass(pct){
+    return pct >= 0.8 ? "band-mastered" : (pct >= 0.5 ? "band-practicing" : "band-retry");
+  }
+  function fmtDate(ts){
+    try{ return new Date(ts).toLocaleDateString(undefined, { month:"short", day:"numeric" }); }catch(e){ return ""; }
+  }
+  function fmtDeltaPP(delta){
+    var pp = Math.round(delta * 100);
+    if(Math.abs(pp) < 1) return { cls:"flat", text:"steady" };
+    return pp > 0 ? { cls:"up", text:"▲ +" + pp + "pp" } : { cls:"down", text:"▼ " + pp + "pp" };
+  }
+  function trendRow(title, sub, entries){
+    if(!entries.length){
+      return '<div class="trend-row trend-row-empty"><div class="tl-info"><h4>' + title + '</h4><span class="tl-meta">' + sub + ' · not attempted yet</span></div></div>';
+    }
+    var sorted = entries.slice().sort(function(a,b){ return a.ts - b.ts; });
+    var latest = sorted[sorted.length - 1];
+    var band = trendBandClass(latest.pct);
+    var deltaHtml = '<span class="trend-delta flat"></span>';
+    if(sorted.length > 1){
+      var d = fmtDeltaPP(latest.pct - sorted[sorted.length - 2].pct);
+      deltaHtml = '<span class="trend-delta ' + d.cls + '">' + d.text + '</span>';
+    }
+    return '<div class="trend-row">' +
+      '<div class="tl-info"><h4>' + title + '</h4><span class="tl-meta">' + sub + ' · ' + sorted.length + ' attempt' + (sorted.length === 1 ? "" : "s") + ' · last ' + fmtDate(latest.ts) + '</span></div>' +
+      sparkSVG(sorted.map(function(e){ return e.pct; }), band) +
+      deltaHtml +
+      '<span class="trend-pct ' + band + '">' + Math.round(latest.pct * 100) + '%</span>' +
+      '</div>';
+  }
+
+  /* ---- derived-data helpers ---- */
+  function dayKey(ts){
+    var d = new Date(ts);
+    return d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();
+  }
+  function startOfDay(ts){
+    var d = new Date(ts);
+    d.setHours(0,0,0,0);
+    return d.getTime();
+  }
+  function computeStreak(){
+    var days = {};
+    history.forEach(function(h){ days[dayKey(h.ts)] = true; });
+    var oneDay = 86400000;
+    var cursor = startOfDay(Date.now());
+    if(!days[dayKey(cursor)]) cursor -= oneDay;
+    var streak = 0;
+    while(days[dayKey(cursor)]){ streak++; cursor -= oneDay; }
+    return streak;
+  }
+  function buildAssessmentMeta(){
+    var meta = {};
+    TREE.papers.forEach(function(paper){
+      paper.topics.forEach(function(topic){
+        if(topic.status !== "built" || !topic.units) return;
+        topic.units.forEach(function(unit){
+          unit.lessons.forEach(function(lesson){
+            meta["quiz--" + unit.id + "--" + lesson.id] = { title: lesson.title, sub: unit.num + " " + unit.title };
+          });
+          meta["unit-test--" + unit.id] = { title: "Unit Test", sub: unit.num + " " + unit.title };
+        });
+        meta["topic-challenge--" + topic.id] = { title: "Topic Challenge", sub: topic.num + " " + topic.title };
+      });
+      if(paper.challengeHref){
+        meta["paper-challenge--" + paper.id] = { title: "Paper Challenge", sub: paper.title };
+      }
+    });
+    return meta;
+  }
+  function groupByAssessment(entries){
+    var byId = {};
+    entries.forEach(function(h){ (byId[h.id] = byId[h.id] || []).push(h); });
+    Object.keys(byId).forEach(function(id){ byId[id].sort(function(a,b){ return a.ts - b.ts; }); });
+    return byId;
+  }
+  function computeAccuracySnapshot(byId){
+    var ids = Object.keys(byId);
+    if(!ids.length) return null;
+    var latestSum = 0, prevSum = 0;
+    ids.forEach(function(id){
+      var arr = byId[id];
+      var latest = arr[arr.length - 1].pct;
+      var prev = arr.length > 1 ? arr[arr.length - 2].pct : latest;
+      latestSum += latest; prevSum += prev;
+    });
+    return { current: latestSum / ids.length, delta: (latestSum - prevSum) / ids.length, count: ids.length };
+  }
+  function dailyBuckets(entries){
+    var byDay = {};
+    entries.forEach(function(h){
+      var k = dayKey(h.ts);
+      if(!byDay[k]) byDay[k] = { ts: startOfDay(h.ts), sum: 0, count: 0 };
+      byDay[k].sum += h.pct; byDay[k].count++;
+    });
+    return Object.keys(byDay).map(function(k){
+      var b = byDay[k];
+      return { ts: b.ts, pct: b.sum / b.count, count: b.count };
+    }).sort(function(a,b){ return a.ts - b.ts; });
+  }
+
+  /* ---- shared floating tooltip for the two headline charts ---- */
+  function ensureChartTooltip(){
+    var el = document.getElementById("chartTooltip");
+    if(!el){
+      el = document.createElement("div");
+      el.id = "chartTooltip";
+      el.className = "chart-tooltip";
+      el.hidden = true;
+      document.body.appendChild(el);
+    }
+    return el;
+  }
+  function showChartTooltip(x, y, html){
+    var el = ensureChartTooltip();
+    el.innerHTML = html;
+    el.hidden = false;
+    var pad = 14;
+    el.style.left = "0px"; el.style.top = "0px";
+    var rect = el.getBoundingClientRect();
+    var left = x + pad, top = y + pad;
+    if(left + rect.width > window.innerWidth - 8) left = x - rect.width - pad;
+    if(top + rect.height > window.innerHeight - 8) top = y - rect.height - pad;
+    el.style.left = left + "px";
+    el.style.top = top + "px";
+  }
+  function hideChartTooltip(){
+    var el = document.getElementById("chartTooltip");
+    if(el) el.hidden = true;
+  }
+
+  /* ---- accuracy-over-time chart (single-series line + area) ---- */
+  function accuracyTrendChart(buckets){
+    var w = 640, h = 150, padL = 6, padR = 6, padT = 14, padB = 6;
+    var pts0 = buckets.length === 1 ? [buckets[0], buckets[0]] : buckets;
+    var n = pts0.length;
+    var stepX = n > 1 ? (w - padL - padR) / (n - 1) : 0;
+    var pts = pts0.map(function(b, i){
+      return { x: padL + i*stepX, y: padT + (1 - b.pct) * (h - padT - padB), data: b };
+    });
+    var line = pts.map(function(p, i){ return (i===0?"M":"L") + p.x.toFixed(1) + "," + p.y.toFixed(1); }).join(" ");
+    var area = line + " L" + pts[pts.length-1].x.toFixed(1) + "," + (h-padB) + " L" + pts[0].x.toFixed(1) + "," + (h-padB) + " Z";
+    var last = pts[pts.length-1];
+    var svg = '<svg class="accuracy-trend-svg" viewBox="0 0 ' + w + ' ' + h + '" preserveAspectRatio="none">' +
+      '<line class="chart-baseline" x1="' + padL + '" y1="' + (h-padB) + '" x2="' + (w-padR) + '" y2="' + (h-padB) + '"></line>' +
+      '<path class="chart-area" d="' + area + '"></path>' +
+      '<path class="chart-line" d="' + line + '"></path>' +
+      '<line class="chart-crosshair" x1="0" y1="' + padT + '" x2="0" y2="' + (h-padB) + '" style="display:none"></line>' +
+      '<circle class="chart-end-dot" cx="' + last.x.toFixed(1) + '" cy="' + last.y.toFixed(1) + '" r="4.5"></circle>' +
+      '</svg>';
+    return { svg: svg, pts: pts, w: w };
+  }
+  function wireAccuracyChart(card, chart){
+    var svg = card.querySelector(".accuracy-trend-svg");
+    if(!svg) return;
+    var crosshair = svg.querySelector(".chart-crosshair");
+    svg.addEventListener("pointermove", function(e){
+      var rect = svg.getBoundingClientRect();
+      if(!rect.width) return;
+      var xSvg = (e.clientX - rect.left) * (chart.w / rect.width);
+      var nearest = chart.pts[0], nearestDist = Infinity;
+      chart.pts.forEach(function(p){
+        var d = Math.abs(p.x - xSvg);
+        if(d < nearestDist){ nearestDist = d; nearest = p; }
+      });
+      crosshair.style.display = "";
+      crosshair.setAttribute("x1", nearest.x.toFixed(1));
+      crosshair.setAttribute("x2", nearest.x.toFixed(1));
+      var d2 = nearest.data;
+      var dateStr = "";
+      try{ dateStr = new Date(d2.ts).toLocaleDateString(undefined, { weekday:"short", month:"short", day:"numeric" }); }catch(e2){}
+      showChartTooltip(e.clientX, e.clientY,
+        '<strong>' + Math.round(d2.pct * 100) + '%</strong> avg accuracy<br>' +
+        '<span>' + dateStr + ' · ' + d2.count + ' attempt' + (d2.count === 1 ? "" : "s") + '</span>');
+    });
+    svg.addEventListener("pointerleave", function(){
+      crosshair.style.display = "none";
+      hideChartTooltip();
+    });
+  }
+
+  /* ---- study-activity heatmap (calendar, last 12 weeks) ---- */
+  function heatLevel(count){
+    if(!count) return 0;
+    if(count === 1) return 1;
+    if(count === 2) return 2;
+    if(count <= 4) return 3;
+    return 4;
+  }
+  function heatmapCard(dayBuckets){
+    var weeks = 12;
+    var oneDay = 86400000;
+    var byDay = {};
+    dayBuckets.forEach(function(b){ byDay[dayKey(b.ts)] = b; });
+    var today = startOfDay(Date.now());
+    var todayDow = new Date(today).getDay();
+    var end = today + (6 - todayDow) * oneDay;
+    var start = end - (weeks*7 - 1) * oneDay;
+    var cells = '';
+    for(var t = start; t <= end; t += oneDay){
+      var b = byDay[dayKey(t)];
+      var count = b ? b.count : 0;
+      var level = t > today ? -1 : heatLevel(count);
+      if(level < 0){
+        cells += '<div class="heat-cell" style="visibility:hidden;"></div>';
+        continue;
+      }
+      cells += '<div class="heat-cell" data-level="' + level + '" data-ts="' + t + '" data-count="' + count + '" data-pct="' + (b ? b.pct : 0) + '"></div>';
+    }
+    return '<div class="heatmap-grid">' + cells + '</div>' +
+      '<div class="heatmap-legend"><span>Less</span>' +
+      '<span class="heat-cell" data-level="0"></span><span class="heat-cell" data-level="1"></span>' +
+      '<span class="heat-cell" data-level="2"></span><span class="heat-cell" data-level="3"></span>' +
+      '<span class="heat-cell" data-level="4"></span><span>More</span></div>';
+  }
+  function wireHeatmap(card){
+    var grid = card.querySelector(".heatmap-grid");
+    if(!grid) return;
+    grid.addEventListener("pointerover", function(e){
+      var cell = e.target.closest ? e.target.closest(".heat-cell[data-ts]") : null;
+      if(!cell) return;
+      var count = +cell.getAttribute("data-count");
+      var dateStr = "";
+      try{ dateStr = new Date(+cell.getAttribute("data-ts")).toLocaleDateString(undefined, { weekday:"short", month:"short", day:"numeric" }); }catch(e2){}
+      var body = count
+        ? '<strong>' + Math.round(+cell.getAttribute("data-pct") * 100) + '%</strong> avg · ' + count + ' attempt' + (count === 1 ? "" : "s")
+        : '<strong>No attempts</strong>';
+      showChartTooltip(e.clientX, e.clientY, body + '<br><span>' + dateStr + '</span>');
+    });
+    grid.addEventListener("pointermove", function(e){
+      if(!ensureChartTooltip().hidden){
+        var cell = e.target.closest ? e.target.closest(".heat-cell[data-ts]") : null;
+        if(cell){ showChartTooltip(e.clientX, e.clientY, ensureChartTooltip().innerHTML); }
+      }
+    });
+    grid.addEventListener("pointerout", function(e){
+      if(e.target.closest && e.target.closest(".heat-cell")) hideChartTooltip();
+    });
+  }
+
+  /* ---- breakdown by assessment kind ---- */
+  var KIND_ORDER = ["quiz","unit-test","topic-challenge","paper-challenge"];
+  function kindBreakdownHTML(){
+    var byKind = {};
+    history.forEach(function(h){ (byKind[h.kind] = byKind[h.kind] || []).push(h); });
+    var rows = KIND_ORDER.filter(function(k){ return byKind[k] && byKind[k].length; }).map(function(k){
+      var byId = groupByAssessment(byKind[k]);
+      var ids = Object.keys(byId);
+      var avg = ids.reduce(function(s, id){ var a = byId[id]; return s + a[a.length-1].pct; }, 0) / ids.length;
+      return { kind: k, label: KIND_LABEL[k], avg: avg, attempts: byKind[k].length, assessments: ids.length };
+    });
+    if(!rows.length) return '';
+    var html = '<p class="eyebrow trend-section-title">Breakdown by assessment kind</p><div class="kind-bars">';
+    rows.forEach(function(r){
+      var band = trendBandClass(r.avg);
+      var pct = Math.round(r.avg * 100);
+      html += '<div class="kind-bar-row">' +
+        '<div class="kind-bar-label"><b>' + r.label + '</b><span>' + r.assessments + ' assessment' + (r.assessments===1?"":"s") + ' · ' + r.attempts + ' attempt' + (r.attempts===1?"":"s") + '</span></div>' +
+        '<div class="kind-bar-track"><div class="kind-bar-fill ' + band + (pct >= 99 ? ' full' : '') + '" style="width:' + Math.max(pct, 2) + '%"></div></div>' +
+        '<span class="kind-bar-pct">' + pct + '%</span>' +
+        '</div>';
+    });
+    html += '</div>';
+    return html;
+  }
+
+  /* ---- strengths & weaknesses, ranked from the data ---- */
+  function strengthsWeaknessesHTML(meta){
+    var trackedKinds = { quiz:1, "unit-test":1, "topic-challenge":1, "paper-challenge":1 };
+    var byId = groupByAssessment(history.filter(function(h){ return trackedKinds[h.kind]; }));
+    var ids = Object.keys(byId);
+    if(ids.length < 2) return '';
+    var rows = ids.map(function(id){
+      var arr = byId[id];
+      var latest = arr[arr.length - 1];
+      return { id: id, meta: meta[id] || { title: id, sub: "" }, arr: arr, latestPct: latest.pct };
+    }).filter(function(r){ return !!meta[r.id]; });
+
+    var weakest = rows.slice().sort(function(a,b){ return a.latestPct - b.latestPct; }).slice(0, 4);
+    var strongest = rows.slice().sort(function(a,b){ return b.latestPct - a.latestPct; }).slice(0, 4);
+
+    function cardHTML(r){
+      var band = trendBandClass(r.latestPct);
+      return '<div class="sw-card">' +
+        '<div class="tl-info"><h4>' + r.meta.title + '</h4><span class="tl-meta">' + r.meta.sub + ' · ' + r.arr.length + ' attempt' + (r.arr.length===1?"":"s") + '</span></div>' +
+        sparkSVG(r.arr.map(function(e){ return e.pct; }), band) +
+        '<span class="trend-pct ' + band + '">' + Math.round(r.latestPct * 100) + '%</span>' +
+        '</div>';
+    }
+    return '<div class="sw-grid">' +
+      '<div class="sw-col"><h3>Needs another pass</h3><p class="sw-hint">Lowest scoring on your latest attempt</p>' +
+        '<div class="sw-list">' + weakest.map(cardHTML).join("") + '</div></div>' +
+      '<div class="sw-col"><h3>Trending strong</h3><p class="sw-hint">Highest scoring on your latest attempt</p>' +
+        '<div class="sw-list">' + strongest.map(cardHTML).join("") + '</div></div>' +
+      '</div>';
+  }
+
+  function renderProgressPage(){
+    var mount = document.getElementById("progressMount");
+    if(!mount) return;
+
+    var quizHist = history.filter(function(h){ return h.kind === "quiz"; });
+    var otherHist = history.filter(function(h){ return h.kind !== "quiz"; });
+
+    if(!history.length){
+      mount.innerHTML = '<p class="mono" style="color:var(--muted); font-size:.85rem;">No graded attempts logged yet — take a Quiz, Unit Test or Challenge and it\'ll start showing up here.</p>';
+      return;
+    }
+
+    var html = '';
+
+    if(shouldShowNudge()){
+      html += nudgeBannerHTML("This history lives on this device only — sign in with Google to carry it across devices, or to stop worrying about clearing your browser.");
+    }
+
+    /* ---- headline stat tiles ---- */
+    var byIdAll = groupByAssessment(history);
+    var snapshot = computeAccuracySnapshot(byIdAll);
+    var streak = computeStreak();
+    var xp = computeXP();
+    var li = levelInfo(xp);
+    var accBand = trendBandClass(snapshot.current);
+    var accDelta = fmtDeltaPP(snapshot.delta);
+
+    html += '<div class="progress-kpis">' +
+      '<div class="stat-tile"><span class="stat-label">Level</span><span class="stat-value">' + li.level + '</span><span class="stat-sub">' + xp + ' XP earned</span></div>' +
+      '<div class="stat-tile"><span class="stat-label">Study streak</span><span class="stat-value">' + streak + '</span><span class="stat-sub">' + (streak === 1 ? 'day in a row' : 'days in a row') + '</span></div>' +
+      '<div class="stat-tile"><span class="stat-label">Attempts logged</span><span class="stat-value">' + history.length + '</span><span class="stat-sub">' + quizHist.length + ' quizzes · ' + otherHist.length + ' tests &amp; challenges</span></div>' +
+      '<div class="stat-tile"><span class="stat-label">Current accuracy</span><span class="stat-value ' + accBand + '">' + Math.round(snapshot.current * 100) + '%</span><span class="stat-sub ' + (accDelta.cls === 'flat' ? '' : accDelta.cls) + '">' + accDelta.text + ' since last round</span></div>' +
+      '</div>';
+
+    /* ---- accuracy trend + activity heatmap ---- */
+    var buckets = dailyBuckets(history);
+    var chart = accuracyTrendChart(buckets);
+    html += '<div class="progress-charts">' +
+      '<div class="chart-card" id="accuracyChartCard"><h3>Accuracy over time</h3><span class="chart-meta">Daily average across every graded attempt, ' + fmtDate(buckets[0].ts) + ' – ' + fmtDate(buckets[buckets.length-1].ts) + '</span>' + chart.svg + '</div>' +
+      '<div class="chart-card" id="heatmapCard"><h3>Study activity</h3><span class="chart-meta">Last 12 weeks · darker means more attempts that day</span>' + heatmapCard(buckets) + '</div>' +
+      '</div>';
+
+    /* ---- strengths & weaknesses ---- */
+    var assessmentMeta = buildAssessmentMeta();
+    html += strengthsWeaknessesHTML(assessmentMeta);
+
+    /* ---- breakdown by assessment kind ---- */
+    html += kindBreakdownHTML();
+
+    /* ---- lesson-by-lesson detail ---- */
+    html += '<p class="eyebrow trend-section-title">Lesson-by-lesson detail</p>';
+
+    TREE.papers.forEach(function(paper){
+      paper.topics.forEach(function(topic){
+        if(topic.status !== "built" || !topic.units) return;
+        html += '<p class="progress-subhead">' + paper.title + ' · ' + topic.num + ' ' + topic.title + '</p>';
+        html += '<div class="trend-lesson-list">';
+        topic.units.forEach(function(unit){
+          unit.lessons.forEach(function(lesson){
+            var entries = quizHist.filter(function(h){ return h.unit === unit.id && h.lesson === lesson.id; });
+            html += trendRow(lesson.title, unit.num + " " + unit.title, entries);
+          });
+          var utEntries = otherHist.filter(function(h){ return h.kind === "unit-test" && h.unit === unit.id; });
+          html += trendRow("Unit Test", unit.num + " " + unit.title, utEntries);
+        });
+        var tcEntries = otherHist.filter(function(h){ return h.kind === "topic-challenge" && h.topic === topic.id; });
+        html += trendRow("Topic Challenge", topic.num + " " + topic.title, tcEntries);
+        html += '</div>';
+      });
+      if(paper.challengeHref){
+        var pcEntries = otherHist.filter(function(h){ return h.kind === "paper-challenge" && h.paper === paper.id; });
+        html += '<p class="progress-subhead">' + paper.title + '</p>';
+        html += '<div class="trend-lesson-list">' + trendRow("Paper Challenge", paper.title, pcEntries) + '</div>';
+      }
+    });
+
+    mount.innerHTML = html;
+    wireNudge(mount);
+    var accCard = document.getElementById("accuracyChartCard");
+    if(accCard) wireAccuracyChart(accCard, chart);
+    var heatCard = document.getElementById("heatmapCard");
+    if(heatCard) wireHeatmap(heatCard);
+  }
+
+  /* =========================================================
+     DECK-CYCLING — an attempt draws perAttempt questions from
+     a persisted shuffled order of the whole pool instead of
+     always using every question. Once the deck runs out it
+     reshuffles, so a student sees every question once before
+     anything repeats.
+     ========================================================= */
+  function shuffleArr(arr){
+    var a = arr.slice();
+    for(var i = a.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+  function nextBatch(assessmentId, pool, perAttempt){
+    perAttempt = Math.min(perAttempt, pool.length);
+    var byId = {};
+    pool.forEach(function(q){ byId[q.id] = q; });
+    var poolIds = pool.map(function(q){ return q.id; });
+
+    var state = deck[assessmentId];
+    var sameIdSet = state && state.order && state.order.length === poolIds.length &&
+      state.order.slice().sort().join("|") === poolIds.slice().sort().join("|");
+    if(!sameIdSet){
+      state = { order: shuffleArr(poolIds), cursor: 0, lastBatch: [] };
+    }
+
+    var order = state.order.slice();
+    var cursor = state.cursor;
+    /* Also keep the previous attempt's batch out of a fresh reshuffle —
+       otherwise a question drawn just before the deck wraps around can
+       come right back in the very next attempt. */
+    var avoidFromLastBatch = {};
+    (state.lastBatch || []).forEach(function(id){ avoidFromLastBatch[id] = true; });
+    var batchIds = [];
+    while(batchIds.length < perAttempt){
+      if(cursor >= order.length){
+        var fresh = shuffleArr(poolIds);
+        var picked = {};
+        batchIds.forEach(function(id){ picked[id] = true; });
+        Object.keys(avoidFromLastBatch).forEach(function(id){ picked[id] = true; });
+        var clean = fresh.filter(function(id){ return !picked[id]; });
+        var clashing = fresh.filter(function(id){ return picked[id]; });
+        order = clean.concat(clashing);
+        cursor = 0;
+      }
+      batchIds.push(order[cursor]);
+      cursor++;
+    }
+
+    return {
+      questions: batchIds.map(function(id){ return byId[id]; }),
+      state: { order: order, cursor: cursor, lastBatch: batchIds }
+    };
+  }
+
+  /* =========================================================
+     QUIZ COPY — render stems, choices and explanations the
+     same way lesson prose is written: HTML entities, inline
+     markdown (**bold**, *italic*, `code`), and quoted phrases
+     in italics.
+     ========================================================= */
+  function decodeHtmlEntities(str){
+    var ta = document.createElement("textarea");
+    ta.innerHTML = str;
+    return ta.value;
+  }
+  function escapeHtml(str){
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function formatQuizText(raw){
+    if(raw == null || raw === "") return "";
+    var html = escapeHtml(decodeHtmlEntities(String(raw)));
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/(^|[\s>(])\*([^*\n]+)\*(?=[\s<.,;:!?)]|$)/g, "$1<em>$2</em>");
+    html = html.replace(/(^|[\s>(])_([^_\n]+)_(?=[\s<.,;:!?)]|$)/g, "$1<em>$2</em>");
+    html = html.replace(/“([^”<>]+)”/g, "<em class=\"quiz-quote\">“$1”</em>");
+    html = html.replace(/&quot;([^&]+)&quot;/g, "<em class=\"quiz-quote\">&quot;$1&quot;</em>");
+    html = html.replace(/\n/g, "<br>");
+    return html;
+  }
+
+  /* =========================================================
+     QUIZ ENGINE — one generalized renderer for every kind
+     (practice / quiz / unit-test / topic-challenge / paper-challenge)
+     ========================================================= */
+  function renderAssessment(mount, assessmentId){
+    var parsed = parseAssessmentId(assessmentId);
+    var kind = parsed.kind;
+    var pool = buildPool(parsed.filter);
+    if(!pool.length){
+      mount.innerHTML = '<p class="mono" style="color:var(--muted); font-size:.85rem;">No questions in this pool yet.</p>';
+      return;
+    }
+    var perAttempt = Math.min(PER_ATTEMPT_OVERRIDE[assessmentId] || PER_ATTEMPT[kind] || pool.length, pool.length);
+    var tracksMastery = !!TRACKS_MASTERY[kind];
+    var kindLabel = KIND_LABEL[kind] || "Quiz";
+
+    var wrap = document.createElement("div");
+    wrap.className = "quiz-widget";
+    mount.appendChild(wrap);
+
+    var order, idx, answeredFlags, correctCount, batch, pendingDeckState;
+
+    /* Resume an unfinished attempt from a prior page load (e.g. the
+       full-page redirect a Google sign-in triggers) if one is saved and
+       still lines up with this pool; otherwise draw a fresh batch. */
+    function resumeSavedAttempt(){
+      var saved = inProgress[assessmentId];
+      if(!saved || !saved.batchIds || saved.batchIds.length !== perAttempt) return false;
+      if(!saved.answeredFlags || saved.answeredFlags.length !== saved.batchIds.length) return false;
+      if(!saved.order || saved.order.length !== saved.batchIds.length) return false;
+      var byIdPool = {};
+      pool.forEach(function(q){ byIdPool[q.id] = q; });
+      var stillValid = saved.batchIds.every(function(id){ return !!byIdPool[id]; });
+      if(!stillValid) return false;
+
+      batch = saved.batchIds.map(function(id){ return byIdPool[id]; });
+      order = saved.order.slice();
+      answeredFlags = saved.answeredFlags.slice();
+      correctCount = saved.correctCount || 0;
+      idx = Math.min(saved.idx || 0, order.length - 1);
+      pendingDeckState = saved.deckState || { order: shuffleArr(batch.map(function(q){ return q.id; })), cursor: 0, lastBatch: [] };
+      return true;
+    }
+
+    function persistAttempt(){
+      var hasProgress = idx > 0 || answeredFlags.some(function(f){ return f !== null; });
+      if(!hasProgress){
+        clearAttemptProgress(assessmentId);
+        return;
+      }
+      saveAttemptProgress(assessmentId, {
+        batchIds: batch.map(function(q){ return q.id; }),
+        order: order,
+        idx: idx,
+        answeredFlags: answeredFlags,
+        correctCount: correctCount,
+        deckState: pendingDeckState
+      });
+    }
+
+    function start(){
+      if(!resumeSavedAttempt()){
+        var draw = nextBatch(assessmentId, pool, perAttempt);
+        batch = draw.questions;
+        pendingDeckState = draw.state;
+        order = shuffleArr(batch.map(function(_, i){ return i; }));
+        idx = 0;
+        answeredFlags = new Array(order.length).fill(null);
+        correctCount = 0;
+      }
+      wrap.setAttribute("data-attempt-active", "true");
+      drawHead();
+      drawQuestion();
+    }
+
+    function drawHead(){
+      var dotsHtml = order.map(function(_, i){
+        var cls = "quiz-dot";
+        if(i === idx) cls += " current";
+        if(answeredFlags[i] === true) cls += " answered-right";
+        if(answeredFlags[i] === false) cls += " answered-wrong";
+        return '<span class="' + cls + '" aria-hidden="true"></span>';
+      }).join("");
+      var hasAnsweredCurrent = answeredFlags.some(function(f){ return f !== null; });
+      var nudgeHtml = (tracksMastery && shouldShowInProgressNudge(hasAnsweredCurrent))
+        ? nudgeBannerHTML("Your answers so far are only saved on this device — sign in with Google before you lose this attempt.")
+        : "";
+      wrap.innerHTML =
+        '<div class="quiz-head">' +
+          '<span class="quiz-kind' + (tracksMastery && kind !== "quiz" ? " kind-test" : "") + '">' + kindLabel + '</span>' +
+          '<div class="quiz-dots">' + dotsHtml + '</div>' +
+          '<span class="quiz-counter" aria-live="polite">Q ' + (idx + 1) + ' of ' + order.length + '</span>' +
+        '</div>' +
+        nudgeHtml +
+        '<div class="quiz-body"></div>';
+      if(nudgeHtml) wireNudge(wrap);
+      persistAttempt();
+    }
+
+    function drawQuestion(){
+      var qData = batch[order[idx]];
+      var body = wrap.querySelector(".quiz-body");
+      var letters = ["A","B","C","D","E"];
+      body.innerHTML =
+        '<p class="quiz-q"></p>' +
+        '<ul class="quiz-choices"></ul>' +
+        '<div class="quiz-feedback" role="status" aria-live="polite"></div>' +
+        '<div class="quiz-actions"><button type="button" class="quiz-btn quiz-next" disabled>Next</button></div>';
+      body.querySelector(".quiz-q").innerHTML = formatQuizText(qData.q);
+      var listEl = body.querySelector(".quiz-choices");
+      var fbEl = body.querySelector(".quiz-feedback");
+      var nextBtn = body.querySelector(".quiz-next");
+
+      qData.choices.forEach(function(choiceText, i){
+        var li = document.createElement("li");
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "quiz-choice";
+        btn.innerHTML = '<span class="letter">' + letters[i] + '</span><span class="quiz-choice-text">' + formatQuizText(choiceText) + '</span>';
+        btn.addEventListener("click", function(){
+          if(answeredFlags[idx] !== null) return;
+          var allBtns = Array.prototype.slice.call(listEl.querySelectorAll(".quiz-choice"));
+          allBtns.forEach(function(b, bi){
+            b.disabled = true;
+            if(bi === qData.correct) b.classList.add("right");
+            else if(bi === i) b.classList.add("wrong");
+            else b.classList.add("dim");
+          });
+          var isRight = i === qData.correct;
+          answeredFlags[idx] = isRight;
+          if(isRight){
+            correctCount++;
+            if(!answered[qData.id]){
+              answered[qData.id] = true;
+              saveJSON(ANSWERED_KEY, answered);
+              paintXP();
+              toastXP(PER_QUESTION_XP);
+            }
+          }
+          fbEl.className = "quiz-feedback show " + (isRight ? "is-right" : "is-wrong");
+          fbEl.innerHTML = "<strong>" + (isRight ? "Correct. " : "Not quite. ") + "</strong>" + formatQuizText(qData.explain);
+          nextBtn.disabled = false;
+          nextBtn.textContent = (idx === order.length - 1) ? "See results" : "Next";
+          refreshDots();
+          persistAttempt();
+        });
+        li.appendChild(btn);
+        listEl.appendChild(li);
+      });
+
+      nextBtn.addEventListener("click", function(){
+        if(idx < order.length - 1){ idx++; drawHead(); drawQuestion(); }
+        else{ finish(); }
+      });
+    }
+
+    function refreshDots(){
+      var dots = Array.prototype.slice.call(wrap.querySelectorAll(".quiz-dot"));
+      dots.forEach(function(d, i){
+        d.classList.toggle("current", i === idx);
+        d.classList.toggle("answered-right", answeredFlags[i] === true);
+        d.classList.toggle("answered-wrong", answeredFlags[i] === false);
+      });
+    }
+
+    function finish(){
+      wrap.removeAttribute("data-attempt-active");
+      clearAttemptProgress(assessmentId);
+      deck[assessmentId] = pendingDeckState;
+      saveJSON(DECK_KEY, deck);
+      var pct = correctCount / order.length;
+
+      if(tracksMastery){
+        var prev = mastery[assessmentId];
+        if(!prev || pct > prev.best){
+          mastery[assessmentId] = { best: pct, attempts: (prev ? (prev.attempts || 0) + 1 : 1) };
+        } else {
+          mastery[assessmentId].attempts = (prev.attempts || 0) + 1;
+        }
+        saveJSON(MASTERY_KEY, mastery);
+        pushHistory({
+          ts: Date.now(), id: assessmentId, kind: kind,
+          paper: parsed.filter.paper || null, topic: parsed.filter.topic || null,
+          unit: parsed.filter.unit || null, lesson: parsed.filter.lesson || null,
+          pct: pct, correct: correctCount, total: order.length
+        });
+        paintAllBadges();
+        paintXP();
+        renderSidebar();
+        renderProgressPage();
+      }
+
+      var band = bandFor(pct);
+      var bandClass = pct >= 0.8 ? "band-mastered" : (pct >= 0.5 ? "band-practicing" : "band-retry");
+
+      if(!tracksMastery){
+        wrap.innerHTML =
+          '<div class="quiz-score">' +
+            '<div class="big">' + correctCount + ' / ' + order.length + '</div>' +
+            '<p class="note">Nice work. Head to the Quiz for this lesson when you\'re ready for a graded check.</p>' +
+            '<div class="quiz-actions"><button type="button" class="quiz-btn quiz-retake">Practice again</button></div>' +
+          '</div>';
+        wrap.querySelector(".quiz-retake").addEventListener("click", start);
+        return;
+      }
+
+      var completionTable = COMPLETION_XP[kind];
+      var xpNow = pct >= 0.8 ? completionTable.mastered : pct >= 0.5 ? completionTable.practicing : completionTable.retry;
+      var prevBest = (function(){
+        var m = mastery[assessmentId];
+        return m ? m.best : null;
+      })();
+      var xpGained = xpNow; // completion bonus is re-evaluated each attempt; only show it as "earned this attempt" when it's a new best
+      var isNewBest = prevBest === null || pct >= prevBest;
+
+      var note = pct >= 0.8
+        ? "Strong work — this is exam-ready. Come back on your spaced-review days to keep it that way."
+        : pct >= 0.5
+        ? "Getting there. Re-read the parts your misses came from, then retake this before moving on."
+        : "Worth another pass through the material before retaking — this is exactly what the struggle is supposed to feel like.";
+
+      wrap.innerHTML =
+        '<div class="quiz-score">' +
+          '<div class="big">' + correctCount + ' / ' + order.length + '</div>' +
+          '<span class="band ' + bandClass + '">' + band.label + '</span>' +
+          '<p class="note">' + note + '</p>' +
+          (isNewBest ? '<p class="xp-earned">+' + xpGained + ' XP for this result</p>' : '') +
+          '<div class="quiz-actions"><button type="button" class="quiz-btn quiz-retake">Retake</button></div>' +
+        '</div>' +
+        (shouldShowNudge() ? nudgeBannerHTML("This " + kindLabel.toLowerCase() + " result is only saved on this device — sign in to keep it if you switch devices or clear your browser.") : '');
+      wrap.querySelector(".quiz-retake").addEventListener("click", start);
+      wireNudge(wrap);
+    }
+
+    start();
+  }
+
+  function mountQuizzes(){
+    var mounts = Array.prototype.slice.call(document.querySelectorAll(".quiz-mount[data-quiz]"));
+    mounts.forEach(function(mount){
+      renderAssessment(mount, mount.getAttribute("data-quiz"));
+    });
+    paintAllBadges();
+  }
+  function remountAllQuizzes(){
+    var mounts = Array.prototype.slice.call(document.querySelectorAll(".quiz-mount[data-quiz]"));
+    mounts.forEach(function(mount){ mount.innerHTML = ""; });
+    mountQuizzes();
+  }
+
+  /* =========================================================
+     REVIEW PLANNER (topic overview page)
+     ========================================================= */
+  function wirePlanner(){
+    var planBoxes = Array.prototype.slice.call(document.querySelectorAll("[data-plan]"));
+    if(!planBoxes.length) return;
+    planBoxes.forEach(function(box){
+      var key = box.getAttribute("data-plan");
+      box.checked = !!plan[key];
+      box.onchange = function(){
+        plan[key] = box.checked;
+        saveJSON(PLAN_KEY, plan);
+      };
+    });
+    var resetBtn = document.getElementById("resetPlanner");
+    if(resetBtn){
+      resetBtn.onclick = function(){
+        plan = {};
+        saveJSON(PLAN_KEY, plan);
+        planBoxes.forEach(function(box){ box.checked = false; });
+      };
+    }
+  }
+
+  /* =========================================================
+     SIDEBAR — Paper > Topic > Unit > Lesson, expanding only
+     the branch the current page is inside.
+     ========================================================= */
+  function leafDot(assessmentId){
+    var rec = mastery[assessmentId];
+    if(!rec) return "";
+    if(rec.best >= 0.8) return " mastered";
+    if(rec.best >= 0.5) return " practicing";
+    return "";
+  }
+  function leafRow(href, label, assessmentIdForDot, isCurrent){
+    var dotCls = assessmentIdForDot ? leafDot(assessmentIdForDot) : "";
+    return '<a class="side-lesson-row' + (isCurrent ? " current" : "") + '" href="' + ROOT + href + '">' +
+      '<span class="side-lesson-dot' + dotCls + '"></span><span>' + label + '</span></a>';
+  }
+
+  function renderSidebar(){
+    var mount = document.getElementById("sidebarMount");
+    if(!mount) return;
+    var xp = computeXP();
+    var li = levelInfo(xp);
+
+    var html = '';
+    html += '<div class="sidebar-head">';
+    html += '<a class="sidebar-brand" href="' + ROOT + TREE.home + '">' + TREE.title + '<span class="dot">·</span></a>';
+    html += '<div class="xp-box">';
+    html += '<div class="xp-level" id="xpLevel">' + li.level + '</div>';
+    html += '<div class="xp-meta"><div class="xp-label" id="xpLabel">' + xp + ' XP · Level ' + li.level + '</div>';
+    html += '<div class="xp-bar-track"><div class="xp-bar-fill" id="xpBarFill" style="width:' + Math.round((li.into/li.span)*100) + '%;"></div></div></div>';
+    html += '</div>';
+    html += '<a class="sidebar-progress-link' + (PAGE.page === "progress" ? " current" : "") + '" href="' + ROOT + 'progress.html">My Progress</a>';
+    html += '</div>';
+
+    html += '<nav class="sidebar-nav" aria-label="Course navigation">';
+    TREE.papers.forEach(function(paper){
+      var isCurrentPaper = PAGE.paper === paper.id;
+      html += '<div class="side-paper">';
+      html += '<a class="side-paper-title" href="' + ROOT + paper.href + '">' + paper.title + '</a>';
+      paper.topics.forEach(function(topic){
+        var isBuilt = topic.status === "built";
+        var isCurrentTopic = isCurrentPaper && PAGE.topic === topic.id;
+        if(!isBuilt){
+          html += '<span class="side-topic-row"><span class="side-topic-num">' + topic.num + '</span><span>' + topic.title + '</span><span class="side-topic-soon">Soon</span></span>';
+          return;
+        }
+        html += '<a class="side-topic-row built' + (isCurrentTopic && !PAGE.unit && PAGE.page !== "topic-challenge" ? " active" : "") + '" href="' + ROOT + topic.href + '">';
+        html += '<span class="side-topic-num">' + topic.num + '</span><span>' + topic.title + '</span></a>';
+        if(isCurrentTopic){
+          html += '<div class="side-unit-list">';
+          topic.units.forEach(function(unit){
+            var isCurrentUnit = PAGE.unit === unit.id;
+            html += '<a class="side-unit-row' + (isCurrentUnit && !PAGE.lesson && PAGE.page !== "unit-test" ? " current" : "") + '" href="' + ROOT + unit.href + '">' + unit.num + ' ' + unit.title + '</a>';
+            if(isCurrentUnit){
+              html += '<div class="side-lesson-list side-lesson-list-nested">';
+              unit.lessons.forEach(function(lesson){
+                var quizId = "quiz--" + unit.id + "--" + lesson.id;
+                var isCurrentLesson = PAGE.lesson === lesson.id;
+                html += leafRow(lesson.base + "lesson.html", lesson.title, quizId, isCurrentLesson);
+              });
+              html += leafRow(unit.testHref, "Unit Test", "unit-test--" + unit.id, PAGE.page === "unit-test");
+              html += '</div>';
+            }
+          });
+          html += leafRow(topic.challengeHref, "Topic Challenge", "topic-challenge--" + topic.id, PAGE.page === "topic-challenge");
+          html += '</div>';
+        }
+      });
+      if(paper.challengeHref){
+        html += leafRow(paper.challengeHref, "Paper Challenge", "paper-challenge--" + paper.id, PAGE.page === "paper-challenge");
+      }
+      html += '</div>';
+    });
+    html += '</nav>';
+
+    html += '<div class="sidebar-foot">';
+    html += '<div class="sidebar-auth" id="sidebarAuth">';
+    html += '<button id="signInBtn" class="auth-btn auth-signin" type="button">Sign in with Google</button>';
+    html += '<div class="account-menu" id="accountMenu" hidden>';
+    html += '<button type="button" class="account-trigger" id="accountTrigger" aria-expanded="false" aria-haspopup="menu" aria-controls="accountDropdown">';
+    html += '<img class="account-avatar" id="accountAvatar" alt="" width="28" height="28" hidden>';
+    html += '<span class="account-avatar-fallback" id="accountAvatarFallback" hidden aria-hidden="true">?</span>';
+    html += '<span class="account-text"><span class="account-name" id="accountName"></span><span class="account-email" id="accountEmail"></span></span>';
+    html += '<span class="account-chevron" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg></span>';
+    html += '</button>';
+    html += '<div class="account-dropdown" id="accountDropdown" role="menu" hidden>';
+    html += '<button type="button" class="account-dropdown-item" id="signOutBtn" role="menuitem">Sign out</button>';
+    html += '<button type="button" class="account-dropdown-item account-dropdown-danger" id="deleteDataBtn" role="menuitem">Delete synced data</button>';
+    html += '</div></div></div>';
+    html += '<button type="button" class="theme-icon-btn" id="themeToggleBtn" aria-label="Toggle theme"></button>';
+    html += '</div>';
+
+    mount.innerHTML = html;
+    wireAuthButtons();
+    wireThemeToggle();
+    paintAuthUI();
+  }
+
+  /* =========================================================
+     BREADCRUMB
+     ========================================================= */
+  function findPaper(id){ return TREE.papers.filter(function(p){ return p.id === id; })[0]; }
+  function findTopic(paper, id){ return paper ? paper.topics.filter(function(t){ return t.id === id; })[0] : null; }
+  function findUnit(topic, id){ return topic && topic.units ? topic.units.filter(function(u){ return u.id === id; })[0] : null; }
+  function findLesson(unit, id){ return unit && unit.lessons ? unit.lessons.filter(function(l){ return l.id === id; })[0] : null; }
+
+  function renderBreadcrumb(){
+    var mount = document.getElementById("breadcrumbMount");
+    if(!mount) return;
+    var parts = [{ label: TREE.title, href: ROOT + TREE.home }];
+    var paper = PAGE.paper ? findPaper(PAGE.paper) : null;
+    var topic = paper && PAGE.topic ? findTopic(paper, PAGE.topic) : null;
+    var unit = topic && PAGE.unit ? findUnit(topic, PAGE.unit) : null;
+    var lesson = unit && PAGE.lesson ? findLesson(unit, PAGE.lesson) : null;
+
+    if(paper){ parts.push({ label: paper.title, href: ROOT + paper.href }); }
+    if(PAGE.page === "paper-challenge" && paper){ parts.push({ label: "Paper Challenge", href: null }); }
+    if(topic){ parts.push({ label: topic.num + " " + topic.title, href: topic.href ? ROOT + topic.href : null }); }
+    if(PAGE.page === "topic-challenge" && topic){ parts.push({ label: "Topic Challenge", href: null }); }
+    if(unit){ parts.push({ label: unit.num + " " + unit.title, href: unit.href ? ROOT + unit.href : null }); }
+    if(PAGE.page === "unit-test" && unit){ parts.push({ label: "Unit Test", href: null }); }
+    if(lesson){
+      parts.push({ label: lesson.title, href: (PAGE.page === "practice" || PAGE.page === "quiz") ? ROOT + lesson.base + "lesson.html" : null });
+      if(PAGE.page === "practice"){ parts.push({ label: "Practice Quiz", href: null }); }
+      if(PAGE.page === "quiz"){ parts.push({ label: "Quiz", href: null }); }
+    }
+
+    var html = parts.map(function(p, i){
+      var isLast = i === parts.length - 1;
+      var seg = p.href && !isLast ? '<a href="' + p.href + '">' + p.label + '</a>' : '<span class="current">' + p.label + '</span>';
+      return i === 0 ? seg : '<span class="sep">/</span>' + seg;
+    }).join("");
+    mount.innerHTML = html;
+  }
+
+  /* =========================================================
+     MOBILE SIDEBAR TOGGLE
+     ========================================================= */
+  function wireMobileToggle(){
+    var toggleBtn = document.getElementById("sidebarToggleBtn");
+    var sidebar = document.getElementById("sidebarMount") ? document.getElementById("sidebarMount").closest(".sidebar") : null;
+    var scrim = document.getElementById("sidebarScrim");
+    if(!toggleBtn || !sidebar) return;
+    if(!sidebar.id){ sidebar.id = "courseSidebar"; }
+    toggleBtn.setAttribute("aria-controls", sidebar.id);
+    toggleBtn.setAttribute("aria-expanded", "false");
+    function close(){
+      sidebar.classList.remove("open");
+      sidebar.setAttribute("aria-hidden", "true");
+      sidebar.setAttribute("inert", "");
+      toggleBtn.setAttribute("aria-expanded", "false");
+      if(scrim){ scrim.classList.remove("show"); }
+    }
+    function open(){
+      sidebar.classList.add("open");
+      sidebar.removeAttribute("aria-hidden");
+      sidebar.removeAttribute("inert");
+      toggleBtn.setAttribute("aria-expanded", "true");
+      if(scrim){ scrim.classList.add("show"); }
+    }
+    toggleBtn.addEventListener("click", function(){
+      sidebar.classList.contains("open") ? close() : open();
+    });
+    if(scrim){ scrim.addEventListener("click", close); }
+    document.addEventListener("keydown", function(e){
+      if(e.key === "Escape" && sidebar.classList.contains("open")){ close(); }
+    });
+    if(window.matchMedia("(max-width:900px)").matches){ close(); }
+  }
+
+  function applyTheme(theme){
+    if(theme === "light" || theme === "dark"){
+      document.documentElement.setAttribute("data-theme", theme);
+      try{ localStorage.setItem(THEME_KEY, JSON.stringify(theme)); }catch(e){}
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      try{ localStorage.removeItem(THEME_KEY); }catch(e){}
+    }
+    paintThemeButton();
+  }
+  function effectiveTheme(){
+    var forced = document.documentElement.getAttribute("data-theme");
+    if(forced === "dark" || forced === "light"){ return forced; }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+  var THEME_ICON_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
+  var THEME_ICON_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6.2 6.2 0 0 0 8.7 8.7A8.5 8.5 0 1 1 12 3z" fill="currentColor" fill-opacity=".18"/></svg>';
+  function paintThemeButton(){
+    var btn = document.getElementById("themeToggleBtn");
+    if(!btn){ return; }
+    var theme = effectiveTheme();
+    btn.setAttribute("data-theme-icon", theme);
+    btn.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    btn.innerHTML = theme === "dark" ? THEME_ICON_MOON : THEME_ICON_SUN;
+  }
+  function wireThemeToggle(){
+    var btn = document.getElementById("themeToggleBtn");
+    if(!btn){ return; }
+    paintThemeButton();
+    if(btn.dataset.bound){ return; }
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", function(){
+      applyTheme(effectiveTheme() === "dark" ? "light" : "dark");
+    });
+  }
+  function initTheme(){
+    var saved = loadJSON(THEME_KEY, null);
+    if(saved === "dark" || saved === "light"){
+      applyTheme(saved);
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      paintThemeButton();
+    }
+  }
+  function annotateArabicRuns(){
+    Array.prototype.slice.call(document.querySelectorAll(".arabic")).forEach(function(el){
+      if(!el.getAttribute("lang")){ el.setAttribute("lang", "ar"); }
+      if(!el.getAttribute("dir")){ el.setAttribute("dir", "rtl"); }
+    });
+  }
+
+  /* =========================================================
+     INIT
+     ========================================================= */
+  function init(){
+    initTheme();
+    renderSidebar();
+    renderBreadcrumb();
+    wireMobileToggle();
+    wireThemeToggle();
+    annotateArabicRuns();
+    mountQuizzes();
+    wirePlanner();
+    paintXP();
+    renderProgressPage();
+    initAuth();
+    maybeShowNudgePopup();
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
