@@ -1024,6 +1024,37 @@
   }
 
   /* =========================================================
+     QUIZ COPY — render stems, choices and explanations the
+     same way lesson prose is written: HTML entities, inline
+     markdown (**bold**, *italic*, `code`), and quoted phrases
+     in italics.
+     ========================================================= */
+  function decodeHtmlEntities(str){
+    var ta = document.createElement("textarea");
+    ta.innerHTML = str;
+    return ta.value;
+  }
+  function escapeHtml(str){
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+  function formatQuizText(raw){
+    if(raw == null || raw === "") return "";
+    var html = escapeHtml(decodeHtmlEntities(String(raw)));
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/(^|[\s>(])\*([^*\n]+)\*(?=[\s<.,;:!?)]|$)/g, "$1<em>$2</em>");
+    html = html.replace(/(^|[\s>(])_([^_\n]+)_(?=[\s<.,;:!?)]|$)/g, "$1<em>$2</em>");
+    html = html.replace(/“([^”<>]+)”/g, "<em class=\"quiz-quote\">“$1”</em>");
+    html = html.replace(/&quot;([^&]+)&quot;/g, "<em class=\"quiz-quote\">&quot;$1&quot;</em>");
+    html = html.replace(/\n/g, "<br>");
+    return html;
+  }
+
+  /* =========================================================
      QUIZ ENGINE — one generalized renderer for every kind
      (practice / quiz / unit-test / topic-challenge / paper-challenge)
      ========================================================= */
@@ -1131,7 +1162,7 @@
         '<ul class="quiz-choices"></ul>' +
         '<div class="quiz-feedback" role="status" aria-live="polite"></div>' +
         '<div class="quiz-actions"><button type="button" class="quiz-btn quiz-next" disabled>Next</button></div>';
-      body.querySelector(".quiz-q").textContent = qData.q;
+      body.querySelector(".quiz-q").innerHTML = formatQuizText(qData.q);
       var listEl = body.querySelector(".quiz-choices");
       var fbEl = body.querySelector(".quiz-feedback");
       var nextBtn = body.querySelector(".quiz-next");
@@ -1141,7 +1172,7 @@
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "quiz-choice";
-        btn.innerHTML = '<span class="letter">' + letters[i] + '</span><span>' + choiceText + '</span>';
+        btn.innerHTML = '<span class="letter">' + letters[i] + '</span><span class="quiz-choice-text">' + formatQuizText(choiceText) + '</span>';
         btn.addEventListener("click", function(){
           if(answeredFlags[idx] !== null) return;
           var allBtns = Array.prototype.slice.call(listEl.querySelectorAll(".quiz-choice"));
@@ -1163,7 +1194,7 @@
             }
           }
           fbEl.className = "quiz-feedback show " + (isRight ? "is-right" : "is-wrong");
-          fbEl.innerHTML = "<strong>" + (isRight ? "Correct. " : "Not quite. ") + "</strong>" + qData.explain;
+          fbEl.innerHTML = "<strong>" + (isRight ? "Correct. " : "Not quite. ") + "</strong>" + formatQuizText(qData.explain);
           nextBtn.disabled = false;
           nextBtn.textContent = (idx === order.length - 1) ? "See results" : "Next";
           refreshDots();
